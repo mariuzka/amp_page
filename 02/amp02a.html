@@ -1,0 +1,1415 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listen &#8212; ABM mit Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ABM mit Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Willkommen
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01_intro.html">
+   1.1 Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einf%C3%BChrung.html">
+     Was ist ABM?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_python_und_anaconda.html">
+     Verwendete Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einstieg_python.html">
+     Einstieg in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01b.html">
+   1.2 Warm-up
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="amp02_intro.html">
+   2.1 Woraus alles besteht
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_listen_agenten_populationen.html">
+     Listen, Agenten &amp; Populationen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_listenzugriff.html">
+     Der Zugriff auf Listen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_exkurs_funktionen_methoden.html">
+     Exkurs: Funktionen &amp; Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_listenmethoden.html">
+     Grundlegende Listen-Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_listenfunktionen.html">
+     Nützliche Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="amp02b.html">
+   2.2 Hinterlistige Übungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03_intro.html">
+   3.1 Motoren der Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_was_ist_for-loop.html">
+     Was ist ein For-Loop?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_for-loops_in_python.html">
+     For-Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_range.html">
+     Exkurs: Zahlenreihen erstellen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_%C3%BCber_zahlenreihe_loopen.html">
+     Loop durch Zahlenreihe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_variablen_ver%C3%A4ndern.html">
+     Variablen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_unver%C3%A4nderbare_objekte.html">
+     Exkurs: (un-)veränderbare Objekte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_listen_ver%C3%A4ndern.html">
+     Listen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_modulo.html">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_geschachtelte_for-loops.html">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_nutzen_for-loops.html">
+     ABM &amp; For-Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03b.html">
+   3.2 Gefangen im Loop
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04_intro.html">
+   4.1 Eine Brise Gefühl
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if-statements.html">
+     If-Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_boolsche_ausdr%C3%BCcke.html">
+     Boolesche Ausdrücke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if_else_elif.html">
+     If, else, elif
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_modul_import.html">
+     Exkurs 1: Module importieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_dicts.html">
+     Exkurs 2: das Dictionary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04/amp04b.html">
+   4.2 Das NaSch-Modell
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/02/amp02a.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F02/amp02a.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/02/amp02a.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Listen
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#der-nutzen-von-listen-und-anderen-datencontainern-fur-abm">
+     Der Nutzen von Listen (und anderen Datencontainern) für ABM
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exkurs-noch-ein-paar-worte-zur-reprasentation-von-agenten">
+     Exkurs: Noch ein paar Worte zur Repräsentation von Agenten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#der-zugriff-auf-listen">
+   Der Zugriff auf Listen
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#auf-elemente-in-listen-zugreifen-indizierung">
+     Auf Elemente in Listen zugreifen: Indizierung
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elemente-in-listen-andern">
+     Elemente in Listen ändern
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sich-eine-scheibe-abschneiden-slicing">
+     Sich eine Scheibe abschneiden: Slicing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#der-zugriff-auf-geschachtelte-listen">
+     Der Zugriff auf geschachtelte Listen
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exkurs-funktionen-methoden">
+     Exkurs: Funktionen &amp; Methoden
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grundlegende-methoden-von-listen">
+     Grundlegende Methoden von Listen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ein-element-anhangen-append">
+       Ein Element anhängen: append()
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#eine-liste-anhangen-extend">
+       Eine Liste anhängen: extend()
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ein-element-an-beliebiger-stelle-einfugen-insert">
+       Ein Element an beliebiger Stelle einfügen: insert()
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#das-letzte-element-ausgeben-und-abhangen-pop">
+       Das letzte Element ausgeben und abhängen: pop()
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#noch-ein-paar-nutzliche-funktionen-zum-umgang-mit-listen">
+     Noch ein paar nützliche Funktionen zum Umgang mit Listen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#summe-minimum-maximum-sum-min-max">
+       Summe, Minimum &amp; Maximum: sum(), min(), max()
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#elemente-loschen-del">
+       Elemente löschen: del()
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="listen">
+<h1>Listen<a class="headerlink" href="#listen" title="Permalink to this headline">¶</a></h1>
+<p>Nachdem wir nun über die grundlegensten Datentypen und Funktionen in Python Bescheid wissen, steigen wir heute tiefer in die Funktionsweise eines ganz bestimmten und überaus wichtigen Datentyps ein: <strong>Listen</strong>.
+Listen sind in Python - sowie in fast jeder anderen Programmiersprache - ein unverzichtbarer Bestandteil.
+Listen kann man als eine Art von <strong>Datencontainer</strong> ansehen, in welchen wir alle möglichen Objekte ablegen können.
+Listen helfen uns damit dabei, die Objekte unseres Programmes sinnvoll zu strukturieren, damit wir z.B. den Überblick behalten oder auch alle Objekte innerhalb einer Liste auf einmal greifen und mit diesen irgendwas machen können.</p>
+<p><strong>Zur Erinnerung</strong>: Listen werden in Python durch zwei eckige Klammern erzeugt. Der Inhalt der Listen - irgendwelche Objekte - steht zwischen diesen beiden eckigen Klammern und wird jeweils mit einem Komma getrennt. Dies ist beispielsweise eine leere Liste komplett ohne Inhalt: <code class="docutils literal notranslate"><span class="pre">[]</span></code>. Dies ist eine Liste mit 3 Objekten: <code class="docutils literal notranslate"><span class="pre">[&quot;Haus&quot;,</span> <span class="pre">123,</span> <span class="pre">False]</span></code>. Listen kann man natürlich auch als Variable speichern:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meine_tolle_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Haus&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>… und dann unter dem Variablennamen wieder abrufen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meine_tolle_liste</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Haus&#39;, 123, False]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Liste <code class="docutils literal notranslate"><span class="pre">meine_tolle_liste</span></code> ermöglicht es also, die 3 Objekte <code class="docutils literal notranslate"><span class="pre">&quot;Haus&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">123</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> kompakt zu einem Paket zusammenzuschnüren und unter einem Namen zu speichern. Diese Eigenschaft ist allgemein für die Organisation unserer Programme sehr, sehr praktisch.</p>
+<p>Wir werden im Verlauf dieses Kapitels u.a. noch lernen, wie wir auf die einzelnen Elemente zugreifen und wie wir weitere Objekte hinzufügen. Nun reiße ich aber erstmal kurz an, wofür wir Listen im Rahmen der Programmierung von ABM meist brauchen.</p>
+<div class="section" id="der-nutzen-von-listen-und-anderen-datencontainern-fur-abm">
+<h2>Der Nutzen von Listen (und anderen Datencontainern) für ABM<a class="headerlink" href="#der-nutzen-von-listen-und-anderen-datencontainern-fur-abm" title="Permalink to this headline">¶</a></h2>
+<p>Ganz allgemein kann man sagen, dass wir Listen im Kontext von ABM brauchen, weil ABMs Computerprogramme sind und man in Computerprogrammen eben Listen braucht. Punkt. Das stimmt zwar. Und wir werden Listen auch an allen Enden und Ecken brauchen, doch gibt es zwei <em>klassische</em> Anwendungsfälle für Listen im Bereich von ABM. Einerseits können wir unsere Gruppen bzw. Populationen von Agenten innerhalb von Listen organisieren. Andererseits können wir auch die Agenten selbst als Listen in unserem Programm repräsentieren, wobei jedes Element in der Liste dann eine Eigenschaft eines Agenten repräsentieren würde.</p>
+<p>Doch beginnen wir von vorne. Bei agentenbasierter Modellierung geht es darum, das Handeln und Interagieren vieler Akteure mithilfe eines Computerprogrammes zu simulieren. Das heißt, wir müssen die handelnden Akteure - die Agenten - irgendwie in unserem Programm mittels Objekte repräsentieren. Wie machen wir das?</p>
+<p>Im einfachsten Fall könnten wir Agenten einfach mit einem einzigen Wert, z.B. einer Zahl, darstellen. Diese Zahl könnte dann z.B. für eine Meinung des Agenten zur “Corona-Politik” der Bundesregierung auf einer Skala von 0 bis 10 stehen. Das hier wäre z.B. ein Agent mit einem Meinungswert von 4: <code class="docutils literal notranslate"><span class="pre">4</span></code>. Das hier wäre ein Agent mit einem Meinungswert von 7: <code class="docutils literal notranslate"><span class="pre">7</span></code>. Das hier wäre ein Agent mit einem Meinungswert von 2: <code class="docutils literal notranslate"><span class="pre">2</span></code>. Mit so vereinzelten und namenlosen Agenten können wir aber nicht wirklich was anfangen, da wir sie nicht wirklich “packen” können, um mit ihnen irgendwas zu machen, und zudem könnten wir Agenten mit derselben Meinung nicht unterscheiden. Eine Lösung wäre es, jeden Agenten unter eigenen Variable zu speichern. Das wird ab einer bestimmten Anzahl von Agenten auch ziemlich unpraktikabel. Und hier kommen die Listen ins Spiel!</p>
+<p>In der Regel speichern wir unsere Agenten in Listen ab, wie ich es hier tue:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 2, 7]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir haben nun unsere vereinzelten und namenlosen Agenten, welche wir nur über eine einzige Eigenschaft darstellen, kompakt in einer Liste namens <code class="docutils literal notranslate"><span class="pre">population</span></code> gespeichert. So verlieren wir niemanden aus den Augen und wir können irgendwelche Aktionen immer für die ganze Liste ausführen lassen (was wir in den kommenden Kapiteln lernen werden). Nun können wir auch beliebig viele Agenten (auch mit derselben Meinung) in der Liste speichern:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 2, 7, 1, 5, 3, 2, 2, 5, 6, 7, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun haben wir es geschafft, mehrere Agenten mit einer Eigenschaft kompakt und praktisch in einer Liste zu speichern. Doch meist sollen unsere Agenten mehr als eine Eigenschaft aufweisen. Sie sollen z.B. nicht nur eine Meinung zum Thema X, sondern z.B. auch ein Alter aufweisen. Daher kann es Sinn machen, auch die Agenten selbst als Liste zu repräsentieren und alle Agenten-Eigenschaften innerhalb einer Liste zusammenzufassen. Schauen wir uns das mal an einem anderen Beispiel an.</p>
+<p>Angenommen ein Agent verfügt über folgende drei Eigenschaften:</p>
+<ul class="simple">
+<li><p><strong>Infektionsstatus</strong> (mit den möglichen Ausprägungen  <code class="docutils literal notranslate"><span class="pre">&quot;infizierbar&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code>, <code class="docutils literal notranslate"> <span class="pre">&quot;genesen&quot;</span></code> und <code class="docutils literal notranslate"><span class="pre">&quot;geimpft&quot;</span></code>)</p></li>
+<li><p><strong>Symptome</strong> (mit den möglichen Ausprägungen <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><strong>Tage seit der Infektion</strong> (Diese Eigenschaft macht natürlich nur Sinn, wenn der Agent bereits infiziert wurde. Dann sollte die Anzahl der Tage seit der Infektion als ganze Zahl d.h. als <code class="docutils literal notranslate"><span class="pre">int</span></code> repräsentiert werden. Falls der Agent jedoch bisher noch nie infiziert wurde, dann setzen wir den Platzhalter <code class="docutils literal notranslate"><span class="pre">None</span></code>, den man wie ein “Missing” in der Statistik verstehen kann, ein.)</p></li>
+</ul>
+<p>Wir könnten diese Eigenschaften eines Agenten nun in einer Liste sammeln. Ein Agent könnte dann mit folgender Liste repräsentiert werden:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[&quot;infizierbar&quot;,</span> <span class="pre">False,</span> <span class="pre">None]</span></code></p>
+<p>Diese Liste repräsentiert nun für uns einen Agenten, welcher theoretisch mit dem Virus infizierbar ist, aktuell keine Symptome aufweist und keine Tage seit der Ansteckung aufweist, da er noch nie infiziert war.</p>
+<p>Natürlich könnte man auch diesen Agenten wieder unter einer Variable speichern:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;infizierbar&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;infizierbar&#39;, False, None]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ein anderer Agent könnte zum Beispiel so aussehen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;infiziert&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;infiziert&#39;, True, 5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dies wäre für uns ein Agent, der aktuell infiziert ist, Symptome einer Krankheit aufweist und dessen Infektion 5 Tage her ist.</p>
+<p>Ein dritter Agent könnte beispielsweise infiziert sein, keine Symptome aufweisen und erst vor 2 Tagen angesteckt worden sein:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;infiziert&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;infiziert&#39;, False, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um sinnvoll mit diesen Agenten “arbeiten” zu können, bietet es sich dann auch hier wieder an, die Agenten innerhalb einer weiteren Liste zusammenzufassen.
+Dies könnte dann so aussehen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="p">[</span><span class="n">agent1</span><span class="p">,</span> <span class="n">agent2</span><span class="p">,</span> <span class="n">agent3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;infizierbar&#39;, False, None], [&#39;infiziert&#39;, True, 5], [&#39;infiziert&#39;, False, 2]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Was wir hier bei der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> nun sehen, ist eine Datenstruktur, mit der wir noch öfter zu tun haben werden, die uns manchmal etwas Kopfzerbrechen bereiten wird und mit der wir uns daher so früh wie möglich anfreunden sollten. Es ist eine <strong>Liste von Listen</strong> bzw. eine sogenannte <strong>geschachtelte Liste</strong>. Wir haben also eine Liste, deren Inhalt selbst wieder aus Listen besteht. Wir werden uns weiter unten in diesem Kapitel und auch in folgenden Kapiteln noch ausgiebig mit dieser Datenstruktur beschäftigen.</p>
+<p>An dieser Stelle möchte ich nur eine Sache erwähnen: Diese Datenstruktur verdeutlicht, aus welchen Ebenen/Bestandteilen/Objekten/Paketen ein großer Teil unseres Programmes in aller Regel bestehen wird bzw. wie wir unsere virtuelle Welt in unserem Computer organisieren:</p>
+<ul class="simple">
+<li><p>Auf der untersten bzw. innersten Ebene sind die Eigenschaften unserer Agenten.</p></li>
+<li><p>Dieses Innenleben der Agenten schnüren wir dann jeweils zu einem Paket bzw. Objekt zusammen (in diesem Fall zu Listen), welche dann jeweils einen Agenten als eine Einheit repräsentieren.</p></li>
+<li><p>Die Agenten-Objekte wiederum fassen wir dann meist auch wieder in einer oder mehreren Liste(n) zusammen, um sinnvoll mit der ganzen Gruppe von Agenten arbeiten zu können</p></li>
+</ul>
+<p><strong>Übrigens:</strong> Oben sieht das Erstellen der Population von Agenten und den jeweils einzelnen Eigenschaften einzelner Agenten noch nach viel Getippe aus. In den nächsten Kapitel werden wir jedoch lernen, wie wir sehr große Populationen von Agenten relativ entspannt “automatisch” erstellen lassen können, ohne jeden Agenten einzeln selbst explizit definieren oder benennen zu müssen.</p>
+<p><strong>Zugegeben:</strong> Die Repräsentation der Agenten als Listen ist nicht sonderlich elegant. Wir müssen uns ja z.B. merken, welcher Stelle in der Liste welche Eigenschaft der Agenten steht. U.a. deshalb ist es auf lange Sicht unpraktisch, die Agenten als Listen darzustellen. Wir werden später die Agenten durch andere Objekt-Klassen ersetzen. Am Anfang macht es allerdings Sinn, nicht nur, weil wir Listen sowieso zwingend kennenlernen müssen, sondern auch, weil es eine relativ unkomplizierte und schnell erlernbare Form der Agenten-Repräsentation “mit einfachen Mitteln” ist.</p>
+</div>
+<div class="section" id="exkurs-noch-ein-paar-worte-zur-reprasentation-von-agenten">
+<h2>Exkurs: Noch ein paar Worte zur Repräsentation von Agenten<a class="headerlink" href="#exkurs-noch-ein-paar-worte-zur-reprasentation-von-agenten" title="Permalink to this headline">¶</a></h2>
+<p>Wenn wir Agenten einfach nur als einzelne Werte oder Listen von Werten darstellen, dann stellen wir zunächst eigentlich nur die “passiven” Eigenschaften der Agenten mit relativ “passiven” Daten dar. Da fehlt aber doch noch etwas? Ein Agent ist doch ein handelnder Akteur und nicht nur ein passiver Datensatz! Ein Agent sollte ja beispielsweise nicht nur die passive Eigenschaft haben, eine Meinung zu besitzen, sondern auch die aktive Eigenschaft, diese beispielsweise auch kundtun oder ändern zu können. Und ein Agent darf in Simulationen nicht nur einen Infektionsstatus haben, sondern muss auch die aktive Eigenschaft, andere Agenten anstecken zu können, besitzen.</p>
+<p>Den aktiven Teil der Agenten werden wir meist als Funktionen, also Programmanweisungen darüber, wie die Daten/Eigenschaften der Agenten verarbeitet werden sollen, repräsentieren. Zum Beispiel könnten wir die Handlung “anstecken” darstellen, indem wir mithilfe einer Funktion den Infektionsstatus <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code> vom einen Agenten auf einen anderen Agenten mit dem Status <code class="docutils literal notranslate"><span class="pre">&quot;infizierbar&quot;</span></code> übertragen, sodass dieser zweite Agent dann auch den Status <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code> aufweist.</p>
+<p>Zu Beginn werden wir dabei Funktionen und Daten jedoch noch relativ getrennt voneinander organisieren d.h. wir werden an der einen Stelle im Code die “passiven” Eigenschaften der Agenten in irgendeiner Form als Daten darstellen und an der anderen Stelle im Code die potentiellen “Handlungen” der Agenten als Funktionen implementieren. Erst während der Simulation, wenn ein Agent handelt, werden wir Daten und Funktionen zusammenbringen. Dann wird die entsprechende Funktion auf die entsprechenden Daten des handelnden Agenten (z.B. der ansteckende Agent) sowie der an einer Interaktion beteiligten Agenten (z.B. der angesteckte Agent) angewendet.</p>
+<p>In einer ähnlichen Logik werden wir zwar immer die Handlungen der Agenten in den Simulationen darstellen, dennoch werden wir später die Trennung zwischen passiven und aktiven Eigenschaften aufheben. Wir werden dann Objekte definieren, die sowohl die passiven Daten als auch die aktiven Funktionen bzw. Handlungen der Agenten vereinen. Letztlich macht das für die Simulationsergebnisse keinen Unterschied, es ist nur eine bessere Form der Code-Organisation und “natürlichere” Form der Darstellung handelnder Akteure. Wie man das macht, werden wir im Kapitel zur “Objektorientierten Programmierung” lernen. Weil man dazu aber einiges an Wissen über die Grundlagen von Python braucht, werden wir zu Beginn die passiven Eigenschaften und die aktiven Eigenschaften der Agenten noch getrennt implementieren z.B. indem wir die Daten eines Agenten innerhalb einer Liste abspeichern, wie wir in diesem Kapitel lernen werden.</p>
+<p><strong>Übrigens:</strong> Auch wenn wir selbst erst in späteren Kapiteln lernen werden, wie man Objekte definiert, die sowohl passive Daten als auch aktive Funktionen innerhalb eines Objektes integrieren, werden wir diese Art von Objekten dennoch schon vorher verwenden. Denn Python ist voll mit diesen Objekten. Auch Listen selbst verfügen übrigens über eine “aktive” Seite, welche Listen überhaupt erst so praktisch machen und wir noch in diesem Kapitel kennenlernen werden.</p>
+</div>
+</div>
+<div class="section" id="der-zugriff-auf-listen">
+<h1>Der Zugriff auf Listen<a class="headerlink" href="#der-zugriff-auf-listen" title="Permalink to this headline">¶</a></h1>
+<p>Im Folgenden schauen wir uns die Eigenschaften von Listen etwas näher an. Wir gucken uns zunächst an, wie wir an den Inhalt von Listen rankommen, nachdem wir diese erstellt haben und wie wir diesen Inhalt verändern können. Dann werfen wir u.a. noch einen Blick auf die wichtigsten “Funktionen” von Listen, der “aktiven” Seite von Listen.</p>
+<div class="section" id="auf-elemente-in-listen-zugreifen-indizierung">
+<h2>Auf Elemente in Listen zugreifen: Indizierung<a class="headerlink" href="#auf-elemente-in-listen-zugreifen-indizierung" title="Permalink to this headline">¶</a></h2>
+<p>Es ist ja schön und gut, dass wir die Agenten als Listen von Eigenschaften und die Population der Agenten als Liste von Listen von Eigenschaften repräsentieren können. Doch all das bringt uns nichts, wenn wir gar nicht wissen, wie wir auf die Elemente der Listen zugreifen können.</p>
+<p>Denn später werden wir in unseren Simulationen eigentlich immer das Folgende machen: Wir …</p>
+<ul class="simple">
+<li><p>… gehen (automatisiert) eine “Populations-Liste” mit Agenten durch</p></li>
+<li><p>… greifen nacheinander auf die Agenten zu</p></li>
+<li><p>… greifen bei den jeweiligen Agenten auf bestimmte Eigenschaften zu</p></li>
+<li><p>… machen irgendwas mit diesen Eigenschaften (z.B. ändern wir den Status <code class="docutils literal notranslate"><span class="pre">&quot;infizierbar&quot;</span></code> in <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code> um)</p></li>
+</ul>
+<p>Wir müssen also unbedingt lernen, wie wir auf die Elemente von Listen zugreifen!</p>
+<p>Ein Weg, um auf die Elemente von Listen zuzugreifen, ist die sogenannte <strong>Indizierung</strong>. Bei der Indizierung geben wir an, an welcher Position in der Liste das gewünschte Element liegt, damit wir auf dieses Element zugreifen können. Steht ein Element beispielsweise an erster Stelle in einer Liste, dann muss man angeben, dass das Element an der ersten Position innerhalb der Liste liegt, um an das entsprechende Element zu kommen. Die Position eines Elements innerhalb einer Liste nennt man in Python auch <strong>Index</strong>. Daher heißt die Methode, bei der wir über einen solchen Index an das gewünschte Element kommen, Indizierung.</p>
+<p>Schauen wir uns die Indizierung mal genauer an. Angenommen wir haben eine beliebige Liste und wollen gezielt auf ein Element innerhalb dieser Liste zugreifen. Wie machen wir das? Wir tippen die Liste bzw. den Variablennamen der Liste ein und schreiben direkt dahinter in eckige Klammern den Index d.h. die Position des entsprechenden Elements, das wir auswählen wollen. Das sieht ganz allgemein formuliert so <code class="docutils literal notranslate"><span class="pre">LISTE[INDEX]</span></code> bzw. so <code class="docutils literal notranslate"><span class="pre">[ELEMENT,</span> <span class="pre">ELEMENT,</span> <span class="pre">ELEMENT,</span> <span class="pre">...][INDEX]</span></code>.</p>
+<p>Schauen wir uns das mal konkret am Beispiel der Liste <code class="docutils literal notranslate"><span class="pre">agent</span></code>, welche ich im Folgenden definiere, an.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;infiziert&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Liste <code class="docutils literal notranslate"><span class="pre">agent</span></code> sieht als Gesamtpaket dann also so aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;infiziert&#39;, False, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun wollen wir in diesem Beispiel spaßeshalber gezielt auf das <strong>dritte</strong> Element der Liste <code class="docutils literal notranslate"><span class="pre">agent</span></code> zugreifen, z.B. weil wir den Wert für eine Berechnung brauchen oder wir diesen Wert verändern wollen. Wie wir gerade gelernt haben, müssen wir dazu den entsprechenden Positionsindex in eckigen Klammern hinter dem Variablennamen <code class="docutils literal notranslate"><span class="pre">agent</span></code> angeben. Jetzt müssen wir nur noch wissen, an welcher Position unser Element steht… ah ja, richtig, das Element steht an dritter Stelle, weshalb wir in die eckige Klammer hinter der Liste <code class="docutils literal notranslate"><span class="pre">agent</span></code> natürlich eine <code class="docutils literal notranslate"><span class="pre">2</span></code> eintragen müssen. Das mache ich nun:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie wir sehen, es funktioniert. Das dritte Element der Liste <code class="docutils literal notranslate"><span class="pre">agent</span></code>, die <code class="docutils literal notranslate"><span class="pre">10</span></code>, wurde als einzelner Wert ausgegeben. Logischerweise muss man dazu die <code class="docutils literal notranslate"><span class="pre">2</span></code> als Positionsindex angeben. Man sieht, alles in Python ist super einfach und unmittelbar intuitiv. Dann können wir ja zum nächsten Thema übergehen!</p>
+<p>Ich hoffe, deine Aufmerksamkeit für den Text war gerade so groß, dass du das hier gerade nicht einfach so hingenommen hast, sondern dir sofort dachtest: Hä!? Das dritte Element wird mit dem Index <code class="docutils literal notranslate"><span class="pre">2</span></code> aufgerufen? Da kann doch was nicht stimmen!</p>
+<p>Aber doch, es stimmt. Und ich gebe zu, dies ist zunächst tatsächlich nicht besonders intuitiv. Man braucht etwas, um sich daran zu gewöhnen: In Python fängt man beim Zählen immer mit der 0 an. Auch die Durchnummerierung von Elementen einer Liste fängt daher bei 0 an. Das heißt, dass man auf das erste Element mit dem Index <code class="docutils literal notranslate"><span class="pre">0</span></code>, auf das zweite Element kann mit dem Index <code class="docutils literal notranslate"><span class="pre">1</span></code> und auf das dritte Element mit dem Index <code class="docutils literal notranslate"><span class="pre">2</span></code> zugreifen kann - und so weiter. Dass das Zählen bei 0 beginnt, wird uns nicht nur bei Listenindizes noch beschäftigen und ist übrigens in fast allen <em>professionellen</em> Programmiersprachen so.</p>
+<p>Hier greife ich z.B. auf das erste Element der Liste <code class="docutils literal notranslate"><span class="pre">agent</span></code> mithilfe des Index <code class="docutils literal notranslate"><span class="pre">0</span></code> zu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;infiziert&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Folgende Graphik veranschaulicht die Durchnummerierung der Elemente in Listen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">src</span>
+<span class="n">src</span><span class="o">.</span><span class="n">plt_image</span><span class="p">(</span><span class="s2">&quot;img/listen/folie1.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp02a_36_0.png" src="../_images/amp02a_36_0.png" />
+</div>
+</div>
+<p>Neben der aufsteigenden Durchnummerierung der Listen-Elemente beginnend bei <code class="docutils literal notranslate"><span class="pre">0</span></code> sind die Elemente in Listen auch auf eine weitere Form von hinten beginnend durchnummeriert. Und zwar kann man auf das letzte Element auch mit dem Index <code class="docutils literal notranslate"><span class="pre">-1</span></code>, auf das vorletzte Element der Liste mit dem Index <code class="docutils literal notranslate"><span class="pre">-2</span></code>, auf das drittletzte Element der Liste mit dem Index <code class="docutils literal notranslate"><span class="pre">-3</span></code> zugreifen und so weiter. In der folgenden Abbildung sind neben den positiven Indizes durch die Nummerierung von vorne auch die negativen Indizes durch die Durchnummerierung von hinten abgebildet:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">src</span><span class="o">.</span><span class="n">plt_image</span><span class="p">(</span><span class="s2">&quot;img/listen/folie2.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp02a_38_0.png" src="../_images/amp02a_38_0.png" />
+</div>
+</div>
+<p>Hier greife ich beispielsweise auf das letzte Element der Liste <code class="docutils literal notranslate"><span class="pre">agent</span></code> mithilfe eines solchen negativen Index <code class="docutils literal notranslate"><span class="pre">-1</span></code> zu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Und hier greife ich auf das erste Element der Liste <code class="docutils literal notranslate"><span class="pre">agent</span></code> mithilfe des Index <code class="docutils literal notranslate"><span class="pre">-3</span></code> zu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;infiziert&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Listen (und ähnliche Datentypen) sind also “von vorne” und “von hinten” durchnummeriert. Man kann also mithilfe von positven und negativen Indizes auf die Elemente in Listen zugreifen. Im Normalfall verwendet man die positiven Indizes, dennoch kann es in manchen Situationen sehr hilfreich sein, auf die hinteren Elemente einer Liste mithilfe der negativen Indizierung zuzugreifen.</p>
+</div>
+<div class="section" id="elemente-in-listen-andern">
+<h2>Elemente in Listen ändern<a class="headerlink" href="#elemente-in-listen-andern" title="Permalink to this headline">¶</a></h2>
+<p>Mithilfe der Indizierung können wir nicht nur bestimmte Elemente einer Liste ausgeben lassen, sondern auch verändern. Dies machen wir genau so, wie wir Variablen definieren, geben aber auf der linken Seite des <code class="docutils literal notranslate"><span class="pre">=</span></code> keinen Variablennamen, sondern das entsprechende Listen-Element per Indizierung an, das verändert werden soll.</p>
+<p>Im Folgenden ändere ich den Infektionsstatus des Agenten <code class="docutils literal notranslate"><span class="pre">agent</span></code>. Zur Erinnerung, wie <code class="docutils literal notranslate"><span class="pre">agent</span></code> aussieht, lasse ich diesen zunächst ausgeben. Der Infektionsstatus steht an erster Stelle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;infiziert&#39;, False, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun ändere ich das erste Element der Liste <code class="docutils literal notranslate"><span class="pre">agent</span></code>, von <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code> auf <code class="docutils literal notranslate"><span class="pre">&quot;geimpft&quot;</span></code> um. Auf das erste Element kann man mit dem Index <code class="docutils literal notranslate"><span class="pre">0</span></code> zugreifen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;geimpft&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn wir uns nun <code class="docutils literal notranslate"><span class="pre">agent</span></code> anschauen, dann sehen wir, dass das erste Element entsprechend geändert wurde:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;geimpft&#39;, False, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im Folgenden ändere ich zusätzlich noch die beiden anderen Elemente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">agent</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">agent</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;geimpft&#39;, True, 15]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Agent basierend auf der Liste <code class="docutils literal notranslate"><span class="pre">agent</span></code> hat sich nun von einem vor 10 Tagen infizierten Agenten ohne Symptome zu einem vor 15 Tagen infizierten, nun symptomatischen und geimpften Agenten verändert.</p>
+<p>Während unseren Simulationen werden sich bestimmte Eigenschaften der Agenten ständig ändern und dann werden wir - wenn wir die Agenten als Listen repräsentieren - auch genau mit dieser Logik auf die Agenten zugreifen. Der Unterschied wird nur sein, dass wir nicht jeden einzelnen Zugriff explizit “per Hand” programmieren, sondern in der Regel werden solche Zugriffe in sogenannten Loops vollziehen. Das heißt wir programmieren einmal die allgemeine Struktur solcher Zugriffe und lassen das Programm dann automatisch für jeden Agenten solche Zugriffe vollziehen und die Werte der Agenten-Eigenschaften nach bestimmten Regeln ändern (oder auch nicht). Die Indexierung ist bei solchen Loops essentiell.</p>
+</div>
+<div class="section" id="sich-eine-scheibe-abschneiden-slicing">
+<h2>Sich eine Scheibe abschneiden: Slicing<a class="headerlink" href="#sich-eine-scheibe-abschneiden-slicing" title="Permalink to this headline">¶</a></h2>
+<p>Statt nur auf einzelne Elemente zuzugreifen, ist es auch möglich, auf mehrere nebeneinander stehende Elemente einer Liste gleichzeitig zuzugreifen. Weil man dabei praktisch <em>Schnitte</em> an bestimmten Stellen der Liste ansetzt, um einen bestimmten Teilbereich der Liste herauszutrennen, nennt man dieses Vorgehen auch Slicing. Beachtet werden muss aber, dass wir den Teilbereich dabei nicht ausschneiden, sondern kopieren. Slicing funktioniert wie folgt: Wir geben statt eines einzelnen Index einen <strong>Start-</strong> und einen <strong>End-Index</strong> in den eckigen Klammern hinter einer Liste an. Die beiden Indizes trennen wir dabei mit einem <strong>Doppelpunkt</strong>.</p>
+<p>Die allgemeine Syntax könnte man so formulieren:</p>
+<p><code class="docutils literal notranslate"><span class="pre">LISTE[STARTINDEX:ENDINDEX]</span></code></p>
+<p>Beispiel: Wir haben eine Liste <code class="docutils literal notranslate"><span class="pre">infections</span></code>, welche die Anzahl infizierter Agenten für verschiedene Tage speichert. Diese Liste erstelle ich hier:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infections</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">512</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So sieht die Liste infections insgesamt aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infections</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unten wende ich nun <strong>Slicing</strong> an, um die ersten fünf Werte ausgeben zu lassen. Als Start-Index gebe ich die <code class="docutils literal notranslate"><span class="pre">0</span></code> und als End-Index die <code class="docutils literal notranslate"><span class="pre">5</span></code> an:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infections</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 4, 8, 16]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Als Ergebnis bekommen wir eine Liste zurück, welche die ersten fünf Elemente der Ursprungsliste <code class="docutils literal notranslate"><span class="pre">infections</span></code> enthält. Sieht erstmal alles recht intuitiv aus. Beim genaueren Darübernachdenken sollte einem als aufmerksame*r Leser*in aber auffallen, dass der Start-Index von <code class="docutils literal notranslate"><span class="pre">0</span></code> zwar auch dem ersten Element der Liste entspricht, der End-Index von <code class="docutils literal notranslate"><span class="pre">5</span></code> jedoch nicht dem fünften, sondern dem sechsten Element der Liste entspricht. Doch warum hat es dann funktioniert? Warum haben wir dennoch nur die ersten fünf und nicht die ersten sechs Elemente zurückbekommen? Das liegt daran, dass der End-Index immer das erste Element, das <strong>nicht</strong> mehr zur auszugebenden Unterliste gehören soll, angibt.</p>
+<p>Das klingt verwirrend, macht aber Sinn, wenn man die Indizes in Bezug zu den <em>Schnitten</em> setzt. Man kann sich vorstellen, dass man Python anhand des Start-Index und des End-Index sagt, wo jeweils der Schnitt angesetzt wird, um die Elemente zu trennen. Und der Schnitt wird dann immer <strong>links</strong> von der durch den Index angegebenen Position gesetzt. Wenn der Schnitt links von einem Element angesetzt wird, dann wird das Element auf der Start-Position eingeschlossen, weil es sich rechts vom Schnitt befindet. Das Element auf der End-Position hingegen wird aus dem Teilbereich ausgeschlossen, da es sich ja auch rechts vom Schnitt und somit nicht im ausgeschnittenen Bereich befindet.</p>
+<p>Folgende Graphik stellt das dar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">src</span><span class="o">.</span><span class="n">plt_image</span><span class="p">(</span><span class="s2">&quot;img/listen/folie3.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp02a_60_0.png" src="../_images/amp02a_60_0.png" />
+</div>
+</div>
+<p>Um die letzten 5 Werte der Liste <code class="docutils literal notranslate"><span class="pre">infections</span></code> ausgeben zu lassen, muss man dementsprechend <code class="docutils literal notranslate"><span class="pre">[5:10]</span></code> hinter die Liste schreiben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infections</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[32, 64, 128, 256, 512]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Übrigens kann der zurückgegebene Teilbereich der Liste natürlich selbst wieder in einer Variable gespeichert werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_five_days</span> <span class="o">=</span> <span class="n">infections</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">last_five_days</span> <span class="o">=</span> <span class="n">infections</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">first_five_days</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">last_five_days</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 4, 8, 16]
+[32, 64, 128, 256, 512]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="der-zugriff-auf-geschachtelte-listen">
+<h2>Der Zugriff auf geschachtelte Listen<a class="headerlink" href="#der-zugriff-auf-geschachtelte-listen" title="Permalink to this headline">¶</a></h2>
+<p>Wie wir weiter oben bereits gesehen haben, können Listen selbstverständlich geschachtelt werden. Wir können also innerhalb von Listen weitere Listen als Elemente ablegen, sodass wir eine <em>Liste von Listen</em> bzw. <em>geschachtelte Liste</em> erhalten. Wie oben schon gezeigt, wäre beispielsweise eine Liste von Agenten, welche selbst als Listen reprästentiert werden, eine geschachtelte Liste.</p>
+<p>Im Folgenden erstelle ich zunächst drei Agenten und versammle diese dann innerhalb der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agenten erstellen</span>
+<span class="n">agent1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;infizierbar&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="n">agent2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;infziert&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">agent3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;immun&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+
+<span class="c1"># Populationsliste erstellen</span>
+<span class="n">population</span> <span class="o">=</span> <span class="p">[</span><span class="n">agent1</span><span class="p">,</span> <span class="n">agent2</span><span class="p">,</span> <span class="n">agent3</span><span class="p">]</span>
+
+<span class="c1"># Populationsliste ausgeben lassen</span>
+<span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;infizierbar&#39;, False, None], [&#39;infziert&#39;, True, 2], [&#39;immun&#39;, False, 15]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Was ist nun, wenn wir eine solche geschachtelte Liste vorliegen haben und auf die Eigenschaft eines Agenten zugreifen wollen? Dann müssen wir uns Schritt für Schritt von Liste zu Liste mittels Indexing voran arbeiten, bis wir beim gewünschten Element angekommen sind.</p>
+<p>Wollen wir beispielsweise den Infektionsstatus von <code class="docutils literal notranslate"><span class="pre">agent2</span></code> wissen, dann müssen wir zunächst aus der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> mittels Index <code class="docutils literal notranslate"><span class="pre">agent2</span></code> auswählen und schließlich aus der Liste <code class="docutils literal notranslate"><span class="pre">agent2</span></code> das entsprechende Element, das den Infektionsstatus angibt, auswählen.</p>
+<p>Da sich <code class="docutils literal notranslate"><span class="pre">agent2</span></code> an der zweiten Stelle der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> befindet, greifen wir auf diesen zunächst mittels des Index <code class="docutils literal notranslate"><span class="pre">1</span></code> zu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;infziert&#39;, True, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das was wir da sehen, ist quasi <code class="docutils literal notranslate"><span class="pre">agent2</span></code>. Wir sind also von der Populationsebene auf die Agentenebene vorangeschritten, sind aber noch nicht am Ziel. Wir wollen ja an das Innenleben des Agenten. Da sich der gewünschte Infektionsstatus an der ersten Stelle der durch <code class="docutils literal notranslate"><span class="pre">population[1]</span></code> zurückgegebenen Liste (<code class="docutils literal notranslate"><span class="pre">agent2</span></code>) befindet, müssen wir an <code class="docutils literal notranslate"><span class="pre">population[1]</span></code> noch den Index <code class="docutils literal notranslate"><span class="pre">0</span></code> hängen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;infziert&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Insgesamt gilt: solange das durch eine Indizierung zurückgegebene Objekt ebenfalls wieder eine Liste bzw. oder ein ähnliches, indizierbares Objekt ist, solange kann auch die Indizierung wieder auf das zurückgegebene Objekt angewendet werden.</p>
+<p>Im Folgenden sieht man, wie wir uns Schritt für Schritt zur entsprechenden Agenten-Eigenschaft vorangearbeitet haben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gesamt-Population</span>
+<span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;infizierbar&#39;, False, None], [&#39;infziert&#39;, True, 2], [&#39;immun&#39;, False, 15]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nur der Agent an der zweiten Stelle</span>
+<span class="n">population</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;infziert&#39;, True, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nur der die erste Eigenschaft des Agenten an der zweiten Stelle</span>
+<span class="n">population</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;infziert&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exkurs-funktionen-methoden">
+<h2>Exkurs: Funktionen &amp; Methoden<a class="headerlink" href="#exkurs-funktionen-methoden" title="Permalink to this headline">¶</a></h2>
+<p>Weiter unten möchte ich euch gleich noch ein paar wichtige Funktionen von Listen zeigen. Dazu müssen wir jedoch noch kurz eine besondere Form von Funktionen kennenlernen: die sogenannten Methoden.</p>
+<p>In Python kann man ganz allgemein zwischen zwei Formen von Funktionen unterscheiden. Auf der einen Seite gibt es das, was man ganz offiziell <strong>Funktion</strong> nennt. Eine solche Funktion ist beispielsweise die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> oder auch die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code>. Diese Funktionen sind als komplett eigenständige Objekte anzusehen. Sie sind Anweisungen für unser Programm, welche ihr Dasein als Objekte fristen. Funktionen sind in Objekte gegossene, objektgewordene Handlungen unseres Programmes, welche immer und immer wieder aufgerufen werden können.</p>
+<p>Ein besonderer Nutzen von Funktionen (und Methoden) ist, dass ihre Prozeuren so allgemein gehalten sind, dass wir ihre Handlungen auf verschiedene andere Objekte anwenden können d.h. verschiedene Objekte mithilfe von Funktionen verarbeiten können. Sollen gewisse Objekte mithilfe von Funktionen verarbeitet werden, dann müssen diese in die runden Klammern der Funktion stecken. Die Funktion, als eigenständiges Objekt, tritt dann quasi von außen an das eingegebene Objekt heran, verschluckt es, verarbeitet es nach den Regeln der Funktion und gibt eine verarbeitete Version des eingegebenen Objektes wieder aus. Stecken wir Objekte in eine Funktion, dann sieht das ganz allgemein so aus:</p>
+<p><code class="docutils literal notranslate"><span class="pre">FUNKTION(INPUTOBJEKT,</span> <span class="pre">INPUTOBJEKT,</span> <span class="pre">...)</span></code></p>
+<p>Auf der anderen Seite gibt es sogenannte <strong>Methoden</strong>. Methoden sind eigentlich fast nichts anderes als Funktionen. Der kleine Unterschied ist nur, dass eine Methode nicht eigenständig existiert. Eine Methode ist kein eigenständiges Objekt, sondern ist immer an ein bestimmtes Objekt gebunden. Eine Methode ist eine Funktion, die eine Eigenschaft eines Objektes ist. Eine Methode kann daher immer nur von diesem Objekt, dessen Eigenschaft die Methode ist, aufgerufen werden. Methoden sind als Eigenschaften von Objekten komplett auf <em>ihr</em> Objekt zugeschnitten, können meist unmittelbar auf das Innenleben von Objekten zugreifen und dieses direkt verändern.</p>
+<p>Methoden kann man wie Funktionen als <em>Handlungen</em> verstehen. Da eine Methode aber eine Eigenschaft eines Objektes ist, kann man sich vorstellen, dass nun das Objekt über die Fähigkeit zu handeln verfügt. Und die Handlung ist eben die Methode. Während also eine Funktion quasi wie eine <em>Handlung</em> an für sich ist, ist eine Methode eine Handlung, die von einem ganz bestimmten Objekt ausgeführt wird. Je nach Objekt-Typ kann das Objekt dann verschiedene Methoden, also verschiedene Handlungen, ausführen.</p>
+<p>Im Gegensatz zu klassischen Funktionen sind Methoden also nicht komplett eigenständig und können im Code auch nicht “frei herumstehen” z.B. wenn sie aufgerufen werden. Methoden werden stattdessen aufgerufen, indem deren Name hinten an ein Objekt mit einem Punkt angehängt werden. Das sieht dann allgemein formuliert so aus:</p>
+<p><code class="docutils literal notranslate"><span class="pre">OBJEKT.METHODE()</span></code></p>
+<p>Wird diese Methode auf diese Weise aufgerufen, bezieht sich die Methode unmittelbar auf das Objekt, von der aus die Methode aufgerufen wurde. Dadurch muss das Objekt selbst nicht mehr als Argument in die Methode eingegeben werden, weil dies quasi schon automatisch passiert ist. Neben dem Objekt, auf das sich die Methode bezieht, können natürlich noch weitere Objekte als Input eingegeben werden. Diese werden dann wie bei normalen Funktionen in die runden Klammern der Methode geschrieben:</p>
+<p><code class="docutils literal notranslate"><span class="pre">OBJEKT.METHODE(INPUTOBJEKT,</span> <span class="pre">INPUTOBJEKT,</span> <span class="pre">...)</span></code></p>
+<p>Nochmal: Sowohl Funktionen und Methoden sind <em>Programmanweisungen</em> d.h. Code, der angibt, wie unser Programm <em>handeln</em> soll. Der Unterschied ist nur, dass Funktionen Handlungen sind, die (unrealistischerweise) eigentändig existieren können. Dieses selbstständige Handeln kann an als fremde, anonyme Macht an andere Objekte herantreten und diese nach den Regeln der Funktion verarbeiten. Das verarbeitete Objekt bleibt dabei passiv. Handeln tut die Funktion. Methoden hingegen sind die aktive Seite eines Objektes. Verfügt ein Objekt über Methoden, so ist dieses nicht mehr rein passiv, sondern kann selbst aktiv <em>handeln</em>.</p>
+<p>Übertragen auf die Realität könnte man die Fähigkeit von Hunden zu bellen und zu springen als Methoden von Hunden beschreiben. Springt ein Hund, dann führt der Hund quasi den Code <code class="docutils literal notranslate"><span class="pre">hund.springen()</span></code> aus. Bellt ein Hund, dann führt der Hund praktisch den Code <code class="docutils literal notranslate"><span class="pre">hund.bellen()</span></code> aus. Würden in der Realität das Springen und das Bellen an sich existieren, ohne eine Eigenschaft von Hunden oder anderen Objekten zu sein, dann würde das in Python einer Funktion entsprechen. Ein Hund würde dann z.B. bellen, wenn die Funktion <code class="docutils literal notranslate"><span class="pre">bellen()</span></code> den Hund zum bellen bewegt, indem folgender Code ausgeführt wird: <code class="docutils literal notranslate"><span class="pre">bellen(hund)</span></code>. Ich gehe davon aus, dass das nicht deinem Verständnis von der Realität entspricht. Methoden sind also um einiges näher “an der Realität” als Funktionen.</p>
+<p>Später werden wir daher unsere Agenten auch als eigene Objekte mit gewissen Methoden definieren. Handelt ein Agent, dann sieht das allgemein so aus:</p>
+<p><code class="docutils literal notranslate"><span class="pre">AGENT.HANDELN()</span></code></p>
+<p>Wenn der Agent mit einem anderen Agenten interagiert, könnte das ganze dann so aussehen:</p>
+<p><code class="docutils literal notranslate"><span class="pre">AGENT.HANDELN(ANDERER_AGENT)</span></code></p>
+<p>Aber wie gesagt, eine solche Logik werden wir erst später kennenlernen. Zu Beginn verwenden wir stattdessen eine solche, eher realitätsfernere Logik: Wir haben eine allgemeine Funktion <code class="docutils literal notranslate"><span class="pre">HANDELN()</span></code> und einen <code class="docutils literal notranslate"><span class="pre">AGENT</span></code>. Wenn wir diesen Agenten nun handeln lassen wollen, dann wenden wir die Funktion entsprechend auf den Agenten an:</p>
+<p><code class="docutils literal notranslate"><span class="pre">HANDELN(AGENT)</span></code></p>
+<p>Für eine Interaktion könnte man dann z.B. den zweiten Agenten auch als Argument in die Funktion einfügen:</p>
+<p><code class="docutils literal notranslate"><span class="pre">HANDELN(AGENT,</span> <span class="pre">ANDERER_AGENT)</span></code></p>
+<p>Hier ist also die Funktion <code class="docutils literal notranslate"><span class="pre">HANDELN()</span></code> nicht eine Eigenschaft eines Agenten, sondern verarbeitet nur die Daten des Agenten auf bestimmte Weise. In der Realität handeln ja aber die Agenten selbst und werden nicht von außen durch eine anonyme Macht “gehandelt”. Die objektgebundenen Methoden der objektorientierten Programmierung, bei denen der Agent praktisch selbst handelt, sind also viel “natürlicher” bzw. realistischer. Dies hilft uns u.a. auch bei der Übersetzung der Realität bzw. einer soziologischen Theorie in ein Computerprogramm, weil das viel eher unserem Denken entspricht. Technisch gesehen, ist es eigentlich egal, ob wir Funktionen oder Methoden benutzen. Wir können mit beiden mehr oder weniger das gleiche machen. Es geht dabei tatsächlich nur darum, wie wir unser Programm ausformulieren, wie wir unsere Gedanken dem Computer mitteilen wollen.</p>
+<p>Das ist alles noch etwas abstrakt und es ist an dieser Stelle auch noch gar nicht sooo wichtig. Einerseits soll dir nur schon mal ein Gefühl dafür gegeben werden, wie wir ABM in Python umsetzen können und auf welche Weisen wir das im Verlauf dieses Kurses machen werden. Andererseits ging es mir bei diesem Exkurs darum, dass du im nun folgenden Abschnitt nicht verwundert bist, warum wir plötzlich “Funktionen” ausführen, indem wir diese hinten an Objekte anhängen.</p>
+</div>
+<div class="section" id="grundlegende-methoden-von-listen">
+<h2>Grundlegende Methoden von Listen<a class="headerlink" href="#grundlegende-methoden-von-listen" title="Permalink to this headline">¶</a></h2>
+<p>Schauen wir uns nun ein paar grundlegene Methoden von Listen an. All die folgenden “Funktionen” sind also Fähigkeiten von Listen, bestimmte Dinge zu tun. Diese Methoden sind exklusiv auf Listen zugeschnitten und funktionieren nur, wenn diese an Listen bzw. Variablennamen von Listen mit einem Punkt angehängt werden.</p>
+<div class="section" id="ein-element-anhangen-append">
+<h3>Ein Element anhängen: append()<a class="headerlink" href="#ein-element-anhangen-append" title="Permalink to this headline">¶</a></h3>
+<p>Die Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> fügt ein Element der Liste hinten an. Wir müssen das entsprechende Element dafür als Input in die Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> einfügen.</p>
+<p>Hier im Beispiel definiere ich zunächst die Liste <code class="docutils literal notranslate"><span class="pre">words</span></code>, welche ein paar Wörter enthält.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Baum&quot;</span><span class="p">,</span> <span class="s2">&quot;Haus&quot;</span><span class="p">,</span> <span class="s2">&quot;Sonne&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Baum&#39;, &#39;Haus&#39;, &#39;Sonne&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun füge ich mittels der Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> ein weiteres Wort hinzu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;WLAN&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das neue Wort befindet sich nun ebenfalls in der Liste:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Baum&#39;, &#39;Haus&#39;, &#39;Sonne&#39;, &#39;WLAN&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Beachte: Wir haben die Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> verändert, ohne diese mittels Variablendefinition (mit Gleichheitsszeichen) zu überschreiben! Die Liste hat sich praktisch durch das Ausführen ihrer Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> selbst verändert.</p>
+<p>Im Beispiel unten erstelle ich zunächsten einen Agenten <code class="docutils literal notranslate"><span class="pre">agent4</span></code> (in Form einer Liste) und hänge diesen dann an die Liste <code class="docutils literal notranslate"><span class="pre">population</span></code>, welche bereits oben irgendwann mal definiert wurde, mittels der Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> an.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agent erstellen</span>
+<span class="n">agent4</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;infiziert&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Agent an Populations-Liste anhängen</span>
+<span class="n">population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">agent4</span><span class="p">)</span>
+
+<span class="c1"># Populations-Liste anzeigen</span>
+<span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;infizierbar&#39;, False, None],
+ [&#39;infziert&#39;, True, 2],
+ [&#39;immun&#39;, False, 15],
+ [&#39;infiziert&#39;, False, 1]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="eine-liste-anhangen-extend">
+<h3>Eine Liste anhängen: extend()<a class="headerlink" href="#eine-liste-anhangen-extend" title="Permalink to this headline">¶</a></h3>
+<p>Man kann nicht nur einzelne Elemente an eine Liste anhängen, sondern man kann auch direkt eine ganze Liste von Objekten anhängen. Dabei werden aber nicht wie oben, die Liste mit Objekten einfach als Gesamtpaket d.h. als ein Objekt angehängt, sondern entpackt und als einzelne Objekte angehängt. Schauen wir uns das am besten einfach mal am Beispiel der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> an, welche zunächst noch so aussieht:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Baum&#39;, &#39;Haus&#39;, &#39;Sonne&#39;, &#39;WLAN&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Angenommen wir haben eine weitere Liste namens <code class="docutils literal notranslate"><span class="pre">more_words</span></code>, die ich hier geschwind definiere:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">more_words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Vogel&quot;</span><span class="p">,</span> <span class="s2">&quot;Wiese&quot;</span><span class="p">,</span> <span class="s2">&quot;Buch&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">more_words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Vogel&#39;, &#39;Wiese&#39;, &#39;Buch&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun möchte ich alle Wörter der Liste <code class="docutils literal notranslate"><span class="pre">more_words</span></code> in die Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> einfügen. Dafür benutze ich die Methode <code class="docutils literal notranslate"><span class="pre">extend()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">more_words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Schauen wir uns nun die Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> an:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Baum&#39;, &#39;Haus&#39;, &#39;Sonne&#39;, &#39;WLAN&#39;, &#39;Vogel&#39;, &#39;Wiese&#39;, &#39;Buch&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Und wir sehen, der Inhalt der Liste <code class="docutils literal notranslate"><span class="pre">more_words</span></code> befindet sich nur in der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code>. Wir haben die beiden Listen praktisch miteinander verschmolzen.</p>
+</div>
+<div class="section" id="ein-element-an-beliebiger-stelle-einfugen-insert">
+<h3>Ein Element an beliebiger Stelle einfügen: insert()<a class="headerlink" href="#ein-element-an-beliebiger-stelle-einfugen-insert" title="Permalink to this headline">¶</a></h3>
+<p>Nun wissen wir, wie wir Elemente oder ganze Listen hinten an eine Liste anhängen. Wir wissen auch, wie wir mittels Indizierung auf ein Element in einer Liste zugreifen und dieses ggf. verändern oder austauschen. Was wir noch nicht wissen, ist, wie man ein Element zwischen die Elemente einer Liste einfügt. Dies geht u.a. mit der Methode <code class="docutils literal notranslate"><span class="pre">insert()</span></code>.</p>
+<p>Die Methode <code class="docutils literal notranslate"><span class="pre">insert()</span></code> benötigt zwei Argumente:</p>
+<ul class="simple">
+<li><p>Das erste Argument gibt mittels Index an, an welcher Position das neue Element eingefügt werden soll</p></li>
+<li><p>Das zweite Argument gibt an, welches Objekt an der entsprechenden Stelle eingefügt werden soll</p></li>
+</ul>
+<p>Unten füge ich mithilfe von <code class="docutils literal notranslate"><span class="pre">insert()</span></code> das Wort <code class="docutils literal notranslate"><span class="pre">&quot;Xylophon&quot;</span></code> an der dritten Stelle der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> ein:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Xylophon&quot;</span><span class="p">)</span>
+
+<span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Baum&#39;, &#39;Haus&#39;, &#39;Xylophon&#39;, &#39;Sonne&#39;, &#39;WLAN&#39;, &#39;Vogel&#39;, &#39;Wiese&#39;, &#39;Buch&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="das-letzte-element-ausgeben-und-abhangen-pop">
+<h3>Das letzte Element ausgeben und abhängen: pop()<a class="headerlink" href="#das-letzte-element-ausgeben-und-abhangen-pop" title="Permalink to this headline">¶</a></h3>
+<p>Die Methode <code class="docutils literal notranslate"><span class="pre">pop()</span></code> tut zwei Dinge: Zum einen wird das letzte Element einer Liste abgehängt d.h. aus der Liste entfernt. Zum anderen wird aber zugleich auch das letzte Element auch zurückgegeben, sodass wir es bspw. einer Variable zuweisen können und es nicht weg ist, nachdem wir es von unserer Liste abgehängt haben. Wir können also mit der Funktion <code class="docutils literal notranslate"><span class="pre">pop()</span></code> das letzte Element aus der Liste herausnehmen und etwas anderes mit diesem machen. Letzteres müssen wir aber auch nicht. Wenn wir das zurückgegebene Element nicht wieder irgendwo speichern, dann verschwindet es einfach.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Baum&#39;, &#39;Haus&#39;, &#39;Xylophon&#39;, &#39;Sonne&#39;, &#39;WLAN&#39;, &#39;Vogel&#39;, &#39;Wiese&#39;, &#39;Buch&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Buch&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Baum&#39;, &#39;Haus&#39;, &#39;Xylophon&#39;, &#39;Sonne&#39;, &#39;WLAN&#39;, &#39;Vogel&#39;, &#39;Wiese&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letztes_element</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letztes_element</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Wiese&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="noch-ein-paar-nutzliche-funktionen-zum-umgang-mit-listen">
+<h2>Noch ein paar nützliche Funktionen zum Umgang mit Listen<a class="headerlink" href="#noch-ein-paar-nutzliche-funktionen-zum-umgang-mit-listen" title="Permalink to this headline">¶</a></h2>
+<p>Im Folgenden zeige ich noch kurz ein paar nützliche Funktionen, die wir beim Umgang mit Listen immer wieder brauchen werden. Diesmal sind es tatsächlich <em>richtige</em> Funktionen und keine Methoden.</p>
+<div class="section" id="summe-minimum-maximum-sum-min-max">
+<h3>Summe, Minimum &amp; Maximum: sum(), min(), max()<a class="headerlink" href="#summe-minimum-maximum-sum-min-max" title="Permalink to this headline">¶</a></h3>
+<p>Wenn eine Liste nur aus verrechenbaren Elementen besteht, also typischerweise aus Zahlen vom Typ <code class="docutils literal notranslate"><span class="pre">int</span></code> und <code class="docutils literal notranslate"><span class="pre">float</span></code>, dann kann man sich mit <code class="docutils literal notranslate"><span class="pre">sum()</span></code> die Summe, mit <code class="docutils literal notranslate"><span class="pre">min()</span></code> das Minimum und mit <code class="docutils literal notranslate"><span class="pre">max()</span></code> das Maximum aller Listenelemente ausgeben lassen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="nb">sum</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="elemente-loschen-del">
+<h3>Elemente löschen: del()<a class="headerlink" href="#elemente-loschen-del" title="Permalink to this headline">¶</a></h3>
+<p>Die Funktion <code class="docutils literal notranslate"><span class="pre">del()</span></code> wird generell dazu verwendet, um Variablen zu löschen. Besonders praktisch ist diese Funktion aber, wenn man einzelne Elemente aus einer Liste herauslöschen möchte. Als Argument übergibt man per Indizierung dasjenige Element aus der Liste, das gelöscht werden soll.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># eine Liste erstellen</span>
+<span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;hallo&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Das dritte Element löschen</span>
+<span class="k">del</span><span class="p">(</span><span class="n">liste</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># Liste ausgeben</span>
+<span class="n">liste</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[True, False, 1, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Marius Kaffai<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

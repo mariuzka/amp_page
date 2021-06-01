@@ -1,0 +1,1114 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python &amp; Anaconda &#8212; ABM mit Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ABM mit Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Willkommen
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="amp01_intro.html">
+   1.1 Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp01a_einf%C3%BChrung.html">
+     Was ist ABM?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp01a_python_und_anaconda.html">
+     Verwendete Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp01a_einstieg_python.html">
+     Einstieg in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="amp01b.html">
+   1.2 Warm-up
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp01c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02_intro.html">
+   2.1 Woraus alles besteht
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listen_agenten_populationen.html">
+     Listen, Agenten &amp; Populationen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenzugriff.html">
+     Der Zugriff auf Listen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_exkurs_funktionen_methoden.html">
+     Exkurs: Funktionen &amp; Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenmethoden.html">
+     Grundlegende Listen-Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenfunktionen.html">
+     Nützliche Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02b.html">
+   2.2 Hinterlistige Übungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03_intro.html">
+   3.1 Motoren der Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_was_ist_for-loop.html">
+     Was ist ein For-Loop?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_for-loops_in_python.html">
+     For-Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_range.html">
+     Exkurs: Zahlenreihen erstellen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_%C3%BCber_zahlenreihe_loopen.html">
+     Loop durch Zahlenreihe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_variablen_ver%C3%A4ndern.html">
+     Variablen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_unver%C3%A4nderbare_objekte.html">
+     Exkurs: (un-)veränderbare Objekte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_listen_ver%C3%A4ndern.html">
+     Listen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_modulo.html">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_geschachtelte_for-loops.html">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_nutzen_for-loops.html">
+     ABM &amp; For-Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03b.html">
+   3.2 Gefangen im Loop
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04_intro.html">
+   4.1 Eine Brise Gefühl
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if-statements.html">
+     If-Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_boolsche_ausdr%C3%BCcke.html">
+     Boolesche Ausdrücke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if_else_elif.html">
+     If, else, elif
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_modul_import.html">
+     Exkurs 1: Module importieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_dicts.html">
+     Exkurs 2: das Dictionary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04/amp04b.html">
+   4.2 Das NaSch-Modell
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/01/amp01a.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F01/amp01a.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/01/amp01a.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Python &amp; Anaconda
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spyder">
+     Spyder
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#einstieg-in-python-was-sind-variablen-datentypen-und-funktionen">
+   Einstieg in Python: Was sind Variablen, Datentypen und Funktionen?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-als-taschenrechner">
+     Python als Taschenrechner
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variablen">
+     Variablen
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datentypen">
+     Datentypen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#integer">
+       Integer
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#float">
+       Float
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#string">
+       String
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#booleans">
+       Booleans
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#listen">
+       Listen
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funktionen">
+     Funktionen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#len">
+       len()
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#type">
+       type()
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#help">
+       help()
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#int-float-str">
+       int(), float(), str()
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#print">
+       print()
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kommentare">
+     Kommentare
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="python-anaconda">
+<h1>Python &amp; Anaconda<a class="headerlink" href="#python-anaconda" title="Permalink to this headline">¶</a></h1>
+<p>Wir nutzen im Kurs die Programmiersprache Python. Python ist eine professionelle und universell einsetzbare Programmiersprache, die momentan zu den <a class="reference external" href="https://www.northeastern.edu/graduate/blog/most-popular-programming-languages/">populärsten Programmiersprachen weltweit</a> zählt. Zur offiziellen Website von Python geht es <a class="reference external" href="https://www.python.org/">hier</a>.</p>
+<p><strong>Wir benutzen Python in diesem Seminar aus folgenden Gründen:</strong></p>
+<ul class="simple">
+<li><p>Python ist im Vergleich zu anderen Programmiersprachen <em>relativ einfach zu lernen</em> und besitzt eine <em>gut lesbare Syntax</em> .</p></li>
+<li><p>Python setzt die sogenannte Objektorientierte Programmierung (kurz: OOP) sehr gut um. Das ist nützlich, da wir einen Agenten später als ein selbstdefiniertes Software-Objekt mit gewissen Eigenschaften umsetzen werden.</p></li>
+<li><p>Mit Python als professioneller Programmiersprache ist man im Vergleich zu <a class="reference external" href="https://ccl.northwestern.edu/netlogo/">NetLogo</a>, einer extra für die Einführung in ABM entworfene Programmiersprache, deutlich mächtiger und flexibler in der Programmierung von ABM.</p></li>
+<li><p>Mit Python könnt ihr nicht nur ABM programmieren, sondern verfügt über eine sowohl in der Wissenschaft als auch in sonstigen Arbeitsfeldern universal einsetzbare und äußerst gefragte Kompetenz.</p></li>
+<li><p>Python ist zur Zeit extrem populär und verfügt über eine sehr aktive Community. Dadurch findet man durch eine Google-Suche (auf Englisch) zu fast jedem Problem mit Python eine Lösung.</p></li>
+</ul>
+<p><strong>Nachteile von Python für die Entwicklung von ABM:</strong></p>
+<ul class="simple">
+<li><p>Anders als z.B. Netlogo wurde Python nicht speziell für die Programmierung von ABM entwickelt. Das macht den Einstieg in die Programmierung von ABM etwas schwerer, zahlt sich langfristig aber aus.</p></li>
+<li><p>Während beispeilsweise in NetLogo die graphische Darstellung nicht selbst programmiert werden muss, müssen wir dies in Python selber programmieren. Aus diesem Grund werden wir in diesem Kurs nur sehr einfache Methoden der graphischen Darstellung verwenden.</p></li>
+<li><p>Python ist im Vergleich zu anderen professionellen Programmiersprachen etwas, für uns jedoch unmerklich, langsamer.</p></li>
+</ul>
+<p>Ich empfehle für diesen Kurs Python über Anaconda zu installieren und zu nutzen. Anaconda bündelt alle wichtigen Pakete und Programmierumgebungen wie <a class="reference external" href="https://www.spyder-ide.org/">Spyder</a> und <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a>, macht den Einstieg in die Programmierung mit Python etwas einfacher, hift einem aber auch langfristig all die Python-Zusatzpakete (in sogenannten virtuellen Umgebungen) zu managen.</p>
+<p>Anaconda kann <a class="reference external" href="https://www.anaconda.com/distribution/">hier</a> heruntergeladen werden.</p>
+<p>Nach der Installation von Anaconda kann der <strong>Anaconda-Navigator</strong> geöffnet werden. Dort stehen eine Reihe von Programmen zur Auswahl, u.a. auch Spyder, welches wir in diesem Kurs zur Programmierung mit Python verwenden werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">src</span>
+<span class="n">src</span><span class="o">.</span><span class="n">plt_image</span><span class="p">(</span><span class="s1">&#39;img/anaconda_navigator.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp01a_2_0.png" src="../_images/amp01a_2_0.png" />
+</div>
+</div>
+<div class="section" id="spyder">
+<h2>Spyder<a class="headerlink" href="#spyder" title="Permalink to this headline">¶</a></h2>
+<p>Wir werden zunächst v.a. mit der Programmierumgebung Spyder arbeiten. Spyder ist eine Integrierte-Entwicklungs-Umgebung (integrated development environment, kurz: IDE), welche auf die wissenschaftliche Anwendung von Python spezialisiert ist. Wir können in dieser sowohl den Code unseres Programmes schreiben, unsere Daten/Variablen untersuchen, Graphiken anzeigen lassen als auch interaktiv mit Python kommunizieren. Wenn du vielleicht schonmal mit R und R-Studio gearbeitet hast: Spyder ist quasi das R-Studio für Python.</p>
+<p>Spyder besteht aus drei zentralen Fenstern:</p>
+<p><strong>Editor</strong>:</p>
+<ul class="simple">
+<li><p>Im Editor schreiben wir unser <em>Programm</em> bzw. unseren <em>Code</em>.</p></li>
+<li><p>Wir können das dort geschriebene Programm als .py-Datei abspeichern. Wir nennen ein solches Dokument auch “Skript”.</p></li>
+<li><p>Das gesamte Programm des aktuellen Skripts können wir ausführen, indem wir auf das grüne Dreieck am oberen Rand von Spyder drücken</p></li>
+<li><p>Einzelne Code-Ausschnitte können u.a. ausgeführt werden, indem wir diese markieren und F9 drücken</p></li>
+</ul>
+<p><strong>Konsole</strong>:</p>
+<ul class="simple">
+<li><p>In der Konsole “verbirgt” sich Python bzw. der sogenannte Python-Kernel. Vereinfacht kann man sich vorstellen, dass hier unser geschriebener Code ausgeführt wird.</p></li>
+<li><p>Wir bekommen in der Konsole auch Feedback von Python. Hier werden beispielsweise Ergebnisse oder Fehlermeldungen eines Programmes angezeigt.</p></li>
+<li><p>In die Konsole können wir auch direkt Code eintippen, mit Enter bestätigen und wir bekommen unmittelbar das Ergebnis angezeigt. Die Konsole kann also auch für eine “interaktive” Benutzung von Python, beispielsweise wie bei einem Taschenrechner, verwendet werden.</p></li>
+</ul>
+<p><strong>Variablenexplorer</strong>:</p>
+<ul class="simple">
+<li><p>Im Variablenmanager bekommen wir die Werte von Variablen bzw. Software-Objekten angezeigt.</p></li>
+<li><p>Sehr hilfreich, um zu prüfen, inwiefern das Programm richtig läuft und um den Überblick zu behalten.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">src</span><span class="o">.</span><span class="n">plt_image</span><span class="p">(</span><span class="s1">&#39;img/spyder_mit_beschriftung.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp01a_4_0.png" src="../_images/amp01a_4_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="einstieg-in-python-was-sind-variablen-datentypen-und-funktionen">
+<h1>Einstieg in Python: Was sind Variablen, Datentypen und Funktionen?<a class="headerlink" href="#einstieg-in-python-was-sind-variablen-datentypen-und-funktionen" title="Permalink to this headline">¶</a></h1>
+<p>Bevor wir mit der Programmierung von ABM loslegen können, müssen wir erstmal grob verstehen, wie Python funktioniert und was die allgemeine Logik von Programmiersprachen ist. Damit du die folgenden Ausführungen sowie alle anderen Kapitel dieses Kurses nachverfolgen und vielleicht sogar mittippen kannst, solltest du am besten Spyder geöffnet haben, wenn du diesen Kurs durcharbeitest.</p>
+<div class="section" id="python-als-taschenrechner">
+<h2>Python als Taschenrechner<a class="headerlink" href="#python-als-taschenrechner" title="Permalink to this headline">¶</a></h2>
+<p>Den intuitivsten Einstieg erhält man, wenn man Python zunächst einfach als Taschenrechner verwendet. Python kann zwar als Programmiersprache vieles mehr, dennoch machen wir auch mit Python oft das, was was man auch mit einem Taschenrechner oder im Kopf hätte machen können: Wir verrechnen irgendwelche Zahlen auf irgendeine Art und Weise. Du kannst das Ausprobieren, indem du einfach typische Berechnungen, die du auch in einen klassischen Taschenrechner eintippen könntest, in die Konsole eintippst und Enter drückst.</p>
+<p>Zum Beispiel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">20</span> <span class="o">+</span> <span class="mi">20</span> <span class="o">-</span> <span class="mi">54</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">40</span> <span class="o">*</span> <span class="mi">65</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2593.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir sehen, Python weiß also was Zahlen bedeuten und weiß auch über die Bedeutung von bestimmten mathematischen Operatoren, wie <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> und <code class="docutils literal notranslate"><span class="pre">/</span></code> Bescheid. Diese beiden Elemente von Berechnungen - Zahlen und Operatoren - vermitteln auch einen intuitiven Eindruck davon, woraus letztlich jedes Computerprogramm besteht: nämlich aus irgendwelchen <em>Daten</em> und irgendwelchen <em>Funktionen</em>, die irgendwas mit den Daten machen. In diesem Falle sind die Daten die eingegebenen Zahlen und die Funktionen sind die mathematischen Operatoren, die vorgeben, wie die Daten verrechnet werden sollen. Es gibt jedoch neben Zahlen und mathematischen Operatoren eine ganze Reihe an anderen Datentypen und Funktionen, dennoch werden wir diese fast in jedem Programm benutzen. Dazu später mehr.</p>
+<p>Übrigens ist all das, was in Python existiert, also auch die obigen Zahlen und Operatoren bzw. Daten und Funktionen, auch ein sogenanntes Software-Objekt bzw. Objekt. Objekte sind die kleinsten Einheiten in Python, aus dem alles besteht. Dabei gibt es verschiedene Klassen bzw. Typen von Objekten, welche bestimmen, was ein bestimmtes Objekt machen kann und was nicht. Auch dazu werden wir im Verlauf des Kurses noch mehr lernen.</p>
+</div>
+<div class="section" id="variablen">
+<h2>Variablen<a class="headerlink" href="#variablen" title="Permalink to this headline">¶</a></h2>
+<p>Geben wir Berechnungen wie oben oder auch einfach nur irgendwelche Werte in die Konsole ein, dann bekommen wir das Ergebnis unmittelbar ausgegeben. Wir können aber einzelne Werte oder das Ergebnis einer Berechnung auch speichern, indem wir diese einer sogenannten Variable zuweisen. Dadurch können wir die so abgelegten Werte später immer wieder unter dem angegebenen Variablennamen aufrufen und im Programm weiter verwenden.</p>
+<p>Eine Variablenzuweisung erfolgt mithilfe des Gleichheitszeichens, wobei auf der rechten Seite der Wert und auf der linken Seite der Name, unter dem der Wert auf der rechten Seite aufzurufen ist, geschrieben. Unten weisen wir beispielsweise den Wert <code class="docutils literal notranslate"><span class="pre">1500</span></code> dem Variablennamen <code class="docutils literal notranslate"><span class="pre">income</span></code> zu. Führen wir diesen Code aus, passiert erstmal nichts. Zumindest nichts, was für uns sichtbar ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">income</span> <span class="o">=</span> <span class="mi">1500</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tippen wir nun den entsprechenden Variablennamen in die Konsole ein und drücken Enter, erhalten wir den eingespeicherten Wert zurück.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">income</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1500
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie gesagt können wir die Variable nun in Berechnungen verwenden und auch die Ergebnisse von Berechnungen selbst wieder einer Variable zuweisen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">remaining_money</span> <span class="o">=</span> <span class="n">income</span> <span class="o">-</span> <span class="mi">700</span>
+<span class="n">remaining_money</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>800
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zudem können wir auch innerhalb unseres Programmes einen Variablennamen immer wieder überschreiben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">remaining_money</span> <span class="o">=</span> <span class="n">remaining_money</span> <span class="o">-</span> <span class="mi">500</span>
+<span class="n">remaining_money</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>300
+</pre></div>
+</div>
+</div>
+</div>
+<p>Gerade speichern wir immer nur Zahlen als Variablen ein. In Python kann man aber eigentlich alles, d.h. jede Form eines Software-Objektes einer Variable zuweisen. Das werden wir weiter unten noch sehen.</p>
+<p>Übrigens kann man ein und dasselbe Objekt auch mehrmals unter verschiedenen Variablennamen einpeichern:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Man könnte denken, dass sich im Speicher nun zweimal der Wert <code class="docutils literal notranslate"><span class="pre">100</span></code>, einmal an dem Ort <code class="docutils literal notranslate"><span class="pre">x</span></code> und einmal an dem Ort <code class="docutils literal notranslate"><span class="pre">y</span></code> befindet. Doch die Variablenzuweisung in Python funktioniert anders. Stattdessen befindet sich die <code class="docutils literal notranslate"><span class="pre">100</span></code> immer noch nur genau einmal im Speicher an genau einem Ort. Dieser eine Ort im Speicher, an dem die <code class="docutils literal notranslate"><span class="pre">100</span></code> liegt, kann nun aber mit zwei Variablennamen gefunden werden: <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code>. Variablen sind in Python also immer nur “Zeiger” auf Werte bzw. Objekte, die irgendwo im Speicher liegen. Diese Eigenschaft von Python ist zu diesem Zeitpunkt noch nicht so wichtig, später aber wird dies sowohl eine sehr verwirrende als auch hilfreiche Eigenschaft sein.</p>
+</div>
+<div class="section" id="datentypen">
+<h2>Datentypen<a class="headerlink" href="#datentypen" title="Permalink to this headline">¶</a></h2>
+<p>Die grundlegensten Software-Objekte in Python sind Daten. Daten können in verschiedener Form vorliegen bzw. gespeichert sein. Man nennt die unterschiedlichen Formen, in denen Datenwerte vorliegen können, auch Datentyp. Ein Datentyp gibt vor, was man mit bestimmten Datenwerten machen kann d.h. welche Funktionen auf diesen Datentyp anwendbar sind. Beispielsweise gehört eine 2 in Python zum Datentyp “Integer”, also “ganze Zahl”. Für diesen Datentyp ist zum Beispiel das Addieren mit einem weiteren Datenelement vom Typ “Integer” eine zulässige Verarbeitung, wie wir bereits im Taschenrechner-Beispiel gesehen haben.</p>
+<p>In Python gibt es eine Reihe grundlegender Datentypen, die fast in jedem Programm verwendet werden und wir deren Eigenschaften daher gut kennen sollten. Hier ist eine Auswahl an Datentypen, die wir von Anfang an brauchen werden und ich daher ganz kurz vorstellen möchte.</p>
+<ul class="simple">
+<li><p>Integer</p></li>
+<li><p>Float</p></li>
+<li><p>String</p></li>
+<li><p>Boolean</p></li>
+<li><p>List</p></li>
+</ul>
+<div class="section" id="integer">
+<h3>Integer<a class="headerlink" href="#integer" title="Permalink to this headline">¶</a></h3>
+<p>Integers sind “ganze Zahlen” und werden in Python mit <code class="docutils literal notranslate"><span class="pre">int</span></code> abgekürzt. Eine <code class="docutils literal notranslate"><span class="pre">42</span></code> ist beispielsweise eine ganze Zahl.</p>
+</div>
+<div class="section" id="float">
+<h3>Float<a class="headerlink" href="#float" title="Permalink to this headline">¶</a></h3>
+<p>Floats heißen in Python alle “Kommazahlen” bzw. “Fließkommazahl”. In Python wird als Trennzeichen jedoch kein Komma, sondern ein Punkt verwendet. Beispielsweise gehört die <code class="docutils literal notranslate"><span class="pre">42.35</span></code>, aber auch die <code class="docutils literal notranslate"><span class="pre">42.0</span></code> zum Datentyp <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+</div>
+<div class="section" id="string">
+<h3>String<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h3>
+<p>Strings sind “Zeichen” oder “Zeichenketten”. Diese werden in Python über die Einbettung in Anführungszeichen gekennzeichnet. Der Datentyp wird in Python mit <code class="docutils literal notranslate"><span class="pre">str</span></code> abgekürzt. Beispielsweise gehören <code class="docutils literal notranslate"><span class="pre">&quot;Haus&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;jhfe93f39jh3129f&quot;</span></code>, aber auch eine <code class="docutils literal notranslate"><span class="pre">&quot;10&quot;</span></code>, weil in Anführungszeichen, zum Datentyp String.</p>
+<p>Das Besondere an Strings ist, dass diese für den Computer - anders als beispielsweise Integers oder Floats - zunächst keine “inhaltliche” d.h. “mathematische” Bedeutung haben. Bei Integers und Floats weiß der Computer, dass man damit rechnen kann und ein bestimmter Zahlenwert eine bestimmte Bedeutung bei den Berechnungen hat. Wenn aber ein Symbol, das aus mathematischer Sicht eine verrechenbare Zahl darstellt, in Anführungszeichen und somit als String verwendet wird, dann interpretiert Python dieses nicht mehr als Zahl, wodurch damit auch nicht mehr klassischerweise gerechnet werden kann.</p>
+<p>Unten addiere ich mal zwei Einsen vom Typ <code class="docutils literal notranslate"><span class="pre">int</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aha, das funktioniert also. Jetzt addiere ich eine <code class="docutils literal notranslate"><span class="pre">1</span></code> vom Typ <code class="docutils literal notranslate"><span class="pre">int</span></code> und eine <code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code> vom Typ <code class="docutils literal notranslate"><span class="pre">str</span></code>. Mal schauen was passiert:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="n">b780703cc5f9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">1</span> <span class="o">+</span> <span class="s2">&quot;1&quot;</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aha, ein Fehler. Man sieht, Python kann mit einem String nicht rechnen. Was passiert, wenn ich zwei Einsen vom Typ <code class="docutils literal notranslate"><span class="pre">str</span></code> addiere?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;1&quot;</span> <span class="o">+</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;11&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Juhu, kein Fehler, aber das Ergebnis einer Addition zweier Einsen ist das auch nicht. Stattdessen hat Python nun den String <code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code> und den String <code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code> zum String <code class="docutils literal notranslate"><span class="pre">&quot;11&quot;</span></code> zusammengefügt. Wir sehen, zwar kann man mit Strings nicht “mathematisch rechnen”, aber dennoch kann man zumindest den Plus-Operator für das unkomplizierte Zusammenfügen zweier Strings verwenden. Diese Funktion kann an der ein oder anderen Stelle nützlich sein.</p>
+<p>Allgemein wird deutlich: Achte darauf, in welchem Datentyp die Werte vorliegen! Zum einen können bestimmte Operationen nur mit bestimmten Datentypen vollzogen werden, zum anderen kann sich die Funktionsweise eines Operators, wie dem Plus-Operator, je nach Datentyp ändern.</p>
+</div>
+<div class="section" id="booleans">
+<h3>Booleans<a class="headerlink" href="#booleans" title="Permalink to this headline">¶</a></h3>
+<p>Booleans heißen in Python logische Wahrheitswerte. Es gibt genau zwei Wahrheitswerte: Wahr und Falsch. In Python heißen diese <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Wir werden Booleans später brauchen, um angeben zu können, ob eine bestimmte Bedingung erfüllt ist oder nicht. Beispielsweise könnte es an einer bestimmten Stelle im Programm wichtig sein zu wissen, ob das Einkommen einer Person größer als 1000€ ist. Um das herauszufinden, würde man Python fragen, ob die Variable, die das Einkommen repräsentiert, größer als 1000€ ist. Das Ergebnis ist dann entweder <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">income</span> <span class="o">&gt;</span> <span class="mi">1000</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir werden solche Vergleiche später v.a. in sogenannten If-Statements, über die es ein eigenes Kapitel geben wird, benötigen.</p>
+</div>
+<div class="section" id="listen">
+<h3>Listen<a class="headerlink" href="#listen" title="Permalink to this headline">¶</a></h3>
+<p>Eine Liste ist ein sogenannter Datencontainer, also ein Objekt, in welchem wir andere Objekte ablegen können und so auf sehr gute Weise strukturieren können. Listen werden in Python durch zwei eckige Klammern erzeugt. Dies ist beispielsweise eine leere Liste: <code class="docutils literal notranslate"><span class="pre">[]</span></code> . Die Objekte in den Listen werden durch Kommata getrennt. Die Objekte einer Liste nennt man Element. Wir können übrigens alles Mögliche in Listen als Elemente ablegen. Hier lege ich beispielsweise alles mögliche in einer Liste ab und speichere diese unter dem Variablennamen <code class="docutils literal notranslate"><span class="pre">my_stuff</span></code> ab:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_stuff</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">remaining_money</span> <span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;Haus&quot;</span><span class="p">,</span> <span class="s2">&quot;Auto&quot;</span><span class="p">,</span> <span class="n">income</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+
+<span class="n">my_stuff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 300, False, 6, &#39;Haus&#39;, &#39;Auto&#39;, 1500, True]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Praktisch an Listen ist, dass wir dort Objekte ablegen und speichern können, ohne dass wir jedes einzelne Element als Variable speichern müssen. Das ist praktisch, weil wir es oft mit sehr vielen Daten bzw. Objekten zu tun haben, die wir zwar alle  brauchen, aber nicht alle einzeln als Variable benennen wollen. Legen wir alle Objekte in einer Liste ab, so brauchen wir nur die Liste zu speichern und wir haben dennoch alle Daten gespeichert. Da Listen wirklich sehr praktisch sind, gibt es später ein eigenes Kapitel zu Listen. Dort zeige ich euch auch, wie man auf die in der Liste gespeicherten Elemente zugreifen kann, um sie für irgendwas zu benutzen.</p>
+</div>
+</div>
+<div class="section" id="funktionen">
+<h2>Funktionen<a class="headerlink" href="#funktionen" title="Permalink to this headline">¶</a></h2>
+<p>Wir haben nun schon eine ganze Reihe von Datentypen kennengelernt. Doch Programme bestehen ja aus Daten sowie Funktionen, die irgendwas mit den Daten machen. Deshalb werfen wir nun kurz einen Blick auf Funktionen.</p>
+<ul class="simple">
+<li><p>Allgemein ist eine Funktion eine bestimmte Art von Objekt, das “Anweisungen” enthält, wie bestimmte Daten bzw. Objekte verarbeitet werden sollen.</p></li>
+<li><p>Meist erwarten Funktionen eine gewisse Form von Input, auch Argumente genanannt, die in Regel das Objekt, das verarbeitet werden soll, enthalten. Manchmal müssen auch keine Argumente explizit in eine Funktion eingegeben werden, weil die Daten selbst schon in der Funktion vorhanden sind. In der Regel gibt eine Funktion am Ende auch einen gewissen Output zurück.</p></li>
+<li><p>Funktionen selbst sind immer unter einem bestimmten Variablennamen abgespeichert. Über diesen Namen können wir die Funktion aufrufen und anwenden.</p></li>
+<li><p>Funktionen kann man oft daran erkennen, dass diese mit zwei runden Klammern enden. In diese runden Klammern werden die Argumente eingegeben.</p></li>
+<li><p>Rufen wir die Funktion auf, so werden die Anweisungen ausgeführt.</p></li>
+</ul>
+<p>Ein Beispiel für eine Funktion ist <code class="docutils literal notranslate"><span class="pre">len()</span></code>. Diese misst u.a. die Länge von Listen und Strings. In die runden Klammern gibt man die Input-Daten, also eine Liste oder ein String und die Funktion gibt die Länge des eingegebenen Objekts zurück.</p>
+<p>Hier messe ich die Länge der Liste <code class="docutils literal notranslate"><span class="pre">my_stuff</span></code>, welche oben definiert wurde:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">my_stuff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie man unten überprüfen kann, hat die Liste <code class="docutils literal notranslate"><span class="pre">my_stuff</span></code> wirklich 8 Elemente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_stuff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 300, False, 6, &#39;Haus&#39;, &#39;Auto&#39;, 1500, True]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Als wir Python als Taschenrechner benutzt haben, haben wir ja bereits auch was mit den Daten gemacht: gerechnet. Tatsächlich haben wir dort bereits eine besondere Form von Funktionen verwendet: Mathematische Operatoren. So ist beispielsweise die Anweisung, wie zwei Zahlen verrechnet werden, wenn diese addiert werden, unter dem Variablennamen <code class="docutils literal notranslate"><span class="pre">+</span></code> eingespeichert. Das besondere ist, dass die Argumente nicht wie bei der Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code> in die runden Klammern übergeben werden, sondern links und rechts von dem Plus-Zeichen stehen. Meist nennen wir solche besonderen Funktionen einfach Operatoren und meinen mit dem Begriff Funktion meist all das, was so aussieht wie die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code>. Genaugenommen sind aber auch all die vielen Operatoren in Python eine Form von Funktion.</p>
+<p>Was ansonsten noch wichtig ist zu wissen: Die Klammern nach einer Funktion dienen nicht nur dazu, Argumente in die Funktion einzugeben, sondern signalisieren Python auch, dass die Funktion nun auch ausgeführt werden soll. Denn tatsächlich kennt Python die Funktion auch allein unter dem Funktionsnamen ohne die Klammern. Gibt man beispielsweise nur <code class="docutils literal notranslate"><span class="pre">len</span></code> ein, dann behandelt Python die Funktion einfach wie jedes andere Objekt und gibt mir dieses wieder zurück, ohne es auszuführen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function len(obj, /)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Erst wenn die Klammern angehängt werden, versucht Python auch die Funktion auszuführen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="n">adf3103c7c3e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">len</span><span class="p">()</span>
+
+<span class="ne">TypeError</span>: len() takes exactly one argument (0 given)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jetzt hat Python versucht die Funktion auszuführen, hat aber gemerkt, dass die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code> zwingend ein Argument erwartet - nämlich ein Objekt, dessen Länge gemessen werden kann.</p>
+<p>Im Folgenden werden ein paar Funktionen, die am Anfang wichtig sind, vorgestellt. Im Verlauf des Kurses werden wir immer wieder neue Funktionen kennenlernen. Später werden wir auch unsere eigenen Funktionen schreiben.</p>
+<div class="section" id="len">
+<h3>len()<a class="headerlink" href="#len" title="Permalink to this headline">¶</a></h3>
+<p>Gibt die Länge von sequentiellen Datentypen, also z.B. Listen und Strings, an.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;agent-based modeling&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">([</span><span class="s2">&quot;agent-based modeling&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="p">[],</span> <span class="kc">True</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="type">
+<h3>type()<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
+<p>Gibt den Datentyp eines Objekts zurück.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;agent-based modeling&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">([</span><span class="s2">&quot;agent-based modeling&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="p">[],</span> <span class="kc">True</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="help">
+<h3>help()<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
+<p>Gibt einem nähere Informationen über ein Objekt. Auch Funktionen können als Argument eingegeben werden, dafür müssen aber die runden Klammern weggelassen werden, damit die Funktion nicht ausgeführt wird, sondern als normales Objekt behandelt wird.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function len in module builtins:
+
+len(obj, /)
+    Return the number of items in a container.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">help</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on _Helper in module _sitebuiltins object:
+
+class _Helper(builtins.object)
+ |  Define the builtin &#39;help&#39;.
+ |  
+ |  This is a wrapper around pydoc.help that provides a helpful message
+ |  when &#39;help&#39; is typed at the Python interactive prompt.
+ |  
+ |  Calling help() at the Python prompt starts an interactive help session.
+ |  Calling help(thing) prints help for the python object &#39;thing&#39;.
+ |  
+ |  Methods defined here:
+ |  
+ |  __call__(self, *args, **kwds)
+ |      Call self as a function.
+ |  
+ |  __repr__(self)
+ |      Return repr(self).
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="int-float-str">
+<h3>int(), float(), str()<a class="headerlink" href="#int-float-str" title="Permalink to this headline">¶</a></h3>
+<p>Die Namen dieser Variablen bezeichnen nicht nur den jeweiligen Datentyp, sondern versuchen als Funktion auch ein eingegebenes Objekt in den jeweilgen Datentyp zu konvertieren. Hier wird beispielsweise eine Zahl im Integer-Format in einen String umgewandelt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;100&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hier wird eine Zahl im String-Format in einen Integer umgewandelt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;200&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Versuch einen Buchstaben in einen String umzuwandeln, ist jedoch zum scheitern verurteilt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;Zweihundert&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">29</span><span class="o">-</span><span class="n">cce3fd583dcd</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;Zweihundert&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: invalid literal for int() with base 10: &#39;Zweihundert&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Man kann also nicht alle möglichen Werte bzw. Datentypen in alle möglichen anderen Datentypen umwandeln. So kann man z.B. auch einen Float niemals in eine Liste umwandeln. Bei den Datentypen <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code> und <code class="docutils literal notranslate"><span class="pre">str</span></code> kann man aber zumindest Zahlen-Symbole relativ problemlos ineinander umwandeln.</p>
+</div>
+<div class="section" id="print">
+<h3>print()<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h3>
+<p>Eine äußerst nützliche Funktion ist zudem die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code>. Diese Funktion bewirkt, dass der Wert einer Variable bzw. eines Ausdrucks in der Konsole ausgegeben wird. Du fragst dich bestimmt, wofür wir das brauchen, denn bisher konnten wir uns die Werte ja auch einfach durch das eingeben des Variablennamens oder der Berechnung in der Konsole unmittelbar ausgeben lassen. Das funktioniert in Spyder aber nur in der interaktiven Konsole!</p>
+<p>Wenn wir längere Programme im Editor-Fenster schreiben und wollen, dass während der Laufzeit des Programms bestimmte Werte in der Konsole angezeigt werden, dann brauchen wir die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code>. Außerdem müssen wir dann nicht immer wieder den Namen der Variable in die Konsole eingeben, sondern bekommen, wenn wir den <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Befehl in unserem Programm haben, den Wert immer wieder automatisch ausgegeben. Insgesamt kann es sinnvoll sein, die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> zur Kontrolle des Verhaltens unseres Programmes zu nutzen, indem wir beispielsweise während der Laufzeit des Programms bestimmte Werte, mit denen wir die Funktionalität oder den Status unseres Programms ablesen können, ausgeben zu lassen.</p>
+<p>In die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> kann eine unbegrenzte Anzahl an Argumenten eingegeben werden, deren Wert dann in der Konsole ausgegeben wird.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello world
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &#39;hello world&#39; hat&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">),</span> <span class="s2">&quot;Buchstaben.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &#39;hello world&#39; hat 11 Buchstaben.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dieses Dokument ist übrigens in einem <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> verfasst worden. Da auch in Jupyter Notebooks die Werte von Variablen, zumindest wenn sie am Ende eines ausgeführten Code-Blocks stehen, durch das Eintippen ihrer Namen automatisch auch angezeigt werden, verwende ich hier auch nur, wenn es notwendig ist, die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
+</div>
+</div>
+<div class="section" id="kommentare">
+<h2>Kommentare<a class="headerlink" href="#kommentare" title="Permalink to this headline">¶</a></h2>
+<p>Wenn wir Code im  Editor schreiben, ist es sinnvoll, diesen zu kommentieren. Denn Programme können sehr schnell sehr kompliziert werden und nach ein paar Tagen wissen selbst die besten Programmierer*innen nicht mehr, was denn eigentlich ihr schönes Programm da macht, wenn man den Code nicht gut kommentiert hat. Das kennst du möglicherweise auch schon von SPSS oder R. Kommentare dienen allein der besseren Strukturierung/Erklärung des Codes für uns Menschen. Python überliest diese Kommentare bei der Ausführung des Programms.</p>
+<p>Einzeilige Kommentare können mit einem <code class="docutils literal notranslate"><span class="pre">#</span></code> eingefügt werden:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier könnte ein Kommentar stehen</span>
+</pre></div>
+</div>
+<p>Mehrzeilige Kommentare können zwischen zwei dreifache Anführungszeichen <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span> <span class="pre">&quot;&quot;&quot;</span></code> geschrieben werden:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">Hier könnte ein </span>
+<span class="sd">mehrzeiliger Kommentar stehen.</span>
+<span class="sd">:)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Marius Kaffai<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

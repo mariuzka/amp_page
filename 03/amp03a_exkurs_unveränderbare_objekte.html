@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exkurs: (un-)veränderbare Objekte &#8212; ABM mit Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Listen verändern im Loop" href="amp03a_listen_ver%C3%A4ndern.html" />
+    <link rel="prev" title="Variablen verändern im Loop" href="amp03a_variablen_ver%C3%A4ndern.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ABM mit Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Willkommen
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01_intro.html">
+   1.1 Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einf%C3%BChrung.html">
+     Was ist ABM?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_python_und_anaconda.html">
+     Verwendete Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einstieg_python.html">
+     Einstieg in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01b.html">
+   1.2 Warm-up
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02_intro.html">
+   2.1 Woraus alles besteht
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listen_agenten_populationen.html">
+     Listen, Agenten &amp; Populationen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenzugriff.html">
+     Der Zugriff auf Listen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_exkurs_funktionen_methoden.html">
+     Exkurs: Funktionen &amp; Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenmethoden.html">
+     Grundlegende Listen-Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenfunktionen.html">
+     Nützliche Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02b.html">
+   2.2 Hinterlistige Übungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="amp03_intro.html">
+   3.1 Motoren der Simulation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_was_ist_for-loop.html">
+     Was ist ein For-Loop?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_for-loops_in_python.html">
+     For-Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_exkurs_range.html">
+     Exkurs: Zahlenreihen erstellen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_%C3%BCber_zahlenreihe_loopen.html">
+     Loop durch Zahlenreihe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_variablen_ver%C3%A4ndern.html">
+     Variablen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Exkurs: (un-)veränderbare Objekte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_listen_ver%C3%A4ndern.html">
+     Listen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_exkurs_modulo.html">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_geschachtelte_for-loops.html">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_nutzen_for-loops.html">
+     ABM &amp; For-Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="amp03b.html">
+   3.2 Gefangen im Loop
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04_intro.html">
+   4.1 Eine Brise Gefühl
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if-statements.html">
+     If-Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_boolsche_ausdr%C3%BCcke.html">
+     Boolesche Ausdrücke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if_else_elif.html">
+     If, else, elif
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_modul_import.html">
+     Exkurs 1: Module importieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_dicts.html">
+     Exkurs 2: das Dictionary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04/amp04b.html">
+   4.2 Das NaSch-Modell
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/03/amp03a_exkurs_unveränderbare_objekte.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F03/amp03a_exkurs_unveränderbare_objekte.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/03/amp03a_exkurs_unveränderbare_objekte.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="exkurs-un-veranderbare-objekte">
+<h1>Exkurs: (un-)veränderbare Objekte<a class="headerlink" href="#exkurs-un-veranderbare-objekte" title="Permalink to this headline">¶</a></h1>
+<p>In Python gibt es veränderbare und unveränderbare Objekte. Die eine Art von Objekten kann man also verändern, die andere Art von Objekten kann man nicht verändern.</p>
+<p>Stell dir vor, du besitzt ein Auto. Um damit ordentlich Eindruck auf der Straße zu machen, möchtest du gerne dein Auto tunen lassen und von 100 PS auf 150 PS upgraden. Du fährst also in eine Werkstatt und bittest um die gewünschte Veränderung. In der Werkstatt könntest du nun zwei Dinge zu hören bekommen, nämlich entweder</p>
+<ul class="simple">
+<li><p>“Ja, kein Problem, wir können dein Auto wie gewünscht verändern!”</p></li>
+</ul>
+<p>oder</p>
+<ul class="simple">
+<li><p>“Nein, deinen Autotyp kann man leider nicht wie gewünscht verändern. Wir können dir aber anbieten, dein Auto gegen ein anderes mit den gewünschten Eigenschaften einzutauschen!”.</p></li>
+</ul>
+<p>Dein Auto ist also entweder ein <em>veränderbares Objekt</em> oder ein <em>unveränderbares Objekt</em>. Ist dein Auto veränderbar, so kann man es verändern, aber “dein Auto” ist nach der Veränderung immer noch “dein Auto” d.h. dasselbe (aber eben nun veränderte) Objekt. Ist dein Auto hingegen unveränderbar, du möchtest aber trotzdem die Veränderung, so bleibt dir nichts anderes übrig als “dein Auto” durch ein “anderes Auto” auszutauschen. Dadurch wird ein anderes Auto schließlich zu “deinem Auto”. Ein anderes Objekt nimmt dann also den Platz “deines Autos” ein.</p>
+<p>Genau so ist das auch in Python. Es gibt Objekte, die kann man verändern, und Objekte, die kann man nicht verändern, sondern nur austauschen, wenn man etwas anderes will. Das ist relevant, wenn man Variablen bzw. die Objekte <em>hinter</em> den Variablen verändern möchten. In Python sind Variablen immer nur Beschriftungen für bzw. Zeiger auf Objekte, nicht aber die Objekte selbst. Das ist so, wie der Begriff “mein Auto” auf ein Auto verweist, aber nicht das Auto selbst ist, sondern nur ein Begriff bzw. Gedanke. Möchte man eine Variable in Python verändern, hängt es vom Objekt-Typ des von der Variable beschrifteten Objektes ab, ob</p>
+<ul class="simple">
+<li><p>das Objekt verändert werden kann und die Variable nach der Veränderung immer noch auf dasselbe (aber eben nun veränderte) Objekt zeigt</p></li>
+</ul>
+<p>oder</p>
+<ul class="simple">
+<li><p>das Objekt nicht verändert werden kann, ausgetauscht werden muss und die Variable nach der Veränderung auf ein komplett anderes Objekt zeigt</p></li>
+</ul>
+<p>Das ist so, wie im Beispiel oben, wo je nach Auto-Typ entweder das durch “mein Auto” beschriftete Auto verändert werden kann oder man tauscht das gesamte Auto aus, sodass die Beschriftung “mein Auto” einem neuen Objekt zugeordnet wird.</p>
+<p>Schauen wir uns das mal konkret in Python an. Die meisten Standard-Objekte in Python sind unveränderbar. Dazu gehören z.B. Objekte vom Typ Integer, Float und String. Wenn wir z.B. das Integer-Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code> einer Variable zuweisen, dann beschriften wir das Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code> mit dem gewählten Variablennamen. Das mache ich beispielsweise hier:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_integer</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eine Variable ist aber, wie gesagt, wirklich immer nur eine Beschriftung eines Objektes und nicht das Objekt selbst. Daher verändere ich mit folgendem Code auch nicht das Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code> in das Objekt <code class="docutils literal notranslate"><span class="pre">150</span></code>, sondern beschrifte nun das Objekt <code class="docutils literal notranslate"><span class="pre">150</span></code> mit dem Namen <code class="docutils literal notranslate"><span class="pre">my_integer</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_integer</span> <span class="o">=</span> <span class="n">my_integer</span> <span class="o">+</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_integer</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>150
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code> wurde also nicht verändert, sondern der Wert des Variablennamen <code class="docutils literal notranslate"><span class="pre">my_variable</span></code> überschrieben bzw. dem Variablenname <code class="docutils literal notranslate"><span class="pre">my_variable</span></code> wurde ein anderes Objekt zugewiesen.</p>
+<p>Woher weiß ich, dass sich hinter der Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> nun ein vollkommen neues Objekt verbirgt und nicht dasselbe Objekt in veränderter Form? Das kann man u.a. mit der Funktion <code class="docutils literal notranslate"><span class="pre">id()</span></code> sehen. Steckt man ein Objekt in die Funktion <code class="docutils literal notranslate"><span class="pre">id()</span></code>, dann bekommt man eine Art Identifikationsnummer heraus über welche man ein Objekt eindeutig identifizieren kann. Gehen wir das obige Beispiel nochmal durch, aber wenden dabei immer wieder die Funktion <code class="docutils literal notranslate"><span class="pre">id()</span></code> an, um die wahre Identität der Objekte und Variablen zu enthüllen.</p>
+<p>Hier weise ich zunächst die <code class="docutils literal notranslate"><span class="pre">100</span></code> der Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> zu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_integer</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Gucken wir mal, welche Identifikationsnummer uns die Funktion <code class="docutils literal notranslate"><span class="pre">id()</span></code> für die Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> bzw. für das Objekt, welches wir mit <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> benannt haben, herausgibt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">my_integer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140718436266880
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aha. Diese Zahl sagt uns alleine nicht wirklich viel. Interessanterweise ist aber diese Identifikationsnummer nichts anderes als die Identifikationsnummer des Objekts <code class="docutils literal notranslate"><span class="pre">100</span></code> selbst:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140718436266880
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das ist logisch, wenn man bedenkt, dass die Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> nur eine Beschriftung für das eigentliche Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code> ist. Die Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> verweist nur auf das Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
+<p>Nun verändere ich die Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code>, indem ich sie überschreibe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_integer</span> <span class="o">=</span> <span class="n">my_integer</span> <span class="o">+</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Welches Objekt versteckt sich jetzt hinter <code class="docutils literal notranslate"><span class="pre">my_integer</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">my_integer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140718436268480
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jetzt hat sich die Identifikationsnummer verändert. Diese Identifikationsnummer ist nun die Identifikationsummer für das Objekt <code class="docutils literal notranslate"><span class="pre">150</span></code>, auf welches die Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> nun verweist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140718436268480
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das ist alles etwas verwirrend. Denn eigentlich fühlt es sich ja so an, dass wir das “Objekt” <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> verändern würden, wenn wir dieser Variable einen neuen Wert zuweisen. In Wahrheit ist die Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> ja aber nicht das Objekt selbst, sondern nur eine Beschriftung für ein Objekt. Wir ändern somit also die Zuordnung der Beschriftung. Wir tauschen das Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code> gegen das Objekt <code class="docutils literal notranslate"><span class="pre">150</span></code> und beschriften nun eben die <code class="docutils literal notranslate"><span class="pre">150</span></code> mit <code class="docutils literal notranslate"><span class="pre">my_integer</span></code>. Das ist so, wie wenn wir bei “mein Auto” anfangen an ein neues Auto zu denken, falls das alte Auto ausgetauscht werden musste, weil es unveränderbar war.</p>
+<p>Es gibt jedoch auch Objekte in Python, die können wir tatsächlich verändern. Bei diesen ist es dann so, dass wir wirklich das Objekt hinter dem Variablennamen verändern, sodass der Variablenname immer noch dasselbe, aber eben nun veränderte Objekt beschriftet (“mein Auto” bleibt “mein Auto”, wurde aber verändert). Zu den veränderbaren Objekten, die wir schon kennengelernt haben, gehören in Python z.B. die Listen!</p>
+<p>Im Folgenden erstelle ich zunächst eine Liste und lasse mir dann die Identifikationsnummer der Liste ausgeben. Dann verändere ich die Liste und schaue, ob die Identität der Liste gleichgeblieben ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Liste erstellen</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+
+<span class="c1"># Identifikationsnummer ausgeben</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1875432623680
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Liste verändern</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="c1"># Liste nochmal verändern</span>
+<span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Liste angucken</span>
+<span class="n">my_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 200, 300, 400]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identifikationsnummer angucken</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1875432623680
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir sehen, die Liste wurde verändert, ist aber nach wie vor dasselbe Objekt mit derselben Identifikationsnummer. Die Variable <code class="docutils literal notranslate"><span class="pre">my_list</span></code> verweist also nach wie vor auf dasselbe Objekt. Das Objekt selbst wurde aber verändert.</p>
+<p>Uff! Das ist schon echt kompliziert. Nun wissen wir, dass es veränderbare und unveränderbare Objekte in Python gibt. Aber warum ist das wichtig? Ob ein Objekt veränderbar oder unveränderbar ist, macht eben immer dann einen Unterschied, wenn wir ein Objekt bzw. eine Variable verändern wollen. Und im Folgenden schauen wir uns an, wie man innerhalb von For-Loops die Elemente der Liste, auf die man im For-Loop zugreift, verändern kann. Je nachdem, ob die Elemente der Liste veränderbar sind oder nicht, müssen wir einen bestimmten Weg verwenden, um die Elemente in der Liste zu ändern.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-amp_book-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-amp_book-py",
+            path: "./03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-amp_book-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="amp03a_variablen_ver%C3%A4ndern.html" title="previous page">Variablen verändern im Loop</a>
+    <a class='right-next' id="next-link" href="amp03a_listen_ver%C3%A4ndern.html" title="next page">Listen verändern im Loop</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Marius Kaffai<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

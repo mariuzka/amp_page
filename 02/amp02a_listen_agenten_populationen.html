@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listen, Agenten &amp; Populationen &#8212; ABM mit Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Der Zugriff auf Listen" href="amp02a_listenzugriff.html" />
+    <link rel="prev" title="2.1 Woraus alles besteht" href="amp02_intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ABM mit Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Willkommen
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01_intro.html">
+   1.1 Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einf%C3%BChrung.html">
+     Was ist ABM?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_python_und_anaconda.html">
+     Verwendete Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einstieg_python.html">
+     Einstieg in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01b.html">
+   1.2 Warm-up
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="amp02_intro.html">
+   2.1 Woraus alles besteht
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Listen, Agenten &amp; Populationen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_listenzugriff.html">
+     Der Zugriff auf Listen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_exkurs_funktionen_methoden.html">
+     Exkurs: Funktionen &amp; Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_listenmethoden.html">
+     Grundlegende Listen-Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_listenfunktionen.html">
+     Nützliche Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="amp02b.html">
+   2.2 Hinterlistige Übungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03_intro.html">
+   3.1 Motoren der Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_was_ist_for-loop.html">
+     Was ist ein For-Loop?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_for-loops_in_python.html">
+     For-Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_range.html">
+     Exkurs: Zahlenreihen erstellen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_%C3%BCber_zahlenreihe_loopen.html">
+     Loop durch Zahlenreihe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_variablen_ver%C3%A4ndern.html">
+     Variablen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_unver%C3%A4nderbare_objekte.html">
+     Exkurs: (un-)veränderbare Objekte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_listen_ver%C3%A4ndern.html">
+     Listen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_modulo.html">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_geschachtelte_for-loops.html">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_nutzen_for-loops.html">
+     ABM &amp; For-Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03b.html">
+   3.2 Gefangen im Loop
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04_intro.html">
+   4.1 Eine Brise Gefühl
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if-statements.html">
+     If-Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_boolsche_ausdr%C3%BCcke.html">
+     Boolesche Ausdrücke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if_else_elif.html">
+     If, else, elif
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_modul_import.html">
+     Exkurs 1: Module importieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_dicts.html">
+     Exkurs 2: das Dictionary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04/amp04b.html">
+   4.2 Das NaSch-Modell
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/02/amp02a_listen_agenten_populationen.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F02/amp02a_listen_agenten_populationen.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/02/amp02a_listen_agenten_populationen.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wiederholung-listen">
+   Wiederholung: Listen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wofur-wir-listen-brauchen">
+   Wofür wir Listen brauchen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#noch-ein-paar-worte-zur-reprasentation-von-agenten">
+   Noch ein paar Worte zur Repräsentation von Agenten
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="listen-agenten-populationen">
+<h1>Listen, Agenten &amp; Populationen<a class="headerlink" href="#listen-agenten-populationen" title="Permalink to this headline">¶</a></h1>
+<p>Nachdem wir nun über die grundlegensten Datentypen und Funktionen in Python Bescheid wissen, steigen wir in diesem Kapitel tiefer in die Funktionsweise eines ganz bestimmten und überaus wichtigen Datentyps ein: <strong>Listen</strong>.
+Listen sind in Python - sowie in fast jeder anderen Programmiersprache - ein unverzichtbarer Bestandteil.
+Listen kann man als eine Art von <strong>Datencontainer</strong> ansehen, in welchen wir alle möglichen Objekte ablegen können.
+Listen helfen uns damit dabei, die Objekte unseres Programmes sinnvoll zu strukturieren, damit wir z.B. den Überblick behalten oder auch alle Objekte innerhalb einer Liste auf einmal greifen und mit diesen irgendwas machen können.</p>
+<div class="section" id="wiederholung-listen">
+<h2>Wiederholung: Listen<a class="headerlink" href="#wiederholung-listen" title="Permalink to this headline">¶</a></h2>
+<p><strong>Zur Erinnerung</strong>: Listen werden in Python durch zwei eckige Klammern erzeugt. Der Inhalt der Listen - irgendwelche Objekte - steht zwischen diesen beiden eckigen Klammern und wird jeweils mit einem Komma getrennt. Dies ist beispielsweise eine leere Liste komplett ohne Inhalt: <code class="docutils literal notranslate"><span class="pre">[]</span></code>. Dies ist eine Liste mit 3 Objekten: <code class="docutils literal notranslate"><span class="pre">[&quot;Haus&quot;,</span> <span class="pre">123,</span> <span class="pre">False]</span></code>. Listen kann man natürlich auch als Variable speichern:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meine_tolle_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Haus&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>… und dann unter dem Variablennamen wieder abrufen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meine_tolle_liste</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Haus&#39;, 123, False]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Liste <code class="docutils literal notranslate"><span class="pre">meine_tolle_liste</span></code> ermöglicht es also, die 3 Objekte <code class="docutils literal notranslate"><span class="pre">&quot;Haus&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">123</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> kompakt zu einem Paket zusammenzuschnüren und unter einem Namen zu speichern. Diese Eigenschaft ist allgemein für die Organisation unserer Programme sehr, sehr praktisch.</p>
+<p>Wir werden im Verlauf dieses Kapitels u.a. noch lernen, wie wir auf die einzelnen Elemente zugreifen und wie wir weitere Objekte hinzufügen. Nun reiße ich aber erstmal kurz an, wofür wir Listen im Rahmen der Programmierung von ABM meist brauchen.</p>
+</div>
+<div class="section" id="wofur-wir-listen-brauchen">
+<h2>Wofür wir Listen brauchen<a class="headerlink" href="#wofur-wir-listen-brauchen" title="Permalink to this headline">¶</a></h2>
+<p>Ganz allgemein kann man sagen, dass wir Listen im Kontext von ABM brauchen, weil ABMs Computerprogramme sind und man in Computerprogrammen eben Listen braucht. Punkt. Das stimmt zwar. Und wir werden Listen auch an allen Enden und Ecken brauchen, doch gibt es zwei <em>klassische</em> Anwendungsfälle für Listen im Bereich von ABM. Einerseits können wir unsere Gruppen bzw. Populationen von Agenten innerhalb von Listen organisieren. Andererseits können wir auch die Agenten selbst als Listen in unserem Programm repräsentieren, wobei jedes Element in der Liste dann eine Eigenschaft eines Agenten repräsentieren würde.</p>
+<p>Doch beginnen wir von vorne. Bei agentenbasierter Modellierung geht es darum, das Handeln und Interagieren vieler Akteure mithilfe eines Computerprogrammes zu simulieren. Das heißt, wir müssen die handelnden Akteure - die Agenten - irgendwie in unserem Programm mittels Objekte repräsentieren. Wie machen wir das?</p>
+<p>Im einfachsten Fall könnten wir Agenten einfach mit einem einzigen Wert, z.B. einer Zahl, darstellen. Diese Zahl könnte dann z.B. für eine Meinung des Agenten zur “Corona-Politik” der Bundesregierung auf einer Skala von 0 bis 10 stehen. Das hier wäre z.B. ein Agent mit einem Meinungswert von 4: <code class="docutils literal notranslate"><span class="pre">4</span></code>. Das hier wäre ein Agent mit einem Meinungswert von 7: <code class="docutils literal notranslate"><span class="pre">7</span></code>. Das hier wäre ein Agent mit einem Meinungswert von 2: <code class="docutils literal notranslate"><span class="pre">2</span></code>. Mit so vereinzelten und namenlosen Agenten können wir aber nicht wirklich was anfangen, da wir sie nicht wirklich “packen” können, um mit ihnen irgendwas zu machen, und zudem könnten wir Agenten mit derselben Meinung nicht unterscheiden. Eine Lösung wäre es, jeden Agenten unter eigenen Variable zu speichern. Das wird ab einer bestimmten Anzahl von Agenten auch ziemlich unpraktikabel. Und hier kommen die Listen ins Spiel!</p>
+<p>In der Regel speichern wir unsere Agenten in Listen ab, wie ich es hier tue:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 2, 7]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir haben nun unsere vereinzelten und namenlosen Agenten, welche wir nur über eine einzige Eigenschaft darstellen, kompakt in einer Liste namens <code class="docutils literal notranslate"><span class="pre">population</span></code> gespeichert. So verlieren wir niemanden aus den Augen und wir können irgendwelche Aktionen immer für die ganze Liste ausführen lassen (was wir in den kommenden Kapiteln lernen werden). Nun können wir auch beliebig viele Agenten (auch mit derselben Meinung) in der Liste speichern:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 2, 7, 1, 5, 3, 2, 2, 5, 6, 7, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun haben wir es geschafft, mehrere Agenten mit einer Eigenschaft kompakt und praktisch in einer Liste zu speichern. Doch meist sollen unsere Agenten mehr als eine Eigenschaft aufweisen. Sie sollen z.B. nicht nur eine Meinung zum Thema X, sondern z.B. auch ein Alter aufweisen. Daher kann es Sinn machen, auch die Agenten selbst als Liste zu repräsentieren und alle Agenten-Eigenschaften innerhalb einer Liste zusammenzufassen. Schauen wir uns das mal an einem anderen Beispiel an.</p>
+<p>Angenommen ein Agent verfügt über folgende drei Eigenschaften:</p>
+<ul class="simple">
+<li><p><strong>Infektionsstatus</strong> (mit den möglichen Ausprägungen  <code class="docutils literal notranslate"><span class="pre">&quot;infizierbar&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code>, <code class="docutils literal notranslate"> <span class="pre">&quot;genesen&quot;</span></code> und <code class="docutils literal notranslate"><span class="pre">&quot;geimpft&quot;</span></code>)</p></li>
+<li><p><strong>Symptome</strong> (mit den möglichen Ausprägungen <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><strong>Tage seit der Infektion</strong> (Diese Eigenschaft macht natürlich nur Sinn, wenn der Agent bereits infiziert wurde. Dann sollte die Anzahl der Tage seit der Infektion als ganze Zahl d.h. als <code class="docutils literal notranslate"><span class="pre">int</span></code> repräsentiert werden. Falls der Agent jedoch bisher noch nie infiziert wurde, dann setzen wir den Platzhalter <code class="docutils literal notranslate"><span class="pre">None</span></code>, den man wie ein “Missing” in der Statistik verstehen kann, ein.)</p></li>
+</ul>
+<p>Wir könnten diese Eigenschaften eines Agenten nun in einer Liste sammeln. Ein Agent könnte dann mit folgender Liste repräsentiert werden:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[&quot;infizierbar&quot;,</span> <span class="pre">False,</span> <span class="pre">None]</span></code></p>
+<p>Diese Liste repräsentiert nun für uns einen Agenten, welcher theoretisch mit dem Virus infizierbar ist, aktuell keine Symptome aufweist und keine Tage seit der Ansteckung aufweist, da er noch nie infiziert war.</p>
+<p>Natürlich könnte man auch diesen Agenten wieder unter einer Variable speichern:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;infizierbar&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;infizierbar&#39;, False, None]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ein anderer Agent könnte zum Beispiel so aussehen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;infiziert&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;infiziert&#39;, True, 5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dies wäre für uns ein Agent, der aktuell infiziert ist, Symptome einer Krankheit aufweist und dessen Infektion 5 Tage her ist.</p>
+<p>Ein dritter Agent könnte beispielsweise infiziert sein, keine Symptome aufweisen und erst vor 2 Tagen angesteckt worden sein:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;infiziert&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;infiziert&#39;, False, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um sinnvoll mit diesen Agenten “arbeiten” zu können, bietet es sich dann auch hier wieder an, die Agenten innerhalb einer weiteren Liste zusammenzufassen.
+Dies könnte dann so aussehen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="p">[</span><span class="n">agent1</span><span class="p">,</span> <span class="n">agent2</span><span class="p">,</span> <span class="n">agent3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;infizierbar&#39;, False, None], [&#39;infiziert&#39;, True, 5], [&#39;infiziert&#39;, False, 2]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Was wir hier bei der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> nun sehen, ist eine Datenstruktur, mit der wir noch öfter zu tun haben werden, die uns manchmal etwas Kopfzerbrechen bereiten wird und mit der wir uns daher so früh wie möglich anfreunden sollten. Es ist eine <strong>Liste von Listen</strong> bzw. eine sogenannte <strong>geschachtelte Liste</strong>. Wir haben also eine Liste, deren Inhalt selbst wieder aus Listen besteht. Wir werden uns weiter unten in diesem Kapitel und auch in folgenden Kapiteln noch ausgiebig mit dieser Datenstruktur beschäftigen.</p>
+<p>An dieser Stelle möchte ich nur eine Sache erwähnen: Diese Datenstruktur verdeutlicht, aus welchen Ebenen/Bestandteilen/Objekten/Paketen ein großer Teil unseres Programmes in aller Regel bestehen wird bzw. wie wir unsere virtuelle Welt in unserem Computer organisieren:</p>
+<ul class="simple">
+<li><p>Auf der untersten bzw. innersten Ebene sind die Eigenschaften unserer Agenten.</p></li>
+<li><p>Dieses Innenleben der Agenten schnüren wir dann jeweils zu einem Paket bzw. Objekt zusammen (in diesem Fall zu Listen), welche dann jeweils einen Agenten als eine Einheit repräsentieren.</p></li>
+<li><p>Die Agenten-Objekte wiederum fassen wir dann meist auch wieder in einer oder mehreren Liste(n) zusammen, um sinnvoll mit der ganzen Gruppe von Agenten arbeiten zu können</p></li>
+</ul>
+<div class="admonition-ubrigens admonition">
+<p class="admonition-title">Übrigens</p>
+<p>Oben sieht das Erstellen der Population von Agenten und den jeweils einzelnen Eigenschaften einzelner Agenten noch nach viel Getippe aus. In den nächsten Kapitel werden wir jedoch lernen, wie wir sehr große Populationen von Agenten relativ entspannt “automatisch” erstellen lassen können, ohne jeden Agenten einzeln selbst explizit definieren oder benennen zu müssen.</p>
+</div>
+<div class="admonition-zugegeben admonition">
+<p class="admonition-title">Zugegeben</p>
+<p>Die Repräsentation der Agenten als Listen ist nicht sonderlich elegant. Wir müssen uns ja z.B. merken, welcher Stelle in der Liste welche Eigenschaft der Agenten steht. U.a. deshalb ist es auf lange Sicht unpraktisch, die Agenten als Listen darzustellen. Wir werden später die Agenten durch andere Objekt-Klassen ersetzen. Am Anfang macht es allerdings Sinn, nicht nur, weil wir Listen sowieso zwingend kennenlernen müssen, sondern auch, weil es eine relativ unkomplizierte und schnell erlernbare Form der Agenten-Repräsentation “mit einfachen Mitteln” ist.</p>
+</div>
+</div>
+<div class="section" id="noch-ein-paar-worte-zur-reprasentation-von-agenten">
+<h2>Noch ein paar Worte zur Repräsentation von Agenten<a class="headerlink" href="#noch-ein-paar-worte-zur-reprasentation-von-agenten" title="Permalink to this headline">¶</a></h2>
+<p>Wenn wir Agenten einfach nur als einzelne Werte oder Listen von Werten darstellen, dann stellen wir zunächst eigentlich nur die “passiven” Eigenschaften der Agenten mit relativ “passiven” Daten dar. Da fehlt aber doch noch etwas? Ein Agent ist doch ein handelnder Akteur und nicht nur ein passiver Datensatz! Ein Agent sollte ja beispielsweise nicht nur die passive Eigenschaft haben, eine Meinung zu besitzen, sondern auch die aktive Eigenschaft, diese beispielsweise auch kundtun oder ändern zu können. Und ein Agent darf in Simulationen nicht nur einen Infektionsstatus haben, sondern muss auch die aktive Eigenschaft, andere Agenten anstecken zu können, besitzen.</p>
+<p>Den aktiven Teil der Agenten werden wir meist als Funktionen, also Programmanweisungen darüber, wie die Daten/Eigenschaften der Agenten verarbeitet werden sollen, repräsentieren. Zum Beispiel könnten wir die Handlung “anstecken” darstellen, indem wir mithilfe einer Funktion den Infektionsstatus <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code> vom einen Agenten auf einen anderen Agenten mit dem Status <code class="docutils literal notranslate"><span class="pre">&quot;infizierbar&quot;</span></code> übertragen, sodass dieser zweite Agent dann auch den Status <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code> aufweist.</p>
+<p>Zu Beginn werden wir dabei Funktionen und Daten jedoch noch relativ getrennt voneinander organisieren d.h. wir werden an der einen Stelle im Code die “passiven” Eigenschaften der Agenten in irgendeiner Form als Daten darstellen und an der anderen Stelle im Code die potentiellen “Handlungen” der Agenten als Funktionen implementieren. Erst während der Simulation, wenn ein Agent handelt, werden wir Daten und Funktionen zusammenbringen. Dann wird die entsprechende Funktion auf die entsprechenden Daten des handelnden Agenten (z.B. der ansteckende Agent) sowie der an einer Interaktion beteiligten Agenten (z.B. der angesteckte Agent) angewendet.</p>
+<p>In einer ähnlichen Logik werden wir zwar immer die Handlungen der Agenten in den Simulationen darstellen, dennoch werden wir später die Trennung zwischen passiven und aktiven Eigenschaften aufheben. Wir werden dann Objekte definieren, die sowohl die passiven Daten als auch die aktiven Funktionen bzw. Handlungen der Agenten vereinen. Letztlich macht das für die Simulationsergebnisse keinen Unterschied, es ist nur eine bessere Form der Code-Organisation und “natürlichere” Form der Darstellung handelnder Akteure. Wie man das macht, werden wir im Kapitel zur “Objektorientierten Programmierung” lernen. Weil man dazu aber einiges an Wissen über die Grundlagen von Python braucht, werden wir zu Beginn die passiven Eigenschaften und die aktiven Eigenschaften der Agenten noch getrennt implementieren z.B. indem wir die Daten eines Agenten innerhalb einer Liste abspeichern, wie wir in diesem Kapitel lernen werden.</p>
+<div class="admonition-ubrigens admonition">
+<p class="admonition-title">Übrigens</p>
+<p>Auch wenn wir selbst erst in späteren Kapiteln lernen werden, wie man Objekte definiert, die sowohl passive Daten als auch aktive Funktionen innerhalb eines Objektes integrieren, werden wir diese Art von Objekten dennoch schon vorher verwenden. Denn Python ist voll mit diesen Objekten. Auch Listen selbst verfügen übrigens über eine “aktive” Seite, welche Listen überhaupt erst so praktisch machen und wir noch in diesem Kapitel kennenlernen werden.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-amp_book-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-amp_book-py",
+            path: "./02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-amp_book-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="amp02_intro.html" title="previous page">2.1 Woraus alles besteht</a>
+    <a class='right-next' id="next-link" href="amp02a_listenzugriff.html" title="next page">Der Zugriff auf Listen</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Marius Kaffai<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

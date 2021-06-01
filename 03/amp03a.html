@@ -1,0 +1,1615 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Was ist ein For-Loop? &#8212; ABM mit Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ABM mit Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Willkommen
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01_intro.html">
+   1.1 Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einf%C3%BChrung.html">
+     Was ist ABM?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_python_und_anaconda.html">
+     Verwendete Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einstieg_python.html">
+     Einstieg in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01b.html">
+   1.2 Warm-up
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02_intro.html">
+   2.1 Woraus alles besteht
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listen_agenten_populationen.html">
+     Listen, Agenten &amp; Populationen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenzugriff.html">
+     Der Zugriff auf Listen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_exkurs_funktionen_methoden.html">
+     Exkurs: Funktionen &amp; Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenmethoden.html">
+     Grundlegende Listen-Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenfunktionen.html">
+     Nützliche Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02b.html">
+   2.2 Hinterlistige Übungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="amp03_intro.html">
+   3.1 Motoren der Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_was_ist_for-loop.html">
+     Was ist ein For-Loop?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_for-loops_in_python.html">
+     For-Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_exkurs_range.html">
+     Exkurs: Zahlenreihen erstellen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_%C3%BCber_zahlenreihe_loopen.html">
+     Loop durch Zahlenreihe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_variablen_ver%C3%A4ndern.html">
+     Variablen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_exkurs_unver%C3%A4nderbare_objekte.html">
+     Exkurs: (un-)veränderbare Objekte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_listen_ver%C3%A4ndern.html">
+     Listen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_exkurs_modulo.html">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_geschachtelte_for-loops.html">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03a_nutzen_for-loops.html">
+     ABM &amp; For-Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="amp03b.html">
+   3.2 Gefangen im Loop
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp03c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04_intro.html">
+   4.1 Eine Brise Gefühl
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if-statements.html">
+     If-Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_boolsche_ausdr%C3%BCcke.html">
+     Boolesche Ausdrücke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if_else_elif.html">
+     If, else, elif
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_modul_import.html">
+     Exkurs 1: Module importieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_dicts.html">
+     Exkurs 2: das Dictionary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04/amp04b.html">
+   4.2 Das NaSch-Modell
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/03/amp03a.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F03/amp03a.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/03/amp03a.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Was ist ein For-Loop?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops-in-python">
+   For-Loops in Python
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-schleifenvariable">
+     Die Schleifenvariable
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verruckter-code">
+     Verrückter Code
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exkurs-eine-zahlenreihe-erstellen-mit-range">
+     Exkurs: Eine Zahlenreihe erstellen mit range()
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#uber-eine-zahlenreihe-loopen-mit-range">
+       Über eine Zahlenreihe loopen (mit range())
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mit-for-loops-variablen-verandern">
+     Mit For-Loops Variablen verändern
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mit-for-loops-listen-erstellen">
+     Mit For-Loops Listen erstellen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exkurs-veranderbare-und-unveranderbare-objekte">
+   Exkurs: Veränderbare und unveränderbare Objekte
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mit-for-loops-die-elemente-einer-liste-verandern">
+     Mit For-Loops die Elemente einer Liste verändern
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unveranderbare-elemente-in-einer-liste-im-for-loop-per-listenindizierung-uberschreiben">
+       Unveränderbare Elemente in einer Liste im For-Loop per Listenindizierung überschreiben
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#veranderbare-elemente-in-einer-liste-im-for-loop-direkt-verandern">
+       Veränderbare Elemente in einer Liste im For-Loop direkt verändern
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exkurs-modulo">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geschachtelte-for-loops">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wofur-wir-for-loops-brauchen">
+     Wofür wir For-Loops brauchen
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="was-ist-ein-for-loop">
+<h1>Was ist ein For-Loop?<a class="headerlink" href="#was-ist-ein-for-loop" title="Permalink to this headline">¶</a></h1>
+<p>Haben wir unseren Code einmal aufgeschrieben, so können wir diesen immer und immer wieder ausführen. Das ist ziemlich praktisch. Die Lösung sich wiederholender Probleme muss nur ein einziges mal in einem Computerprogramm festgehalten werden und kann dann immer wieder verwendet werden. Dies kann uns Menschen eine Menge unliebsam repetitiver Arbeit ersparen. Das Einzige was wir dann noch machen müssen, ist einfach immer wieder auf den <em>Start-Knopf</em> zu drücken. Doch selbst innerhalb eines Computerprogrammes kann es dazu kommen, dass bestimmte Aktionen häufig wiederholt werden müssen. Schnell kann das dazu führen, dass die Programmierarbeit, die ja eigentlich repetitive Arbeit verhindern soll, selbst zur repetitiven Arbeit wird. Das will niemand! Um solche Wiederholungen innerhalb des Codes zu vermeiden, gibt es eine tolle Erfindung: der sogenannte <strong>Loop</strong> bzw. die <strong>Schleife</strong>. Ein Loop ermöglicht uns, eine Aktion bzw. einen Codeblock beliebig oft innerhalb des Programmes automatisch wiederholen zu lassen. Bei Loops unterscheidet man in der Regel zwischen sogenannten <em>While-Loops</em> und sogenannten <em>For-Loops</em>. In diesem Kapitel werden wir uns die For-Loops anschauen, da wir v.a. diese bei der Programmierung von ABM brauchen werden.</p>
+<p>Was ist ein For-Loop? Ein For-Loop führt für jedes Element einer Reihe von Elementen (also z.B. eine Liste) eine von uns angegebene “Aktion” aus. Deswegen heißt diese Form des Loops auch <strong>For</strong>-Loop: <strong>FÜR</strong> jedes Element einer Reihe von Elementen wird eine Aktion ausgeführt. Im Rahmen von ABM könnte das z.B. sein, dass wir <em>für jeden Agenten</em> unserer Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> eine Funktion/Aktion (oder was auch immer) ausführen lassen wollen.</p>
+<p>Schauen wir uns das Ganze mal an einem ganz alltäglichen Beispiel an: Du sitzt auf dem Sofa. Vor dir liegt eine geöffnete Tüte Chips. Plötzlich kannst du einfach nicht mehr aufhören und du isst die gesamte Tüte Chips. Man könnte dein Verhalten dann ganz knapp etwa so zusammenfassen:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Für</span> <span class="pre">jeden</span> <span class="pre">Chip</span> <span class="pre">in</span> <span class="pre">Chipstüte:</span>&#160;&#160;&#160;&#160; <span class="pre">Chip</span> <span class="pre">essen</span></code></p>
+<p>Du befindest dich praktisch in einem For-Loop! Du führst <em>für jeden Chip in der Chipstüte</em> immer wieder dieselbe Handlung aus. Diese Dauerschleife hält so lange an, bis du jeden Chip in der Chipstüte durchgegangen bist und für diesen die Handlung “Chip essen” ausgeführt hast. Du könntest dein Handlungsspektrum natürlich auch noch erweitern und für jeden Chip zwei Handlungen ausführen. Zum Beispiel:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Für</span> <span class="pre">jeden</span> <span class="pre">Chip</span> <span class="pre">in</span> <span class="pre">Chipstüte:</span>&#160;&#160;&#160;&#160; <span class="pre">Chip</span> <span class="pre">essen</span>&#160;&#160;&#160;&#160; <span class="pre">Sich</span> <span class="pre">denken:</span> <span class="pre">&quot;Ok,</span> <span class="pre">das</span> <span class="pre">war</span> <span class="pre">jetzt</span> <span class="pre">aber</span> <span class="pre">wirklich</span> <span class="pre">der</span> <span class="pre">Letzte.&quot;</span></code></p>
+</div>
+<div class="section" id="for-loops-in-python">
+<h1>For-Loops in Python<a class="headerlink" href="#for-loops-in-python" title="Permalink to this headline">¶</a></h1>
+<p>Ungefähr so wie in dem obigen Beispiel funktionieren auch For-Loops in Python. Wir haben immer eine Menge an Elementen (z.B. in einer Liste) und geben dann an, was wir <em>mit</em> bzw. <em>für</em> jedes Element machen wollen. Oben war die Menge an Elementen eben der Inhalt der Chipstüte und dann haben wir angegeben, was mit jedem bzw. für jeden Chip gemacht wird. Das Gute ist, dass so ähnlich, wie wir den Chipstüten-For-Loop aufgeschrieben haben, auch For-Loops in Python aufgeschrieben werden. Allgemein und abstrakt formuliert sieht ein For-Loop in Python immer so aus:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ELEMENT</span> <span class="ow">in</span> <span class="n">MENGE</span><span class="p">:</span>
+    <span class="n">IRGENDEINE_AKTION</span>
+</pre></div>
+</div>
+<p>Zunächst einmal würde Python hier erwarten, dass das Objekt MENGE ein sogenanntes <em>iterierbares</em> Objekt ist. Das bedeutet erstmal ganz einfach formuliert, dass dieses Objekt eine Reihe von Elementen enthält, die innerhalb eines For-Loops überhaupt durchgegangen werden könnten. Ist das der Fall, dann würde Python bei diesem For-Loop jedes “ELEMENT” der “MENGE” durchgehen und <strong>für</strong> jedes “ELEMENT” den Code “IRGENDEINE_AKTION” ausführen. ELEMENT, MENGE und IRGENDEINE_AKTION sind natürlich nur Platzhalter für in unserem Programm <em>wirklich existierende</em> Python-Objekte und “Aktionen”.</p>
+<p>Werden wir mal etwas konkreter und schauen uns For-Loops an einem richtigen Beispiel in Python an. Angenommen wir haben eine Liste mit Wörtern und würden gerne die Länge jeden Wortes in dieser Liste messen. Im Folgenden erstelle ich zunächst diese Liste mit Wörtern und nenne sie <code class="docutils literal notranslate"><span class="pre">list_of_words</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_words</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Kraftfahrzeug-Haftpflichtversicherung&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Donau-Dampfschifffahrtsgesellschaft&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;psychophysicotherapeutics&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Arbeiterunfallversicherungsgesetz&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pneumonoultramicroscopicsilicovolcanoconiosis&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">list_of_words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Kraftfahrzeug-Haftpflichtversicherung&#39;,
+ &#39;Donau-Dampfschifffahrtsgesellschaft&#39;,
+ &#39;psychophysicotherapeutics&#39;,
+ &#39;Arbeiterunfallversicherungsgesetz&#39;,
+ &#39;pneumonoultramicroscopicsilicovolcanoconiosis&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Liste <code class="docutils literal notranslate"><span class="pre">list_of_words</span></code> ist erstellt und die Wörter sind so lang, dass wir keine Lust haben, die Länge der Wörter jeweils selbst zu zählen. Wie gut, dass es in Python die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code> gibt, welche die Länge eines Objektes misst. Wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code> zusammen mit Listindizierung und der Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> an, dann können wir ganz entspannt die Länge eines jeden Wortes in unserer Liste <code class="docutils literal notranslate"><span class="pre">list_of_words</span></code> ausgeben lassen. Wir müssen einfach nur den folgenden Code eintippen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_words</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_words</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_words</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_words</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_words</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37
+35
+25
+33
+45
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>HALT STOPP!!!</strong> Genau das ist ein Beispiel für “repetitives” Programmieren und somit etwas, was wir mit For-Loops verhindern können! Im Grunde wird ja im obigen Code in jeder Zeile <em>derselbe Code</em> angewendet: In jeder Zeile wird per Listenindizierung zunächst auf ein Element der Liste <code class="docutils literal notranslate"><span class="pre">list_of_words</span></code> zugegriffen, dann die Länge dieses Elements gemessen und schließlich mit der Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> die gemessene Länge <em>geprintet</em>. Genau dafür gibt es For-Loops!</p>
+<p>Wie sieht der For-Loop für dieses Beispiel aus? Statt</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`für jeden Chip in Chipstüte:`
+</pre></div>
+</div>
+<p>oder</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ELEMENT</span> <span class="ow">in</span> <span class="n">MENGE</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>schreiben wir nun</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">list_of_words</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>und statt der Aktion <code class="docutils literal notranslate"><span class="pre">Chip</span> <span class="pre">essen</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">IRGENDEINE_AKTION</span></code> führen wir nun die beiden Funktionen <code class="docutils literal notranslate"><span class="pre">print()</span></code> und <code class="docutils literal notranslate"><span class="pre">len()</span></code> auf das jeweilige <code class="docutils literal notranslate"><span class="pre">word</span></code> aus. Insgesamt ergibt sich somit folgender For-Loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">list_of_words</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37
+35
+25
+33
+45
+</pre></div>
+</div>
+</div>
+</div>
+<p>Na das ist ja praktisch! Wir bekommen dasselbe Ergebnis wie oben, müssen aber deutlich weniger tippen.
+Python ist nun nacheinander jedes <code class="docutils literal notranslate"><span class="pre">word</span></code> in der Liste <code class="docutils literal notranslate"><span class="pre">list_of_words</span></code> durchgegangen und hat für jedes <code class="docutils literal notranslate"><span class="pre">word</span></code> die Funktionen <code class="docutils literal notranslate"><span class="pre">len()</span></code> und <code class="docutils literal notranslate"><span class="pre">print()</span></code> auf das <code class="docutils literal notranslate"><span class="pre">word</span></code> angewendet.</p>
+<div class="section" id="die-schleifenvariable">
+<h2>Die Schleifenvariable<a class="headerlink" href="#die-schleifenvariable" title="Permalink to this headline">¶</a></h2>
+<p>Wichtig ist bei dem obigen Beispiel noch zu wissen, dass der Name <code class="docutils literal notranslate"><span class="pre">word</span></code> nicht durch Python vorgegeben ist, sondern ich frei gewählt habe. Das <em>Wort</em> <code class="docutils literal notranslate"><span class="pre">word</span></code> ist in diesem Fall die sogenannte <strong>Schleifenvariable</strong>. Die Schleifenvariable ist bei einem For-Loop in Python immer das <em>Wort</em>, das hinter dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">for</span></code> steht. Diese Schleifenvariable kann von uns, genau wie jede andere <em>Variable</em>, fast beliebig benannt werden. Doch was ist eine Schleifenvariable?</p>
+<p>Ein For-Loop geht ja immer eine Menge von Elementen Schritt für Schritt von vorne nach hinten durch. Und dabei repräsentiert die Schleifenvariable immer genau das spezifische Element, auf das der For-Loop in dieser Runde gerade zugreift und <em>für</em> welches er gerade eine “Aktion” ausführt. Stell dir vor, du nimmst nacheinander die Chips aus der Chipstüte. Die Schleifenvariable repräsentiert dabei immer genau den Chip, den du gerade in der Hand hälst, sodass du mit diesem irgendetwas machen kannst (z.B. essen). In jeder Runde des For-Loops d.h. für jedes “<em>in die Chipstüte greifen</em>”, steht die Schleifenvariable für einen anderen “Chip”.</p>
+<p><strong>Ein Beispiel:</strong> Wir haben die Liste <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>. Diese gehen wir mittels For-Loop einmal von vorne nach hinten durch und rufen jedes Element auf. Diesmal nennen wir unsere Schleifenvariable <code class="docutils literal notranslate"><span class="pre">i</span></code>. Für jedes Element in der Liste <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> führen wir den Code <code class="docutils literal notranslate"><span class="pre">print(&quot;Die</span> <span class="pre">Schleifenvariable</span> <span class="pre">hat</span> <span class="pre">den</span> <span class="pre">Wert:&quot;,</span> <span class="pre">i)</span></code> aus. Da <code class="docutils literal notranslate"><span class="pre">i</span></code> in jeder Runde neu definiert wird und immer den Wert des jeweils aufgerufenen Elements annimmt, variiert der Output an der Stelle, an der die Variable <code class="docutils literal notranslate"><span class="pre">i</span></code> aufgerufen wird.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Die Schleifenvariable hat den Wert:&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Schleifenvariable hat den Wert: 0
+Die Schleifenvariable hat den Wert: 1
+Die Schleifenvariable hat den Wert: 2
+Die Schleifenvariable hat den Wert: 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>In jeder Runde des For-Loops wird <code class="docutils literal notranslate"><span class="pre">i</span></code> durch das jeweilige Element der Liste ersetzt. Wir weisen also dem Variablennamen <code class="docutils literal notranslate"><span class="pre">i</span></code> praktisch in jeder Runde des For-Loops den Wert des jeweiligen Elements der Liste zu. Das ist eben in der ersten Runde die <code class="docutils literal notranslate"><span class="pre">0</span></code>, in der zweiten Runde die <code class="docutils literal notranslate"><span class="pre">1</span></code>, in der dritten Runde die <code class="docutils literal notranslate"><span class="pre">2</span></code> und in der vierten Runde die <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<p>Zum einen ermöglicht uns das nach und nach auf jedes Element der Liste zuzugreifen, indem es der Schleifenvariable zugewiesen wird - ganz egal, ob wir die Schleifenvariable <code class="docutils literal notranslate"><span class="pre">Chip</span></code>, <code class="docutils literal notranslate"><span class="pre">word</span></code> oder <code class="docutils literal notranslate"><span class="pre">i</span></code> nennen.
+Zum anderen ermöglicht uns die Schleifenvariable eine gewisse Variation in den For-Loop einzubauen, denn mit jedem Element, auf das der For-Loop zugreift, wechselt der Wert der Schleifenvariable. Dadurch wird in jeder Runde des For-Loops die Aktion <em>für</em> ein anderes Element ausgeführt. Daher führen wir innerhalb eines For-Loops eigentlich auch immer nur “strukturell” bzw. “abstrakt” gleichen Code aus, die konkreten Variablenwerte können sich durchaus pro Runde ändern. Wir essen ja niemals immer wieder genau denselben Chip, sondern immer wieder einen anderen. Und ein Chip ist auch nie in Gänze gleich einem anderen Chip in der Chipstüte, dennoch können wir alle essen.</p>
+<p>Zwar muss man die Schleifenvariable bei einem For-Loop <em>immer</em> angeben, wir können sie aber danach im wiederholt ausgeführten Code-Block des For-Loops auch vollkommen ignorieren, so wie ich das hier tue:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dies hier hat nichts mit dem Wert der Schleifenvariable zu tun.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dies hier hat nichts mit dem Wert der Schleifenvariable zu tun.
+Dies hier hat nichts mit dem Wert der Schleifenvariable zu tun.
+Dies hier hat nichts mit dem Wert der Schleifenvariable zu tun.
+Dies hier hat nichts mit dem Wert der Schleifenvariable zu tun.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das ist praktisch, wenn man einfach ein und denselben Code X-mal ausführen möchte, ohne sich dabei wirklich für die Elemente in einer Liste zu interessieren. Wir brauchen die Liste aber, um anzugeben, wie viele Runden der Loop haben soll. Die Anzahl der Runden entspricht dann einfach der Länge der angegebenen Liste. Das ist ungefähr so, als würden wir für jeden Chip in einer Chipstüte einmal in die Hände klatschen ohne sonst noch irgendwas mit dem Chip zu machen. Die Anzahl der Chips in der Chipstüte bestimmt dann, wie oft wir in die Hände klatschen. Weitere Auswirkungen haben die konkreten Chips in der Chipstüte dann aber nicht auf uns. Die Chips in der Chipstüte sind also nur ein Vorwand, um irgendeine Aktion zu wiederholen.</p>
+<p>Tatsächlich kommt dieser Fall, dass wir die Liste bzw. irgendeine Menge an Elementen nur brauchen, um die Wiederholungsanzahl des For-Loops festzulegen, ziemlich häufig vor. Dann ist es aber ziemlich unpraktisch, jedes mal eine Liste mit der richtigen Länge im For-Loop anzugeben. Stell dir vor, wir wollen einen For-Loop mit 1000 Runden ausführen. Dann müssen wir eine Liste der Länge 1000 angeben. An dieser Stelle wird eine Funktion namens <code class="docutils literal notranslate"><span class="pre">range()</span></code> nützlich, mit welcher wir “Listen” einer beliebigen Länge unkompliziert und kompakt erstellen können. Diese Funktion schauen wir uns gleich weiter unten an. Vorher werfen wir aber noch kurz einen Blick auf eine andere wichtige Sache bei For-Loops.</p>
+</div>
+<div class="section" id="verruckter-code">
+<h2>Verrückter Code<a class="headerlink" href="#verruckter-code" title="Permalink to this headline">¶</a></h2>
+<p>Bestimmt ist dir aufgefallen, dass ich den <strong>Code-Block</strong> eines For-Loops, in welchem die zu wiederholende “Aktion” definiert wird (wie z.B. “Chip essen”), immer etwas nach rechts eingerückt habe. Dieses Einrücken dient nicht nur der Übersichtlichkeit für uns Menschen, sondern wird von Python auch explizit gelesen und ist daher in einem For-Loop absolut notwendig. Python erwartet unter der <strong>Kopf-Zeile</strong> eines For-Loops, also einer Zeile der Form <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">ELEMENT</span> <span class="pre">in</span> <span class="pre">MENGE:</span></code> immer mindestens eine Zeile, die eine Tab-Breite (4 Leerzeichen) weiter nach rechts eingerückt ist. Wenn das nicht der Fall ist, dann entsteht ein Fehler, wie man hier sieht:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">list_of_words</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-6-66deb0d4d4f6&gt;&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: expected an indented block
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python liest jede Zeile, die nach der “For-Loop-Kopfzeile” kommt und eine Tab-Breite eingerückt ist, als Aktions-Teil dieses For-Loops. Durch das Einrücken können wir Python dann auch sagen, dass mehrere Zeilen Teil des Loops sein sollen und somit in jeder Runde des For-Loops bzw. <em>für</em> jedes Element ausgeführt werden sollen. Im folgenden Code sind z.B. zwei Zeilen im “Aktions-Teil” des For-Loops:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">list_of_words</span><span class="p">:</span>
+    <span class="n">word_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word_length</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37
+35
+25
+33
+45
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit der ersten Code-Zeile, die nicht mehr in Bezug zur Kopfzeile des For-Loops eingerückt ist, endet der zum For-Loop zugehörige Code. Im Folgenden zwei Beispiele dafür: Im ersten Beispiel ist der Befehl <code class="docutils literal notranslate"><span class="pre">print(&quot;yo</span> <span class="pre">yo</span> <span class="pre">yo&quot;)</span></code> eingerückt, im zweiten Beispiel ist dieser nicht eingerückt. Einmal wird <code class="docutils literal notranslate"><span class="pre">print(&quot;yo</span> <span class="pre">yo</span> <span class="pre">yo&quot;)</span></code> daher als Teil des Loops gelesen und mehrmals wiederholt und einmal wird <code class="docutils literal notranslate"><span class="pre">print(&quot;yo</span> <span class="pre">yo</span> <span class="pre">yo&quot;)</span></code> einfach als neue Code-Zeile nach dem Loop gelesen und daher nur einmal ausgeführt. Das Einrücken des Codes macht daher einen bedeutenden Unterschied in Python!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">list_of_words</span><span class="p">:</span>
+    <span class="n">word_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word_length</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;yo yo yo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37
+yo yo yo
+35
+yo yo yo
+25
+yo yo yo
+33
+yo yo yo
+45
+yo yo yo
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">list_of_words</span><span class="p">:</span>
+    <span class="n">word_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word_length</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;yo yo yo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37
+35
+25
+33
+45
+yo yo yo
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exkurs-eine-zahlenreihe-erstellen-mit-range">
+<h2>Exkurs: Eine Zahlenreihe erstellen mit range()<a class="headerlink" href="#exkurs-eine-zahlenreihe-erstellen-mit-range" title="Permalink to this headline">¶</a></h2>
+<p>Schauen wir uns nun die Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code> an, die man in vielen For-Loops braucht. Die Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code> erstellt eine Zahlenreihe einer bestimmten Länge. Das ist vor allem in zwei Situationen praktisch:</p>
+<ol class="simple">
+<li><p>Wenn uns der Inhalt der Liste, über die der For-Loop “looped”, eigentlich egal ist, wir aber eine Liste einer bestimmten Länge brauchen, um dem Loop zu sagen, wie oft er loopen soll. (Wir wollen einfach nur für jeden Chip einmal in die Hände klatschen, die Chips an sich sind uns aber eigentlich komplett egal.)</p></li>
+<li><p>Wenn wir tatsächlich über eine Liste mit einer Zahlenreihe loopen wollen, weil wir die Zahlen beispielsweise als Index beim Zugriff auf Listen verwenden wollen.</p></li>
+</ol>
+<p>Schauen wir uns die Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code> mal genauer an. Geben wir nur ein Argument in die Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code> ein, so steht dieses Argument praktisch für die Länge der zurückgegebenen Sequenz, wobei das Argument ein <code class="docutils literal notranslate"><span class="pre">int</span></code> d.h. eine ganz Zahl sein muss. Beispiel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>range(0, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ok, aber das sieht jetzt weder nach einer <em>Zahlenreihe</em> noch nach einer Liste aus. Tatsächlich gibt uns <code class="docutils literal notranslate"><span class="pre">range()</span></code> auch nicht direkt eine <em>Zahlenreihe</em> oder eine Liste zurück, sondern ein spezielles “range-Objekt”. Wenn wir wirklich eine Liste mit Zahlen haben wollen, müssen wir das erstellte range-Objekt noch mittels der Funktion <code class="docutils literal notranslate"><span class="pre">list()</span></code> in eine Liste umwandeln:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun sehen wir besser, welche Sequenz an Zahlen <code class="docutils literal notranslate"><span class="pre">range(3)</span></code> produziert. Geben wir das Argument <code class="docutils literal notranslate"><span class="pre">3</span></code> in die Funktion ein, dann fängt <code class="docutils literal notranslate"><span class="pre">range()</span></code> bei 0 an zu “zählen” bis die Sequenz die Länge 3 erreicht hat. Wenn wir beispielsweise eine Sequenz der Länge 10 haben wollen, müssen wir entsprechend eine <code class="docutils literal notranslate"><span class="pre">10</span></code> als Argument angeben und wir bekommen eine Zahlenreihe von 0 bis 9 zurück:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="uber-eine-zahlenreihe-loopen-mit-range">
+<h3>Über eine Zahlenreihe loopen (mit range())<a class="headerlink" href="#uber-eine-zahlenreihe-loopen-mit-range" title="Permalink to this headline">¶</a></h3>
+<p>Wir können die durch <code class="docutils literal notranslate"><span class="pre">range()</span></code> produzierte Zahlenreihe nun auch als diejenige Menge nehmen, durch die ein For-Loop looped, nacheinander ein Element herausgreift und <em>für</em> jedes Element irgendetwas macht. Das Gute ist, dass wir ein range-Objekt nicht zwingend in eine richtige Liste umwandeln müssen, wenn wir über die produzierte Zahlenreihe loopen wollen. Denn For-Loops können ja nicht nur über Listen loopen, sondern ganz allgemein über sogenannte <em>iterierbare</em> Objekte. Eine Liste ist ein solches iterierbares Objekt, das durch die Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code> produzierte range-Objekt ist aber glücklicherweise auch “iterierbar”, sodass der For-Loop auch ein solches “lesen” kann.</p>
+<p>Im untigen Beispiel loope ich über eine Zahlenreihe der Länge 5 und führe für jede Zahl der Zahlenreihe den Befehl <code class="docutils literal notranslate"><span class="pre">print(&quot;hello</span> <span class="pre">world&quot;)</span></code> aus. Die konkreten Zahlen des range-Objektes sind uns dabei komplett egal, uns geht es hier nur darum, dass der Loop 5 Runden lang läuft.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2 Kugeln Eis bitte!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 Kugeln Eis bitte!
+2 Kugeln Eis bitte!
+2 Kugeln Eis bitte!
+2 Kugeln Eis bitte!
+2 Kugeln Eis bitte!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Beachte auch hier wieder, dass die Schleifenvariable <code class="docutils literal notranslate"><span class="pre">i</span></code> eigentlich komplett willkürlich benannt werden kann. Wir hätten auch <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">blablabla</span> <span class="pre">in</span> <span class="pre">range(5):</span></code> schreiben können. Es hat sich aber eingebürgert, für das Loopen über reine Zahlenreihen ein <code class="docutils literal notranslate"><span class="pre">i</span></code> als Name für die Schleifenvariable zu verwenden (wenn möglich). Das <code class="docutils literal notranslate"><span class="pre">i</span></code> steht dabei für Integer, Index, Iterator oder “incrementing number”.</p>
+<p>Wie bei jedem For-Loop gilt auch bei For-Loops auf Basis der Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code>, dass die Schleifenvariable in jeder Runde den Wert des gerade durch den For-Loop aufgerufenen Elements der Liste bzw. des iterierbaren Objekts annimmt. Wir haben das <code class="docutils literal notranslate"><span class="pre">i</span></code> oben im Loop vollkommen ignoriert. Wenn wir es aber für irgendetwas brauchen, dann können wir es natürlich auch wieder im Code-Block des For-Loops verwenden, wie ich es hier tue:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;Kugeln Eis bitte!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 Kugeln Eis bitte!
+1 Kugeln Eis bitte!
+2 Kugeln Eis bitte!
+3 Kugeln Eis bitte!
+4 Kugeln Eis bitte!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Besonders hilfreich ist die Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code> auch dann, wenn innerhalb eines For-Loops die Schleifenvariable dazu genutzt werden soll, um per Indizierung auf die Elemente einer Liste zuzugreifen. Denn <em>ganz zufälligerweise</em> fangen ja auch die Indizes von Listen bei 0 an. Wir könnten also den jeweiligen Wert der Schleifenvariable nutzen, um damit per Index an die bestimmten Elemente einer Liste zu kommen.</p>
+<p>Unten erstelle ich zunächst die Liste <code class="docutils literal notranslate"><span class="pre">ABC</span></code>. Innerhalb eines For-Loops wird dann nacheinander per Indizierung auf die Elemente der Liste <code class="docutils literal notranslate"><span class="pre">ABC</span></code> zugegriffen.  Der jeweilige Index wird dabei aus der durch <code class="docutils literal notranslate"><span class="pre">range(5)</span></code> produzierten Zahlenreihe entnommen und in jeder Runde des Loops der Schleifenvariable <code class="docutils literal notranslate"><span class="pre">i</span></code> zugeordnet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ABC</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ABC</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ABC</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+b
+c
+d
+e
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir werden später noch lernen, warum es manchmal sinnvoll bzw. notwendig ist, per Indizierung auf die Elemente einer Liste zuzugreifen, statt direkt über die Schleifenvariable des For-Loops. Wichtiger ist hier zunächst was anderes: Im obigen Beispiel war es noch einfach die richtige Länge der Liste <code class="docutils literal notranslate"><span class="pre">ABC</span></code> im Kopf abzuzählen, um dann die Länge <code class="docutils literal notranslate"><span class="pre">5</span></code> an <code class="docutils literal notranslate"><span class="pre">range()</span></code> zu übergeben, damit wir eine Zahlenreihe der richtigen Länge und somit die richtigen Indizes für den Listenzugriff erhalten. Was ist aber, wenn wir die Länge der Liste gar nicht kennen, weil sie z.B. sehr lang ist oder sich im Verlauf des Programms immer wieder ändert? Dann hilft uns die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code> weiter!</p>
+<p>Im Folgenden übergebe ich <code class="docutils literal notranslate"><span class="pre">range()</span></code> die Länge der Liste <code class="docutils literal notranslate"><span class="pre">ABC</span></code> dadurch, dass ich sie mit <code class="docutils literal notranslate"><span class="pre">len()</span></code> messe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ABC</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ABC</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+b
+c
+d
+e
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die <code class="docutils literal notranslate"><span class="pre">range()</span></code>-Funktion kann noch ein bisschen mehr als hier gezeigt wurde. Zunächst reicht uns das aber.
+Wenn du dir aber nochmal ein Video anschauen möchtest, in dem u.a. auch noch weiterführende Informationen zur <code class="docutils literal notranslate"><span class="pre">range()</span></code>-Funktion und deren Verwendung in For-Loops gezeigt werden, schau doch mal hier rein:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;XUN9kvXxGp4&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/XUN9kvXxGp4"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="mit-for-loops-variablen-verandern">
+<h2>Mit For-Loops Variablen verändern<a class="headerlink" href="#mit-for-loops-variablen-verandern" title="Permalink to this headline">¶</a></h2>
+<p>Mittels For-Loops können bestimmte Programmprozeduren mehrmals hintereinander wiederholt werden. Eine typische Programmprozedur, die innerhalb von For-Loops wiederholt wird, ist das Verändern von Variablen.</p>
+<p><strong>Ein Beispiel:</strong> Wir haben eine Variable <code class="docutils literal notranslate"><span class="pre">counter</span></code>, die zunächst den Wert <code class="docutils literal notranslate"><span class="pre">0</span></code> aufweist. Danach startet ein For-Loop, wobei in jeder Runde des For-Loops die Variable <code class="docutils literal notranslate"><span class="pre">counter</span></code> um 1 erhöht wird.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Da der Loop 10 Runden gelaufen ist und somit die Variable 10 mal um 1 erhöht wurde, weist die Variable <code class="docutils literal notranslate"><span class="pre">counter</span></code> nun den Wert 10 auf:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Ein weiteres Beispiel:</strong> Wir haben eine Population aus Agenten, welche wir in einer Liste speichern.
+Auch jeder Agent besteht wiederum aus einer Liste.
+Das erste Element in der Liste eines jeden Agenten repräsentiert jeweils den Namen und das zweite Element repräsentiert jeweils die Anzahl der vom Agenten gegessenen Eiskugeln.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Population erstellen</span>
+<span class="n">population</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;anna&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;tom&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;lisa&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun wollen wir wissen, wie viele Eiskugeln insgesamt von allen Agenten gegessen wurden. Wir können nun nicht einfach die Eiskugeln zusammenrechnen, da diese ja nicht als einzelne Variablen vorliegen, sondern jeweils schön verpackt innerhalb einer “Agenten-Liste” liegen. Wir müssen also bei jedem Agenten zunächst auf das entsprechende Element zugreifen, um an die Eiskugelanzahl zu kommen und diese für unsere Berechnung zu nutzen.</p>
+<p>Eine Möglichkeit, um die Gesamtanzahl an Eiskugeln (für beliebig viele Agenten) berechnen zu lassen sieht so aus: Wir erstellen eine Variable namens <code class="docutils literal notranslate"><span class="pre">kugel_counter</span></code> mit dem Wert <code class="docutils literal notranslate"><span class="pre">0</span></code>. Dann gehen wir mittels For-Loop die Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> Agent für Agent nacheinander durch und greifen bei jedem Agenten jeweils per Listenindizierung auf die Anzahl der gegessenen Eiskugeln zu und erhöhen die Variable <code class="docutils literal notranslate"><span class="pre">kugel_counter</span></code> um genau diesen Wert. Nachdem der For-Loop durchgelaufen ist und die Variable <code class="docutils literal notranslate"><span class="pre">kugel_counter</span></code> für jeden Agenten um dessen Anzahl an Eiskugeln erhöht wurde, sollte die Variable <code class="docutils literal notranslate"><span class="pre">kugel_counter</span></code> der Gesamtzahl an gegessenen Eiskugeln entsprechen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variable, die die Kugeln Eis zählt</span>
+<span class="n">kugel_counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Für jeden Agenten</span>
+<span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+    
+    <span class="c1"># Anzahl der Eiskugeln des Agenten abrufen. Die Anzahl der Eiskugeln steht an zweiter Stelle.</span>
+    <span class="n">anzahl_eiskugeln</span> <span class="o">=</span> <span class="n">agent</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1"># neuen Wert von kugel_counter berechnen</span>
+    <span class="n">kugel_counter</span> <span class="o">=</span> <span class="n">kugel_counter</span> <span class="o">+</span> <span class="n">anzahl_eiskugeln</span>
+    
+    <span class="c1"># neuen Wert anzeigen lassen</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kugel_counter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+5
+6
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Variable <code class="docutils literal notranslate"><span class="pre">kugel_counter</span></code> zeigt nun die Summe aller gegessenen Eiskugeln an:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kugel_counter</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Übrigens:</strong> Es gibt in Python für den Fall, in dem der neue Wert einer Variable sich aus dessen altem Wert plus einem weiteren Wert ergibt, eine Kurzschreibweise. Statt wie beispielsweise oben zu schreiben:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>hätten wir auch schreiben können</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Beide Ausdrücke liefern dasselbe Ergebnis. Ähnliche Kurzschreibweisen gibt es beispielsweise auch noch für Subtraktion, Multiplikation, Division und noch ein paar mehr Operationen.</p>
+</div>
+<div class="section" id="mit-for-loops-listen-erstellen">
+<h2>Mit For-Loops Listen erstellen<a class="headerlink" href="#mit-for-loops-listen-erstellen" title="Permalink to this headline">¶</a></h2>
+<p>Eine häufige Anwendung von For-Loops ist auch das Erstellen von Listen. Eigentlich ist das auch nur eine weitere Form davon, wie man mit For-Loops Variablen dauerhaft verändern kann. Praktisch ist das z.B. wenn man große Populationen von Agenten erstellen möchte.</p>
+<p>Das Vorgehen ist dabei so: Wir erstellen zunächst eine leere Liste. Dann fügen wir innerhalb eines For-Loops in jeder Runde des Loops ein Element mittels der Listen-Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> zur Liste hinzu. Beispiel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># leere Liste erstellen</span>
+<span class="n">population</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># 10 mal</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># neuen Agenten (als Zahl) erstellen</span>
+    <span class="n">neuer_agent</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span>
+    
+    <span class="c1"># Agenten an Populations-Liste anhängen</span>
+    <span class="n">population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neuer_agent</span><span class="p">)</span>
+
+<span class="c1"># Nach dem Loop die erstellte Liste anzeigen lassen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">population</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Übrigens:</strong> Da man sehr oft mittels For-Loop Listen erstellen oder verändern muss, gibt es in Python auch für das Erstellen und Verändern von Listen mittels For-Loop eine sehr nützliche Kurzschreibweise, die sogenannte <a class="reference external" href="https://www.youtube.com/watch?v=AhSvKGTh28Q">list comprehension</a>. Da diese jedoch am Anfang etwas gewöhnungsbedürftig ist und an dieser Stelle noch nicht notwendig ist, werden wir uns diese erst später anschauen.</p>
+</div>
+</div>
+<div class="section" id="exkurs-veranderbare-und-unveranderbare-objekte">
+<h1>Exkurs: Veränderbare und unveränderbare Objekte<a class="headerlink" href="#exkurs-veranderbare-und-unveranderbare-objekte" title="Permalink to this headline">¶</a></h1>
+<p>In Python gibt es veränderbare und unveränderbare Objekte. Die eine Art von Objekten kann man also verändern, die andere Art von Objekten kann man nicht verändern.</p>
+<p>Stell dir vor, du besitzt ein Auto. Um damit ordentlich Eindruck auf der Straße zu machen, möchtest du gerne dein Auto tunen lassen und von 100 PS auf 150 PS upgraden. Du fährst also in eine Werkstatt und bittest um die gewünschte Veränderung. In der Werkstatt könntest du nun zwei Dinge zu hören bekommen, nämlich entweder</p>
+<ul class="simple">
+<li><p>“Ja, kein Problem, wir können dein Auto wie gewünscht verändern!”</p></li>
+</ul>
+<p>oder</p>
+<ul class="simple">
+<li><p>“Nein, deinen Autotyp kann man leider nicht wie gewünscht verändern. Wir können dir aber anbieten, dein Auto gegen ein anderes mit den gewünschten Eigenschaften einzutauschen!”.</p></li>
+</ul>
+<p>Dein Auto ist also entweder ein <em>veränderbares Objekt</em> oder ein <em>unveränderbares Objekt</em>. Ist dein Auto veränderbar, so kann man es verändern, aber “dein Auto” ist nach der Veränderung immer noch “dein Auto” d.h. dasselbe (aber eben nun veränderte) Objekt. Ist dein Auto hingegen unveränderbar, du möchtest aber trotzdem die Veränderung, so bleibt dir nichts anderes übrig als “dein Auto” durch ein “anderes Auto” auszutauschen. Dadurch wird ein anderes Auto schließlich zu “deinem Auto”. Ein anderes Objekt nimmt dann also den Platz “deines Autos” ein.</p>
+<p>Genau so ist das auch in Python. Es gibt Objekte, die kann man verändern, und Objekte, die kann man nicht verändern, sondern nur austauschen, wenn man etwas anderes will. Das ist relevant, wenn man Variablen bzw. die Objekte <em>hinter</em> den Variablen verändern möchten. In Python sind Variablen immer nur Beschriftungen für bzw. Zeiger auf Objekte, nicht aber die Objekte selbst. Das ist so, wie der Begriff “mein Auto” auf ein Auto verweist, aber nicht das Auto selbst ist, sondern nur ein Begriff bzw. Gedanke. Möchte man eine Variable in Python verändern, hängt es vom Objekt-Typ des von der Variable beschrifteten Objektes ab, ob</p>
+<ul class="simple">
+<li><p>das Objekt verändert werden kann und die Variable nach der Veränderung immer noch auf dasselbe (aber eben nun veränderte) Objekt zeigt</p></li>
+</ul>
+<p>oder</p>
+<ul class="simple">
+<li><p>das Objekt nicht verändert werden kann, ausgetauscht werden muss und die Variable nach der Veränderung auf ein komplett anderes Objekt zeigt</p></li>
+</ul>
+<p>Das ist so, wie im Beispiel oben, wo je nach Auto-Typ entweder das durch “mein Auto” beschriftete Auto verändert werden kann oder man tauscht das gesamte Auto aus, sodass die Beschriftung “mein Auto” einem neuen Objekt zugeordnet wird.</p>
+<p>Schauen wir uns das mal konkret in Python an. Die meisten Standard-Objekte in Python sind unveränderbar. Dazu gehören z.B. Objekte vom Typ Integer, Float und String. Wenn wir z.B. das Integer-Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code> einer Variable zuweisen, dann beschriften wir das Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code> mit dem gewählten Variablennamen. Das mache ich beispielsweise hier:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_integer</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eine Variable ist aber, wie gesagt, wirklich immer nur eine Beschriftung eines Objektes und nicht das Objekt selbst. Daher verändere ich mit folgendem Code auch nicht das Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code> in das Objekt <code class="docutils literal notranslate"><span class="pre">150</span></code>, sondern beschrifte nun das Objekt <code class="docutils literal notranslate"><span class="pre">150</span></code> mit dem Namen <code class="docutils literal notranslate"><span class="pre">my_integer</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_integer</span> <span class="o">=</span> <span class="n">my_integer</span> <span class="o">+</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_integer</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>150
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code> wurde also nicht verändert, sondern der Wert des Variablennamen <code class="docutils literal notranslate"><span class="pre">my_variable</span></code> überschrieben bzw. dem Variablenname <code class="docutils literal notranslate"><span class="pre">my_variable</span></code> wurde ein anderes Objekt zugewiesen.</p>
+<p>Woher weiß ich, dass sich hinter der Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> nun ein vollkommen neues Objekt verbirgt und nicht dasselbe Objekt in veränderter Form? Das kann man u.a. mit der Funktion <code class="docutils literal notranslate"><span class="pre">id()</span></code> sehen. Steckt man ein Objekt in die Funktion <code class="docutils literal notranslate"><span class="pre">id()</span></code>, dann bekommt man eine Art Identifikationsnummer heraus über welche man ein Objekt eindeutig identifizieren kann. Gehen wir das obige Beispiel nochmal durch, aber wenden dabei immer wieder die Funktion <code class="docutils literal notranslate"><span class="pre">id()</span></code> an, um die wahre Identität der Objekte und Variablen zu enthüllen.</p>
+<p>Hier weise ich zunächst die <code class="docutils literal notranslate"><span class="pre">100</span></code> der Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> zu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_integer</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Gucken wir mal, welche Identifikationsnummer uns die Funktion <code class="docutils literal notranslate"><span class="pre">id()</span></code> für die Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> bzw. für das Objekt, welches wir mit <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> benannt haben, herausgibt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">my_integer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140718436266880
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aha. Diese Zahl sagt uns alleine nicht wirklich viel. Interessanterweise ist aber diese Identifikationsnummer nichts anderes als die Identifikationsnummer des Objekts <code class="docutils literal notranslate"><span class="pre">100</span></code> selbst:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140718436266880
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das ist logisch, wenn man bedenkt, dass die Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> nur eine Beschriftung für das eigentliche Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code> ist. Die Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> verweist nur auf das Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
+<p>Nun verändere ich die Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code>, indem ich sie überschreibe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_integer</span> <span class="o">=</span> <span class="n">my_integer</span> <span class="o">+</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Welches Objekt versteckt sich jetzt hinter <code class="docutils literal notranslate"><span class="pre">my_integer</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">my_integer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140718436268480
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jetzt hat sich die Identifikationsnummer verändert. Diese Identifikationsnummer ist nun die Identifikationsummer für das Objekt <code class="docutils literal notranslate"><span class="pre">150</span></code>, auf welches die Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> nun verweist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140718436268480
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das ist alles etwas verwirrend. Denn eigentlich fühlt es sich ja so an, dass wir das “Objekt” <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> verändern würden, wenn wir dieser Variable einen neuen Wert zuweisen. In Wahrheit ist die Variable <code class="docutils literal notranslate"><span class="pre">my_integer</span></code> ja aber nicht das Objekt selbst, sondern nur eine Beschriftung für ein Objekt. Wir ändern somit also die Zuordnung der Beschriftung. Wir tauschen das Objekt <code class="docutils literal notranslate"><span class="pre">100</span></code> gegen das Objekt <code class="docutils literal notranslate"><span class="pre">150</span></code> und beschriften nun eben die <code class="docutils literal notranslate"><span class="pre">150</span></code> mit <code class="docutils literal notranslate"><span class="pre">my_integer</span></code>. Das ist so, wie wenn wir bei “mein Auto” anfangen an ein neues Auto zu denken, falls das alte Auto ausgetauscht werden musste, weil es unveränderbar war.</p>
+<p>Es gibt jedoch auch Objekte in Python, die können wir tatsächlich verändern. Bei diesen ist es dann so, dass wir wirklich das Objekt hinter dem Variablennamen verändern, sodass der Variablenname immer noch dasselbe, aber eben nun veränderte Objekt beschriftet (“mein Auto” bleibt “mein Auto”, wurde aber verändert). Zu den veränderbaren Objekten, die wir schon kennengelernt haben, gehören in Python z.B. die Listen!</p>
+<p>Im Folgenden erstelle ich zunächst eine Liste und lasse mir dann die Identifikationsnummer der Liste ausgeben. Dann verändere ich die Liste und schaue, ob die Identität der Liste gleichgeblieben ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Liste erstellen</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+
+<span class="c1"># Identifikationsnummer ausgeben</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1875432623680
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Liste verändern</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="c1"># Liste nochmal verändern</span>
+<span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Liste angucken</span>
+<span class="n">my_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 200, 300, 400]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identifikationsnummer angucken</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1875432623680
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir sehen, die Liste wurde verändert, ist aber nach wie vor dasselbe Objekt mit derselben Identifikationsnummer. Die Variable <code class="docutils literal notranslate"><span class="pre">my_list</span></code> verweist also nach wie vor auf dasselbe Objekt. Das Objekt selbst wurde aber verändert.</p>
+<p>Uff! Das ist schon echt kompliziert. Nun wissen wir, dass es veränderbare und unveränderbare Objekte in Python gibt. Aber warum ist das wichtig? Ob ein Objekt veränderbar oder unveränderbar ist, macht eben immer dann einen Unterschied, wenn wir ein Objekt bzw. eine Variable verändern wollen. Und im Folgenden schauen wir uns an, wie man innerhalb von For-Loops die Elemente der Liste, auf die man im For-Loop zugreift, verändern kann. Je nachdem, ob die Elemente der Liste veränderbar sind oder nicht, müssen wir einen bestimmten Weg verwenden, um die Elemente in der Liste zu ändern.</p>
+<div class="section" id="mit-for-loops-die-elemente-einer-liste-verandern">
+<h2>Mit For-Loops die Elemente einer Liste verändern<a class="headerlink" href="#mit-for-loops-die-elemente-einer-liste-verandern" title="Permalink to this headline">¶</a></h2>
+<p>Oft verwendet man For-Loops nicht nur, um auf die Elemente einer Liste (oder eines sonstigen iterierbaren Objektes) nacheinander zuzugreifen, sondern diese auch zu verändern. Dabei gibt es zwei verschiedene Wege, Elemente einer Liste innerhalb eines For-Loops zu verändern und man muss je nachdem, mit welchen Objekten man es innerhalb der Liste zu tun hat, einen bestimmten Weg wählen. Zu unterscheiden sind dabei sogenannte <em>unveränderbare</em> Objekte und <em>veränderbare</em> Objekte.</p>
+<p>Bei veränderbaren Objekten können wir diese unter Umständen direkt anhand der Schleifenvariable verändern. Bei unveränderbaren Objekten hingegen ändert sich bei Veränderung der Schleifenvariable nichts am repräsentierten Objekt. In diesem Fall muss das Objekt per Listenindizierung direkt in der Liste mit dem neuen Wert überschrieben werden.</p>
+<div class="section" id="unveranderbare-elemente-in-einer-liste-im-for-loop-per-listenindizierung-uberschreiben">
+<h3>Unveränderbare Elemente in einer Liste im For-Loop per Listenindizierung überschreiben<a class="headerlink" href="#unveranderbare-elemente-in-einer-liste-im-for-loop-per-listenindizierung-uberschreiben" title="Permalink to this headline">¶</a></h3>
+<p>Angenommen wir wir haben eine Liste <code class="docutils literal notranslate"><span class="pre">money</span></code>, welche 3 Elemente des Typs <code class="docutils literal notranslate"><span class="pre">int</span></code> enthält. Diese erstelle ich im Folgenden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">money</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun wollen wir die 3 Elemente innerhalb der Liste <code class="docutils literal notranslate"><span class="pre">money</span></code> jeweils um den Wert 50 erhöhen. Probieren wir es mal mit folgendem For-Loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">money</span><span class="p">:</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Hoffnung ist nun, dass sich jedes Element der Liste <code class="docutils literal notranslate"><span class="pre">money</span></code> um den Wert 50 erhöht hat. Schauen wir mal nach:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">money</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[100, 200, 500]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das hat leider nicht geklappt. Wir haben zwar innerhalb des For-Loops die Schleifenvariable <code class="docutils literal notranslate"><span class="pre">m</span></code> jeweils um 50 erhöht, allerdings haben wir die Elemente der Liste nicht überschrieben. Das liegt daran, dass die Elemente der Liste <code class="docutils literal notranslate"><span class="pre">money</span></code> unveränderbare Objekte sind. <em>Verändern</em> wir die Schleifenvariable indem wir diese mit einem neuen Wert überschreiben, dann ändern wir nicht das Objekt, das in der Liste liegt, sondern weisen der Schleifenvariable ein neues Objekt zu. Damit kappen wir gleichzeitig die Verbindung zwischen der Schleifenvariable und dem Objekt, das in der Liste liegt und wir eigentlich ja verändern wollten.</p>
+<p>Um unveränderbare Objekte innerhalb von Listen in einem For-Loop zu “ändern”, müssen wir diese direkt in der Liste überschreiben. Um das zu tun, müssen wir innerhalb des For-Loops per Listenindizierung direkt auf die Position des Elements in der Liste zugreifen und für diese Position ein neues Objekt einfügen und somit das vorherige Objekt überschreiben. Um Listenindizierung zu nutzen, brauchen wir die entsprechenden Indizes der zu verändernden Elemente in der Liste, die wir uns mit <code class="docutils literal notranslate"><span class="pre">range()</span></code> und <code class="docutils literal notranslate"><span class="pre">len()</span></code> produzieren. Im Folgenden greife ich innerhalb des For-Loops per Indizierung nacheinander auf die Elemente des For-Loops zu und überschreibe jedes Element in der Liste mit einem neuen Wert bzw. ich füge für jede Position der Liste ein neues Objekt ein, das ich mir aber mithilfe des vorherigen Objektes auf dieser Position berechne.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">money</span><span class="p">)):</span>
+    <span class="n">money</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">money</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Werfen wir nun einen Blick auf die Liste <code class="docutils literal notranslate"><span class="pre">money</span></code>, sehen wir, dass sich die Elemente nun wirklich verändert haben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">money</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[150, 250, 550]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Wir merken uns:</strong> Sind die Elemente/Objekte, auf die die Schleifenvariable nach und nach zeigt, unveränderbar, dann können wir diese nicht direkt über die Schleifenvariable selbst ändern, sondern müssen per Listenindizierung auf die Elemente/Objekte zugreifen und diese überschreiben.</p>
+</div>
+<div class="section" id="veranderbare-elemente-in-einer-liste-im-for-loop-direkt-verandern">
+<h3>Veränderbare Elemente in einer Liste im For-Loop direkt verändern<a class="headerlink" href="#veranderbare-elemente-in-einer-liste-im-for-loop-direkt-verandern" title="Permalink to this headline">¶</a></h3>
+<p>Das Vorgehen von oben müssen wir allerdings nicht jedes mal so machen, sondern eben nur, wenn wir eigentlich unveränderbare Objekte innerhalb einer Liste in einem For-Loop “verändern” wollen. Im Falle von sogenannten veränderbaren Objekten müssen wir diesen Umweg über die Listenindizierung allerdings nicht nehmen, sondern können die Schleifenvariable so behandeln als wäre es das Objekt selbst: Jede Veränderung an der Schleifenvariable ist eine Veränderung am eigentlichen Objekt in der Liste, über die wir loopen.</p>
+<p>Schauen wir uns das Ganze anhand eines Beispieles bei der wir den Inhalt einer Liste von Listen (also Listen) innerhalb eines For-Loops verändern wollen. Wie gesagt, eine Liste ist ein veränderbares Objekt. Dadurch können wir in einem For-Loop diesmal direkt nacheinander auf den Inhalt der geschachtelten Liste zugreifen und diesen direkt anhand der Schleifenvariable verändern. Denn der Inhalt der geschachtelten Liste sind Listen und Listen sind veränderbare Objekte.</p>
+<p>Hier erstelle ich zunächst die geschachtelte Liste:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Hartmut&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Anna&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Michael&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;Hartmut&#39;], [&#39;Anna&#39;], [&#39;Michael&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun gehe ich per For-Loop diese geschachtelte Liste durch. Der For-Loop weist nacheinander der Schleifenvariable <code class="docutils literal notranslate"><span class="pre">agent</span></code> ein Element (eine Liste) der geschachtelten Liste zu. Diese jeweils durch die Schleifenvariable repräsentierte Liste kann ich innerhalb des For-Loops direkt verändern. Im Beispiel nutze ich die Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code>, um jeder Sub-Liste der geschachtelten Liste eine <code class="docutils literal notranslate"><span class="pre">100</span></code> anzuhängen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+    <span class="n">agent</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn wir uns nun die Variable <code class="docutils literal notranslate"><span class="pre">population</span></code> anschauen, dann sehen wir, dass sich tatsächlich die damit beschriftete Liste bzw. der Inhalt dieser geschachtelten Liste verändert hat:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;Hartmut&#39;, 100], [&#39;Anna&#39;, 100], [&#39;Michael&#39;, 100]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exkurs-modulo">
+<h2>Exkurs: Modulo<a class="headerlink" href="#exkurs-modulo" title="Permalink to this headline">¶</a></h2>
+<p>Weil wir sowieso gerade dabei sind, relativ kompliziertes Zeug zu besprechen, schauen wir uns nun noch den Modulo an. Dieser hat nicht zwingend etwas mit Loops zu tun, kann aber sehr praktisch innerhalb von Loops sein. Der Modulo gibt uns den Rest einer “Division mit Rest” zurück. Teilt man beispielsweise 5 durch 2, dann “passt” die 2 genau zwei mal vollständig in die 5. Es bleibt aber ein ungeteilter Rest von 1. Dieser Rest entspricht dem Wert, der durch den Modulo-Operator zurückgegeben wird.</p>
+<p>Der Modulo-Operator wird in Python durch das Prozentzeichen <code class="docutils literal notranslate"><span class="pre">%</span></code> dargestellt. Wenn man den Rest einer Division haben möchte, dann setzt man einfach an die Stelle, wo bei einer “normalen” Division der Divisions-Operator <code class="docutils literal notranslate"><span class="pre">/</span></code> stehen würde, den Modulo-Operator <code class="docutils literal notranslate"><span class="pre">%</span></code>.</p>
+<p>Der Rest von “5 geteilt durch 2” ist wie gesagt 1. So würden wir diesen Rest in Python erhalten:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">%</span> <span class="pre">5</span> </code> ergibt beispielsweise 0, da kein Rest zurück bleibt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">%</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Was ist, wenn die teilende Zahl (Divisor) größer ist als die zu teilende Zahl (Dividend)? Dann bekommen wir den gesamten Dividenden zurück, da der Divisor ja kein einziges mal in den Dividenden passt, sodass der gesamte Dividend ungeteilt als Rest zurückbleibt. Beispiel: Der Rest von “3 geteilt durch 5” ist 3, da die 5 kein einziges mal vollständig in die 3 passt und somit die gesamte 3 als unteilbarer Rest zurück bleibt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">%</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eine gute Erklärung des Modulo findet ihr auch in diesem Video:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;rVGrds7AbPw&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/rVGrds7AbPw"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>Und wofür brauchen wir das Ganze? Der Modulo-Operator ist praktisch, wenn man beispielsweise automatisiert aufsteigend zählen möchte, aber ab einem bestimmten Wert automatisch immer wieder bei 0 anfangen möchte.</p>
+<p><strong>Ein Beispiel:</strong> Angenommen wir wollen immer wieder “0 1 2”, “0 1 2”, “0 1 2” zählen - also nach drei Zahlen immer wieder bei der 0 anfangen zu zählen. Mit dem Modulo-Operator und einem For-Loop können wir das ganz einfach machen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+0
+1
+2
+0
+1
+2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Warum funktioniert das? In jedem Schritt wird der Rest der “Division mit Rest” von i / 3 ermittelt. Und <code class="docutils literal notranslate"><span class="pre">i</span></code> steigt im Verlauf des For-Loops von 0 auf 8. Gehen wir kurz ein paar Schritte des For-Loops durch:</p>
+<ol class="simple">
+<li><p>Im ersten Schritt wird der Rest von 0 / 3 gesucht. Dieser ist 0.</p></li>
+<li><p>In der zweiten Runde des Loops wird der Rest von 1 / 3 gesucht, also 1.</p></li>
+<li><p>In der dritten Runde wird der Rest von 2 / 3 gesucht, also 2.</p></li>
+<li><p>In der vierten Runde wird der Rest von 3 / 3 gesucht, also? 0!</p></li>
+<li><p>In der fünften Runde wird der Rest von 4 / 3 gesucht, also 1.</p></li>
+<li><p>In der sechsten Runde wird der Rest von 5 / 3 gesucht, also 2.</p></li>
+<li><p>in der siebten Runde wird der Rest von 6 / 3 gesucht und wir sind wieder bei der 0!</p></li>
+</ol>
+<p>Und so weiter…</p>
+<p>Wir sehen, es wird immer so lange aufsteigend gezählt, bis bei der “Division mit Rest” kein Rest mehr übrig bleibt. Dann geht es wieder von 0 los. Hier nochmal eine modifzierte Variante des obigen For-Loops:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Rest von&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;/ 3 ist&quot;</span><span class="p">,</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Rest von 0 / 3 ist 0
+Der Rest von 1 / 3 ist 1
+Der Rest von 2 / 3 ist 2
+Der Rest von 3 / 3 ist 0
+Der Rest von 4 / 3 ist 1
+Der Rest von 5 / 3 ist 2
+Der Rest von 6 / 3 ist 0
+Der Rest von 7 / 3 ist 1
+Der Rest von 8 / 3 ist 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Okay, und wofür brauchen das jetzt? Eine mögliche Anwendung des Modulo liegt für uns im Bereich der Listenindizierung. Angenommen wir haben - warum auch immer - eine stetig aufsteigende Zahl, die wir als Index für einen Listenzugriff verwenden. Doch sobald diese Zahl höher als der höchste Index der Liste ist, enteht ein Fehler. Wie z.B. hier:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hallo&quot;</span><span class="p">,</span> <span class="s2">&quot;was&quot;</span><span class="p">,</span> <span class="s2">&quot;geht&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hallo
+was
+geht
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">55</span><span class="o">-</span><span class="mi">045</span><span class="n">d77d229d9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">index</span> <span class="o">=</span> <span class="n">i</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+
+<span class="ne">IndexError</span>: list index out of range
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit dem Modulo-Operator kann man nun erreichen, dass der Index immer wieder auf 0 gesetzt wird, sobald dieser gleich der Länge der Liste ist. Die Länge der Liste ist ja gleich dem ersten “ungültigen” Index (Weil der höchste Index einer Liste gleich der Länge der Liste minus 1 ist. Der letzte bzw. höchste Index einer Liste der Länge 4 ist z.B. die 3.). Wir bekommen nun immer einen gültigen Index, wenn wir die Schleifenvariable “modulo” der Länge der Liste nehmen. Dadurch wird der Index immer wieder im richtigen Moment, d.h. wenn der Index den höchst möglichen Index erreicht hat, auf 0 gesetzt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hallo&quot;</span><span class="p">,</span> <span class="s2">&quot;was&quot;</span><span class="p">,</span> <span class="s2">&quot;geht&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hallo
+was
+geht
+hallo
+was
+geht
+hallo
+was
+geht
+hallo
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="geschachtelte-for-loops">
+<h2>Geschachtelte For-Loops<a class="headerlink" href="#geschachtelte-for-loops" title="Permalink to this headline">¶</a></h2>
+<p>In Python kann man so gut wie alles schachteln - auch For-Loops. Wir können innerhalb eines For-Loops also noch einen For-Loop starten. Den Inhalt dieses zweiten For-Loops muss man damm dementsprechend noch eine Ebene weiter einrücken.</p>
+<p>Im untigen Beispiel sieht man zwei geschachtelte For-Loops. Der erste For-Loop looped dabei über das range-Objekt <code class="docutils literal notranslate"><span class="pre">range(3)</span></code> und führt in jeder Runde einen weiteren For-Loop aus, welcher jedes mal komplett über die Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> looped.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;agent1&quot;</span><span class="p">,</span> <span class="s2">&quot;agent2&quot;</span><span class="p">,</span> <span class="s2">&quot;agent3&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zeitschritt:&quot;</span><span class="p">,</span> <span class="n">tick</span><span class="p">,</span> <span class="s2">&quot;///&quot;</span><span class="p">,</span> <span class="s2">&quot;Handelnder Agent:&quot;</span><span class="p">,</span> <span class="n">agent</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zeitschritt: 0 /// Handelnder Agent: agent1
+Zeitschritt: 0 /// Handelnder Agent: agent2
+Zeitschritt: 0 /// Handelnder Agent: agent3
+Zeitschritt: 1 /// Handelnder Agent: agent1
+Zeitschritt: 1 /// Handelnder Agent: agent2
+Zeitschritt: 1 /// Handelnder Agent: agent3
+Zeitschritt: 2 /// Handelnder Agent: agent1
+Zeitschritt: 2 /// Handelnder Agent: agent2
+Zeitschritt: 2 /// Handelnder Agent: agent3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Theoretisch kann man beliebig viele For-Loops ineinander schachteln. Beachten muss man dabei v.a. die verschiedenen Einrück-Level des Codes, da diese anzeigen, welcher Code zu welchem For-Loop gehört. Unten füge ich z.B. noch eine Code-Zeile hinzu. Aufgrund des Einrück-Levels wird diese Zeile zwar als Zeil des äußeren For-Loops gelesen, nicht aber als Teil des inneren For-Loops.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;agent1&quot;</span><span class="p">,</span> <span class="s2">&quot;agent2&quot;</span><span class="p">,</span> <span class="s2">&quot;agent3&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zeitschritt:&quot;</span><span class="p">,</span> <span class="n">tick</span><span class="p">,</span> <span class="s2">&quot;///&quot;</span><span class="p">,</span> <span class="s2">&quot;Handelnder Agent:&quot;</span><span class="p">,</span> <span class="n">agent</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#####################&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zeitschritt: 0 /// Handelnder Agent: agent1
+Zeitschritt: 0 /// Handelnder Agent: agent2
+Zeitschritt: 0 /// Handelnder Agent: agent3
+#####################
+Zeitschritt: 1 /// Handelnder Agent: agent1
+Zeitschritt: 1 /// Handelnder Agent: agent2
+Zeitschritt: 1 /// Handelnder Agent: agent3
+#####################
+Zeitschritt: 2 /// Handelnder Agent: agent1
+Zeitschritt: 2 /// Handelnder Agent: agent2
+Zeitschritt: 2 /// Handelnder Agent: agent3
+#####################
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="wofur-wir-for-loops-brauchen">
+<h2>Wofür wir For-Loops brauchen<a class="headerlink" href="#wofur-wir-for-loops-brauchen" title="Permalink to this headline">¶</a></h2>
+<p>Wir haben jetzt eine ganze Menge über For-Loops gelernt. For-Loops sind allgemein in der Programmierung essentiell. Und wie immer gilt daher: ABM sind Computerprogramme, weshalb auch in ABM For-Loops essentiell sind. Doch was sind die typischen Anwendungen von For-Loops innerhalb von ABM? In eigentlich jedem ABM brauchen wir For-Loops mindestens in diesen beiden Situationen:</p>
+<ol class="simple">
+<li><p>Einerseits modellieren wir ja bei ABM das Handeln vieler Akteure. Und damit jeder einzelne Akteur auch wirklich “handelt”, müssen wir jedem einzelnen Akteur direkt ansprechen und sagen: “Ey du! Jetzt handel doch mal!”. Und jetzt stell dir mal vor, dass wir mehrere Hundert oder Tausende Akteure haben. Deswegen schreiben wir unseren “Befehl” an die Agenten in der Regel nur genau einmal auf und verwenden dann einen Loop, um jeden einzelnen Agenten automatisch “direkt anzusprechen”.</p></li>
+<li><p>Durch einen solchen Loop wie bei Punkt 1 hätten wir es schonmal geschafft, ganz bequem alle Akteure zum handeln zu bewegen. Das Ding ist aber, dass wir ja die Akteure nicht nur einmal handeln lassen wollen, sondern mehrmals im Zeitverlauf. Erst durch das wiederholte, aufeinanderbezogene Handeln mehrerer Akteure entstehen ja typischerweise die zu erklärenden sozialen Phänomene, soziale Strukturen oder soziale Systeme. Deswegen nutzen wir auch hier wieder einen Loop, der macht, dass der Loop aus Punkt 1 immer wieder ausgeführt wird. Ein Loop im Loop also. Der eine Loop “looped” durch die Agenten, der andere Loop “looped” durch die Zeit und macht, dass alle Agenten in jedem Zeitschritt handeln.</p></li>
+</ol>
+<p>Nicht selten weist der eigentliche Simulationsablauf im Code also allgemein folgende Struktur mit mindestens zwei geschachtelten Loops auf:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">TICK</span> <span class="ow">in</span> <span class="n">TIME</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">AGENT</span> <span class="ow">in</span> <span class="n">POPULATION</span><span class="p">:</span>
+        <span class="n">DO_SOMETHING</span>
+</pre></div>
+</div>
+<p><strong>Für jeden Zeitschritt</strong> wird <strong>für jeden Agenten</strong> etwas getan, bspw. den Agenten zum handeln gebracht. Diese Loops sind dann der eigentliche “run” der Simulation. Bevor die Loops jedoch anlaufen, werden in einer Initialisierungsphase noch die benötigten Variablen definiert z.B. die Populationsliste erstellt (für deren Erstellung wir nicht selten auch einen For-Loop verwenden), die Agenten definiert oder die Zeitspanne festgelegt. Das wird alles später an konkreten Beispielen noch klarer. Zumindest hast du jetzt schon mal eine grobe Idee davon, wofür wir Loops hauptsächlich brauchen werden. Neben diesen beiden zentralen Anwendungen, brauchen wir Loops auch in anderen Situationen, die in den obigen Beispielen angedeutet wurden, sehr oft.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Marius Kaffai<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

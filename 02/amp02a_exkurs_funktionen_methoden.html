@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exkurs: Funktionen &amp; Methoden &#8212; ABM mit Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Grundlegende Listen-Methoden" href="amp02a_listenmethoden.html" />
+    <link rel="prev" title="Der Zugriff auf Listen" href="amp02a_listenzugriff.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ABM mit Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Willkommen
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01_intro.html">
+   1.1 Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einf%C3%BChrung.html">
+     Was ist ABM?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_python_und_anaconda.html">
+     Verwendete Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einstieg_python.html">
+     Einstieg in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01b.html">
+   1.2 Warm-up
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="amp02_intro.html">
+   2.1 Woraus alles besteht
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_listen_agenten_populationen.html">
+     Listen, Agenten &amp; Populationen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_listenzugriff.html">
+     Der Zugriff auf Listen
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Exkurs: Funktionen &amp; Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_listenmethoden.html">
+     Grundlegende Listen-Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02a_listenfunktionen.html">
+     Nützliche Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="amp02b.html">
+   2.2 Hinterlistige Übungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp02c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03_intro.html">
+   3.1 Motoren der Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_was_ist_for-loop.html">
+     Was ist ein For-Loop?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_for-loops_in_python.html">
+     For-Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_range.html">
+     Exkurs: Zahlenreihen erstellen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_%C3%BCber_zahlenreihe_loopen.html">
+     Loop durch Zahlenreihe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_variablen_ver%C3%A4ndern.html">
+     Variablen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_unver%C3%A4nderbare_objekte.html">
+     Exkurs: (un-)veränderbare Objekte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_listen_ver%C3%A4ndern.html">
+     Listen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_modulo.html">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_geschachtelte_for-loops.html">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_nutzen_for-loops.html">
+     ABM &amp; For-Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03b.html">
+   3.2 Gefangen im Loop
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04_intro.html">
+   4.1 Eine Brise Gefühl
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if-statements.html">
+     If-Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_boolsche_ausdr%C3%BCcke.html">
+     Boolesche Ausdrücke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if_else_elif.html">
+     If, else, elif
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_modul_import.html">
+     Exkurs 1: Module importieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_dicts.html">
+     Exkurs 2: das Dictionary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04/amp04b.html">
+   4.2 Das NaSch-Modell
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/02/amp02a_exkurs_funktionen_methoden.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F02/amp02a_exkurs_funktionen_methoden.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/02/amp02a_exkurs_funktionen_methoden.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="exkurs-funktionen-methoden">
+<h1>Exkurs: Funktionen &amp; Methoden<a class="headerlink" href="#exkurs-funktionen-methoden" title="Permalink to this headline">¶</a></h1>
+<p>Weiter unten möchte ich euch gleich noch ein paar wichtige Funktionen von Listen zeigen. Dazu müssen wir jedoch noch kurz eine besondere Form von Funktionen kennenlernen: die sogenannten Methoden.</p>
+<p>In Python kann man ganz allgemein zwischen zwei Formen von Funktionen unterscheiden. Auf der einen Seite gibt es das, was man ganz offiziell <strong>Funktion</strong> nennt. Eine solche Funktion ist beispielsweise die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> oder auch die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code>. Diese Funktionen sind als komplett eigenständige Objekte anzusehen. Sie sind Anweisungen für unser Programm, welche ihr Dasein als Objekte fristen. Funktionen sind in Objekte gegossene, objektgewordene Handlungen unseres Programmes, welche immer und immer wieder aufgerufen werden können.</p>
+<p>Ein besonderer Nutzen von Funktionen (und Methoden) ist, dass ihre Prozeuren so allgemein gehalten sind, dass wir ihre Handlungen auf verschiedene andere Objekte anwenden können d.h. verschiedene Objekte mithilfe von Funktionen verarbeiten können. Sollen gewisse Objekte mithilfe von Funktionen verarbeitet werden, dann müssen diese in die runden Klammern der Funktion stecken. Die Funktion, als eigenständiges Objekt, tritt dann quasi von außen an das eingegebene Objekt heran, verschluckt es, verarbeitet es nach den Regeln der Funktion und gibt eine verarbeitete Version des eingegebenen Objektes wieder aus. Stecken wir Objekte in eine Funktion, dann sieht das ganz allgemein so aus:</p>
+<p><code class="docutils literal notranslate"><span class="pre">FUNKTION(INPUTOBJEKT,</span> <span class="pre">INPUTOBJEKT,</span> <span class="pre">...)</span></code></p>
+<p>Auf der anderen Seite gibt es sogenannte <strong>Methoden</strong>. Methoden sind eigentlich fast nichts anderes als Funktionen. Der kleine Unterschied ist nur, dass eine Methode nicht eigenständig existiert. Eine Methode ist kein eigenständiges Objekt, sondern ist immer an ein bestimmtes Objekt gebunden. Eine Methode ist eine Funktion, die eine Eigenschaft eines Objektes ist. Eine Methode kann daher immer nur von diesem Objekt, dessen Eigenschaft die Methode ist, aufgerufen werden. Methoden sind als Eigenschaften von Objekten komplett auf <em>ihr</em> Objekt zugeschnitten, können meist unmittelbar auf das Innenleben von Objekten zugreifen und dieses direkt verändern.</p>
+<p>Methoden kann man wie Funktionen als <em>Handlungen</em> verstehen. Da eine Methode aber eine Eigenschaft eines Objektes ist, kann man sich vorstellen, dass nun das Objekt über die Fähigkeit zu handeln verfügt. Und die Handlung ist eben die Methode. Während also eine Funktion quasi wie eine <em>Handlung</em> an für sich ist, ist eine Methode eine Handlung, die von einem ganz bestimmten Objekt ausgeführt wird. Je nach Objekt-Typ kann das Objekt dann verschiedene Methoden, also verschiedene Handlungen, ausführen.</p>
+<p>Im Gegensatz zu klassischen Funktionen sind Methoden also nicht komplett eigenständig und können im Code auch nicht “frei herumstehen” z.B. wenn sie aufgerufen werden. Methoden werden stattdessen aufgerufen, indem deren Name hinten an ein Objekt mit einem Punkt angehängt werden. Das sieht dann allgemein formuliert so aus:</p>
+<p><code class="docutils literal notranslate"><span class="pre">OBJEKT.METHODE()</span></code></p>
+<p>Wird diese Methode auf diese Weise aufgerufen, bezieht sich die Methode unmittelbar auf das Objekt, von der aus die Methode aufgerufen wurde. Dadurch muss das Objekt selbst nicht mehr als Argument in die Methode eingegeben werden, weil dies quasi schon automatisch passiert ist. Neben dem Objekt, auf das sich die Methode bezieht, können natürlich noch weitere Objekte als Input eingegeben werden. Diese werden dann wie bei normalen Funktionen in die runden Klammern der Methode geschrieben:</p>
+<p><code class="docutils literal notranslate"><span class="pre">OBJEKT.METHODE(INPUTOBJEKT,</span> <span class="pre">INPUTOBJEKT,</span> <span class="pre">...)</span></code></p>
+<p>Nochmal: Sowohl Funktionen und Methoden sind <em>Programmanweisungen</em> d.h. Code, der angibt, wie unser Programm <em>handeln</em> soll. Der Unterschied ist nur, dass Funktionen Handlungen sind, die (unrealistischerweise) eigentändig existieren können. Dieses selbstständige Handeln kann an als fremde, anonyme Macht an andere Objekte herantreten und diese nach den Regeln der Funktion verarbeiten. Das verarbeitete Objekt bleibt dabei passiv. Handeln tut die Funktion. Methoden hingegen sind die aktive Seite eines Objektes. Verfügt ein Objekt über Methoden, so ist dieses nicht mehr rein passiv, sondern kann selbst aktiv <em>handeln</em>.</p>
+<p>Übertragen auf die Realität könnte man die Fähigkeit von Hunden zu bellen und zu springen als Methoden von Hunden beschreiben. Springt ein Hund, dann führt der Hund quasi den Code <code class="docutils literal notranslate"><span class="pre">hund.springen()</span></code> aus. Bellt ein Hund, dann führt der Hund praktisch den Code <code class="docutils literal notranslate"><span class="pre">hund.bellen()</span></code> aus. Würden in der Realität das Springen und das Bellen an sich existieren, ohne eine Eigenschaft von Hunden oder anderen Objekten zu sein, dann würde das in Python einer Funktion entsprechen. Ein Hund würde dann z.B. bellen, wenn die Funktion <code class="docutils literal notranslate"><span class="pre">bellen()</span></code> den Hund zum bellen bewegt, indem folgender Code ausgeführt wird: <code class="docutils literal notranslate"><span class="pre">bellen(hund)</span></code>. Ich gehe davon aus, dass das nicht deinem Verständnis von der Realität entspricht. Methoden sind also um einiges näher “an der Realität” als Funktionen.</p>
+<p>Später werden wir daher unsere Agenten auch als eigene Objekte mit gewissen Methoden definieren. Handelt ein Agent, dann sieht das allgemein so aus:</p>
+<p><code class="docutils literal notranslate"><span class="pre">AGENT.HANDELN()</span></code></p>
+<p>Wenn der Agent mit einem anderen Agenten interagiert, könnte das ganze dann so aussehen:</p>
+<p><code class="docutils literal notranslate"><span class="pre">AGENT.HANDELN(ANDERER_AGENT)</span></code></p>
+<p>Aber wie gesagt, eine solche Logik werden wir erst später kennenlernen. Zu Beginn verwenden wir stattdessen eine solche, eher realitätsfernere Logik: Wir haben eine allgemeine Funktion <code class="docutils literal notranslate"><span class="pre">HANDELN()</span></code> und einen <code class="docutils literal notranslate"><span class="pre">AGENT</span></code>. Wenn wir diesen Agenten nun handeln lassen wollen, dann wenden wir die Funktion entsprechend auf den Agenten an:</p>
+<p><code class="docutils literal notranslate"><span class="pre">HANDELN(AGENT)</span></code></p>
+<p>Für eine Interaktion könnte man dann z.B. den zweiten Agenten auch als Argument in die Funktion einfügen:</p>
+<p><code class="docutils literal notranslate"><span class="pre">HANDELN(AGENT,</span> <span class="pre">ANDERER_AGENT)</span></code></p>
+<p>Hier ist also die Funktion <code class="docutils literal notranslate"><span class="pre">HANDELN()</span></code> nicht eine Eigenschaft eines Agenten, sondern verarbeitet nur die Daten des Agenten auf bestimmte Weise. In der Realität handeln ja aber die Agenten selbst und werden nicht von außen durch eine anonyme Macht “gehandelt”. Die objektgebundenen Methoden der objektorientierten Programmierung, bei denen der Agent praktisch selbst handelt, sind also viel “natürlicher” bzw. realistischer. Dies hilft uns u.a. auch bei der Übersetzung der Realität bzw. einer soziologischen Theorie in ein Computerprogramm, weil das viel eher unserem Denken entspricht. Technisch gesehen, ist es eigentlich egal, ob wir Funktionen oder Methoden benutzen. Wir können mit beiden mehr oder weniger das gleiche machen. Es geht dabei tatsächlich nur darum, wie wir unser Programm ausformulieren, wie wir unsere Gedanken dem Computer mitteilen wollen.</p>
+<p>Das ist alles noch etwas abstrakt und es ist an dieser Stelle auch noch gar nicht sooo wichtig. Einerseits soll dir nur schon mal ein Gefühl dafür gegeben werden, wie wir ABM in Python umsetzen können und auf welche Weisen wir das im Verlauf dieses Kurses machen werden. Andererseits ging es mir bei diesem Exkurs darum, dass du im nun folgenden Abschnitt nicht verwundert bist, warum wir plötzlich “Funktionen” ausführen, indem wir diese hinten an Objekte anhängen.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-amp_book-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-amp_book-py",
+            path: "./02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-amp_book-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="amp02a_listenzugriff.html" title="previous page">Der Zugriff auf Listen</a>
+    <a class='right-next' id="next-link" href="amp02a_listenmethoden.html" title="next page">Grundlegende Listen-Methoden</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Marius Kaffai<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

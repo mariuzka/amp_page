@@ -1,0 +1,1038 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modelle sozialer Beeinflussung &#8212; ABM mit Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ABM mit Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Willkommen
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01_intro.html">
+   1.1 Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einf%C3%BChrung.html">
+     Was ist ABM?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_python_und_anaconda.html">
+     Verwendete Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einstieg_python.html">
+     Einstieg in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01b.html">
+   1.2 Warm-up
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02_intro.html">
+   2.1 Woraus alles besteht
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listen_agenten_populationen.html">
+     Listen, Agenten &amp; Populationen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenzugriff.html">
+     Der Zugriff auf Listen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_exkurs_funktionen_methoden.html">
+     Exkurs: Funktionen &amp; Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenmethoden.html">
+     Grundlegende Listen-Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenfunktionen.html">
+     Nützliche Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02b.html">
+   2.2 Hinterlistige Übungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03_intro.html">
+   3.1 Motoren der Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_was_ist_for-loop.html">
+     Was ist ein For-Loop?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_for-loops_in_python.html">
+     For-Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_range.html">
+     Exkurs: Zahlenreihen erstellen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_%C3%BCber_zahlenreihe_loopen.html">
+     Loop durch Zahlenreihe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_variablen_ver%C3%A4ndern.html">
+     Variablen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_unver%C3%A4nderbare_objekte.html">
+     Exkurs: (un-)veränderbare Objekte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_listen_ver%C3%A4ndern.html">
+     Listen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_modulo.html">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_geschachtelte_for-loops.html">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_nutzen_for-loops.html">
+     ABM &amp; For-Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03b.html">
+   3.2 Gefangen im Loop
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04_intro.html">
+   4.1 Eine Brise Gefühl
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if-statements.html">
+     If-Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_boolsche_ausdr%C3%BCcke.html">
+     Boolesche Ausdrücke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if_else_elif.html">
+     If, else, elif
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_modul_import.html">
+     Exkurs 1: Module importieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_dicts.html">
+     Exkurs 2: das Dictionary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04/amp04b.html">
+   4.2 Das NaSch-Modell
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/05/ABM_mit_Python_05b_Übung_Modelle_sozialer_Beeinflussung.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F05/ABM_mit_Python_05b_Übung_Modelle_sozialer_Beeinflussung.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/05/ABM_mit_Python_05b_Übung_Modelle_sozialer_Beeinflussung.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Modelle sozialer Beeinflussung
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modell-1">
+     Modell 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabenteil-2-replikation-der-modelle-sozialer-beeinflussung">
+   Aufgabenteil 2 - Replikation der Modelle sozialer Beeinflussung
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#freiwillige-zusatzaufgaben">
+     Freiwillige Zusatzaufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="modelle-sozialer-beeinflussung">
+<h1>Modelle sozialer Beeinflussung<a class="headerlink" href="#modelle-sozialer-beeinflussung" title="Permalink to this headline">¶</a></h1>
+<p>Im Folgenden werden wir die ersten drei Liniendiagramme und die jeweils zugrunde liegenden Modelle im Text “Modelle sozialer Beeinflussung” von Michael Mäs reproduzieren. Den Text findest du <a class="reference external" href="https://link.springer.com/chapter/10.1007%2F978-3-658-01164-2_34">hier</a> oder auf Ilias. Das erste Modell werden wir im Folgenden gemeinsam programmieren, die zwei anderen sollen als Übungsaufgabe von euch reproduziert werden. <strong>Bevor du an dieser Stelle weiterliest, solltest du den Text von Michael Mäs vollständig gelesen haben.</strong></p>
+<p>In Modellen sozialer Beeinflussung wird der Einfluss verschiedener Beeinflussungsbeziehungen unter den Akteuren auf die Makrostruktur der Meinungen in der Population untersucht. In den Modellen wird jeder Akteur durch dessen Meinung z.B. auf einer Skala von 1 - 10 oder von 0 bis 1 repräsentiert. In jedem Zeitschritt wird ein Agent zufällig ausgewählt und dessen Meinung nach den jeweiligen Regeln der Beeinflussungsbeziehung verändert.</p>
+<p>Die <em>Veränderung der Meinung</em> eines Agenten i ergibt sich dabei im Kern eines jeden Modells dieses Artikels als gewichteter, durchschnittlicher Meinungsunterschied zwischen dem Agenten i und allen Agenten der Population. Diesen kann man formal so darstellen:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta O_{i,d,t} = \frac{\sum_{j=1}^{N}(o_{j,d,t}-o_{i,d,t}) w_{i,j,t}}{\sum_{j=1}^{N}|w_{i,j,t}|} \]</div>
+<p><em>(Achtung: In der Original-Formel im Text ist ein kleiner Fehler. Unter dem Bruchstrich muss korrekterweise der <strong>absolute Betrag</strong> der jeweiligen Gewichte <span class="math notranslate nohighlight">\( w_{i,j,t} \)</span> aufsummiert werden, da sich sonst negative und positive Gewichte gegenseitig aufheben würden. Daher habe ich hier im Gegensatz zur Original-Formel <span class="math notranslate nohighlight">\( | w_{i,j,t} | \)</span> geschrieben.)</em></p>
+<p>Hier die Bedeutung einiger Einzelteile der Funktion:</p>
+<p><span class="math notranslate nohighlight">\( O_{i,d,t} \)</span> = <strong>Meinung von Agent i</strong> über das Thema d zum Zeitpunkt t</p>
+<p><span class="math notranslate nohighlight">\( O_{j,d,t} \)</span> = <strong>Meinung von Agent j</strong> über das Thema d zum Zeitpunkt t</p>
+<p><span class="math notranslate nohighlight">\( \Delta O_{i,d,t} \)</span> = <strong>Veränderung der Meinung des Agenten i</strong> über das Thema d zum Zeitpunkt t</p>
+<p><span class="math notranslate nohighlight">\( (o_{j,d,t}-o_{i,d,t}) \)</span> = <strong>Meinungsunterschied</strong> zwischen Agent i und Agent j über das Thema d zum Zeitpunkt t</p>
+<p><span class="math notranslate nohighlight">\( w_{i,j,t} \)</span> = <strong>Gewicht der Beziehung</strong> zwischen Agent i und j zum Zeitpunkt t.</p>
+<p><span class="math notranslate nohighlight">\( (o_{j,d,t}-o_{i,d,t}) w_{i,j,t} \)</span> = nach Beziehung <strong>gewichteter Meinungsunterschied</strong> zwischen Agent i und Agent j über das Thema …</p>
+<p><span class="math notranslate nohighlight">\( \sum_{j=1}^{N}(o_{j,d,t}-o_{i,d,t}) w_{i,j,t} \)</span> = <strong>Summe aller gewichteten Meinungsunterschiede</strong> zwischen Agent i und Population …</p>
+<p><span class="math notranslate nohighlight">\( | w_{i,j,t} |\)</span> = <strong>Betrag des Gewichts der Beziehung</strong> zwischen Agent i und j zum Zeitpunkt t.</p>
+<p><span class="math notranslate nohighlight">\( \sum_{j=1}^{N}|w_{i,j,t}| \)</span> = Summe der absoluten Beträge aller Gewichte</p>
+<p><strong>Ein Beispiel:</strong></p>
+<p>Angenommen eine Population von Agenten besteht aus Peter und Hans. Peter vertritt die Meinung <span class="math notranslate nohighlight">\(1\)</span>, Hans vertritt die Meinung <span class="math notranslate nohighlight">\(5\)</span>. Angenommen Peter ändert in diesem Zeitschritt seine Meinung.</p>
+<p>Beginnen wir oberhalb des Bruchstriches der Formel mit der Berechnung des Meinungsunterschiedes. Der Meinungsunterschied (aus Sicht von Peter) ergibt sich als <span class="math notranslate nohighlight">\(5 - 1 = 4\)</span>. Da Peter und Hans gut befreundet sind, gewichtet Peter die Meinungsdifferenz mit einem Gewicht von <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>Da Peter selbst zur Population gehört, wird auch der Meinungsunterschied zwischem seiner Meinung und seiner Meinung berechnet: <span class="math notranslate nohighlight">\( 1 - 1 = 0\)</span>. Peter schätzt seine eigene Meinung genauso stark wie die Meinung von Hans. Daher wird auch seine eigene Meinung bzw. die Meinungsdifferenz mit sich selbst mit einem Gewicht von <span class="math notranslate nohighlight">\(1\)</span> gewichtet. Diese beiden gewichteten Meinungsunterschiede werden dann addiert.</p>
+<p>Oberhalb des Bruchstriches steht also insgesamt <span class="math notranslate nohighlight">\( \sum_{j=1}^{N}(5 - 1) * 1 + (1 - 1) * 1 = 4 + 0 = 4 \)</span>. Dies ist die Summe aller gewichteten Meinungsunterschiede zwischen Peter und allen Agenten in der Population d.h. Hans und Peter.</p>
+<p>Unterhalb des Bruchstriches steht die Summer aller Gewichte bzw. ihrer Beträge: <span class="math notranslate nohighlight">\(1 + 1 = 2\)</span></p>
+<p>Teilen wir den Wert oberhalb des Bruchstriches durch den Wert unterhalb des Bruchstriches, erhalten wir den durchschnittlichen gewichteten Meinungsunterschied: <span class="math notranslate nohighlight">\( \frac {4}{2} = 2\)</span></p>
+<p>Da die Beeinflussungsgewichte beide auf <span class="math notranslate nohighlight">\(1\)</span> gesetzt wurden, ist dies nichts anderes als ein ganz normaler Durchschnitt. In diesem Fall eben ein Durchschnitt der Meinungsunterschiede.</p>
+<p>Das Ergebnis <span class="math notranslate nohighlight">\(2\)</span> ist nun jedoch noch nicht die neue Meinung von Peter, sondern nur die Meinungsveränderung. Peter hatte zu Beginn die Meinung <span class="math notranslate nohighlight">\(1\)</span>. Die Veränderung der Meinung wird auf den aktuellen Zustand der Meinung aufaddiert: <span class="math notranslate nohighlight">\(1 + 2 = 3\)</span>. Die neue Meinung von Peter ist <span class="math notranslate nohighlight">\(3\)</span>. Diese Meinung liegt nun genau in der Mitte zwischen Peters alter Meinung und der Meinung von Hans.</p>
+<p>Wenn Peter den Meinungsunterschied zwischen ihm und Hans nur mit einem Gewicht von 0.5 gewichten würde, dann würde die neue Meinung von Peter näher an seiner alten Meinung liegen:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{(5-1)*0.5 + (1-1)*1}{0.5 + 1} = \frac{2 + 0}{0.5 + 1} = \frac{2}{1.5} = 1.3334 \]</div>
+<p>Die Meinung von Peter würde sich dann nur um den Wert <span class="math notranslate nohighlight">\(1.3334\)</span> ändern und somit zu <span class="math notranslate nohighlight">\(1 + 1.3334 = 2.3334\)</span> werden.</p>
+<p>In den hier vorgestellten Modellen sozialer Beeinflussung bleibt die Berechnung der Meinung bzw. der Meinungsveränderung an sich immer dieselbe. Sie wird immer hauptsächlich mit der obigen Formel berechnet. Was sich von Modell zu Modell ändert ist v.a. die Berechnung der Beeinflussungsgewichte. In diesem Beispiel haben sich die Beeinflussungsgewichte z.B. durch die Freundschaft ergeben. In den nun folgenden Modellen ergeben sich die Beeinflussungsgewichte durch die direkte Verbindung in einem einfachen Netzwerk (Modell 1), durch Homophilie (Modell 2) und durch negative soziale Beeinflussung bzw. Distinktion (Modell 3).</p>
+<div class="section" id="modell-1">
+<h2>Modell 1<a class="headerlink" href="#modell-1" title="Permalink to this headline">¶</a></h2>
+<p>Im Folgenden programmieren wir das Modell, welches die Abbildung 1 auf S.975 des Textes von Michael Mäs generiert. Wie gesagt, alle Modelle bestehen im Kern aus der oben aufgestellten Formel. Vor allem die Regel zur Berechnung der Beeinflussungsgewichte verändert sich zwischen den Modellen. In Modell 1 lautet die Regel, dass ein Agent nur von seinen direkten Nachbarn (und sich selbst) beeinflusst werden kann. Die Agenten sind dabei in einer Reihe verbunden, wodurch jeder Agent zwischen 1 und 2 Nachbarn hat. Die Anfangsmeinung ergibt sich aus der Position in der Reihe.</p>
+<p>Die durch eine solche Modellspezifikation entstehende “Meinungsdynamik” sieht man in der Abbildung. Das Ziel ist nun, genau eine solche Meinungsdynamik zu reproduzieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;img/modell_soz_be_1.png&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x22ca4cc0f88&gt;
+</pre></div>
+</div>
+<img alt="../_images/ABM_mit_Python_05b_Übung_Modelle_sozialer_Beeinflussung_4_1.png" src="../_images/ABM_mit_Python_05b_Übung_Modelle_sozialer_Beeinflussung_4_1.png" />
+</div>
+</div>
+<p>Die Agenten können wir einfach als Zahl, die die aktuelle Meinung des Agenten darstellt, repräsentieren. Da im ersten Modell die Meinung der Agenten sich aus ihrer Position ergibt, können wir die Populationsliste mithilfe eines For-Loops und der Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code> erstellen. Da die Meinungsskala im Text von 1 bis 10 reicht, gebe ich bei der Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code> zwei Argumente ein: Einen Start-Wert und einen Stopp-Wert. Der Stopp-Wert ist wie beim Slicing von Listen ein exklusiver Stoppwert. Daher muss ich <code class="docutils literal notranslate"><span class="pre">range(1,11,)</span></code> eingeben, um eine Zahlenreihe von 1 bis 10 zu erstellen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Population erstellen</span>
+<span class="n">population</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun können wir schon mit dem Simulationsloop weitermachen. Das Modell1 läuft laut des Diagramms 1500 Zeitschritte. Wir starten also einen For-Loop mit 1500 Iterationen.</p>
+<p>In jedem Zeitschritt wird zufällig ein Agent aus der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> ausgewählt. Dieser aktuell handelnde bzw. beeinflussbare Agent wird in der Literatur auch oft als der “fokale Agent” bezeichnet. Da wir im Verlauf der Simulation die Position des jeweils fokalen Agenten benötigen, greifen wir nicht direkt zufällig auf einen Agenten zu, sondern ziehen zufällig einen Listenindex d.h. eine Position eines Agenten aus der Population.</p>
+<p>Den Listenindex ziehen wir, indem wir mit der Funktion <code class="docutils literal notranslate"><span class="pre">random.choice()</span></code> eine zufällige Zahl aus der Zahlenreihe <code class="docutils literal notranslate"><span class="pre">range(len(population))</span></code> ziehen. Da es sich um die Position des “fokalen Agenten” handelt, nenne ich diese Variable <code class="docutils literal notranslate"><span class="pre">focal_position</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1"># für 1500 Zeitschritte</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1500</span><span class="p">):</span>
+    
+    <span class="c1"># zufälligen Index ziehen</span>
+    <span class="n">focal_position</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nachdem wir nun zufällig einen Agenten bzw. dessen Position gezogen haben, können wir die Beeinflussung dieses fokalen Agenten modellieren. Der erste Schritt den wir dabei machen, ist die jeweiligen Verbindungen bzw. Beeinflussungsgewichte zu ermitteln. Wie machen wir das?</p>
+<p>Ich schlage folgendes Vorgehen vor: Wir gehen die Populationsliste von vorne nach hinten durch, ermitteln für jeden Agenten in der Population das jeweilige Beeinflussungsgewicht für die Beziehung zum fokalen Agenten und speichern die Gewichte in einer extra Liste ab. Auf diese Liste können wir dann später bei der Berechnung der Meinungsunterschiede zur entsprechenden Gewichtung zugreifen.</p>
+<p>Es bietet sich an, diesen Teilschritt in eine Funktion auszulagern. Zur Berechnung der Gewichte benötigen wir die Populationsliste und die Position des fokalen Agenten. Diese beiden Variablen sind die Inputs der im Folgenden erstellen Funktion:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_weights_1</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">focal_position</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;Ermittelt die Beeinflussungsgewichte nach den Regeln von Modell 1.&quot;&quot;&quot;</span>
+    
+    <span class="c1"># Gewichts-Liste</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># für jede Position in Population</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)):</span>
+        
+        <span class="c1"># Distanz zwischen Position des fokalen Agenten i und des Agenten j berechnen</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">focal_position</span><span class="p">)</span>
+        
+        <span class="c1"># Wenn Distanz kleiner gleich 1</span>
+        <span class="k">if</span> <span class="n">distance</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># Gewicht von 1 an Gewichts-Liste hängen</span>
+            <span class="n">weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Ansonsten:</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Gewicht von 0 an Gewichts-Liste hängen</span>
+            <span class="n">weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1"># Gewichts-Liste ausgeben</span>
+    <span class="k">return</span> <span class="n">weights</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Innerhalb der Funktion erstelle ich zuerst die Liste <code class="docutils literal notranslate"><span class="pre">weights</span></code>, in welcher die danach berechneten Gewichte gespeichert werden. Dann startet ein For-Loop, welcher über die Indizes der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> iteriert, sodass die Schleifenvariable <code class="docutils literal notranslate"><span class="pre">j</span></code> jeweils die Position eines Agenten beinhaltet. In Modell1 besteht eine Verbindung mit einem Gewicht von 1, wenn die zwei Agenten Nachbarn in der Liste sind. Wie kann man ermitteln, ob zwei Agenten direkte Nachbarn sind? Die Differenz zwischen deren Positionsindizes muss genau 1 sein. Wir müssen also zunächst die (absolute) Distanz zwischen den Agenten mithilfe der Zeile <code class="docutils literal notranslate"><span class="pre">distance</span> <span class="pre">=</span> <span class="pre">abs(j</span> <span class="pre">-</span> <span class="pre">focal_position)</span></code> berechnen (die Funktion <code class="docutils literal notranslate"><span class="pre">abs()</span></code> gibt den absoluten Betrag einer Zahl zurück). Mit einem If-Statement können wir dann prüfen, ob die Distanz gleich 1 ist.</p>
+<p>Da Agenten auch von der eigenen Meinung beeinflusst werden, muss auch bei einer berechneten Distanz von 0 (ein Agent hat zu sich selbst immer einer Distanz von 0) ein Gewicht von 1 ermittelt werden. Daher lautet der Wenn-Dann-Satz des If-Statements: Wenn die Distanz kleiner oder gleich 1 ist, dann hänge eine 1 an die Liste <code class="docutils literal notranslate"><span class="pre">weights</span></code>, ansonsten hänge eine 0 an die Liste <code class="docutils literal notranslate"><span class="pre">weights</span> </code>. Nachdem für jeden Agent ein Gewicht bestimmt wurde und der For-Loop beendet ist, wird die Liste weights als Output aus der Funktion ausgegeben.</p>
+<p>Nachdem die Gewichte bestimmt wurden, können wir die Meinungsbeeinflussung modellieren. Wir müssen nun also die Formel von oben in Code umsetzen. Auch hier macht es Sinn, eine Funktion für diesen Teilschritt zu schreiben, v.a. weil dieser Schritt in allen drei Modellen benötigt wird. Was brauchen wir an Funktions-Inputs, um die obige Formel umzusetzen? Wir brauchen die Populationsliste (weil wir alle Meinungen benötigen), die Gewichte sowie die Position des fokalen Agenten.</p>
+<p>Hier die Funktion. Gehe sie Zeile für Zeile durch und versuche sie zu verstehen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_opinion_change</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">focal_position</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;Berechnet die Meinungsveränderung des fokalen Agenten i nach der Beeinflussung durch die Population.&quot;&quot;&quot;</span>
+    
+    <span class="c1">############################################################</span>
+    <span class="c1"># Oberhalb des Bruchstriches</span>
+    <span class="c1">############################################################</span>
+    
+    <span class="c1"># Meinung des fokalen Agenten i ermitteln</span>
+    <span class="n">opinion_focal_agent</span> <span class="o">=</span> <span class="n">population</span><span class="p">[</span><span class="n">focal_position</span><span class="p">]</span>
+    
+    <span class="c1"># Liste für die gewichteten Meinungsunterschiede, die später aufsummiert werden</span>
+    <span class="n">weighted_diffs</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># Für jede Position in Population</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)):</span>
+        
+        <span class="c1"># Meinung des Agenten j ermitteln</span>
+        <span class="n">opinion_agent_j</span> <span class="o">=</span> <span class="n">population</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        
+        <span class="c1"># Meinungsdifferenz berechnen</span>
+        <span class="n">difference</span> <span class="o">=</span> <span class="n">opinion_agent_j</span> <span class="o">-</span> <span class="n">opinion_focal_agent</span>
+        
+        <span class="c1"># Meinungsdifferenz mit entsprechendem Gewicht aus Gewichts-Liste gewichten</span>
+        <span class="n">weighted_diff</span> <span class="o">=</span> <span class="n">difference</span> <span class="o">*</span> <span class="n">weights</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        
+        <span class="c1"># gewichtete Meinungsdifferenz an entsprechende Liste anhängen</span>
+        <span class="n">weighted_diffs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weighted_diff</span><span class="p">)</span>
+    
+    <span class="c1"># gewichtete Meinungsunterschiede aufsummieren</span>
+    <span class="n">sum_of_weighted_diffs</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weighted_diffs</span><span class="p">)</span>
+    
+    
+    <span class="c1">############################################################</span>
+    <span class="c1"># Unterhalb des Bruchstriches</span>
+    <span class="c1">############################################################</span>
+    
+    <span class="c1"># Liste für absolute Beträge der Gewichte</span>
+    <span class="n">abs_weights</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># für jedes Gewicht in weights</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">weights</span><span class="p">:</span>
+        <span class="c1"># absoluten Betrag des Gewichts an abs_weights hängen</span>
+        <span class="n">abs_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+    
+    <span class="c1"># Summe der absoluten Gewichte ermitteln</span>
+    <span class="n">sum_of_abs_weights</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">abs_weights</span><span class="p">)</span>
+    
+    
+    <span class="c1">############################################################</span>
+    <span class="c1"># Dividieren / Durchschnitt berechnen</span>
+    <span class="c1">############################################################</span>
+    
+    <span class="c1"># Meinungsveränderung berechnen</span>
+    <span class="n">opinion_change</span> <span class="o">=</span> <span class="n">sum_of_weighted_diffs</span> <span class="o">/</span> <span class="n">sum_of_abs_weights</span>
+    
+    <span class="c1"># Meinungsveränderung ausgeben</span>
+    <span class="k">return</span> <span class="n">opinion_change</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Was passiert in dieser Funktion? Die Funktion geht die Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> durch und berechnet zwischen dem fokalen Agenten und jedem Agenten der Population den jeweiligen gewichteten Meinungsunterschied. Dieser wird in einer Liste <code class="docutils literal notranslate"><span class="pre">weighted_diffs</span></code> gesammelt und später aufsummiert. Das ist das, was oberhalb des Bruchstriches in der obigen Formel passiert. Unter dem Bruchstrich werden nur die entsprechenden Gewichte aufsummiert. Der sich ergebende Bruch ist die Meinungsveränderung des fokalen Agenten, welche ausgegeben wird.</p>
+<p>Okay, mit diesen beiden Funktionen können wir den Simulationsloop weiter fortsetzen. Unten setze ich die bisherigen Teile zusammen (außer der Funktionsdefinitionen). Nachdem der zufällige Agent gezogen wurde (Zeile 22), können wir mithilfe der oben erstellten Funktion <code class="docutils literal notranslate"><span class="pre">get_weights_1()</span></code> die Liste an entsprechenden Gewichten ermitteln. Diese Gewichtsliste enthält nun die Information darüber, wie die Beziehung des fokalen Agenten i zu jedem anderen Agenten in der Population gewichtet wird.</p>
+<p>Dann können wir mithilfe der Funktion <code class="docutils literal notranslate"><span class="pre">calculate_opinion_change()</span></code> die Meinungsveränderung ermitteln. Aus der Meinungsveränderung und der aktuellen Meinung des fokalen Agenten lässt sich die neue Meinung <code class="docutils literal notranslate"><span class="pre">new_opinion</span></code> ermitteln. Diese neue Meinung setzen wir in der Liste <code class="docutils literal notranslate"><span class="pre">populuation</span></code> an die Position des fokalen Agenten und ersetzen damit die alte Meinung durch die neue Meinung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1">#############################################################</span>
+<span class="c1"># Initialisierung</span>
+<span class="c1">#############################################################</span>
+
+<span class="c1"># Population erstellen</span>
+<span class="n">population</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+
+<span class="c1">#############################################################</span>
+<span class="c1"># Simulationsloop</span>
+<span class="c1">#############################################################</span>
+
+<span class="c1"># für 1500 Zeitschritte</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1500</span><span class="p">):</span>
+    
+    <span class="c1"># zufälligen Index ziehen</span>
+    <span class="n">focal_position</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">))))</span>
+    
+    <span class="c1"># Gewichte ermitteln</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">get_weights_1</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">focal_position</span><span class="p">)</span>
+    
+    <span class="c1"># Meinungsveränderung berechnen</span>
+    <span class="n">opinion_change</span> <span class="o">=</span> <span class="n">calculate_opinion_change</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">focal_position</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+    
+    <span class="c1"># Meinung verändern / neue Meinung berechnen aus momentaner Meinung und Meinungsveränderung</span>
+    <span class="n">new_opinion</span> <span class="o">=</span> <span class="n">population</span><span class="p">[</span><span class="n">focal_position</span><span class="p">]</span> <span class="o">+</span> <span class="n">opinion_change</span>
+    
+    <span class="c1"># Alte Meinung durch neue Meinung in Population ersetzen</span>
+    <span class="n">population</span><span class="p">[</span><span class="n">focal_position</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_opinion</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun sind wir schon fast fertig. Was fehlt ist nun noch eine graphische Darstellung. Dazu müssen wir in jedem Zeitschritt die aktuelle Meinung eines jeden Agenten erfassen und abspeichern und schließlich nach dem Simulationloop mit Pyplot plotten.</p>
+<p>Um die Daten zu sammeln, brauchen wir einen “Behälter”, in dem wir für jeden Agenten die individuelle Datenreihe abspeichern können. Dazu eignet sich z.B. eine Liste von Listen. Jede Unterliste sammelt dabei die Daten eines Agenten.</p>
+<p>Im Folgenden erstelle ich eine Liste <code class="docutils literal notranslate"><span class="pre">opinion_history</span></code>, welche exakt so viele leere Listen enthält, wie es Agenten in der Population gibt. Diese leeren Unterlisten können dann während der Simulation mit Daten befüllt werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Liste für Sammlung der Output-Daten erstellen</span>
+<span class="n">opinion_history</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)):</span>
+    <span class="n">opinion_history</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vor der Simulation sieht das dann so aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opinion_history</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[], [], [], [], [], [], [], [], [], []]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mithilfe eines For-Loops können wir dann in jeder Runde des Simulationsloops für jeden Agenten die Meinung an die entsprechende Unterliste in <code class="docutils literal notranslate"><span class="pre">opinion_history</span></code> hängen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># Für jede Position in Population
+for j in range(len(population)):
+    # An die opinion_history-Unterliste an Position j die Meinung des Agenten j hängen
+    opinion_history[j].append(population[j])
+    ```
+</pre></div>
+</div>
+<p>Im Folgenden baue ich die beiden Code-Blöcke in den Gesamt-Code ein:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1">#############################################################</span>
+<span class="c1"># Initialisierung</span>
+<span class="c1">#############################################################</span>
+
+<span class="c1"># Population erstellen</span>
+<span class="n">population</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+
+<span class="c1"># Liste für Sammlung der Output-Daten erstellen</span>
+<span class="n">opinion_history</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)):</span>
+    <span class="n">opinion_history</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+
+
+<span class="c1">#############################################################</span>
+<span class="c1"># Simulationsloop</span>
+<span class="c1">#############################################################</span>
+
+<span class="c1"># für 1500 Zeitschritte</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1500</span><span class="p">):</span>
+    
+    <span class="c1"># zufälligen Index ziehen</span>
+    <span class="n">focal_position</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)))</span>
+    
+    <span class="c1"># Gewichte ermitteln</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">get_weights_1</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">focal_position</span><span class="p">)</span>
+    
+    <span class="c1"># Meinungsveränderung berechnen</span>
+    <span class="n">opinion_change</span> <span class="o">=</span> <span class="n">calculate_opinion_change</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">focal_position</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+    
+    <span class="c1"># Meinung verändern / neue Meinung berechnen aus momentaner Meinung und Meinungsveränderung</span>
+    <span class="n">new_opinion</span> <span class="o">=</span> <span class="n">population</span><span class="p">[</span><span class="n">focal_position</span><span class="p">]</span> <span class="o">+</span> <span class="n">opinion_change</span>
+    
+    <span class="c1"># Alte Meinung durch neue Meinung in Population ersetzen</span>
+    <span class="n">population</span><span class="p">[</span><span class="n">focal_position</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_opinion</span>
+    
+    <span class="c1"># Für jede Position in Population</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)):</span>
+        <span class="c1"># An die opinion_history-Unterliste an Position j die Meinung des Agenten j hängen</span>
+        <span class="n">opinion_history</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">population</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nachdem wir den obigen Code ausgeführt haben, müssen wir nur noch die Datenreihen in der Liste <code class="docutils literal notranslate"><span class="pre">opinion_history</span></code> plotten. Dafür gehe ich mit einem For-Loop jede Unterliste der Liste <code class="docutils literal notranslate"><span class="pre">opinion_history</span></code> durch und übergebe sie der Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> als Y-Daten:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output-Daten plotten</span>
+<span class="k">for</span> <span class="n">opinion_data</span> <span class="ow">in</span> <span class="n">opinion_history</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">opinion_data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ABM_mit_Python_05b_Übung_Modelle_sozialer_Beeinflussung_24_0.png" src="../_images/ABM_mit_Python_05b_Übung_Modelle_sozialer_Beeinflussung_24_0.png" />
+</div>
+</div>
+<p>So, das sieht doch ziemlich genau so aus, wie in Abbildung 1 aus dem Text. Im Zeitverlauf einigen sich alle Agenten nach und nach auf eine Meinung.</p>
+<p>Wenn wir die Graphik wie im Original noch in einem pfiffigen schwarz haben wollen, dann können wir bei der Funktion <code class="docutils literal notranslate"><span class="pre">plot()</span></code> noch den Eingabe-Parameter <code class="docutils literal notranslate"><span class="pre">color</span></code> auf <code class="docutils literal notranslate"><span class="pre">&quot;black&quot;</span></code> setzen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output-Daten plotten</span>
+<span class="k">for</span> <span class="n">opinion_data</span> <span class="ow">in</span> <span class="n">opinion_history</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">opinion_data</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ABM_mit_Python_05b_Übung_Modelle_sozialer_Beeinflussung_26_0.png" src="../_images/ABM_mit_Python_05b_Übung_Modelle_sozialer_Beeinflussung_26_0.png" />
+</div>
+</div>
+<p>Damit wir den Code des Modells 1 kompakt beisammen haben und unkompliziert ausführen können, könnten wir nun noch den Code des Simulationsablaufes in einer Funktion zusammenfassen. Dort nicht mit einschließen würde ich dort jedoch die Definition der beiden oben definierten Funktionen. Im Folgenden versammle ich nun den gesamten benötigten Code und fasse zudem den Code des eigentlichen Simulationsablaufes innerhalb der Funktion <code class="docutils literal notranslate"><span class="pre">run_model_1()</span></code> zusammen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="k">def</span> <span class="nf">get_weights_1</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">focal_position</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;Ermittelt die Beeinflussungsgewichte nach den Regeln von Modell 1.&quot;&quot;&quot;</span>
+    
+    <span class="c1"># Gewichts-Liste</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># für jede Position in Population</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)):</span>
+        
+        <span class="c1"># Distanz zwischen Position des fokalen Agenten i und des Agenten j berechnen</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">focal_position</span><span class="p">)</span>
+        
+        <span class="c1"># Wenn Distanz kleiner gleich 1</span>
+        <span class="k">if</span> <span class="n">distance</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># Gewicht von 1 an Gewichts-Liste hängen</span>
+            <span class="n">weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Ansonsten:</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Gewicht von 0 an Gewichts-Liste hängen</span>
+            <span class="n">weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1"># Gewichts-Liste ausgeben</span>
+    <span class="k">return</span> <span class="n">weights</span>
+
+
+<span class="k">def</span> <span class="nf">calculate_opinion_change</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">focal_position</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;Berechnet die Meinungsveränderung des fokalen Agenten i nach der Beeinflussung durch die Population.&quot;&quot;&quot;</span>
+    
+    <span class="c1">############################################################</span>
+    <span class="c1"># Oberhalb des Bruchstriches</span>
+    <span class="c1">############################################################</span>
+    
+    <span class="c1"># Meinung des fokalen Agenten i ermitteln</span>
+    <span class="n">opinion_focal_agent</span> <span class="o">=</span> <span class="n">population</span><span class="p">[</span><span class="n">focal_position</span><span class="p">]</span>
+    
+    <span class="c1"># Liste für die gewichteten Meinungsunterschiede, die später aufsummiert werden</span>
+    <span class="n">weighted_diffs</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># Für jede Position in Population</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)):</span>
+        
+        <span class="c1"># Meinung des Agenten j ermitteln</span>
+        <span class="n">opinion_agent_j</span> <span class="o">=</span> <span class="n">population</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        
+        <span class="c1"># Meinungsdifferenz berechnen</span>
+        <span class="n">difference</span> <span class="o">=</span> <span class="n">opinion_agent_j</span> <span class="o">-</span> <span class="n">opinion_focal_agent</span>
+        
+        <span class="c1"># Meinungsdifferenz mit entsprechendem Gewicht aus Gewichts-Liste gewichten</span>
+        <span class="n">weighted_diff</span> <span class="o">=</span> <span class="n">difference</span> <span class="o">*</span> <span class="n">weights</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        
+        <span class="c1"># gewichtete Meinungsdifferenz an entsprechende Liste anhängen</span>
+        <span class="n">weighted_diffs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weighted_diff</span><span class="p">)</span>
+    
+    <span class="c1"># gewichtete Meinungsunterschiede aufsummieren</span>
+    <span class="n">sum_of_weighted_diffs</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weighted_diffs</span><span class="p">)</span>
+    
+    
+    <span class="c1">############################################################</span>
+    <span class="c1"># Unterhalb des Bruchstriches</span>
+    <span class="c1">############################################################</span>
+    
+    <span class="c1"># Liste für absolute Beträge der Gewichte</span>
+    <span class="n">abs_weights</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># für jedes Gewicht in weights</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">weights</span><span class="p">:</span>
+        <span class="c1"># absoluten Betrag des Gewichts an abs_weights hängen</span>
+        <span class="n">abs_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+    
+    <span class="c1"># Summe der absoluten Gewichte ermitteln</span>
+    <span class="n">sum_of_abs_weights</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">abs_weights</span><span class="p">)</span>
+    
+    
+    <span class="c1">############################################################</span>
+    <span class="c1"># Dividieren / Durchschnitt berechnen</span>
+    <span class="c1">############################################################</span>
+    
+    <span class="c1"># Meinungsveränderung berechnen</span>
+    <span class="n">opinion_change</span> <span class="o">=</span> <span class="n">sum_of_weighted_diffs</span> <span class="o">/</span> <span class="n">sum_of_abs_weights</span>
+    
+    <span class="c1"># Meinungsveränderung ausgeben</span>
+    <span class="k">return</span> <span class="n">opinion_change</span>
+
+
+<span class="k">def</span> <span class="nf">run_model_1</span><span class="p">():</span>
+
+    <span class="sd">&quot;&quot;&quot;Modell mit Beeinflussung durch direkte Nachbarn. Reproduziert Modell 1 in Mäs 2015. &quot;&quot;&quot;</span>
+    
+    <span class="c1">#############################################################</span>
+    <span class="c1"># Initialisierung</span>
+    <span class="c1">#############################################################</span>
+
+    <span class="c1"># Population erstellen</span>
+    <span class="n">population</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+        <span class="n">population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+
+    <span class="c1"># Liste für Sammlung der Output-Daten erstellen</span>
+    <span class="n">opinion_history</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)):</span>
+        <span class="n">opinion_history</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+
+
+    <span class="c1">#############################################################</span>
+    <span class="c1"># Simulationsloop</span>
+    <span class="c1">#############################################################</span>
+
+    <span class="c1"># für 1500 Zeitschritte</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1500</span><span class="p">):</span>
+
+        <span class="c1"># zufälligen Index ziehen</span>
+        <span class="n">focal_position</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">))))</span>
+
+        <span class="c1"># Gewichte ermitteln</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">get_weights_1</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">focal_position</span><span class="p">)</span>
+
+        <span class="c1"># Meinungsveränderung berechnen</span>
+        <span class="n">opinion_change</span> <span class="o">=</span> <span class="n">calculate_opinion_change</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">focal_position</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+
+        <span class="c1"># Meinung verändern / neue Meinung berechnen aus momentaner Meinung und Meinungsveränderung</span>
+        <span class="n">new_opinion</span> <span class="o">=</span> <span class="n">population</span><span class="p">[</span><span class="n">focal_position</span><span class="p">]</span> <span class="o">+</span> <span class="n">opinion_change</span>
+
+        <span class="c1"># Alte Meinung durch neue Meinung in Population ersetzen</span>
+        <span class="n">population</span><span class="p">[</span><span class="n">focal_position</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_opinion</span>
+
+        <span class="c1"># Für jede Position in Population</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)):</span>
+            <span class="c1"># An die opinion_history-Unterliste an Position j die Meinung des Agenten j hängen</span>
+            <span class="n">opinion_history</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">population</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+    
+    
+    <span class="c1"># Output-Daten plotten</span>
+    <span class="k">for</span> <span class="n">opinion_data</span> <span class="ow">in</span> <span class="n">opinion_history</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">opinion_data</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dadurch, dass der Code für die Ausführung der Simulation jetzt in der Funktion <code class="docutils literal notranslate"><span class="pre">run_model_1()</span></code> verpackt ist, können wir diese bequem ausführen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_model_1</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ABM_mit_Python_05b_Übung_Modelle_sozialer_Beeinflussung_30_0.png" src="../_images/ABM_mit_Python_05b_Übung_Modelle_sozialer_Beeinflussung_30_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aufgabenteil-2-replikation-der-modelle-sozialer-beeinflussung">
+<h1>Aufgabenteil 2 - Replikation der Modelle sozialer Beeinflussung<a class="headerlink" href="#aufgabenteil-2-replikation-der-modelle-sozialer-beeinflussung" title="Permalink to this headline">¶</a></h1>
+<p><strong>1.</strong> Mache dich mit dem obigen Code für die Replikation von Modell 1 vertraut und versuche so viel wie möglich davon zu verstehen.</p>
+<p><strong>2.</strong> Repliziere Modell 2 bzw. Abbildung 2 aus dem Text von Michael Mäs. Du kannst dabei fast den gesamten obigen Code verwenden. Folgende Dinge gibt es jedoch zu beachten/zu ändern:</p>
+<ul class="simple">
+<li><p>Du benötigst v.a. eine andere Funktion, welche die Beeinflussungsgewichte nach den im Text für Modell 2 beschriebenen Regeln ermittelt.</p></li>
+<li><p>Die Meinungsskala verläuft nicht mehr von 1 bis 10, sondern von 0 bis 1 und die Agenten sind zu Beginn zufällig auf dieser Meinungsskala verteilt. Beachte dies bei der Erstellung der Population!</p></li>
+<li><p>Im Modell ist eine wesentlich höhere Anzahl an Agenten. Erhöhe daher bei der Erstellung der Population die Anzahl der Agenten auf 100. Beachte dies bei der Erstellung der Population!</p></li>
+</ul>
+<p><strong>3.</strong> Repliziere Modell 3 bzw. Abbildung 3 aus dem Text von Michael Mäs. Auch hier kannst die wieder fast den gesamten Code verwenden. Diesmal musst du auf folgende Dinge achten:</p>
+<ul class="simple">
+<li><p>Du benötigst eine spezielle Funktion, die die Gewichte gemäß den im Text erläuterten Regeln ermittelt</p></li>
+<li><p>Die Population wird genau wie in Modell 2 erstellt</p></li>
+<li><p>Du musst bei der Berechnung der neuen Meinung unbedingt darauf achten, dass die Meinungen nicht größer 1 oder kleiner 0 werden.</p></li>
+</ul>
+<div class="section" id="freiwillige-zusatzaufgaben">
+<h2>Freiwillige Zusatzaufgaben<a class="headerlink" href="#freiwillige-zusatzaufgaben" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Repliziere Modell 1 so, dass wie in Modell 2 und Modell 3 die Meinungsskala von 0 bis 1 geht und anfänglich die Meinungen der Agenten zufällig auf dieser Meinungsskala platziert werden. Dennoch sollten Agenten wie es die Regel von Modell 1 besagt, nur von ihren direkten Nachbarn in der Population beeinflussbar sein.</p></li>
+<li><p>Schreibe eine Funktion, die je nach Input entweder das in der vorherigen Aufgabe modifizierte Modell 1, das Modell 2 oder Modell 3 ausführt. Achte darauf, dass sich im Ganzen betrachtet, so wenig Code wie möglich wiederholt. Setze dies um.</p></li>
+<li><p>Wichtige Parameter der Simulation z.B. die Länge der Simulation, die Populationsgröße oder wichtige Grenzwerte sollten über die Funktions-Inputs d.h. Funktions-Parameter veränderbar sein, sodass man gezielte Experimente mit unterschiedlichen Bedinungen umsetzen kann. Setze dies um.</p></li>
+<li><p>Experimentiere mit verschiedenen Simulations-Parameter-Einstellungen!</p></li>
+<li><p>Hast du vielleicht eine eigene Idee für einen Beeinflussungsmechanismus? Schreibe dir diesen auf, um diesen später im Seminar in einem eigenen Modell umzusetzen (wenn du das nicht direkt jetzt machen möchtest).</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Marius Kaffai<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

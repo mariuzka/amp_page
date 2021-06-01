@@ -1,0 +1,872 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>If, else, elif &#8212; ABM mit Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exkurs 1: Module importieren" href="amp04a_modul_import.html" />
+    <link rel="prev" title="Boolesche Ausdrücke" href="amp04a_boolsche_ausdr%C3%BCcke.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ABM mit Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Willkommen
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01_intro.html">
+   1.1 Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einf%C3%BChrung.html">
+     Was ist ABM?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_python_und_anaconda.html">
+     Verwendete Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einstieg_python.html">
+     Einstieg in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01b.html">
+   1.2 Warm-up
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02_intro.html">
+   2.1 Woraus alles besteht
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listen_agenten_populationen.html">
+     Listen, Agenten &amp; Populationen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenzugriff.html">
+     Der Zugriff auf Listen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_exkurs_funktionen_methoden.html">
+     Exkurs: Funktionen &amp; Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenmethoden.html">
+     Grundlegende Listen-Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenfunktionen.html">
+     Nützliche Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02b.html">
+   2.2 Hinterlistige Übungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03_intro.html">
+   3.1 Motoren der Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_was_ist_for-loop.html">
+     Was ist ein For-Loop?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_for-loops_in_python.html">
+     For-Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_range.html">
+     Exkurs: Zahlenreihen erstellen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_%C3%BCber_zahlenreihe_loopen.html">
+     Loop durch Zahlenreihe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_variablen_ver%C3%A4ndern.html">
+     Variablen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_unver%C3%A4nderbare_objekte.html">
+     Exkurs: (un-)veränderbare Objekte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_listen_ver%C3%A4ndern.html">
+     Listen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_modulo.html">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_geschachtelte_for-loops.html">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_nutzen_for-loops.html">
+     ABM &amp; For-Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03b.html">
+   3.2 Gefangen im Loop
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="amp04_intro.html">
+   4.1 Eine Brise Gefühl
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp04a_if-statements.html">
+     If-Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp04a_boolsche_ausdr%C3%BCcke.html">
+     Boolesche Ausdrücke
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     If, else, elif
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp04a_modul_import.html">
+     Exkurs 1: Module importieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp04a_dicts.html">
+     Exkurs 2: das Dictionary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="amp04b.html">
+   4.2 Das NaSch-Modell
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/04/amp04a_if_else_elif.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F04/amp04a_if_else_elif.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/04/amp04a_if_else_elif.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wenn-dies-dann-das-if-statements-mit-if">
+   Wenn dies, dann das - If-Statements mit if.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nein-dann-das-if-statements-mit-else">
+   Nein? Dann das! If-Statements mit else.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nein-dann-vielleicht-das-hier-if-statements-mit-elif">
+   Nein? Dann vielleicht das hier? If-Statements mit elif.
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="if-else-elif">
+<h1>If, else, elif<a class="headerlink" href="#if-else-elif" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="wenn-dies-dann-das-if-statements-mit-if">
+<h2>Wenn dies, dann das - If-Statements mit if.<a class="headerlink" href="#wenn-dies-dann-das-if-statements-mit-if" title="Permalink to this headline">¶</a></h2>
+<p>Nun haben wir uns sehr genau einen bestimmten Bestandteil der If-Statements angeschaut. Kommen wir nun dazu, If-Statements als Ganzes zu benutzen, um damit die Ausführung unseres Codes situationsspezifisch zu steuern. Wie oben bereits gezeigt, besteht ein If-Statement im einfachsten Fall aus zwei Bestandteilen: dem Wenn-Teil und dem Dann-Teil.</p>
+<p>Der Wenn-Teil beginnt mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">if</span></code> und endet mit einem <code class="docutils literal notranslate"><span class="pre">:</span></code>. Dazwischen, also dort wo unten der Platzhalter <code class="docutils literal notranslate"><span class="pre">THIS_STATEMENT_IS_TRUE</span></code> steht, muss ein boolscher Ausdruck stehen. Ist der boolsche Ausdruck wahr d.h. wird er letztlich auf den Wert <code class="docutils literal notranslate"><span class="pre">True</span></code> reduziert, dann wird der eingerückte Codeblock darunter ausgeführt. Wenn der boolsche Ausdruck falsch ist, dann wird der eingerückte Codeblock einfach ignoriert. Die Bedingung dafür, dass der Codeblock ausgeführt wird, ist also dass der boolsche Ausdruck wahr ist.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">THIS_STATEMENT_IS_TRUE</span><span class="p">:</span> <span class="c1"># Wenn-Teil</span>
+    <span class="n">DO_THAT</span>                <span class="c1"># Dann-Teil</span>
+</pre></div>
+</div>
+<p>Schauen wir uns das an einem konkreten Beispiel an. Wie wir oben gelernt haben, sind die einfachsten boolschen Ausdrücke einfach die beiden Wahrheitswerte <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code> selbst. Füge ich also als boolschen Ausdruck in ein If-Statement z.B. einfach ein <code class="docutils literal notranslate"><span class="pre">True</span></code> ein, dann ist das eine wahre Aussage, sodass die Bedingung erfüllt ist und somit der Codeblock des If-Statements ausgeführt wird:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Diese Aussage ist wahr!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Diese Aussage ist wahr!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Setzen wir stattedessen die einfachst mögliche falsche Aussage - ein <code class="docutils literal notranslate"><span class="pre">False</span></code> - ein, dann ist die Bedingung der wahren Aussage nicht erfüllt, wodurch der eingerückte Codeblock ignoriert wird. Es passiert dann einfach ertmal gar nichts:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Diese Aussage ist wahr!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Natürlich ist es etwas sinnlos, wenn man in If-Statements direkt einen nicht weiter zu reduzierenden Wahrheitswert einsetzt. Unten setze ich daher beispielhaft einen Vergleich als boolschen Ausdruck ein:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Diese Aussage ist wahr!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Diese Aussage ist wahr!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Da die Aussage “<em>1 ist kleiner 2</em>” natürlich wahr ist, wird der eingerückte Codeblock ausgeführt. Aber natürlich machen auch If-Statements erst wieder wirklich Sinn, wenn die Wahrheit oder Falschheit der Bedingung nicht schon bereits zum Zeitpunkt der Programmierung klar ist bzw. für jeden Fall gleich ist. If-Statements machen v.a. Sinn, wenn sich das Programm in spezifischen Situationen spezfisch verhalten soll.</p>
+<p>Im untigen Beispiel wird innerhalb eines For-Loops die Liste <code class="docutils literal notranslate"><span class="pre">age_list</span></code> durchgegangen und für jedes Element in einem If-Statement erfragt, ob es größer als 40 ist. Wenn das Element größer als 40 ist und somit die Bedingung des If-Statements erfüllt ist, wird das Element an die anfangs noch leere Liste <code class="docutils literal notranslate"><span class="pre">Ü40</span></code> angehängt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Daten</span>
+<span class="n">age_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">61</span><span class="p">]</span>
+
+<span class="n">Ü40</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># für jedes Alter</span>
+<span class="k">for</span> <span class="n">age</span> <span class="ow">in</span> <span class="n">age_list</span><span class="p">:</span>
+    <span class="c1"># wenn größer 40</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
+        <span class="c1"># an die Liste Ü40 anhängen</span>
+        <span class="n">Ü40</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Und wir sehen, dass sich in der Liste <code class="docutils literal notranslate"><span class="pre">Ü40</span></code> nun alle Elemente größer 40 befinden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ü40</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[45, 61]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="nein-dann-das-if-statements-mit-else">
+<h2>Nein? Dann das! If-Statements mit else.<a class="headerlink" href="#nein-dann-das-if-statements-mit-else" title="Permalink to this headline">¶</a></h2>
+<p>Wir können nun If-Statements schreiben, welche bestimmten Code ausführen, sobald eine Bedingung erfüllt ist. Falls die Bedingung allerdings nicht erfüllt ist, dann passiert in unseren bisherigen If-Statements einfach gar nichts. Manchmal ist es aber sehr praktisch auch bei Nicht-Erfüllung der Bedingung etwas auszuführen - nur dann eben etwas anderes. Das können wir in Python mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">else</span></code>. Mit <code class="docutils literal notranslate"><span class="pre">else</span></code> können wir unseren Wenn-Dann-Satz praktisch um einen “Ansonsten”-Teil erweitern, welcher eintritt, wenn die Bedingung nicht zutrifft. Ein Beispiel aus dem Alltag: <strong>Wenn</strong> das Paket heute ankommt, <strong>dann</strong> freue ich mich, <strong>ansonsten</strong> bin ich sehr traurig.</p>
+<p>Allgemein formuliert können wir unser If-Statement also wie folgt erweitern:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">THIS_STATEMENT_IS_TRUE</span><span class="p">:</span> 
+    <span class="n">DO_THAT</span>               
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">DO_THAT_INSTEAD</span>      
+</pre></div>
+</div>
+<p>Ein konkretes Beispiel: Der folgende Code prüft mithilfe der Funktion <code class="docutils literal notranslate"><span class="pre">type()</span></code>, inwiefern die Variable <code class="docutils literal notranslate"><span class="pre">element</span></code> vom Datentyp <code class="docutils literal notranslate"><span class="pre">str</span></code> ist. Wenn die Variable <code class="docutils literal notranslate"><span class="pre">element</span></code> vom Typ <code class="docutils literal notranslate"><span class="pre">str</span></code> ist, dann soll <code class="docutils literal notranslate"><span class="pre">&quot;String!&quot;</span></code> angezeigt werden, ist sie nicht vom Typ <code class="docutils literal notranslate"><span class="pre">str</span></code>, soll hingegen <code class="docutils literal notranslate"><span class="pre">&quot;Kein</span> <span class="pre">String!&quot;</span></code> angezeigt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;String!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kein String!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kein String!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Da die Variable <code class="docutils literal notranslate"><span class="pre">element</span></code> den Wert <code class="docutils literal notranslate"><span class="pre">10</span></code> aufweist, vom Typ <code class="docutils literal notranslate"><span class="pre">int</span></code> ist und somit nicht vom Typ <code class="docutils literal notranslate"><span class="pre">str</span></code>, wird die aufgestellte Bedingung nicht erfüllt. Daher springt Python direkt zum Ansonsten-Teil und führt den zugehörigen Code-Block aus. Im nächsten Beispiel ist die Variable <code class="docutils literal notranslate"><span class="pre">element</span></code> nun vom Typ <code class="docutils literal notranslate"><span class="pre">str</span></code>. Die Bedingung des Wenn-Teils wird also erfüllt und der entsprechende Dann-Teil ausgeführt. Dadurch wird diesmal der Ansonsten-Teil ignoriert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span>
+
+<span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;String!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kein String!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>String!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im Folgenden sollen die Elemente der Liste <code class="docutils literal notranslate"><span class="pre">stuff</span></code> danach sortiert werden, ob sie vom Datentyp <code class="docutils literal notranslate"><span class="pre">str</span></code> sind oder nicht. Daher wird innerhalb eines For-Loops die Liste <code class="docutils literal notranslate"><span class="pre">stuff</span></code> durchgegangen und für jedes Element geprüft, ob dieses vom Typ <code class="docutils literal notranslate"><span class="pre">str</span></code> ist. Falls dies der Fall ist, wird das entsprechende Element an die Liste <code class="docutils literal notranslate"><span class="pre">strings</span></code> angehängt. Wenn dies nicht der Fall ist, wird das entsprechende Element an die Liste <code class="docutils literal notranslate"><span class="pre">no_strings</span></code> angehängt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zu sortierende Liste</span>
+<span class="n">stuff</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;15&quot;</span><span class="p">,</span> <span class="s2">&quot;Zwanzig&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+
+<span class="c1"># leere Listen erstellen</span>
+<span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">no_strings</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># für jedes Element der Liste stuff</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">stuff</span><span class="p">:</span>
+    <span class="c1"># wenn das Element ein String ist</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="c1"># an Liste strings anhängen</span>
+        <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="c1"># Ansonsten</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># an Liste no_strings anhängen</span>
+        <span class="n">no_strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">strings</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;python&#39;, &#39;15&#39;, &#39;Zwanzig&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_strings</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 1.2, True, str]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="nein-dann-vielleicht-das-hier-if-statements-mit-elif">
+<h2>Nein? Dann vielleicht das hier? If-Statements mit elif.<a class="headerlink" href="#nein-dann-vielleicht-das-hier-if-statements-mit-elif" title="Permalink to this headline">¶</a></h2>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">if</span></code> und <code class="docutils literal notranslate"><span class="pre">else</span></code> können wir angeben, was passieren soll, wenn ein bestimmter Fall eintritt und was passieren soll, wenn dieser bestimmte Fall nicht eintritt. Was ist aber, wenn wir nicht nur zwischen <em>das</em> und <em>nicht das</em>, sondern feiner zwischen verschiedenen Fällen differenzieren wollen? Dann brauchen wir <code class="docutils literal notranslate"><span class="pre">elif</span></code>! Mit <code class="docutils literal notranslate"><span class="pre">elif</span></code> können wir unserem If-Statement weitere Bedingungen hinzufügen. Diese werden geprüft, wenn die Bedingung davor nicht erfüllt wurde. Wir können also die Struktur der folgenden fiktiven Wenn-Dann-Satz-Konstruktion in Python bilden:</p>
+<p><em>Wenn es Burger gibt, dann esse ich Burger.</em></p>
+<p><em>Wenn es keine Burger gibt, aber es Maultaschen gibt, dann esse ich Maultaschen.</em></p>
+<p><em>Ansonsten gehe ich zum Buffet.</em></p>
+<p>In dieser Wenn-Dann-Aussage werden für mehrere mögliche Fälle, bestimmte Folgen angegeben. Dabei sind die Bedingungen nach der gegebenen Reihenfolge der einzelnen Wenn-Dann-Aussagen priorisiert. Die Bedingungen werden von vorne nach hinten nacheinander durchgegangen und immer nur wenn die vorherige Bedingung nicht erfüllt ist, wird die nächste Bedingung geprüft. Gibt es beispielsweise Burger, so ist sofort klar, dass Burger gegessen werden. Die anderen Möglichkeiten bzw. Bedingungen werden nicht einmal angeschaut, selbst wenn es beispielsweise neben den Burgern auch Maultaschen geben sollte. Erst wenn die erste Bedingung nicht erfüllt ist und es keine Burger gibt, wird geprüft, ob es Maultaschen gibt. Und nur wenn es weder Burger noch Maultaschen gibt, dann tritt der Notfall-Plan des Buffets in Kraft.</p>
+<p>Etwas allgemeiner könnte man dies so formulieren:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Wenn</span> <span class="n">Fall1</span><span class="p">:</span>
+    <span class="o">...</span>
+<span class="n">Wenn</span> <span class="n">nicht</span> <span class="n">Fall1</span><span class="p">,</span> <span class="n">aber</span> <span class="n">Fall2</span><span class="p">:</span>
+    <span class="o">...</span>
+<span class="n">Ansonsten</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Tatsächlich bewahrt uns das Wort <code class="docutils literal notranslate"><span class="pre">elif</span></code> (das eine Zusammensetzung aus <code class="docutils literal notranslate"><span class="pre">else</span></code> und <code class="docutils literal notranslate"><span class="pre">if</span></code> ist) davor, geschachtelte If-Statements schreiben zu müssen. Denn wir hätten deneselben Inhalt von oben durchaus auch ohne <code class="docutils literal notranslate"><span class="pre">elif</span></code> bzw. ohne “wenn nicht Fall1, aber Fall2” schreiben können, indem wir einfach in den Ansonsten-Teil ein zweites ganz normales If-Statement gesetzt hätten, wie ich unten beispielhaft zeige:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Wenn</span> <span class="n">Fall1</span><span class="p">:</span>
+    <span class="n">dann</span> <span class="o">...</span>
+<span class="n">Ansonsten</span><span class="p">:</span>
+    <span class="n">wenn</span> <span class="n">Fall2</span><span class="p">:</span>
+        <span class="n">dann</span> <span class="o">...</span>
+    <span class="n">Ansonsten</span><span class="p">:</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>Und nochmal als “Python-Code” ausgedrückt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Fall1</span><span class="p">:</span>
+    <span class="o">...</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">Fall2</span><span class="p">:</span>
+        <span class="o">...</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>Spätestens wenn man noch eine Bedingung hinzufügen möchte, werden geschachtelte If-Statements ziemlich unübersichtlich. Genau deswegen gibt es das Wort <code class="docutils literal notranslate"><span class="pre">elif</span></code>. Mit <code class="docutils literal notranslate"><span class="pre">elif</span></code> würden dann die obigen abstrakten Beispiele so aussehen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Fall1</span><span class="p">:</span>
+    <span class="o">...</span>
+<span class="k">elif</span> <span class="n">Fall2</span><span class="p">:</span>
+    <span class="o">...</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Wir können mit <code class="docutils literal notranslate"><span class="pre">elif</span></code> also einen weiteren Wenn-Teil bzw. eine weitere Bedingung zu unserem If-Statement hinzufügen. Diese zusätzlichen Wenn-Dann-Blöcke mit <code class="docutils literal notranslate"><span class="pre">elif</span></code> kommen immer erst nach einem ersten, mit <code class="docutils literal notranslate"><span class="pre">if</span></code> eingeleiteten Wenn-Teil und immer vor einem eventuellen Ansonsten-Teil mit <code class="docutils literal notranslate"><span class="pre">else</span></code>. Während wir in einem If-Statement genau einmal zu Beginn das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">if</span></code> benutzen und auch maximal einmal am Ende das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">else</span></code> benutzen können, können wir das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">elif</span></code> beliebig oft verwenden. Die Bedingungen werden solange bis eine der Bedingungen <code class="docutils literal notranslate"><span class="pre">True</span></code> ist, von oben nach unten nacheinander überprüft. Ist eine Bedingung <code class="docutils literal notranslate"><span class="pre">True</span></code>, dann wird der zugehörige Code-Block ausgeführt. Alle folgenden Bedingungen dieses If-Statements werden dann ignoriert.</p>
+<p>Wollen wir beispielsweise die Elemente der Liste <code class="docutils literal notranslate"><span class="pre">stuff</span></code> nicht nur danach sortieren, ob sie vom Typ String oder nicht vom Typ String sind, sondern auch danach, ob sie vom Datentyp <code class="docutils literal notranslate"><span class="pre">int</span></code> sind, dann könnte das z.B. so mit einem <code class="docutils literal notranslate"><span class="pre">elif</span></code> aussehen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zu sortierende Liste</span>
+<span class="n">stuff</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;15&quot;</span><span class="p">,</span> <span class="s2">&quot;Zwanzig&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+
+<span class="c1"># leere Listen zum einsortieren</span>
+<span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">integers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">other</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="c1"># für jedes Element der Liste stuff</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">stuff</span><span class="p">:</span>
+    
+    <span class="c1"># wenn es ein String ist</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    
+    <span class="c1"># wenn es kein String, aber ein Integer ist</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">integers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    
+    <span class="c1"># ansonsten</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">other</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">strings</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;python&#39;, &#39;15&#39;, &#39;Zwanzig&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">other</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.2, True, str]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ich füge nun noch eine weitere Bedingung hinzu. Diesmal füge ich eine Bedingung ein, die abfragt, inwiefern das Element keine <code class="docutils literal notranslate"><span class="pre">10</span></code> ist. Diese Bedingung schreibe ich an den Anfang des If-Statements hinter das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">if</span></code>, sodass diese Bedingung die erste ist, die evaluiert wird. Was verändert dies am Ergebnis?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zu sortierende Liste</span>
+<span class="n">stuff</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;15&quot;</span><span class="p">,</span> <span class="s2">&quot;Zwanzig&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+
+<span class="c1"># leere Listen zum einsortieren</span>
+<span class="n">not_ten</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">integers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">other</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="c1"># für jedes Element der Liste stuff</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">stuff</span><span class="p">:</span>
+    
+    <span class="c1"># wenn es keine 10 ist</span>
+    <span class="k">if</span> <span class="n">element</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">not_ten</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    
+    <span class="c1"># wenn es eine 10 ist, aber ein String</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    
+    <span class="c1"># wenn es eine 10 und kein String ist, aber ein Integer</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">integers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    
+    <span class="c1"># ansonsten</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">other</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">not_ten</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;python&#39;, 1.2, True, &#39;15&#39;, &#39;Zwanzig&#39;, str]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">strings</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">other</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Da für fast alle Elemente zutrifft, dass sie keine <code class="docutils literal notranslate"><span class="pre">10</span></code> sind, wurden fast alle Elemente der Liste <code class="docutils literal notranslate"><span class="pre">not_ten</span></code> angehängt. Da die Bedingung in der Reihenfolge als erstes kommt, ist es auch egal, ob unter den Elementen, welche nicht <code class="docutils literal notranslate"><span class="pre">10</span></code> sind, Strings und Integers sind. Allein die <code class="docutils literal notranslate"><span class="pre">10</span></code> ist nicht ungleich <code class="docutils literal notranslate"><span class="pre">10</span></code>, weshalb die erste Bedingung nicht erfüllt ist und dann weitere Bedingungen evaluiert werden.</p>
+<div class="important admonition">
+<p class="admonition-title">Wichtig</p>
+<p>Die Reihenfolge der Bedingungen kann bei längeren If-Elif-Else-Statements sehr wichtig sein!</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-amp_book-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-amp_book-py",
+            path: "./04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-amp_book-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="amp04a_boolsche_ausdr%C3%BCcke.html" title="previous page">Boolesche Ausdrücke</a>
+    <a class='right-next' id="next-link" href="amp04a_modul_import.html" title="next page">Exkurs 1: Module importieren</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Marius Kaffai<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
