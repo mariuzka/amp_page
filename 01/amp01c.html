@@ -311,9 +311,56 @@
    4.2 Das NaSch-Modell
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../05/amp05_intro.html">
    5.1 Funktionen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_eigene_funktionen.html">
+     Eigene Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_ohne_input.html">
+     Funktionen ohne In- und Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_mit_input.html">
+     Funktionen mit Input
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_mit_output.html">
+     Funktionen mit Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_standardwerte.html">
+     Funktionen mit Standardwerten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_scoping.html">
+     Scoping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_docstrings.html">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05/amp05b_funktionen.html">
+   5.2 Funktionales Training
   </a>
  </li>
 </ul>
@@ -373,11 +420,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F01/amp01c.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F01/amp01c.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -398,7 +445,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/01/amp01c.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/01/amp01c.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -415,6 +462,54 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-1">
+   Aufgabe 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-2">
+   Aufgabe 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-3">
+   Aufgabe 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-4">
+   Aufgabe 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-5">
+   Aufgabe 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-6">
+   Aufgabe 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-7">
+   Aufgabe 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-8">
+   Aufgabe 8
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -426,8 +521,11 @@
   <div class="section" id="losungen">
 <h1>Lösungen<a class="headerlink" href="#losungen" title="Permalink to this headline">¶</a></h1>
 <p>Auch wenn dies in einem Jupyter Notebook eigentlich nicht notwendig wäre, verwende ich in diesen Lösungen die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code>, um Variablenwerte oder den Output von Funktionen anzeigen zu lassen. Dies tue ich, da innerhalb eines Python-Skriptes in Spyder die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> notwendig ist, um die Werte in der Konsole anzeigen zu lassen.</p>
-<p><strong>1. Erstelle folgende Variablen. Vor dem Doppelpunkt steht jeweils der Variablenname und hinter dem Doppelpunkt, was in die Variable eingespeichert werden soll.</strong></p>
+<div class="section" id="aufgabe-1">
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
 <ul>
+<li><p>Erstelle folgende Variablen. Vor dem Doppelpunkt steht jeweils der Variablenname und hinter dem Doppelpunkt, was in die Variable eingespeichert werden soll.</p>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">first_name</span></code>: Speichere hier einen beliebigen Vornamen als String ein.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">family_name</span></code>: Speichere hier einen beliebigen Nachnamen ein</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">full_name</span></code>: Erstelle einen String, welcher die beiden obigen Variablen mithilfe des Plus-Zeichens zu einem String zusammenfügt</p></li>
@@ -435,7 +533,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">age</span></code>: Berechne aus der Variable <code class="docutils literal notranslate"><span class="pre">year_of_birth</span></code> und dem aktuellen Jahr das (ungefähre) Alter und speichere dies in die Variable ein.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">weight</span></code>: Speichere ein beliebiges Gewicht in Kilogramm ein.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: speichere eine beliebige Körpergröße in Metern ein.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bmi</span></code>: Berechne den Body-Mass-Index (BMI) der Person und speichere das Ergebnis in die Variable ein. Die Formel für den BMI lautet:</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">bmi</span></code>: Berechne den Body-Mass-Index (BMI) der Person und speichere das Ergebnis in die Variable ein. Die Formel für den BMI lautet:</p></li>
+</ul>
 <p><span class="math notranslate nohighlight">\( BMI = \frac{Körpergewicht}{Körpergröße^{2}} \)</span></p>
 </li>
 </ul>
@@ -453,7 +552,12 @@
 </div>
 </div>
 </div>
-<p><strong>2. Um welchen Datentyp handelt es sich bei der Variable <code class="docutils literal notranslate"><span class="pre">bmi</span></code>? Verwende die geeignete Funktion, um dies herauszufinden.</strong></p>
+</div>
+<div class="section" id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Um welchen Datentyp handelt es sich bei der Variable <code class="docutils literal notranslate"><span class="pre">bmi</span></code>? Verwende die geeignete Funktion, um dies herauszufinden.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">bmi</span><span class="p">))</span>
@@ -466,7 +570,12 @@
 </div>
 </div>
 </div>
-<p><strong>3. Stelle mit einer Funktion sicher, dass die Variable <code class="docutils literal notranslate"><span class="pre">bmi</span></code> den Datentyp Integer aufweist.</strong></p>
+</div>
+<div class="section" id="aufgabe-3">
+<h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Stelle mit einer Funktion sicher, dass die Variable <code class="docutils literal notranslate"><span class="pre">bmi</span></code> den Datentyp Integer aufweist.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bmi</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span>
@@ -474,7 +583,12 @@
 </div>
 </div>
 </div>
-<p><strong>4. Wandele die Variable <code class="docutils literal notranslate"><span class="pre">year_of_birth</span></code> in einen String um.</strong></p>
+</div>
+<div class="section" id="aufgabe-4">
+<h2>Aufgabe 4<a class="headerlink" href="#aufgabe-4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Wandele die Variable <code class="docutils literal notranslate"><span class="pre">year_of_birth</span></code> in einen String um.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year_of_birth</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year_of_birth</span><span class="p">)</span>
@@ -482,7 +596,12 @@
 </div>
 </div>
 </div>
-<p><strong>5. Addiere die Variable <code class="docutils literal notranslate"><span class="pre">year_of_birth</span></code> mit dem Gewicht. Geht das? Ja oder Nein? Warum?</strong></p>
+</div>
+<div class="section" id="aufgabe-5">
+<h2>Aufgabe 5<a class="headerlink" href="#aufgabe-5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Addiere die Variable <code class="docutils literal notranslate"><span class="pre">year_of_birth</span></code> mit dem Gewicht. Geht das? Ja oder Nein? Warum?</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year_of_birth</span> <span class="o">+</span> <span class="n">weight</span>
@@ -501,7 +620,12 @@
 </div>
 </div>
 <p>Das funktioniert nicht, da man ein Objekt vom Typ String und ein Objekt vom Typ Integer nicht miteinander “verrechnen” kann.</p>
-<p><strong>6. Erstelle eine Liste, welche all die Variablen aus Aufgabe 1 enthält und speichere diese unter dem Variablennamen <code class="docutils literal notranslate"><span class="pre">person_1</span></code> ab.</strong></p>
+</div>
+<div class="section" id="aufgabe-6">
+<h2>Aufgabe 6<a class="headerlink" href="#aufgabe-6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Erstelle eine Liste, welche all die Variablen aus Aufgabe 1 enthält und speichere diese unter dem Variablennamen <code class="docutils literal notranslate"><span class="pre">person_1</span></code> ab.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">first_name</span><span class="p">,</span> <span class="n">family_name</span><span class="p">,</span> <span class="n">full_name</span><span class="p">,</span> <span class="n">year_of_birth</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">bmi</span><span class="p">]</span>
@@ -521,7 +645,12 @@
 </div>
 </div>
 </div>
-<p><strong>7. Lasse dir die Liste <code class="docutils literal notranslate"><span class="pre">person_1</span></code> mithilfe der Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> anzeigen.</strong></p>
+</div>
+<div class="section" id="aufgabe-7">
+<h2>Aufgabe 7<a class="headerlink" href="#aufgabe-7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lasse dir die Liste <code class="docutils literal notranslate"><span class="pre">person_1</span></code> mithilfe der Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> anzeigen.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">person_1</span><span class="p">)</span>
@@ -534,7 +663,12 @@
 </div>
 </div>
 </div>
-<p><strong>8. Überprüfe mit einer geeigneten Funktion, welche Länge die Liste <code class="docutils literal notranslate"><span class="pre">person_1</span></code> aufweist.</strong></p>
+</div>
+<div class="section" id="aufgabe-8">
+<h2>Aufgabe 8<a class="headerlink" href="#aufgabe-8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Überprüfe mit einer geeigneten Funktion, welche Länge die Liste <code class="docutils literal notranslate"><span class="pre">person_1</span></code> aufweist.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">person_1</span><span class="p">))</span>
@@ -544,6 +678,7 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
+</div>
 </div>
 </div>
 </div>

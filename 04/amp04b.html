@@ -309,9 +309,56 @@
    4.2 Das NaSch-Modell
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../05/amp05_intro.html">
    5.1 Funktionen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_eigene_funktionen.html">
+     Eigene Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_ohne_input.html">
+     Funktionen ohne In- und Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_mit_input.html">
+     Funktionen mit Input
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_mit_output.html">
+     Funktionen mit Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_standardwerte.html">
+     Funktionen mit Standardwerten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_scoping.html">
+     Scoping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_docstrings.html">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05/amp05b_funktionen.html">
+   5.2 Funktionales Training
   </a>
  </li>
 </ul>
@@ -371,11 +418,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F04/amp04b.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F04/amp04b.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -396,7 +443,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/04/amp04b.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/04/amp04b.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -540,29 +587,10 @@
 </div></div>
 </div>
 <p>So wie die “Simulation” im letzten Kapitel können wir auch das NaSch-Modell mit unseren aktuell zu Verfügung stehenden Mitteln darstellen. In den frühen Artikeln zum NaSch-Modell machen das Nagel und Schreckenberg sogar selbst ganz ähnlich. Die Graphik unten ist ein Ausschnitt aus einem <a class="reference external" href="https://www.researchgate.net/publication/263504490_A_cellular_automaton_model_for_freeway_traffic">Artikel zum NaSch-Modell</a>. Jede Zeile stellt den Zustand der Straße zu einem Zeitpunkt dar. Die Punkte stellen leere Straßenpositionen dar. Die Zahlen stellen die Autos dar, wobei der Zahlenwert für die zu dem Zeitpunkt gefahrene Geschwindigkeit steht. Die Autos fahren dabei nach rechts. Eine solche Form der graphischen Darstellen streben wir diesmal auch an.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">src</span>
-<span class="n">src</span><span class="o">.</span><span class="n">plt_image</span><span class="p">(</span><span class="s1">&#39;img/NaSch-Modell1.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/amp04b_6_0.png" src="../_images/amp04b_6_0.png" />
-</div>
-</div>
+<p><img alt="" src="../_images/NaSch-Modell1.png" /></p>
 <p><strong>Quelle:</strong> Nagel K and Schreckenberg M 1992J. Phys. I22221. <a class="reference external" href="https://www.researchgate.net/publication/263504490_A_cellular_automaton_model_for_freeway_traffic">Link</a></p>
 <p>Die nächste Graphik zeigt, wie ein Stau in einer solchen Darstellungsform aussieht. Es sammeln sich mehrere Autos mit einer Geschwindigkeit von 0. Und man sieht zudem, wie sich die Stau-Welle im Zeitverlauf nach links bewegt, während die Autos nach rechts fahren.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">src</span><span class="o">.</span><span class="n">plt_image</span><span class="p">(</span><span class="s1">&#39;img/NaSch-Modell2.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/amp04b_9_0.png" src="../_images/amp04b_9_0.png" />
-</div>
-</div>
+<p><img alt="" src="../_images/NaSch-Modell2.png" /></p>
 <p><strong>Quelle:</strong> Nagel K and Schreckenberg M 1992J. Phys. I22221. <a class="reference external" href="https://www.researchgate.net/publication/263504490_A_cellular_automaton_model_for_freeway_traffic">Link</a></p>
 <p>Im Folgenden eine recht gute Zusammenfassung des Modells von <a class="reference external" href="https://en.wikipedia.org/wiki/Nagel%E2%80%93Schreckenberg_model#Outline_of_the_model">Wikipedia</a>:</p>
 <blockquote>
@@ -705,7 +733,7 @@
     
     <span class="c1">### Schritt 5: Die grafische Darstellung der Simulation ###</span>
     
-    <span class="c1"># &quot;leere&quot; Straße als String von Punkten erstellen</span>
+    <span class="c1"># &quot;leere&quot; Straße als Liste von Punkten erstellen</span>
     <span class="n">street_as_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">STREET_LEN</span><span class="p">):</span>
         <span class="n">street_as_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>

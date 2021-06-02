@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Funktionen mit Standardwerten" href="amp05a_standardwerte.html" />
+    <link rel="prev" title="Funktionen mit Input" href="amp05a_funktionen_mit_input.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -87,7 +89,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/amp01_intro.html">
    1.1 Einführung
@@ -307,9 +309,56 @@
    4.2 Das NaSch-Modell
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="amp05_intro.html">
    5.1 Funktionen
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_eigene_funktionen.html">
+     Eigene Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_ohne_input.html">
+     Funktionen ohne In- und Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_mit_input.html">
+     Funktionen mit Input
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Funktionen mit Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_standardwerte.html">
+     Funktionen mit Standardwerten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_scoping.html">
+     Scoping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_docstrings.html">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="amp05b_funktionen.html">
+   5.2 Funktionales Training
   </a>
  </li>
 </ul>
@@ -369,11 +418,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F05/amp05a_funktionen_mit_output.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F05/amp05a_funktionen_mit_output.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -394,7 +443,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/05/amp05a_funktionen_mit_output.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/05/amp05a_funktionen_mit_output.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -411,6 +460,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funktionen-haben-immer-einen-output">
+   Funktionen haben immer einen Output
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -421,22 +483,64 @@
                 
   <div class="section" id="funktionen-mit-output">
 <h1>Funktionen mit Output<a class="headerlink" href="#funktionen-mit-output" title="Permalink to this headline">¶</a></h1>
-<p>Unsere Funktionen zeigen zwar Strings in der Konsole an, möchte man aber einen Output auch als einen Wert weiterverwendbaren Wert zurückgeliefert bekommen, dann müssen wir dies explizit in der Funktionsdefinition festlegen. Dies machen wir mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
-<p>Das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">return</span></code> schreiben wir meist an das Ende der Funktion. Hinter <code class="docutils literal notranslate"><span class="pre">return</span></code> schreiben wir den Wert bzw. das Objekt, das wir als Output ausgegeben haben wollen. Im Folgenden definiere ich die Funktion <code class="docutils literal notranslate"><span class="pre">random_list()</span></code>, welche eine Liste mit 3 Zufallszahlen zwischen 0 und 10 ausgibt.</p>
+<p>Unsere selbstdefinierten Funktionen haben bisher keinen explizitigen Output. Sie zeigen zwar Strings in der Konsole an, damit kann man innerhalb eines richtigen Computerprogrammes aber nicht wirklich viel anfangen. Möchte man, dass eine Funktion einem auch etwas (ein Objekt) zurückgibt, womit man innerhalb des Programmes weiterarbeiten kann, nachdem man sie aufgerufen hat, dann müssen wir dies explizit in der Funktionsdefinition festlegen. Dies machen wir mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">return</span></code>. Das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">return</span></code> platzieren wir (meist) am Ende der Funktion und schreiben dahinter das Objekt, das wir als Output ausgegeben haben wollen.</p>
+<p>Im Folgenden definiere ich eine Funktion, die nichts anderes tut, als der funktionsinternen Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> den Wert <code class="docutils literal notranslate"><span class="pre">10</span></code> zuzuweisen und dann mittels return zurückzugeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">useless_function</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">useless_function</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Führt man die Funktion (in der Konsole) aus, dann sieht man, dass nun der Wert <code class="docutils literal notranslate"><span class="pre">10</span></code> zurückgegeben wird. Diesmal wird dieser aber nicht nur einfach mittels Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> “dargestellt”, sondern tatsächlich zurückgegeben. Das heißt, man könnte diesen Wert nun nehmen und im Programm weiter verwenden. Z.B. könnte man den Wert nehmen und einer Variable zuordnen, wie ich es unten mache:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_variable</span> <span class="o">=</span> <span class="n">useless_function</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_variable</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im Folgenden ein schon etwas sinnvolleres Beispiel einer Funktion mit Output. Ich definiere unten eine Funktion namens <code class="docutils literal notranslate"><span class="pre">random_list()</span></code>, welche eine Liste mit 3 Zufallszahlen zwischen 0 und 10 ausgibt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 
 <span class="k">def</span> <span class="nf">random_list</span><span class="p">():</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">the_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">l</span>
+        <span class="n">the_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">the_list</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>In der letzten Zeile der Funktionsdefinition weise ich an, dass die Liste <code class="docutils literal notranslate"><span class="pre">l</span></code> als Output ausgegeben werden soll. Bei Ausführung der Funktion kann der zurückgegebene Wert beispielsweise wie im Folgenden einer Variable zugewiesen werden:</p>
+<p>In der letzten Zeile der Funktionsdefinition weise ich an, dass die Liste <code class="docutils literal notranslate"><span class="pre">the_list</span></code> als Output ausgegeben werden soll. Unten führe ich die Funktion aus und weise die ausgegebene Liste direkt einer Variable zu:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_random_list</span> <span class="o">=</span> <span class="n">random_list</span><span class="p">()</span>
@@ -451,51 +555,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 2, 1]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Im Folgenden noch ein Beispiel, bei dem die Funktion auch Input erwartet:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_list</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">numbers</span><span class="p">):</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="c1"># Wenn numbers == True</span>
-        <span class="k">if</span> <span class="n">numbers</span><span class="p">:</span>
-            <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-        <span class="c1"># Ansonsten</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
-                <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">]))</span>
-    <span class="k">return</span> <span class="n">l</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_numbers</span> <span class="o">=</span> <span class="n">random_list</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">random_numbers</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 6, 3, 5, 9]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_letters</span> <span class="o">=</span> <span class="n">random_list</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="n">random_letters</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;d&#39;, &#39;b&#39;, &#39;d&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 8, 3]
 </pre></div>
 </div>
 </div>
@@ -512,7 +572,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squared_number</span> <span class="o">=</span> <span class="n">square_it</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
-<span class="n">squared_number</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squared_number</span>
 </pre></div>
 </div>
 </div>
@@ -522,13 +588,15 @@
 </div>
 </div>
 </div>
-<p>Nun noch eine eigentlich nicht ganz so wichtige Sache, dennoch ist es manchmal hilfreich das zu wissen: Genaugenommen gibt jede Funktion <strong>immer</strong> einen Output zurück - egal, ob wir <code class="docutils literal notranslate"><span class="pre">return</span></code> verwenden oder nicht. Wenn wir kein <code class="docutils literal notranslate"><span class="pre">return</span></code> in einer Funktion verwenden, dann gibt eine Funktion standardmäßig den Wert <code class="docutils literal notranslate"><span class="pre">None</span></code> zurück. Das demonstriere ich unten an der Funktion <code class="docutils literal notranslate"><span class="pre">random_list()</span></code> von oben, wobei ich die <code class="docutils literal notranslate"><span class="pre">return</span></code>-Zeile entfernt habe.</p>
+<div class="section" id="funktionen-haben-immer-einen-output">
+<h2>Funktionen haben immer einen Output<a class="headerlink" href="#funktionen-haben-immer-einen-output" title="Permalink to this headline">¶</a></h2>
+<p>Genaugenommen gibt jede Funktion <strong>immer</strong> einen Output zurück - egal, ob wir <code class="docutils literal notranslate"><span class="pre">return</span></code> verwenden oder nicht. Wenn wir kein <code class="docutils literal notranslate"><span class="pre">return</span></code> in einer Funktion verwenden, dann gibt eine Funktion standardmäßig den Wert <code class="docutils literal notranslate"><span class="pre">None</span></code> zurück. Das demonstriere ich unten an der Funktion <code class="docutils literal notranslate"><span class="pre">random_list()</span></code> von oben, wobei ich die <code class="docutils literal notranslate"><span class="pre">return</span></code>-Zeile entfernt habe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_list</span><span class="p">():</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">the_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+        <span class="n">the_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -552,7 +620,8 @@
 </div>
 </div>
 </div>
-<p>D.h. wenn wir keinen Output explizit definieren, dann ist der Output einer jeden Funktion gleich <code class="docutils literal notranslate"><span class="pre">None</span></code>. Das ist hilfreich zu wissen, wenn im Programm plötzlich und auf unerklärliche Weise eine Variable mit dem Wert <code class="docutils literal notranslate"><span class="pre">None</span></code> auftaucht. Dann hat man vielleicht in einer Funktion das <code class="docutils literal notranslate"><span class="pre">return</span></code> vergessen. :)</p>
+<p>Wenn wir keinen Output explizit definieren, dann ist der Output einer jeden Funktion gleich <code class="docutils literal notranslate"><span class="pre">None</span></code>. Das kann einem in den meisten Fällen eigentlich egal sein, ist aber durchaus hilfreich zu wissen, wenn im Programm plötzlich und auf unerklärliche Weise eine Variable mit dem Wert <code class="docutils literal notranslate"><span class="pre">None</span></code> auftaucht… Dann hat man vielleicht in einer Funktion das <code class="docutils literal notranslate"><span class="pre">return</span></code> vergessen. :)</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -580,6 +649,8 @@
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="amp05a_funktionen_mit_input.html" title="previous page">Funktionen mit Input</a>
+    <a class='right-next' id="next-link" href="amp05a_standardwerte.html" title="next page">Funktionen mit Standardwerten</a>
 
         </div>
         

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lokale und globale Variablen &#8212; ABM mit Python</title>
+    <title>Scoping &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Docstrings" href="amp05a_docstrings.html" />
+    <link rel="prev" title="Funktionen mit Standardwerten" href="amp05a_standardwerte.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -87,7 +89,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/amp01_intro.html">
    1.1 Einführung
@@ -307,9 +309,56 @@
    4.2 Das NaSch-Modell
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="amp05_intro.html">
    5.1 Funktionen
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_eigene_funktionen.html">
+     Eigene Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_ohne_input.html">
+     Funktionen ohne In- und Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_mit_input.html">
+     Funktionen mit Input
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_mit_output.html">
+     Funktionen mit Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_standardwerte.html">
+     Funktionen mit Standardwerten
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Scoping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_docstrings.html">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="amp05b_funktionen.html">
+   5.2 Funktionales Training
   </a>
  </li>
 </ul>
@@ -369,11 +418,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F05/amp05a_scoping.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F05/amp05a_scoping.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -394,7 +443,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/05/amp05a_scoping.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/05/amp05a_scoping.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -411,6 +460,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#veranderbare-objekte-global-durch-funktion-andern">
+   Veränderbare Objekte global durch Funktion ändern
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -419,107 +481,193 @@
         
               <div>
                 
-  <div class="section" id="lokale-und-globale-variablen">
-<h1>Lokale und globale Variablen<a class="headerlink" href="#lokale-und-globale-variablen" title="Permalink to this headline">¶</a></h1>
-<p>Fragt man Personen in Deutschland nach dem Namen “Angela Merkel”, dann wird fast jede Person sofort wissen, wer mit diesem Namen gemeint ist - egal wo man in Deutschland ist. Fragt man aber jemanden nach dem Namen “Katja Oldenburg-Schmidt”, dann weiß fast niemand etwas mit diesem Namen anzufangen - außer in Buxtehude. Angela Merkel ist fast allen Leuten in Deutschland ein Begriff, weil sie die Bundeskanzlerin ist und der Gültigkeitsberich ihres Amtes ist sich auf ganz Deutschland bezieht. Katja Oldenburg-Schmidt ist hingegen die Bürgermeisterin der Stadt Buxtehude, der “Gültigkeitsbereich” ihres Amtes liegt nur im Bereich Buxtehude. Deswegen kennt man sie auch nur dort.</p>
-<p>Auch Variablen in Python haben bestimmte Gültigkeitsbereiche. Jede Variablendefinition gilt jeweils nur in einem bestimmten Bereich (auch Scope genannt), in dem diese Zuweisung auch definiert wurde. Bisher haben wir davon nichts gemerkt, weil wir uns immer im allumfassenden, globalen Gültigkeitsbereich befunden haben. Wir haben bisher nur sogenannte globale Variablen, vergleichbar mit Angela Merkel, definiert. Man kennt sie überall (in Deutschland).</p>
-<p>Alle Variablen, die innerhalb von Funktionen definiert sind, sind jedoch sogenannte lokale Variablen, vergleichbar mit Katja Oldenburg-Schmidt. Man kennt sie nur in Buxtehude. Definieren wir innerhalb von Funktionen eine Variable, dann können wir sie innerhalb der Funktion unter diesem Namen aufrufen. Außerhalb der Funktionen kennt man sie jedoch nicht.</p>
-<p>Während man lokale Variablen nicht außerhalb des Gültigkeitsbereichs der Funktion kennt, kenn man globale Variablen überall und in jeder Funktion - auch wenn wir diese nicht explizit als Input eingegeben haben. Wir können in jeder Funktion den Wert globaler Variablen zwar abrufen, sie aber - und das ist wichtig - nicht verändern (hier gibt es leider Ausnahmen für bestimmte Datentypen). Jeder in Buxtehude kennt Angela Merkel, kann aber nicht direkt etwas daran ändern, dass sie Bundeskanzlerin ist - dies kann nur auf “globaler” Ebene verändert werden.</p>
-<p>Im Folgenden definiere ich innerhalb einer Funktion die Variable <code class="docutils literal notranslate"><span class="pre">oldenburg_schmidt</span></code>, führe die Funktion aus und versuche dann außerhalb der Funktion die Variable <code class="docutils literal notranslate"><span class="pre">oldenburg_schmidt</span></code> auszuführen.</p>
+  <div class="section" id="scoping">
+<h1>Scoping<a class="headerlink" href="#scoping" title="Permalink to this headline">¶</a></h1>
+<p>Fragt man Personen in Deutschland nach dem Namen “Angela Merkel”, dann wird fast jede Person sofort wissen, wer mit diesem Namen gemeint ist - egal wo man in Deutschland ist. Fragt man aber jemanden nach dem Namen “Katja Oldenburg-Schmidt”, dann weiß fast niemand etwas mit diesem Namen anzufangen - außer in Buxtehude.</p>
+<p>Angela Merkel ist fast allen Leuten in Deutschland ein Begriff, weil sie Bundeskanzlerin ist und der Gültigkeitsberich ihres Amtes sich auf ganz Deutschland bezieht. Katja Oldenburg-Schmidt ist hingegen die Bürgermeisterin der Stadt Buxtehude, der “Gültigkeitsbereich” ihres Amtes liegt nur im Bereich Buxtehude. Deswegen kennt man sie auch nur dort.</p>
+<p>Auch Variablen in Python haben bestimmte Gültigkeitsbereiche. Jede Variablendefinition gilt jeweils in dem Bereich (auch Scope genannt), in dem diese Zuweisung auch definiert wurde. Bisher haben wir davon nichts gemerkt, weil wir uns immer im allumfassenden, globalen Gültigkeitsbereich befunden haben. Wir haben bisher nur sogenannte globale Variablen, vergleichbar mit Angela Merkel, definiert. Man kennt sie überall (in Deutschland).</p>
+<p>Alle Variablen, die innerhalb von Funktionen definiert werdem, sind jedoch sogenannte lokale Variablen, die dann auch nur innerhalb dieser Funktion “bekannt” sind, so wie Katja Oldenburg-Schmidt nur in Buxtehude bekannt ist. Definieren wir innerhalb von Funktionen eine Variable, dann können wir sie innerhalb der Funktion unter diesem Namen aufrufen. Außerhalb der Funktion kennt man sie jedoch nicht und kann sie daher auch nicht aufrufen/verwenden.</p>
+<p>Während man lokale Variablen nicht außerhalb des Gültigkeitsbereichs der Funktion kennt, kenn man globale Variablen überall und in jeder Funktion - auch wenn wir diese nicht explizit als Input eingegeben haben.</p>
+<p>Schauen wir uns das mal in Python an. Im Folgenden definiere ich innerhalb einer Funktion namens <code class="docutils literal notranslate"><span class="pre">buxtehude()</span></code> die Variable <code class="docutils literal notranslate"><span class="pre">bürgermeisterin</span></code> und weise dieser den Wert <code class="docutils literal notranslate"><span class="pre">&quot;Oldenburg-Schmidt&quot;</span></code> zu.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">buxtehude</span><span class="p">():</span>
-    <span class="n">oldenburg_schmidt</span> <span class="o">=</span> <span class="s2">&quot;bürgermeisterin&quot;</span>
-
-<span class="n">buxtehude</span><span class="p">()</span>
+    <span class="n">bürgermeisterin</span> <span class="o">=</span> <span class="s2">&quot;Oldenburg-Schmidt&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun führe ich die Funktion <code class="docutils literal notranslate"><span class="pre">buxtehude()</span></code> aus und versuche danach auf die in der Funktion <code class="docutils literal notranslate"><span class="pre">buxtehude()</span></code> definierte Variable <code class="docutils literal notranslate"><span class="pre">bürgermeisterin</span></code> zuzugreifen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buxtehude</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">oldenburg_schmidt</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bürgermeisterin</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">082194849</span><span class="n">cd5</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">oldenburg_schmidt</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">36</span><span class="o">-</span><span class="mi">46</span><span class="n">ea971ab0d2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">bürgermeisterin</span>
 
-<span class="ne">NameError</span>: name &#39;oldenburg_schmidt&#39; is not defined
+<span class="ne">NameError</span>: name &#39;bürgermeisterin&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
-<p>Dies ruft einen Fehler hervor, da die Variable außerhalb der Funktion gar nicht bekannt ist. Möchte man den Wert der lokalen Variable <code class="docutils literal notranslate"><span class="pre">oldenburg_schmidt</span></code> “nach draußen schaffen”, dann müssen wir den Wert über das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">return</span></code> explizit an den globalen Bereich übergeben und dort wahlweise einer Variable außerhalb der Funktion zuweisen. So wie hier:</p>
+<p>Obwohl die Variable <code class="docutils literal notranslate"><span class="pre">bürgermeisterin</span></code> innerhalb der Funktion <code class="docutils literal notranslate"><span class="pre">buxtehude()</span></code> definiert wurde, ist sie auch nach der Ausführung der Funktion nicht bekannt. Das liegt daran, dass die Variable innerhalb des lokalen Gültigkeitsbereiches (Scope) der Funktion <code class="docutils literal notranslate"><span class="pre">buxtehude()</span></code> definiert wurde und nicht außerhalb der Funktion im globalen Gültigkeitsbereiches.</p>
+<p>Möchte man den Wert der lokalen, funktionsinternen Variable <code class="docutils literal notranslate"><span class="pre">bürgermeisterin</span></code> in den globalen Gültigkeitsbereich “nach draußen schaffen”, dann müssen wir die entsprechende Variable über das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">return</span></code> explizit als Funktions-Output definieren und dann bei Funktionsausführung optional einer (globalen) Variable außerhalb der Funktion zuweisen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">buxtehude</span><span class="p">():</span>
-    <span class="n">oldenburg_schmidt</span> <span class="o">=</span> <span class="s2">&quot;bürgermeisterin&quot;</span>
-    <span class="k">return</span> <span class="n">oldenburg_schmidt</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">buxtehude</span><span class="p">()</span>
+    <span class="n">bürgermeisterin</span> <span class="o">=</span> <span class="s2">&quot;Oldenburg-Schmidt&quot;</span>
+    <span class="k">return</span> <span class="n">bürgermeisterin</span>
+
+<span class="n">bürgermeisterin_of_buxtehude</span> <span class="o">=</span> <span class="n">buxtehude</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bürgermeisterin_of_buxtehude</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bürgermeisterin
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Oldenburg-Schmidt&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<p>Andersherum können wir aber innerhalb der Funktion auf die globale Variable <code class="docutils literal notranslate"><span class="pre">angela_merkel</span></code> immer lesend zugreifen.</p>
+<p>Andersherum können wir innerhalb eines lokalen, funktionsinternen Gültigkeitsbereiches immer auch auf die Variablen des übergeordneten, globalen Gültigkeitsbereiches lesend zugreifen. Unten definiere ich eine Funktion, die intern auf die global definierte Variable <code class="docutils literal notranslate"><span class="pre">kanzlerin</span></code> zugreift und in die Konsole printet:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angela_merkel</span> <span class="o">=</span> <span class="s2">&quot;kanzlerin&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kanzlerin</span> <span class="o">=</span> <span class="s2">&quot;Merkel&quot;</span>
+
 <span class="k">def</span> <span class="nf">buxtehude</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">angela_merkel</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kanzlerin</span><span class="p">)</span>
 
 <span class="n">buxtehude</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kanzlerin
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Merkel
 </pre></div>
 </div>
 </div>
 </div>
-<p>Versuchen wir den Wert von <code class="docutils literal notranslate"><span class="pre">angela_merkel</span></code> innerhalb von <code class="docutils literal notranslate"><span class="pre">buxtehude()</span></code> zu verändern, bewirken wir nur innerhalb der Funktion etwas. Innerhalb der Funktion ist <code class="docutils literal notranslate"><span class="pre">angela_merkel</span></code> nun gleich dem Wert <code class="docutils literal notranslate"><span class="pre">&quot;bürgermeisterin&quot;</span></code>. Außerhalb der Funktion bleibt sie jedoch gleich dem Wert <code class="docutils literal notranslate"><span class="pre">&quot;kanzlerin&quot;</span></code>.</p>
+<p>Versuchen wir die Variable <code class="docutils literal notranslate"><span class="pre">bundeskanzlerin</span></code> innerhalb von <code class="docutils literal notranslate"><span class="pre">buxtehude()</span></code> zu überschreiben, verändern wir nicht die globale Variable <code class="docutils literal notranslate"><span class="pre">kanzlerin</span></code>, sondern definieren nun eine gleichnamige, funktionsinterne Variable <code class="docutils literal notranslate"><span class="pre">kanzlerin</span></code>.</p>
+<p>Im untigen Beispiel definiere ich im globalen Gültigkeitsbereich die Variable <code class="docutils literal notranslate"><span class="pre">kanzlerin</span></code> und weise dieser den Wert <code class="docutils literal notranslate"><span class="pre">&quot;Merkel&quot;</span></code> zu. Innerhalb des lokalen Gültigkeitsbereiches der Funktion <code class="docutils literal notranslate"><span class="pre">buxtehude</span></code> weise ich der Variable <code class="docutils literal notranslate"><span class="pre">kanzlerin</span></code> den Wert <code class="docutils literal notranslate"><span class="pre">&quot;Baerbock&quot;</span></code> zu. Diese Neuzuweisung gilt aber nur innerhalb der Funktion <code class="docutils literal notranslate"><span class="pre">buxtehude</span></code>, wie man im Folgenden sieht.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angela_merkel</span> <span class="o">=</span> <span class="s2">&quot;kanzlerin&quot;</span>
-<span class="k">def</span> <span class="nf">buxtehude</span><span class="p">():</span>
-    <span class="n">angela_merkel</span> <span class="o">=</span> <span class="s2">&quot;bürgermeisterin&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;lokal:&quot;</span><span class="p">,</span> <span class="n">angela_merkel</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kanzlerin</span> <span class="o">=</span> <span class="s2">&quot;Merkel&quot;</span>
 
-<span class="n">buxtehude</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;global:&quot;</span><span class="p">,</span> <span class="n">angela_merkel</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">buxtehude</span><span class="p">():</span>
+    <span class="n">kanzlerin</span> <span class="o">=</span> <span class="s2">&quot;Baerbock&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kanzlerin</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unten wird die Funktion <code class="docutils literal notranslate"><span class="pre">buxtehude</span></code> ausgeführt, welche den Wert der Variable <code class="docutils literal notranslate"><span class="pre">kanzlerin</span></code> printet. Da der Wert der Variable <code class="docutils literal notranslate"><span class="pre">kanzlerin</span></code> innerhalb der Funktion auf <code class="docutils literal notranslate"><span class="pre">&quot;Baerbock&quot;</span></code> verändert wurde, wird entsprechend <code class="docutils literal notranslate"><span class="pre">&quot;Baerbock&quot;</span></code> geprintet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buxtehude</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lokal: bürgermeisterin
-global: kanzlerin
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Baerbock
 </pre></div>
 </div>
 </div>
 </div>
-<p>Wir können zwar globale Variablen wie <code class="docutils literal notranslate"><span class="pre">angela_merkel</span></code> innerhalb von Funktionen wie<code class="docutils literal notranslate"><span class="pre">buxtehude()</span></code> lesen, es ist aber nicht bzw. nur in Ausnahmefällen zu empfehlen, diese Möglichkeit tatsächlich auch zu nutzen. Denn dadurch verliert die Funktion einerseits ihre Unabhängigkeit von der Außenwelt. Denn was ist, wenn außerhalb der Funktion die Variable <code class="docutils literal notranslate"><span class="pre">angela_merkel</span></code> umbenannt wird? Dann funktioniert die gesamte Funktio nicht mehr! Andererseits ist dies auch ein schlechter Programmierstil, da wir im Kopf der Funktion nicht explizit auflisten, was von außen in die Funktion hineingeht, was dort also an Variablen zum richtigen Funktionieren der Funktion benötigt wird. Wir sollten also jeden Funktions-Input immer explizit durch die runden Klammern der Funktion schleusen.</p>
-<p>Das Thema ist insgesamt sehr umfassend und wir können hier nicht genau darauf eingehen. Was wir uns jedoch auf jeden Fall merken sollten bzw. in Zukunft beachten sollten ist Folgendens:</p>
-<ul class="simple">
-<li><p>Jede Variable bzw. jedes Objekt, das nicht in einer Funktion selbst erstellt wird, wir aber innerhalb einer Funktion verwenden wollen, sollten wir explizit als Argument in die Funktion eingeben</p></li>
-<li><p>Jede Variable, die wir innerhalb einer Funktion erstellen, existiert nur innerhalb der Funktion.</p></li>
-<li><p>Alle Veränderungen, die wir mit einer Funktion im Programm bewirken wollen, müssen/sollten wir über die explizite Rückgabe eines Outputs mithilfe des Schlüsselwerts <code class="docutils literal notranslate"><span class="pre">return</span></code> vollziehen.</p></li>
-</ul>
+<p>An der globalen Variable <code class="docutils literal notranslate"><span class="pre">kanzlerin</span></code> hat diese funktionsinterne Neudefinition allerdings nichts verändert:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kanzlerin</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Merkel&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="veranderbare-objekte-global-durch-funktion-andern">
+<h2>Veränderbare Objekte global durch Funktion ändern<a class="headerlink" href="#veranderbare-objekte-global-durch-funktion-andern" title="Permalink to this headline">¶</a></h2>
+<p>Auch wenn globale Variablen innerhalb von Funktionen nicht ohne Weiteres neudefiniert werden können (es gibt tatsächlich eine Möglichkeit, welche wir an dieser Stelle jedoch nicht betrachten, weil nicht wichtig für uns), können veränderbare Objekte, welche durch die globalen Variablen bezeichnet werden, dennoch direkt und global innerhalb einer Funktion verändert werden.</p>
+<p>Diese Eigenschaft kann am Anfang etwas verwirrend sein und zu teils ungewollten Nebeneffekten von Funktionen führen. Dennoch kann diese Eigenschaft für ABM teilweise relativ praktisch sein, weil wir so z.B. Agenten, welche als veränderbare Objekte dargestellt werden, über Funktionen direkt verändern können.</p>
+<p>Unten definiere ich die Funktion <code class="docutils literal notranslate"><span class="pre">opinion_blender()</span></code>, welche die Meinung zweier als <code class="docutils literal notranslate"><span class="pre">dict</span></code> repräsentierter Agenten in den Mittelwert der beiden eingegebenen Agenten verändert. Die Veränderung der Agenten findet zwar innerhalb der Funktion statt, hat aber dennoch Auswirkungen auf der globalen Ebene.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funktion zur Veränderung der Meinung der Agenten definieren</span>
+<span class="k">def</span> <span class="nf">opinion_blender</span><span class="p">(</span><span class="n">agent1</span><span class="p">,</span> <span class="n">agent2</span><span class="p">):</span>
+    <span class="n">new_opinion</span> <span class="o">=</span> <span class="p">(</span><span class="n">agent1</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">agent2</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">agent1</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_opinion</span>
+    <span class="n">agent2</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_opinion</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agenten definieren</span>
+<span class="n">agent1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;opinion&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="n">agent2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;opinion&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funktion auf Agenten anwenden</span>
+<span class="n">opinion_blender</span><span class="p">(</span><span class="n">agent1</span><span class="p">,</span> <span class="n">agent2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agent 1 anschauen</span>
+<span class="n">agent1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;opinion&#39;: 5.0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agent 2 anschauen</span>
+<span class="n">agent2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;opinion&#39;: 5.0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Pro-Tipp</p>
+<p>Scoping und dessen Umsetzung in Python kann in der Theorie etwas abstrakt und unintuitiv erscheinen. Hier empfiehlt es sich - wie eigentlich immer - einfach mal selbst mit Funktionsdefinitionen und global und lokal definierten Variablen herumzuexperimentieren. Dann bekommt man ein Gefühl dafür, wann welche Variable oder welches Objekt in welchem Gültigkeitsbereich existiert oder verändert werden kann.</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -547,6 +695,8 @@ global: kanzlerin
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="amp05a_standardwerte.html" title="previous page">Funktionen mit Standardwerten</a>
+    <a class='right-next' id="next-link" href="amp05a_docstrings.html" title="next page">Docstrings</a>
 
         </div>
         

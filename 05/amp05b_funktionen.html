@@ -51,6 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Docstrings" href="amp05a_docstrings.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -87,7 +88,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/amp01_intro.html">
    1.1 Einführung
@@ -307,9 +308,56 @@
    4.2 Das NaSch-Modell
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="amp05_intro.html">
    5.1 Funktionen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_eigene_funktionen.html">
+     Eigene Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_ohne_input.html">
+     Funktionen ohne In- und Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_mit_input.html">
+     Funktionen mit Input
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_mit_output.html">
+     Funktionen mit Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_standardwerte.html">
+     Funktionen mit Standardwerten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_scoping.html">
+     Scoping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_docstrings.html">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5.2 Funktionales Training
   </a>
  </li>
 </ul>
@@ -369,11 +417,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F05/amp05b_funktionen.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F05/amp05b_funktionen.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -394,7 +442,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/05/amp05b_funktionen.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/05/amp05b_funktionen.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -411,6 +459,39 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-1">
+   Aufgabe 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-2">
+   Aufgabe 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-3">
+   Aufgabe 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-4">
+   Aufgabe 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-fur-nasch-modell">
+   Code für NaSch-Modell
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -421,11 +502,139 @@
                 
   <div class="section" id="funktionales-training">
 <h1>5.2 Funktionales Training<a class="headerlink" href="#funktionales-training" title="Permalink to this headline">¶</a></h1>
-<ol class="simple">
-<li><p>Schreibe eine Funktion, die die Länge einer Liste misst und zurückgibt, ohne dabei selbst die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code> zu benutzen.</p></li>
+<div class="section" id="aufgabe-1">
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><p>Schreibe eine Funktion, welche aus einem eingegebenen Preis und der eingegebenen Höhe des bezahlten Geldes das entsprechende Rückgeld berechnet und als Output ausgibt.</p></li>
-<li><p>Schreibe eine Funktion, welche für einen eingegebenen Betrag Geld in Cents die Anzahl an 5-, 2- und 1-Centmünzen, die in Summe dem eingegebenen Betrag gleichwertig sind, in der Konsole anzeigt. Die Menge an Münzen soll dabei insgesamt immer so gering wie möglich sein. Gibt man z.B. einen Betrag von 18 Cent ein, sollte die Funktion anzeigen, dass insgesamt drei 5-Centmünzen, eine 2-Centmünze und eine 1-Centmünze diesem Geldbetrag entsprechen.</p></li>
-</ol>
+</ul>
+</div>
+<div class="section" id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Schreibe eine Funktion, die die Länge einer Liste misst und zurückgibt, ohne dabei selbst die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code> zu benutzen.</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-3">
+<h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
+<p>Funktionen erlauben uns im Kontext von ABM, den Code für ein Modell kompakt in einer Funktion zu speichern und gleichzeitig bestimmte Parameter des Modells über den Funktionsinput kontrollieren zu können. Das ist praktisch, wenn wir Simulationsexperimente durchführen, bei welchen wir das gleiche Modell mehrmals mit unterschiedlichen Parametern ausführen wollen, um den Effekt der Parameterveränderung zu untersuchen.</p>
+<ul class="simple">
+<li><p>Nimm den untigen Code für das Nagel-Schreckenberg-Modell und verändere diesen so, dass er durch eine Funktion aufgerufen werden kann.</p></li>
+<li><p>Definiere die Funktion so, dass Modellparameter deiner Wahl (z.B. die anfängliche Distanz zwischen den Agenten oder die Trödelwahrscheinlichkeit) mittels Funktionsinput kontrolliert werden können. Setze dabei Standardwerte für die Funktionsinputs, wenn du magst.</p></li>
+<li><p>Rufe die definierte Funktion mit verschiedenen Inputwerten auf.</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-4">
+<h2>Aufgabe 4<a class="headerlink" href="#aufgabe-4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Verändere den Code so, dass du per Funktionsinput kontrollieren kannst, ob die grafische Darstellung der Simulation in der Konsole angezeigt wird oder nicht. Der Rest der Simulation sollte dennoch weiter funktionsfähig bleiben und bei Funktionsaufruf durchgeführt werden. Allein auf die grafische Darstellung sollte optional verzichtet werden können.</p></li>
+</ul>
+</div>
+<div class="section" id="code-fur-nasch-modell">
+<h2>Code für NaSch-Modell<a class="headerlink" href="#code-fur-nasch-modell" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Schritt 1: Import von zusätzlichen Modulen ###</span>
+<span class="kn">import</span> <span class="nn">random</span> 
+
+
+<span class="c1">### Schritt 2: Definition wichtiger Parameter der Simulation ###</span>
+
+<span class="n">TICKS</span> <span class="o">=</span> <span class="mi">500</span> 
+<span class="n">MAX_SPEED</span> <span class="o">=</span> <span class="mi">5</span> 
+<span class="n">DAWDLING_PROB</span> <span class="o">=</span> <span class="mf">0.1</span> 
+<span class="n">N_AGENTS</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">INITIAL_DISTANCE</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">STREET_LEN</span> <span class="o">=</span> <span class="n">N_AGENTS</span> <span class="o">*</span> <span class="n">INITIAL_DISTANCE</span>
+
+
+<span class="c1">### Schritt 3: Das Erstellen der Population ###</span>
+
+<span class="c1"># Leere Liste, die gleich mit Agenten befüllt wird</span>
+<span class="n">population</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># für jeden zu erstellenden Agenten</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_AGENTS</span><span class="p">):</span>
+    
+    <span class="c1"># Agent als Dictionary erstellen</span>
+    <span class="n">agent</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
+        <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="n">i</span> <span class="o">*</span> <span class="n">INITIAL_DISTANCE</span><span class="p">,</span>
+        <span class="s2">&quot;speed&quot;</span><span class="p">:</span> <span class="n">MAX_SPEED</span><span class="p">,</span>
+        <span class="s2">&quot;space_ahead&quot;</span><span class="p">:</span> <span class="n">INITIAL_DISTANCE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="p">}</span>
+    
+    <span class="c1"># Agent an die Populationsliste hängen</span>
+    <span class="n">population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">agent</span><span class="p">)</span>
+
+    
+<span class="c1"># Population nochmal überarbeiten - jeweils vorausfahrende und nachfahrende Agenten einspeichern</span>
+<span class="c1"># für jeden Agenten in Population</span>
+<span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+    <span class="c1"># den vorausfahrenden Agenten merken/als Eigenschaft einspeichern</span>
+    <span class="n">agent</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;agent_ahead&quot;</span><span class="p">:</span> <span class="n">population</span><span class="p">[(</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="k">len</span>(population)]})
+    
+    <span class="c1"># den nachfahrenden Agenten merken/als Eigenschaft einspeichern</span>
+    <span class="n">agent</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;agent_behind&quot;</span><span class="p">:</span> <span class="n">population</span><span class="p">[(</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="k">len</span>(population)]})
+                 
+
+        
+<span class="c1">### Schritt 4: Das Starten der Simulation mittels For-Loop durch die Zeit ###</span>
+
+<span class="c1"># für jeden Zeitschritt</span>
+<span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">TICKS</span><span class="p">):</span>
+    
+    <span class="c1">### Schritt 5: Die grafische Darstellung der Simulation ###</span>
+    
+    <span class="c1"># &quot;leere&quot; Straße als Liste von Punkten erstellen</span>
+    <span class="n">street_as_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">STREET_LEN</span><span class="p">):</span>
+        <span class="n">street_as_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+        
+    <span class="c1"># für jeden Agenten</span>
+    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        <span class="c1"># Agenten auf entsprechender Position auf Straße einfügen</span>
+        <span class="c1"># Agent wird in diesem Fall als dessen Geschwindigkeit repräsentiert</span>
+        <span class="n">street_as_list</span><span class="p">[</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;position&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;speed&quot;</span><span class="p">])</span>
+    
+    <span class="c1"># Repräsentation der Straße in einen String umwandeln</span>
+    <span class="n">street_as_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">street_as_list</span><span class="p">)</span>
+    
+    <span class="c1"># grafische Darstellung in Konsole anzeigen</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">street_as_string</span><span class="p">)</span>
+    
+    
+    <span class="c1">### Schritt 6: das Handeln der Agenten ###</span>
+    
+    <span class="c1"># für jeden Agenten (die vier Handlungsschritte umsetzen)</span>
+    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        <span class="c1"># 1. Acceleration</span>
+        <span class="k">if</span> <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;speed&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">MAX_SPEED</span><span class="p">:</span>
+            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;speed&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        <span class="c1"># 2. Slowing down</span>
+        <span class="k">if</span> <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;speed&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;space_ahead&quot;</span><span class="p">]:</span>
+            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;speed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;space_ahead&quot;</span><span class="p">]</span>
+        
+        <span class="c1"># 3. Randomization</span>
+        <span class="k">if</span> <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;speed&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">DAWDLING_PROB</span><span class="p">:</span>
+            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;speed&quot;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+            
+        <span class="c1"># 4. Car motion</span>
+        <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;position&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;position&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;speed&quot;</span><span class="p">])</span> <span class="o">%</span> <span class="n">STREET_LEN</span>
+    
+    
+    
+    <span class="c1"># für jeden Agenten (die Anzahl der freien Straßenabschnitte neu berechnen)</span>
+    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        <span class="c1"># neue Anzahl der freien Zellen vor Agent berechnen und einspeichern</span>
+        <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;space_ahead&quot;</span><span class="p">]</span> <span class="o">-=</span> <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;speed&quot;</span><span class="p">]</span>
+        <span class="c1"># neue Anzahl der freien Zellen vor dem NACHFAHRENDEM Agent berechnen und DIESEM einspeichern</span>
+        <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;agent_behind&quot;</span><span class="p">][</span><span class="s2">&quot;space_ahead&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;speed&quot;</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -453,6 +662,7 @@
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="amp05a_docstrings.html" title="previous page">Docstrings</a>
 
         </div>
         

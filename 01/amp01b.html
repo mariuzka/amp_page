@@ -311,9 +311,56 @@
    4.2 Das NaSch-Modell
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../05/amp05_intro.html">
    5.1 Funktionen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_eigene_funktionen.html">
+     Eigene Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_ohne_input.html">
+     Funktionen ohne In- und Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_mit_input.html">
+     Funktionen mit Input
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_mit_output.html">
+     Funktionen mit Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_standardwerte.html">
+     Funktionen mit Standardwerten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_scoping.html">
+     Scoping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_docstrings.html">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05/amp05b_funktionen.html">
+   5.2 Funktionales Training
   </a>
  </li>
 </ul>
@@ -373,11 +420,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F01/amp01b.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F01/amp01b.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -398,7 +445,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/01/amp01b.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/01/amp01b.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -415,6 +462,54 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-1">
+   Aufgabe 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-2">
+   Aufgabe 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-3">
+   Aufgabe 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-4">
+   Aufgabe 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-5">
+   Aufgabe 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-6">
+   Aufgabe 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-7">
+   Aufgabe 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-8">
+   Aufgabe 8
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -425,7 +520,9 @@
                 
   <div class="section" id="warm-up">
 <h1>1.2 Warm-up<a class="headerlink" href="#warm-up" title="Permalink to this headline">¶</a></h1>
-<ol>
+<div class="section" id="aufgabe-1">
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
+<ul>
 <li><p>Erstelle folgende Variablen. Vor dem Doppelpunkt steht jeweils der Variablenname und hinter dem Doppelpunkt, was in die Variable eingespeichert werden soll.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">first_name</span></code>: Speichere hier einen beliebigen Vornamen als String ein.</p></li>
@@ -439,15 +536,51 @@
 </ul>
 <p><span class="math notranslate nohighlight">\( BMI = \frac{Körpergewicht}{Körpergröße^{2}} \)</span></p>
 </li>
+</ul>
+</div>
+<div class="section" id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><p>Um welchen Datentyp handelt es sich bei der Variable <code class="docutils literal notranslate"><span class="pre">bmi</span></code>? Verwende die geeignete Funktion, um dies herauszufinden.</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-3">
+<h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><p>Stelle mit einer Funktion sicher, dass die Variable <code class="docutils literal notranslate"><span class="pre">bmi</span></code> den Datentyp Integer aufweist.</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-4">
+<h2>Aufgabe 4<a class="headerlink" href="#aufgabe-4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><p>Wandele die Variable <code class="docutils literal notranslate"><span class="pre">year_of_birth</span></code> in einen String um.</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-5">
+<h2>Aufgabe 5<a class="headerlink" href="#aufgabe-5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><p>Addiere die Variable <code class="docutils literal notranslate"><span class="pre">year_of_birth</span></code> mit dem Gewicht. Geht das? Ja oder Nein? Warum?</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-6">
+<h2>Aufgabe 6<a class="headerlink" href="#aufgabe-6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><p>Erstelle eine Liste, welche all die Variablen aus Aufgabe 1 enthält und speichere diese unter dem Variablennamen <code class="docutils literal notranslate"><span class="pre">person_1</span></code> ab.</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-7">
+<h2>Aufgabe 7<a class="headerlink" href="#aufgabe-7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><p>Lasse dir die Liste <code class="docutils literal notranslate"><span class="pre">person_1</span></code> mithilfe der Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> anzeigen.</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-8">
+<h2>Aufgabe 8<a class="headerlink" href="#aufgabe-8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><p>Überprüfe mit einer geeigneten Funktion, welche Länge die Liste <code class="docutils literal notranslate"><span class="pre">person_1</span></code> aufweist.</p></li>
-</ol>
+</ul>
 <div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 

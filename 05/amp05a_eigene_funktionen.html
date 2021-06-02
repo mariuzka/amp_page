@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Funktionen ohne In- und Output" href="amp05a_funktionen_ohne_input.html" />
+    <link rel="prev" title="5.1 Funktionen" href="amp05_intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -87,7 +89,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/amp01_intro.html">
    1.1 Einführung
@@ -307,9 +309,56 @@
    4.2 Das NaSch-Modell
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="amp05_intro.html">
    5.1 Funktionen
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Eigene Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_ohne_input.html">
+     Funktionen ohne In- und Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_mit_input.html">
+     Funktionen mit Input
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_mit_output.html">
+     Funktionen mit Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_standardwerte.html">
+     Funktionen mit Standardwerten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_scoping.html">
+     Scoping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_docstrings.html">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="amp05b_funktionen.html">
+   5.2 Funktionales Training
   </a>
  </li>
 </ul>
@@ -369,11 +418,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F05/amp05a_eigene_funktionen.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F05/amp05a_eigene_funktionen.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -394,7 +443,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/05/amp05a_eigene_funktionen.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/05/amp05a_eigene_funktionen.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -422,7 +471,8 @@
   <div class="section" id="eigene-funktionen">
 <h1>Eigene Funktionen<a class="headerlink" href="#eigene-funktionen" title="Permalink to this headline">¶</a></h1>
 <p>Wir haben im bisherigen Verlauf des Kurses schon viel von Funktionen gesprochen und auch schon selbst viele davon benutzt. In diesem Kapitel lernen wir, wie wir selbst solche Funktionen erstellen.</p>
-<p>Funktionen ermöglichen es Code zu kleinen (oder großen) Paketen zusammenzufassen, damit wir diese Code-Pakete im Programm immer wieder verwenden können, ohne den Code selbst immer wieder schreiben zu müssen. Es sind quasi kleine, innerhalb unseres Programmes ausführbare Unterprogramme. Wir haben bisher v.a. sogenannte built-in-Funktionen verwendet, wie z.B. die Funktion <code class="docutils literal notranslate"><span class="pre">type()</span></code> oder <code class="docutils literal notranslate"><span class="pre">len()</span></code>. Dies sind Funktionen, welche standardmäßig immer innerhalb von Python verfügbar sind. Wir haben aber auch schon Funktionen aus Paketen wie dem Modul <code class="docutils literal notranslate"><span class="pre">random</span></code> verwendet. Alle Funktionen konnten wir so oft wir wollten verwenden, ohne uns über deren interne Funktionalität Gedanken zu machen. Das ist ziemlich praktisch und bequem. Genau das ist auch einer der Vorteile von Funktionen. Sie packen den Code zu Paketen zusammen, machen diesen so praktisch in verschiedenen Situationen anwendbar und verstecken bei der Anwendung die irrelevanten Details der Funktionsweise der Funktion d.h. den Code-Inhalt der Funktion. Allen Funktionen ist aber gemeinsam, dass sie irgendwann mal von irgendjemandem definiert bzw. programmiert wurden und intern eben wiederum aus Code bestehen. Auch die built-in-Funktionen sind eigentlich Code-Pakete, die sich irgendwann mal irgendjemand ausgedacht hat und beim Aufruf der Funktion im Hintergrund ausgeführt werden. In diesem Kapitel schauen wir “hinter die Kulissen” und erstellen unsere eigenen Funktionen.</p>
+<p>Funktionen ermöglichen es Code zu kleinen (oder großen) Paketen zusammenzufassen, damit wir diese Code-Pakete im Programm immer wieder verwenden können, ohne den Code selbst immer wieder aufschreiben zu müssen. Es sind kleine, innerhalb unseres Programmes ausführbare <em>Unterprogramme</em>.</p>
+<p>Bisher haben wir v.a. sogenannte built-in-Funktionen verwendet, wie z.B. die Funktion <code class="docutils literal notranslate"><span class="pre">type()</span></code> oder <code class="docutils literal notranslate"><span class="pre">len()</span></code>. Dies sind Funktionen, welche standardmäßig immer innerhalb von Python verfügbar sind. Wir haben aber auch schon Funktionen aus Paketen wie dem Modul <code class="docutils literal notranslate"><span class="pre">random</span></code> verwendet. Alle Funktionen konnten wir so oft wir wollten verwenden, ohne uns über deren interne Funktionalität Gedanken zu machen. Das ist ziemlich praktisch und bequem. Genau das ist auch einer der Vorteile von Funktionen. Sie packen den Code zu Paketen zusammen, machen diesen so praktisch in verschiedenen Situationen anwendbar und verstecken bei der Anwendung die irrelevanten Details der Funktionsweise der Funktion d.h. den Code-Inhalt der Funktion. Allen Funktionen ist aber gemeinsam, dass sie irgendwann mal von irgendjemandem definiert bzw. programmiert wurden und intern eben wiederum aus Code bestehen. Auch die built-in-Funktionen sind eigentlich Code-Pakete, die sich irgendwann mal irgendjemand ausgedacht hat und beim Aufruf der Funktion im Hintergrund ausgeführt werden. In diesem Kapitel schauen wir “hinter die Kulissen” und erstellen unsere eigenen Funktionen.</p>
 <p>Funktionen haben insgesamt sehr viele Vorteile und sind ein absolutes Muss beim Programmieren. Hier sind ein paar der Vorteile von Funktionen aufgelistet:</p>
 <ul class="simple">
 <li><p><strong>Reduktion von Wiederholung</strong>: Wir müssen Code nur einmal hinschreiben und können diesen dann immer wieder mittels Funktionsaufruf verwenden. Der Code wird dadurch <strong>kürzer</strong> und <strong>übersichtlicher</strong>.</p></li>
@@ -461,6 +511,8 @@
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="amp05_intro.html" title="previous page">5.1 Funktionen</a>
+    <a class='right-next' id="next-link" href="amp05a_funktionen_ohne_input.html" title="next page">Funktionen ohne In- und Output</a>
 
         </div>
         

@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Funktionen mit Output" href="amp05a_funktionen_mit_output.html" />
+    <link rel="prev" title="Funktionen ohne In- und Output" href="amp05a_funktionen_ohne_input.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -87,7 +89,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/amp01_intro.html">
    1.1 Einführung
@@ -307,9 +309,56 @@
    4.2 Das NaSch-Modell
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="amp05_intro.html">
    5.1 Funktionen
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_eigene_funktionen.html">
+     Eigene Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_ohne_input.html">
+     Funktionen ohne In- und Output
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Funktionen mit Input
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_funktionen_mit_output.html">
+     Funktionen mit Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_standardwerte.html">
+     Funktionen mit Standardwerten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_scoping.html">
+     Scoping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp05a_docstrings.html">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="amp05b_funktionen.html">
+   5.2 Funktionales Training
   </a>
  </li>
 </ul>
@@ -369,11 +418,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F05/amp05a_funktionen_mit_input.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F05/amp05a_funktionen_mit_input.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -394,7 +443,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/05/amp05a_funktionen_mit_input.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/05/amp05a_funktionen_mit_input.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -411,6 +460,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funktionen-mit-mehreren-inputs">
+   Funktionen mit mehreren Inputs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#input-mittels-keyword-arguments">
+   Input mittels keyword arguments
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -421,7 +488,7 @@
                 
   <div class="section" id="funktionen-mit-input">
 <h1>Funktionen mit Input<a class="headerlink" href="#funktionen-mit-input" title="Permalink to this headline">¶</a></h1>
-<p>Die obige Funktion ermöglicht uns es Code zwar schön zu verpacken und immer wieder zu verwenden, die Funktion führt aber tatsächlich immer exakt den gleichen Code aus. Um Funktionen nicht nur als starre Code-Pakete zu verwenden, sondern auch situationsspezifisch einsetzen zu können, können wir einen variablen Input festlegen.</p>
+<p>Die obige Funktion ermöglicht uns es Code zwar schön zu verpacken und immer wieder zu verwenden, die Funktion führt aber tatsächlich immer exakt den gleichen Code aus. Um Funktionen nicht nur als starre Code-Pakete zu verwenden, sondern auch situationsspezifisch einsetzen und kontrollieren zu können, können wir einen variablen Input festlegen.</p>
 <p>Wenn die Funktion einen <em>Input</em> haben soll, dann können wir innerhalb der runden Klammern eine beliebige Zahl von beliebig gewählten Namen für die “Input-Variablen”, welche man auch “Parameter” oder “Argumente” nennt, eintragen. Allgemein sieht das dann so aus:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FUNCTION_NAME</span><span class="p">(</span><span class="n">INPUT1</span><span class="p">,</span> <span class="n">INPUT2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
     <span class="n">DO_SOMETHING_WITH_INPUT</span>
@@ -429,7 +496,8 @@
 </div>
 <p>Die Namen der Input-Variablen sind Platzhalter für die bei Verwendung der Funktion tatsächlich als Input eingebenen Werte. So wie das <code class="docutils literal notranslate"><span class="pre">x</span></code> bei der uns typischerweise aus der Schule bekannten Funktion <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> ein abstrakter Platzhalter für einen konkret eingegebenen Wert ist.</p>
 <p>Wir könnten nun z.B. eine Funktion schreiben, die statt einem unpersönlichen <code class="docutils literal notranslate"><span class="pre">&quot;hello</span> <span class="pre">world&quot;</span></code> eine jeweils bestimmte Person grüßt. Im Folgenden definiere ich die Funktion <code class="docutils literal notranslate"><span class="pre">say_hello_to()</span></code>, wobei ich festlege, dass ein Input namens <code class="docutils literal notranslate"><span class="pre">name</span></code> erwartet wird.</p>
-<p>Wie du in der untigen Funktionsdefinition sehen kannst, tauch der Input <code class="docutils literal notranslate"><span class="pre">name</span></code> nicht nur in den runden Klammern auf, sondern auch darunter im eigentlich Code der Funktion. Dort legen wir fest, was mit dem als <code class="docutils literal notranslate"><span class="pre">name</span></code> eingegebenen Input innerhalb der Funktion gemacht wird. Aber nicht vergessen: Den Namen der Input-Variable <code class="docutils literal notranslate"><span class="pre">name</span></code> haben wir hier “willkürlich” festgelegt und er hat nichts mit dem Wert zu tun, den wir später tatsächlich eingeben. <code class="docutils literal notranslate"><span class="pre">name</span></code> steht einfach für das, was auch immer da als Input kommen mag. Man kann sich den Input auch als eine “funktions-interne” Variable vorstellen, die bei Aufruf der Funktion den entsprechenden eingegebenen Wert zugewiesen bekommt.</p>
+<p>Wie du in der untigen Funktionsdefinition sehen kannst, taucht der Input <code class="docutils literal notranslate"><span class="pre">name</span></code> nicht nur in den runden Klammern auf, sondern auch darunter im eigentlich Code der Funktion. Dort legen wir fest, was mit dem als <code class="docutils literal notranslate"><span class="pre">name</span></code> eingegebenen Input innerhalb der Funktion gemacht wird.</p>
+<p>Aber nicht vergessen: Den Namen der Input-Variable <code class="docutils literal notranslate"><span class="pre">name</span></code> haben wir hier “willkürlich” festgelegt und er hat nichts mit dem Wert zu tun, den wir später tatsächlich eingeben. <code class="docutils literal notranslate"><span class="pre">name</span></code> steht einfach für das, was auch immer da als Input kommen mag. Man kann sich den Input auch als eine “funktions-interne” Variable vorstellen, die bei Aufruf der Funktion den entsprechenden eingegebenen Wert zugewiesen bekommt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">say_hello_to</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
@@ -490,10 +558,12 @@ hello world
 </div>
 </div>
 </div>
+<div class="section" id="funktionen-mit-mehreren-inputs">
+<h2>Funktionen mit mehreren Inputs<a class="headerlink" href="#funktionen-mit-mehreren-inputs" title="Permalink to this headline">¶</a></h2>
 <p>Wir können eine beliebige Anzahl an Inputs einer Funktion festlegen. Ich kombiniere nun z.B. die Funktionalität der Funktion <code class="docutils literal notranslate"><span class="pre">say_hello_to()</span></code> mit der Funktionalität der Funktion <code class="docutils literal notranslate"><span class="pre">say_hello_several_times</span></code>, sodass mithilfe von zwei Inputs sowohl die zu begrüßende Person als auch die Häufigkeit der Begrüßung festgelegt werden kann.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">say_hello_several_times_to</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">say_hello_several_times_to</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">)</span>
 </pre></div>
@@ -502,7 +572,7 @@ hello world
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_hello_several_times_to</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Monty&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_hello_several_times_to</span><span class="p">(</span><span class="s2">&quot;Monty&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -515,14 +585,15 @@ Hello Monty !
 </div>
 </div>
 </div>
-<p>In der Reihenfolge, in der wir in der Funktionsdefinition die Reihenfolge der Inputs in die runde KLammer schreiben, in der Reihenfolge müssen wir auch beim Aufruf der Funktion die entsprechenden Werte eingeben.</p>
-<p>Oben wurden die Werte immer direkt in die Funktion eingegeben. Im Verlauf unserer Programme, werden wir die Eingabewerte selbst aber meist wiederum z.B. in einer Variable gespeichert haben. Man kann an als Input tatsächlich alle möglichen Ausdrücke bzw. Objekte, ob z.B. Variablen, Funktionen oder boolsche Ausdrücke eingeben.</p>
-<p>Unten gebe ich für den Input-Parameter <code class="docutils literal notranslate"><span class="pre">n</span></code> eine mathematische Berechnung und für den Input-Parameter <code class="docutils literal notranslate"><span class="pre">name</span></code> die Variable <code class="docutils literal notranslate"><span class="pre">person</span></code> ein.</p>
+<p>Hat eine Funktion mehrere Inputs, dann ist es sehr wichtig darauf zu achten, in welcher Reihenfolge die Inputs erfolgen müssen. Steht in der Funktionsdefinition der Input <code class="docutils literal notranslate"><span class="pre">name</span></code> an erster Stelle innerhalb der runden Klammer, dann muss bei der Ausführung der Funktion der entsprechende Wert, welcher für <code class="docutils literal notranslate"><span class="pre">name</span></code> eingesetzt werden soll, auch an erster Stelle kommen. Steht der Input <code class="docutils literal notranslate"><span class="pre">n</span></code> an zweiter Stelle, dann muss der entsprechend eingesetzt Wert an zweiter Stelle eingesetzt werden. Werden die Inputs allein anhand der Position in der runden Klammer zugeordnet, dann nennt man diese (auf Englisch) “positional arguments”.</p>
+<p>Vor allem wenn eine Funktion viele Inputs erwartet, kann es relativ schnell relativ kompliziert werden, die genaue Reihenfolge der Inputs einzuhalten. Schnell kann es dazu kommen, dass man die eingegebenen Werte an eine falsche Stelle setzt und somit falschen Inputvariablen zuordnet. Eine Lösung für das Problem kann sein, sogenannte “keyword arguments” zu verwenden.</p>
+</div>
+<div class="section" id="input-mittels-keyword-arguments">
+<h2>Input mittels keyword arguments<a class="headerlink" href="#input-mittels-keyword-arguments" title="Permalink to this headline">¶</a></h2>
+<p>Der Input jeder Funktion kann immer auch über “keyword arguments” zugewiesen werden. Das bedeutet, dass die eingegebenen Werte nicht über die Position in den runden Klammern zugeordnet werden, sondern man weist innerhalb der runden Klammern den eingegebenen Wert mittels Gleichheitszeichen dem entsprechenden Argument/Platzhalter zu, wie man hier sieht:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="s2">&quot;Monty&quot;</span>
-
-<span class="n">say_hello_several_times_to</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="n">person</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_hello_several_times_to</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Monty&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -531,12 +602,27 @@ Hello Monty !
 Hello Monty !
 Hello Monty !
 Hello Monty !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun ist die Reihenfolge irrelevant und man kann die Inputs in beliebiger Reihenfolge eingeben. Unten tausche ich beispielhaft die Reihenfolge der Funktionsinputs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_hello_several_times_to</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Monty&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello Monty !
+Hello Monty !
+Hello Monty !
 Hello Monty !
 </pre></div>
 </div>
 </div>
 </div>
-<p>Hier wird nochmal deutlich, dass die Namen der Parameter bei der Definition der Funktion nichts mit dem eingegebenen Wert oder dem Namen der eingegebenen Variable zu tun haben. An die Stelle, wo bei der Definition der Funktion der z.B. der Input <code class="docutils literal notranslate"><span class="pre">name</span></code> steht, setze ich oben die Variable <code class="docutils literal notranslate"><span class="pre">person</span></code>. Dadurch wird quasi der funktionsinternen Variable <code class="docutils literal notranslate"><span class="pre">name</span></code> der Wert der Variable <code class="docutils literal notranslate"><span class="pre">person</span></code> zugewiesen.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -564,6 +650,8 @@ Hello Monty !
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="amp05a_funktionen_ohne_input.html" title="previous page">Funktionen ohne In- und Output</a>
+    <a class='right-next' id="next-link" href="amp05a_funktionen_mit_output.html" title="next page">Funktionen mit Output</a>
 
         </div>
         
