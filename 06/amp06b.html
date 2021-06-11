@@ -1,0 +1,953 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.2 Modelle sozialer Beeinflussung &#8212; ABM mit Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Objektorientiertes Interface" href="amp06a_04_objektorientiertes_matplotlib.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ABM mit Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Willkommen
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01_intro.html">
+   1.1 Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einf%C3%BChrung.html">
+     Was ist ABM?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_python_und_anaconda.html">
+     Verwendete Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einstieg_python.html">
+     Einstieg in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01b.html">
+   1.2 Warm-up
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02_intro.html">
+   2.1 Woraus alles besteht
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listen_agenten_populationen.html">
+     Listen, Agenten &amp; Populationen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenzugriff.html">
+     Der Zugriff auf Listen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_exkurs_funktionen_methoden.html">
+     Exkurs: Funktionen &amp; Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenmethoden.html">
+     Grundlegende Listen-Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenfunktionen.html">
+     Nützliche Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02b.html">
+   2.2 Hinterlistige Übungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03_intro.html">
+   3.1 Motoren der Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_was_ist_for-loop.html">
+     Was ist ein For-Loop?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_for-loops_in_python.html">
+     For-Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_range.html">
+     Exkurs: Zahlenreihen erstellen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_%C3%BCber_zahlenreihe_loopen.html">
+     Loop durch Zahlenreihe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_variablen_ver%C3%A4ndern.html">
+     Variablen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_unver%C3%A4nderbare_objekte.html">
+     Exkurs: (un-)veränderbare Objekte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_listen_ver%C3%A4ndern.html">
+     Listen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_modulo.html">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_geschachtelte_for-loops.html">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_nutzen_for-loops.html">
+     ABM &amp; For-Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03b.html">
+   3.2 Gefangen im Loop
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04_intro.html">
+   4.1 Eine Brise Gefühl
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if-statements.html">
+     If-Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_boolsche_ausdr%C3%BCcke.html">
+     Boolesche Ausdrücke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if_else_elif.html">
+     If, else, elif
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_modul_import.html">
+     Exkurs 1: Module importieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_dicts.html">
+     Exkurs 2: das Dictionary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04b.html">
+   4.2 Das NaSch-Modell
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05/amp05_intro.html">
+   5.1 Funktionen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_eigene_funktionen.html">
+     Eigene Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_ohne_input.html">
+     Funktionen ohne In- und Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_mit_input.html">
+     Funktionen mit Input
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_mit_output.html">
+     Funktionen mit Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_standardwerte.html">
+     Funktionen mit Standardwerten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_scoping.html">
+     Scopes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_docstrings.html">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05/amp05b_funktionen.html">
+   5.2 Funktionales Training
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="amp06_intro.html">
+   6.1 Diagramme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp06a_01_matplotlib.html">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp06a_02_funktionales_matplotlib.html">
+     Funktionales Interface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp06a_03_exkurs_mehrfachzuweisung.html">
+     Exkurs: Mehrfachzuweisung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp06a_04_objektorientiertes_matplotlib.html">
+     Objektorientiertes Interface
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6.2 Modelle sozialer Beeinflussung
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/06/amp06b.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F06/amp06b.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/06/amp06b.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modell-1-das-klassische-modell">
+   Modell 1 - das klassische Modell
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-agenten">
+     Die Agenten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-hauptfunktion">
+     Die Hauptfunktion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-gewichte-berechnen">
+     Die Gewichte berechnen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-meinung-verandern">
+     Die Meinung verändern
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initialisierung-und-ausfuhrung">
+     Initialisierung und Ausführung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-1">
+   Aufgabe 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-2">
+   Aufgabe 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-3">
+   Aufgabe 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-4">
+   Aufgabe 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-5">
+   Aufgabe 5
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="modelle-sozialer-beeinflussung">
+<h1>6.2 Modelle sozialer Beeinflussung<a class="headerlink" href="#modelle-sozialer-beeinflussung" title="Permalink to this headline">¶</a></h1>
+<p>Im Folgenden werden wir die ersten drei Liniendiagramme und die jeweils zugrunde liegenden Simulationen im Text “Modelle sozialer Beeinflussung” aus dem Jahr 2015 von Michael Mäs replizieren. Den Text findest du u.a. <a class="reference external" href="https://link.springer.com/chapter/10.1007%2F978-3-658-01164-2_34">hier</a>. Das erste Modell werden wir im Folgenden gemeinsam programmieren, die zwei anderen sollen als Übungsaufgabe nachgebaut werden.</p>
+<div class="tip admonition">
+<p class="admonition-title">Pro-Tipp</p>
+<p>Bevor du an dieser Stelle weiterliest, solltest du den Text von Michael Mäs vollständig gelesen haben. Du findest den Text z.B. <a class="reference external" href="https://link.springer.com/chapter/10.1007%2F978-3-658-01164-2_34">hier</a>.</p>
+<p>Mäs M. (2015) Modelle sozialer Beeinflussung. In: Braun N., Saam N. (eds) Handbuch Modellbildung und Simulation in den Sozialwissenschaften. Springer VS, Wiesbaden. <a class="reference external" href="https://doi.org/10.1007/978-3-658-01164-2_34">https://doi.org/10.1007/978-3-658-01164-2_34</a></p>
+</div>
+<p>In den klassischen Modellen sozialer Beeinflussung wird der Einfluss verschiedener Beeinflussungsmechanismen der Akteure auf die Meinungsmakrostruktur in der Population (z.B. Polarisierung vs. Konsens) untersucht. Die Akteure besitzen dabei eine <em>Meinung</em> zu einem bestimmten Thema, welche als Zahl z.B. zwischen 1 und 10 bzw. 0 und 1 repräsentiert wird. Während der Simulation werden die Meinungen der Agenten entsprechend der implementierten Beeinflussungsmechanismen auf der Mikroebene verändert. Die <em>Veränderung der Meinung</em> eines Agenten ergibt sich dabei im Kern eines jeden Modells des Textes von Mäs als durchschnittlicher, gewichteter Meinungsunterschied zwischen eines Agenten und der gesamten Population von Agenten. Im Text von Mäs wird das formal so dargestellt:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta O_{i,d,t} = \frac{\sum_{j=1}^{N}(o_{j,d,t}-o_{i,d,t}) w_{i,j,t}}{\sum_{j=1}^{N}|w_{i,j,t}|} \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In der Original-Formel im Text ist ein kleiner Fehler. Unter dem Bruchstrich muss korrekterweise der <strong>absolute Betrag</strong> der jeweiligen Gewichte <span class="math notranslate nohighlight">\( w_{i,j,t} \)</span> aufsummiert werden, da sich sonst negative und positive Gewichte gegenseitig aufheben würden. Daher habe ich hier im Gegensatz zur Original-Formel <span class="math notranslate nohighlight">\( | w_{i,j,t} | \)</span> geschrieben.)</p>
+</div>
+<p>Da diese Formel essentiell ist und in jedem der im Folgenden zu replizierenden Modelle sozialer Beeinflussung verwendet wird, schauen wir uns diese kurz genauer an. Hier die Bedeutung einiger Einzelteile der Funktion:</p>
+<p><span class="math notranslate nohighlight">\( O_{i,d,t} \)</span> = <strong>Meinung von Agent <span class="math notranslate nohighlight">\(i\)</span></strong> über das Thema <span class="math notranslate nohighlight">\(d\)</span> zum Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span></p>
+<p><span class="math notranslate nohighlight">\( O_{j,d,t} \)</span> = <strong>Meinung von Agent <span class="math notranslate nohighlight">\(j\)</span></strong> über das Thema <span class="math notranslate nohighlight">\(d\)</span> zum Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span></p>
+<p><span class="math notranslate nohighlight">\( \Delta O_{i,d,t} \)</span> = <strong>Veränderung der Meinung des Agenten <span class="math notranslate nohighlight">\(i\)</span></strong> über das Thema <span class="math notranslate nohighlight">\(d\)</span> zum Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span></p>
+<p><span class="math notranslate nohighlight">\( (o_{j,d,t}-o_{i,d,t}) \)</span> = <strong>Meinungsunterschied</strong> zwischen Agent <span class="math notranslate nohighlight">\(i\)</span> und Agent <span class="math notranslate nohighlight">\(j\)</span> über das Thema <span class="math notranslate nohighlight">\(d\)</span> zum Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span></p>
+<p><span class="math notranslate nohighlight">\( w_{i,j,t} \)</span> = <strong>Gewicht der Beziehung</strong> zwischen Agent <span class="math notranslate nohighlight">\(i\)</span> und <span class="math notranslate nohighlight">\(j\)</span> zum Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p><span class="math notranslate nohighlight">\( (o_{j,d,t}-o_{i,d,t}) w_{i,j,t} \)</span> = <strong>gewichteter Meinungsunterschied</strong> zwischen Agent <span class="math notranslate nohighlight">\(i\)</span> und Agent <span class="math notranslate nohighlight">\(j\)</span> über das Thema <span class="math notranslate nohighlight">\(d\)</span></p>
+<p><span class="math notranslate nohighlight">\( \sum_{j=1}^{N}(o_{j,d,t}-o_{i,d,t}) w_{i,j,t} \)</span> = <strong>Summe aller gewichteten Meinungsunterschiede</strong> zwischen Agent <span class="math notranslate nohighlight">\(i\)</span> und Population …</p>
+<p><span class="math notranslate nohighlight">\( | w_{i,j,t} |\)</span> = <strong>Betrag des Gewichts der Beziehung</strong> zwischen Agent <span class="math notranslate nohighlight">\(i\)</span> und <span class="math notranslate nohighlight">\(j\)</span> zum Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p><span class="math notranslate nohighlight">\( \sum_{j=1}^{N}|w_{i,j,t}| \)</span> = Summe der absoluten Beträge aller Gewichte</p>
+<p>Ein kleines Beispiel zum besseren Verständnis der obigen Formel: Angenommen eine Population von Agenten besteht aus Peter und Hans. Peter vertritt die Meinung <span class="math notranslate nohighlight">\(1\)</span>, Hans vertritt die Meinung <span class="math notranslate nohighlight">\(5\)</span>. Angenommen Peter wird in diesem Zeitschritt <em>beeinflusst</em>, sodass für ihn die entsprechende Meinungsveränderung mit der obigen Formel ermittelt werden muss. Peter würde man in diesem Fall den <em>fokale</em> Agenten/Akteur bezeichnen.</p>
+<p>Beginnen wir <strong>oberhalb des Bruchstriches</strong> der Formel mit der Berechnung der Meinungsunterschiede zwischen Peter und dem Rest der Population. Da die Population nur aus Peter und Hans besteht, muss Peter den Meinungsunterschied zwischen ihm und Hans sowie zwischen ihm und ihm betrachten. Der Meinungsunterschied zwischen Hans und Peter ergibt sich (aus Sicht von Peter) als <span class="math notranslate nohighlight">\(5 - 1 = 4\)</span>. Da Peter und Hans gut befreundet sind, gewichtet Peter die Meinung von Hans bzw. die Meinungsdifferenz zwischen ihm und Hans mit einem Gewicht von <span class="math notranslate nohighlight">\(1\)</span> d.h. zu 100%. Da Peter selbst zur Population gehört, wird auch der Meinungsunterschied zwischem seiner Meinung und seiner Meinung berechnet: <span class="math notranslate nohighlight">\( 1 - 1 = 0\)</span>. Peter schätzt seine eigene Meinung genauso stark wie die Meinung von Hans. Daher wird auch seine eigene Meinung bzw. die Meinungsdifferenz mit sich selbst mit einem Gewicht von <span class="math notranslate nohighlight">\(1\)</span> gewichtet. Diese beiden gewichteten Meinungsunterschiede werden dann addiert. Oberhalb des Bruchstriches steht also insgesamt <span class="math notranslate nohighlight">\( \sum_{j=1}^{N}(5 - 1) * 1 + (1 - 1) * 1 = 4 + 0 = 4 \)</span>. Dies ist die Summe aller gewichteten Meinungsunterschiede zwischen Peter und allen Agenten in der Population d.h. Hans und Peter. <strong>Unterhalb des Bruchstriches</strong> steht die Summer aller Gewichte bzw. ihrer absoluten Beträge: <span class="math notranslate nohighlight">\(1 + 1 = 2\)</span>.</p>
+<p>Teilen wir den Wert oberhalb des Bruchstriches durch den Wert unterhalb des Bruchstriches, erhalten wir den durchschnittlichen gewichteten Meinungsunterschied: <span class="math notranslate nohighlight">\( \frac {4}{2} = 2\)</span>. Da die Beeinflussungsgewichte beide auf <span class="math notranslate nohighlight">\(1\)</span> gesetzt wurden, ist dies nichts anderes als ein ganz normaler Durchschnitt. In diesem Fall eben ein Durchschnitt der Meinungsunterschiede. Das Ergebnis <span class="math notranslate nohighlight">\(2\)</span> ist nun jedoch noch nicht die <em>neue Meinung</em> von Peter an sich, sondern nur die aufgrund der sozialen Beeinflussung von ihm vollzogene <em>Meinungsveränderung</em>. Peter hatte zu Beginn die Meinung <span class="math notranslate nohighlight">\(1\)</span>. Die Veränderung der Meinung wird auf den aktuellen Zustand der Meinung aufaddiert: <span class="math notranslate nohighlight">\(1 + 2 = 3\)</span>. Die neue Meinung von Peter ist somit <span class="math notranslate nohighlight">\(3\)</span>. Diese Meinung liegt nun genau in der Mitte zwischen Peters alter Meinung und der Meinung von Hans.</p>
+<p>Wenn Peter den Meinungsunterschied zwischen ihm und Hans nur mit einem Gewicht von 0.5 gewichten würde, dann würde die neue Meinung von Peter näher an seiner alten Meinung liegen:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{(5-1)*0.5 + (1-1)*1}{0.5 + 1} = \frac{2 + 0}{0.5 + 1} = \frac{2}{1.5} = 1.3334 \]</div>
+<p>Die Meinung von Peter würde sich dann nur um den Wert <span class="math notranslate nohighlight">\(1.3334\)</span> ändern und somit zu <span class="math notranslate nohighlight">\(1 + 1.3334 = 2.3334\)</span> werden.</p>
+<p>In den hier vorgestellten Modellen sozialer Beeinflussung bleibt die Berechnung der Meinung bzw. der Meinungsveränderung an sich immer dieselbe. Sie wird immer hauptsächlich mit der obigen Formel berechnet. Was sich von Modell zu Modell ändert ist v.a. die Berechnung der Beeinflussungsgewichte. In diesem Beispiel haben sich die Beeinflussungsgewichte z.B. durch die Freundschaft ergeben. In den nun folgenden Modellen ergeben sich die Beeinflussungsgewichte durch</p>
+<ol class="simple">
+<li><p>direkten Kontakt in einem einfachen Netzwerk (Modell 1)</p></li>
+<li><p>Homophilie (Modell 2)</p></li>
+<li><p>negative soziale Beeinflussung bzw. Distinktion (Modell 3)</p></li>
+</ol>
+<div class="section" id="modell-1-das-klassische-modell">
+<h2>Modell 1 - das klassische Modell<a class="headerlink" href="#modell-1-das-klassische-modell" title="Permalink to this headline">¶</a></h2>
+<p>Im Folgenden programmieren wir das Modell, welches Abbildung 1 auf S.975 des Textes von Michael Mäs generiert. Wie gesagt, in allen Modellen wird die soziale Beeinflussung im Kern auf Basis der oben aufgestellten Formel berechnet. Was sich zwischen den Modellen v.a. ändert, sind die Regeln zur Berechnung der Beeinflussungsgewichte, wodurch die jeweiligen Beeinflussungsmechanismen implementiert werden. In Modell 1 werden die Beeinflussungsgewichte derart berechnet, dass ein Agent nur von seinen direkten Nachbarn (und sich selbst) beeinflusst werden kann. Da die <em>Welt</em> der Agenten sich entlang einer Linie erstreckt (welche an den Enden nicht zu einem Ring zusammengeschlossen wird), hat jeder Agent zwischen 1 und 2 Nachbarn. Die Anfangsmeinung eines jeden Agenten ergibt sich aus dessen Position in der Reihe. Die durch eine solche Modellspezifikation entstehende “Meinungsdynamik” sieht man in der untigen Abbildung. Das Ziel ist nun, genau eine solche Meinungsdynamik zu reproduzieren. In den folgenden Übungsaufgaben ist es dann deine Aufgabe, den Code von Modell 1 so zu modifizieren, dass damit auch Modell 2 und Modell 3 repliziert werden können.</p>
+<p><img alt="" src="../_images/modell_soz_be_1.png" /></p>
+<p><strong>QUELLE:</strong> Mäs M. (2015) Modelle sozialer Beeinflussung. In: Braun N., Saam N. (eds) Handbuch Modellbildung und Simulation in den Sozialwissenschaften. Springer VS, Wiesbaden. <a class="reference external" href="https://doi.org/10.1007/978-3-658-01164-2_34">https://doi.org/10.1007/978-3-658-01164-2_34</a></p>
+<p>Für die Replikation der von Mäs vorgestellten Modelle sozialer Beeinflussung in Python gibt es eine ganze Reihe möglicher Herangehensweisen. Man kann sich eine ganze Reihe an unterschiedlichen Varianten vorstellen, wie man z.B. die Agenten darstellt oder den Code strukturiert. Ich schlage an dieser Stelle vor, den Code in vier primäre Bereiche zu unterteilen, welche es erlauben, durch relativ wenig Code-Veränderung und Code-Doppelung alle Modelle zu replizieren. Die vier Bestandteile der Simulation bestehen aus drei Funktionen sowie einem Code-Block zur Initialisierung der Population und Starten der Simulation mittels Funktion. Im Folgenden beschreibe ich zunächst, auf welche Weise die Agenten repräsentiert werden und gehe dann die Funktionsweise der einzelnen Funktionen, aus welchen die Simulation besteht, durch. Danach initialisiere ich die Population und führe das Modell aus.</p>
+<div class="section" id="die-agenten">
+<h3>Die Agenten<a class="headerlink" href="#die-agenten" title="Permalink to this headline">¶</a></h3>
+<p>Jeder Agent wird als <code class="docutils literal notranslate"><span class="pre">dict</span></code> mit vier Attributen erstellt. Unten sieht man einen beispielhaften Agenten, von welchem vor jedem Simulationsdurchlauf eine Population entsprechender Größe erstellt wird. Als Platzhalter für konkrete Werte sind unten teils die erwarteten Datentypen als Platzhalter eingetragen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c1"># gibt die Position in Populations-Liste an</span>
+    <span class="s2">&quot;opinion&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="c1"># gibt die Meinung zwischen 0 und 1 an</span>
+    <span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="c1"># gibt das Meinungsgewicht in Relation zum aktuellen fokalen agenten an</span>
+    <span class="s2">&quot;opinion_history&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="c1"># archiviert die vergangenen Meinungen des Agenten</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Das Attribut <code class="docutils literal notranslate"><span class="pre">&quot;position&quot;</span></code> gibt die Position innerhalb der Populationsliste an. Diese wird zu Beginn festgelegt und ändert sich dann nicht mehr.</p></li>
+<li><p>Die <code class="docutils literal notranslate"><span class="pre">&quot;opinion&quot;</span></code> gibt die aktuelle Meinung des Agenten an. Diese kann einen <code class="docutils literal notranslate"><span class="pre">float</span></code> von 0 bis 1 annehmen. Damit diese Implementierung in allen Modellen eingesetzt werden kann, werden auch in Modell 1 die Meinungen der Agenten auf einer Skala von 0 bis 1 repräsentiert, statt wie im Original-Text von 1 bis 10. Dies sollte auf das Simulationsergebnis keinen nennenswerten Einfluss haben.</p></li>
+<li><p>Das <code class="docutils literal notranslate"><span class="pre">&quot;temporary_opinion_weight&quot;</span></code> stellt das Beeinflussungsgewicht der eigenen Meinung in Relation zum aktuellen fokalen Agenten dar. Dieses Gewicht wird während der Simulation in jedem Zeitschritt neu ermittelt, da in jedem Zeitschritt sich der fokale Agent verändert bzw. zufällig neu gezogen wird.</p></li>
+<li><p>Die <code class="docutils literal notranslate"><span class="pre">&quot;opinion_history&quot;</span></code> ist eine Liste, in welcher in jedem Zeitschritt die aktuelle Meinung des Agenten angehängt wird, sodass am Ende der Simulation der gesamte Meinungsverlauf eines jeden Agenten während der Simulation nachvollzogen werden kann. Diese Datenreihe wird letztlich nach der Simulation für jeden Agenten grafisch in den Diagrammen dargestellt.</p></li>
+</ul>
+</div>
+<div class="section" id="die-hauptfunktion">
+<h3>Die Hauptfunktion<a class="headerlink" href="#die-hauptfunktion" title="Permalink to this headline">¶</a></h3>
+<p>Der grobe Ablauf der Simulation bzw. der Modelle sozialer Beeinflussung lautet so:
+Für eine Population von Agenten wird in jedem Zeitschritt ein Agent zufällig ausgewählt. Dieser zufällig ausgewählte Agent ist der sogenannte fokale Agent, dessen Meinung in diesem Zeitschritt durch die anderen Populationsmitglieder beeinflusst wird. Wie dieser Agent beeinflusst wird bestimmt sich zum einen durch die obige Beeinflussungsformel und zum anderen durch die in den verschiedenen Modellen verwendeten Arten, die Beeinflussungsgewichte der Populationsmitglieder in Bezug zum fokalen Agenten zu ermitteln.
+Während des Simulationsdurchlaufs werden in jeder Runde die Meinungen der Agenten archiviert, um nach der Simulation den Meinungsverlauf der Agenten in Diagrammen darzustellen. Nach der Simulation werden dann die Meinungsverläufe aller Agenten grafisch dargestellt.</p>
+<p>Dieser soeben beschriebene, grobe Ablauf der Simulation wird von der Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> umgesetzt. Die Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> ist die Hauptfunktion und führt die gesamte Simulation aus. Allerdings werden einige Teilschritte der Simulation in weitere Funktionen ausgelagert, um einerseits den Code übersichtlich zu halten und andererseits die Modularität des Codes sicherzustellen. Schauen wir uns die Funktion kurz an:</p>
+<ul class="simple">
+<li><p>Die Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> erwartet zwei Inputs. Für das Argument <code class="docutils literal notranslate"><span class="pre">population</span></code> erwartet die Funktion eine Liste mit Agenten, welche in der oben vorgestellten Form vorliegen. Das Argument <code class="docutils literal notranslate"><span class="pre">ticks</span></code> gibt die Anzahl der zu simulierenden Zeitschritte an.</p></li>
+<li><p>Zu Beginn der Funktion startet ein For-Loop, wobei jede Runde des For-Loops einen Zeitschritt darstellt.</p></li>
+<li><p>Innerhalb des For-Loops wird zunächst der fokale Agent per Zufallswahl aus der Population gezogen.</p></li>
+<li><p>Mit der Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_1()</span></code> werden für jeden Agenten die entsprechenden Gewichte für die Beeinflussung der Meinung des fokalen Agenten nach den Regeln von Modell 1 ermittelt. Die ermittelten Gewichte werden jeweils den Agenten unter dem Attribut <code class="docutils literal notranslate"><span class="pre">&quot;temporary_opinion_weight&quot;</span></code> eingespeichert. Da die Agenten veränderbare Objekte sind, muss hat die Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_1()</span></code> keinen expliziten Output. Statdessen werden die Veränderungen direkt bei den Agenten eingespeichert. Die Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_1()</span></code> wird weiter unten noch genauer vorgestellt. In den Übungsaufgaben musst du später u.a. an dieser Stelle die Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> so modifizieren, dass wahlweise auch die Gewichte nach den Regeln von Modell 2 oder Modell 3 ermittelt werden können.</p></li>
+<li><p>Nachdem für jeden Agenten das Meinungsgewicht in Bezug zum momentanen fokalen Agenten ermittelt wurde, wird im nächsten Schritt mithilfe der Funktion <code class="docutils literal notranslate"><span class="pre">change_opinion()</span></code> die Meinung des fokalen Agenten auf Basis der “obigen Formel” verändert. Die veränderte Meinung wird innerhalb der Funktion direkt dem fokalen Agenten eingespeichert, sodass auch diese Funktion keinen expliziten Output aufweist.</p></li>
+<li><p>Im letzten Schritt innerhalb des For-Loops wird mittels eines weiteren For-Loops die gesamte Population durchgegangen und für jeden Agenten die aktuelle Meinung unter dessen Attribut <code class="docutils literal notranslate"><span class="pre">&quot;opinion_history&quot;</span></code> archiviert.</p></li>
+<li><p>Nach Abschluss des For-Loops <em>durch die Zeit</em> und somit nach der eigentlichen Simulation, werden die Simulationsergebnisse grafisch dargestellt. Dazu werden alle Agenten per For-Loop durchgegangen und für jeden Agenten dessen <code class="docutils literal notranslate"><span class="pre">&quot;opinion_history&quot;</span></code> in ein Matplotlib-Diagramm eingezeichnet.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="k">def</span> <span class="nf">run_model</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">ticks</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Hauptfunktion zur Ausführung der Modelle sozialer Beeinflussung.</span>
+<span class="sd">    In der aktuellen Form repliziert diese Funktion Modell 1. </span>
+<span class="sd">    Durch leichte Modifikationen könnte diese Funktion aber auch wahlweise </span>
+<span class="sd">    Modell 2 oder Modell 3 replizieren.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># für jeden Zeitschritt</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ticks</span><span class="p">):</span>
+
+        <span class="c1"># zufälligen Agenten ziehen</span>
+        <span class="n">focal_agent</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">population</span><span class="p">)</span>
+        
+        <span class="c1"># für jeden Agenten Meinungsgewicht in Relation zum fokalen Agenten ermitteln</span>
+        <span class="n">get_opinion_weights_1</span><span class="p">(</span><span class="n">focal_agent</span><span class="p">,</span> <span class="n">population</span><span class="p">)</span>
+        
+        <span class="c1"># Meinung des fokalen Agenten beeinflussen</span>
+        <span class="n">change_opinion</span><span class="p">(</span><span class="n">focal_agent</span><span class="p">,</span> <span class="n">population</span><span class="p">)</span>
+
+        <span class="c1"># Für jeden Agenten</span>
+        <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+            <span class="c1"># Aktuelle Meinung archivieren</span>
+            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;opinion_history&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">])</span>
+    
+    
+    <span class="c1"># Output-Daten plotten</span>
+    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;opinion_history&quot;</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="die-gewichte-berechnen">
+<h3>Die Gewichte berechnen<a class="headerlink" href="#die-gewichte-berechnen" title="Permalink to this headline">¶</a></h3>
+<p>Innerhalb der Hauptfunktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> werden mittels der Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_1()</span></code> für jeden Agenten das entsprechende Beeinflussungsgewicht bezüglich des fokalen Agenten nach den Regeln von Modell 1 berechnet. Modell 1 besagt, dass Agenten allein von ihren Nachbarn (und sich selbst) beeinflusst werden. Dieser Part wurde als eigene Funktion ausgelagert, damit dieser in der Hauptfunktion später evlt. auch durch andere Funktionen, welche die Gewichte nach den Regeln von Modell 2 oder Modell 3 berechnen, ersetzt werden kann bzw. zwischen verschiedenen Funktionen zur Berechnung der Gewichte umgeschaltet werden kann. Schauen wir uns die Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_1()</span></code> kurz an:</p>
+<ul class="simple">
+<li><p>Die Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_1()</span></code> erwartet für das Argument <code class="docutils literal notranslate"><span class="pre">focal_agent</span></code> den in der Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> zufällig ausgewählten, fokalen Agenten. Für das Argument <code class="docutils literal notranslate"><span class="pre">population</span></code> erwartet sie die gesamte Population an Agenten in einer Liste.</p></li>
+<li><p>Die Funktion geht per For-Loop jeden Agenten der eingegeben Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> durch.</p></li>
+<li><p>Im ersten Schritt des For-Loops wird für jeden Agenten die räumliche Distanz zum fokalen Agenten anhand der Positionen ermittelt. Dazu wird der absolute Betrag der Differenz zwischen der Position des Agenten und des fokalen Agenten berechnet.</p></li>
+<li><p>Im zweiten Schritt des For-Loops wird geprüft, ob die Distanz kleiner oder gleich 1 ist. Falls die Distanz 1 ist, dann handelt es sich um einen direkten Nachbarn des fokalen Agenten. Falls die Distanz 0 ist, dann ist <em>der</em> Agent der fokale Agent selbst. In beiden Fällen wird ein Beeinflussungsgewicht von 1 ermittelt und dem entsprechenden Agenten als <code class="docutils literal notranslate"><span class="pre">&quot;temporary_opinion_weight&quot;</span></code> eingespeichert. Falls die Distanz größer als 1 ist, dann wird ein Beeinflussungsgewicht von 0 eingespeichert.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_opinion_weights_1</span><span class="p">(</span><span class="n">focal_agent</span><span class="p">,</span> <span class="n">population</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ermittelt für jeden Agenten das eigene Gewicht der Beeinflussung des fokalen Agenten </span>
+<span class="sd">    und speichert dieses für jeden Agenten unter dem Attribut `&quot;temporary_opinion_weight&quot;` ein.</span>
+<span class="sd">    Ist ein Agent ein direkter Nachbar des fokalen Agenten, dann wird die Meinung dieses Agenten mit 1 gewichtet.</span>
+<span class="sd">    Auch sich selbst weist der fokale Agent ein Gewicht von 1 zu.</span>
+<span class="sd">    Allen anderen Agenten wird ein Gewicht von 0 zugewiesen.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        
+        <span class="c1"># Distanz zwischen Position des fokalen Agenten i und des Agenten j berechnen</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;position&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;position&quot;</span><span class="p">])</span>
+
+        <span class="c1"># Wenn Distanz kleinergleich 1</span>
+        <span class="k">if</span> <span class="n">distance</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="c1"># Ansonsten:</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="die-meinung-verandern">
+<h3>Die Meinung verändern<a class="headerlink" href="#die-meinung-verandern" title="Permalink to this headline">¶</a></h3>
+<p>Mit der Funktion <code class="docutils literal notranslate"><span class="pre">change_opinion()</span></code> wird die Meinung des fokalen Agenten entsprechend verändert. Im Grunde ist diese Funktion die Implementierung der oben besprochenen Formel, wobei in diese Formel die entsprechenden Werte eingesetzt werden, die Formel ausgerechnet wird und schließlich die Meinung des fokalen Agenten verändert wird. Dieser Mechanismus ist in allen Modellen derselbe, sodass diese Funktion auch nicht nur in Modell 1, sondern auch in den anderen Modellen verwendet werden kann. Schauen wir uns die Funktion kurz an:</p>
+<ul class="simple">
+<li><p>Genau wie die Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_1()</span></code> erwartet die Funktion mit den Argumenten <code class="docutils literal notranslate"><span class="pre">focal_agent</span></code> und <code class="docutils literal notranslate"><span class="pre">population</span></code> den fokalen Agenten des aktuellen Zeitschritts und die gesamte Populationsliste.</p></li>
+<li><p><strong>1. Oberhalb des Bruchstriches</strong>: Im ersten Part der Funktion wird der obere Teil der oben besprochenen Formel implementiert. Für jeden Agenten wird der Meinungsunterschied zum fokalen Agenten ermittelt und anschließend mit dem entsprechenden Beeinflussungsgewicht gewichtet. Schließlich werden alle gewichteten Meinungsunterschiede in der Variable <code class="docutils literal notranslate"><span class="pre">sum_of_weighted_opinion_diffs</span></code> aufsummiert.</p></li>
+<li><p><strong>2. Unterhalb des Bruchstriches</strong>: Im zweiten Schritt der Funktion wird der Teil unterm Bruchstrich berechnet. Dabei werden die absoluten Beträge aller Beeinflussungsgewichte aller Agenten in der Variable <code class="docutils literal notranslate"><span class="pre">sum_of_abs_opinion_weights</span></code> aufsummiert.</p></li>
+<li><p><strong>3. Bruch ausrechnen</strong>: Hier wird der Bruch ausgerechnet und somit die gewichtete, durchschnittliche Meinungsdifferenz zwischen dem fokalen Agenten und der Population berechnet.</p></li>
+<li><p><strong>4. Meinung beim fokalen Agenten verändern</strong>: In diesem letzten Schritt wird die Meinung des Agenten auf Basis der vorher berechneten Meinungsdifferenz verändert. Da es in manchen Modellen vorkommen kann, dass die Meinung des Agenten nach der Meinungsveränderung außerhalb der eigentlichen Meinungsskala liegt, wird abschließend geprüft, ob die Meinung kleiner 0 oder größer 1 ist. Falls sie kleiner als 0 ist, wird sie auf 0 gesetzt. Falls sie größer als 1 ist, wird sie auf 1 gesetzt.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">change_opinion</span><span class="p">(</span><span class="n">focal_agent</span><span class="p">,</span> <span class="n">population</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;Ermittelt den Wert der Meinungsveränderung und verändert entsprechend die Meinung des Agenten.&quot;&quot;&quot;</span>
+    
+    <span class="c1">############################################################</span>
+    <span class="c1"># 1. Oberhalb des Bruchstriches</span>
+    <span class="c1">############################################################</span>
+      
+    <span class="c1"># Summierungsvariable für gewichtete Meinungsunterschiede</span>
+    <span class="n">sum_of_weighted_opinion_diffs</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># Für jeden Agenten in Population</span>
+    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        
+        <span class="c1"># Meinungsdifferenz berechnen</span>
+        <span class="n">opinion_diff</span> <span class="o">=</span> <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span>
+        
+        <span class="c1"># Meinungsdifferenz mit entsprechendem Gewicht gewichten</span>
+        <span class="n">weighted_opinion_diff</span> <span class="o">=</span> <span class="n">opinion_diff</span> <span class="o">*</span> <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">]</span>
+        
+        <span class="c1"># gewichtete Meinungsdifferenz aufsummieren</span>
+        <span class="n">sum_of_weighted_opinion_diffs</span> <span class="o">+=</span> <span class="n">weighted_opinion_diff</span>
+    
+    
+    <span class="c1">############################################################</span>
+    <span class="c1"># 2. Unterhalb des Bruchstriches</span>
+    <span class="c1">############################################################</span>
+    
+    <span class="c1"># Summierungsvariable für absolute Beträge der Gewichte</span>
+    <span class="n">sum_of_abs_opinion_weights</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># für jeden Agenten in Population</span>
+    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        
+        <span class="c1"># absoluten Betrag des Gewichts ermitteln</span>
+        <span class="n">abs_opinion_weight</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">])</span>
+        
+        <span class="c1"># auf Summe aufsummieren</span>
+        <span class="n">sum_of_abs_opinion_weights</span> <span class="o">+=</span> <span class="n">abs_opinion_weight</span>
+    
+    
+    <span class="c1">############################################################</span>
+    <span class="c1"># 3. Bruch ausrechnen</span>
+    <span class="c1">############################################################</span>
+    
+    <span class="c1"># Meinungsveränderung berechnen</span>
+    <span class="n">opinion_change</span> <span class="o">=</span> <span class="n">sum_of_weighted_opinion_diffs</span> <span class="o">/</span> <span class="n">sum_of_abs_opinion_weights</span>
+    
+    
+    <span class="c1">############################################################</span>
+    <span class="c1"># 4. Meinung beim fokalen Agenten verändern</span>
+    <span class="c1">############################################################</span>
+    
+    <span class="c1"># neue Meinung berechnen aus momentaner Meinung und Meinungsveränderung</span>
+    <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">opinion_change</span>
+
+    <span class="c1"># Meinung in zulässigem Bereich halten</span>
+    <span class="k">if</span> <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="initialisierung-und-ausfuhrung">
+<h3>Initialisierung und Ausführung<a class="headerlink" href="#initialisierung-und-ausfuhrung" title="Permalink to this headline">¶</a></h3>
+<p>Nachdem nun oben alle Funktionen definiert wurden, wird im letzten Schritt alles für die Ausführung der Simulation vorbereitet und schließlich die Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> ausgeführt.</p>
+<ul class="simple">
+<li><p>Vor dem Ausführen der Simulation muss zunächst die Population erstellt werden. In Modell 1 besteht diese aus 10 Agenten, welche auf Meinungen von 1 bis 10 bzw. von 0.1 bis 1 aufweisen (wie oben bereits erwähnt, werden in dieser Replikation auch in Modell 1 die Meinungen auf einer Skala von 0 bis 1 dargestellt, sodass hier nicht Agenten mit den Meinungen von 1 bis 10, sondern mit den Meinungen von 0.1 bis 1 verwendet werden). Die Agenten werden innerhalb eines For-Loops nacheinander erstellt und der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> angehängt. Da sich das Beeinflussungsgewicht erst nach dem Start der Simulation ergibt, wird jedem Agenten zu Beginn der Platzhalter <code class="docutils literal notranslate"><span class="pre">None</span></code> auf dem Attribut <code class="docutils literal notranslate"><span class="pre">&quot;temporary_opinion_weight&quot;</span></code> eingespeichert.</p></li>
+<li><p>Nachdem die Population erstellt ist, kann an die Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> übergeben werden und die Simulation gestartet werden.</p></li>
+<li><p>Unten wird das Ergebnis der Simulation im Diagramm angezeigt. Jede Linie zeigt den Meinungsverlauf eines Agenten über den gesamten Verlauf der Simulation. Beeinflussen sich die Agenten nach den Regeln von Modell 1, kann man eine Konsensbildung beobachten. Insgesamt sieht man, dass das Modell 1 erfolgreich repliziert werden konnte.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Population erstellen</span>
+<span class="n">population</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">agent</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
+        <span class="s2">&quot;opinion&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s2">&quot;opinion_history&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="p">}</span>
+    <span class="n">population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">agent</span><span class="p">)</span>
+
+<span class="c1"># Modell ausführen</span>
+<span class="n">run_model</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="n">population</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="mi">1500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp06b_14_0.png" src="../_images/amp06b_14_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aufgabe-1">
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lies den Text von Michael Mäs.</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Versuche den obigen Code so gut es geht nachzuvollziehen.</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-3">
+<h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Kopiere den Code zur Replikation von Modell 1 in ein Python-Skript.</p></li>
+<li><p>Führe den Code aus, sodass die obige Grafik erstellt wird.</p></li>
+<li><p>Verändere den Code zur Erstellung des Diagramms so, dass die obige Grafik mit sinnvollen Achsenbeschriftungen ausgegeben wird.</p></li>
+<li><p>Aktuell wird im Code die funktionale Verwendungsweise von Matplotlib angewendet. Ändere den Code so ab, dass das Diagramm mittels des objektorientierten Interface erstellt wird.</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-4">
+<h2>Aufgabe 4<a class="headerlink" href="#aufgabe-4" title="Permalink to this headline">¶</a></h2>
+<p>Nun soll es die Aufgabe sein, Modell 2 (Kapitel 2.2 Soziale Beeinflussung und Homophilie) aus dem Text von Michael Mäs zu replizieren. Du kannst dafür einen sehr großen Teil des Codes von Modell 1 verwenden. Die Funktion <code class="docutils literal notranslate"><span class="pre">change_opinion()</span></code> kannst du z.B. exakt so verwenden und musst diese nicht verändern. Verändert/hinzugefügt werden müssen dafür v.a. 3 Dinge:</p>
+<ol class="simple">
+<li><p>Der Mechanismus zur Ermittlung der Beinflussungsgewichte muss an die Regeln von Modell 2 angepasst werden d.h. man braucht eine Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_2()</span></code>, die das für Modell 2 macht, was <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_1()</span></code> für Modell 1 macht.</p></li>
+<li><p>Die Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> so ändern, dass die Beeinflussungsgewichte nun mit <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_2()</span></code> berechnet werden. Entweder man ersetzt <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_1()</span></code> einfach durch <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_2()</span></code> oder man überlegt sich, wie man es hinbekommen könnte, zwischen den Funktionen hin und her schalten zu können.</p></li>
+<li><p>Die Population besteht in Modell 2 (und Modell 3) nicht nur aus 10 Agenten, sondern aus 100. Zudem weisen diese anders als in Modell 1 anfangs eine ZUFÄLLIGE Meinung zwischen 0 und 1 auf.</p></li>
+</ol>
+<p>Diese 3 Änderungen sollen nun von dir umgesetzt werden, sodass am Ende Modell 2 repliziert werden kann.</p>
+<ul class="simple">
+<li><p>Schreibe eine Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_2()</span></code>, welche ähnlich wie die Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_1()</span></code> für jeden Agenten das Beinflussungsgewicht ermittelt und dieses diesem einspeichert. Die Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_2()</span></code> soll die Beinflussungsgewichte nach den Regeln von Modell 2 ermitteln.</p></li>
+<li><p>Stelle sicher, dass in der Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> die Beinflussungsgewichte nun auch durch die Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_2()</span></code> ermittelt werden. Am elegantesten wäre natürlich, wenn man z.B. per Funktionsinput der Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> bestimmen kann, welche Funktion für die Ermittlung der Beeinflussungsgewichte verwendet wird!</p></li>
+<li><p>Erstelle die Population wie in Modell 2 d.h. mit 100 Agenten mit einer zufälligen Meinung von 0 bis 1.</p></li>
+<li><p>Übergebe die Population der Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code>, stelle die Anzahl der Zeitschritte ein und führe die Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> aus. Konntest du Modell 2 replizieren?</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-5">
+<h2>Aufgabe 5<a class="headerlink" href="#aufgabe-5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Repliziere Modell 3 (2.3 Negative soziale Beeinflussung). Das Vorgehen ist dabei exakt wie bei Modell 2, allerdings brauchst du nun eine Funktion <code class="docutils literal notranslate"><span class="pre">get_opinion_weights_3()</span></code> zur Ermittlung der Beeinflussungsgewichte nach den Regeln von Modell 3.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./06"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="amp06a_04_objektorientiertes_matplotlib.html" title="previous page">Objektorientiertes Interface</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Marius Kaffai<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

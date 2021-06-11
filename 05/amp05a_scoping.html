@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scoping &#8212; ABM mit Python</title>
+    <title>Scopes &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -304,17 +304,29 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../04/amp04b.html">
    4.2 Das NaSch-Modell
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="amp05_intro.html">
    5.1 Funktionen
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -346,7 +358,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Scoping
+     Scopes
     </a>
    </li>
    <li class="toctree-l2">
@@ -359,6 +371,43 @@
  <li class="toctree-l1">
   <a class="reference internal" href="amp05b_funktionen.html">
    5.2 Funktionales Training
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06/amp06_intro.html">
+   6.1 Diagramme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06/amp06a_01_matplotlib.html">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06/amp06a_02_funktionales_matplotlib.html">
+     Funktionales Interface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06/amp06a_03_exkurs_mehrfachzuweisung.html">
+     Exkurs: Mehrfachzuweisung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06/amp06a_04_objektorientiertes_matplotlib.html">
+     Objektorientiertes Interface
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06/amp06b.html">
+   6.2 Modelle sozialer Beeinflussung
   </a>
  </li>
 </ul>
@@ -481,8 +530,8 @@
         
               <div>
                 
-  <div class="section" id="scoping">
-<h1>Scoping<a class="headerlink" href="#scoping" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="scopes">
+<h1>Scopes<a class="headerlink" href="#scopes" title="Permalink to this headline">¶</a></h1>
 <p>Fragt man Personen in Deutschland nach dem Namen “Angela Merkel”, dann wird fast jede Person sofort wissen, wer mit diesem Namen gemeint ist - egal wo man in Deutschland ist. Fragt man aber jemanden nach dem Namen “Katja Oldenburg-Schmidt”, dann weiß fast niemand etwas mit diesem Namen anzufangen - außer in Buxtehude.</p>
 <p>Angela Merkel ist fast allen Leuten in Deutschland ein Begriff, weil sie Bundeskanzlerin ist und der Gültigkeitsberich ihres Amtes sich auf ganz Deutschland bezieht. Katja Oldenburg-Schmidt ist hingegen die Bürgermeisterin der Stadt Buxtehude, der “Gültigkeitsbereich” ihres Amtes liegt nur im Bereich Buxtehude. Deswegen kennt man sie auch nur dort.</p>
 <p>Auch Variablen in Python haben bestimmte Gültigkeitsbereiche. Jede Variablendefinition gilt jeweils in dem Bereich (auch Scope genannt), in dem diese Zuweisung auch definiert wurde. Bisher haben wir davon nichts gemerkt, weil wir uns immer im allumfassenden, globalen Gültigkeitsbereich befunden haben. Wir haben bisher nur sogenannte globale Variablen, vergleichbar mit Angela Merkel, definiert. Man kennt sie überall (in Deutschland).</p>
@@ -665,7 +714,7 @@
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Pro-Tipp</p>
-<p>Scoping und dessen Umsetzung in Python kann in der Theorie etwas abstrakt und unintuitiv erscheinen. Hier empfiehlt es sich - wie eigentlich immer - einfach mal selbst mit Funktionsdefinitionen und global und lokal definierten Variablen herumzuexperimentieren. Dann bekommt man ein Gefühl dafür, wann welche Variable oder welches Objekt in welchem Gültigkeitsbereich existiert oder verändert werden kann.</p>
+<p>Scopes und deren Umsetzung in Python können in der Theorie etwas abstrakt und unintuitiv erscheinen. Hier empfiehlt es sich - wie eigentlich immer - einfach mal selbst mit Funktionsdefinitionen und global und lokal definierten Variablen herumzuexperimentieren. Dann bekommt man ein Gefühl dafür, wann welche Variable oder welches Objekt in welchem Gültigkeitsbereich existiert oder verändert werden kann.</p>
 </div>
 </div>
 </div>
@@ -708,7 +757,7 @@
         
           By Marius Kaffai<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>

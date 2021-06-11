@@ -3,5 +3,5 @@
 In diesem Kapitel geht es um
 
 - Funktionen
-- Scoping
+- Scopes
 - Docstrings

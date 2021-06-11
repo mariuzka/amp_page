@@ -1,0 +1,821 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funktionales Interface &#8212; ABM mit Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exkurs: Mehrfachzuweisung" href="amp06a_03_exkurs_mehrfachzuweisung.html" />
+    <link rel="prev" title="Matplotlib" href="amp06a_01_matplotlib.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ABM mit Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Willkommen
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01_intro.html">
+   1.1 Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einf%C3%BChrung.html">
+     Was ist ABM?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_python_und_anaconda.html">
+     Verwendete Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einstieg_python.html">
+     Einstieg in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01b.html">
+   1.2 Warm-up
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02_intro.html">
+   2.1 Woraus alles besteht
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listen_agenten_populationen.html">
+     Listen, Agenten &amp; Populationen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenzugriff.html">
+     Der Zugriff auf Listen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_exkurs_funktionen_methoden.html">
+     Exkurs: Funktionen &amp; Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenmethoden.html">
+     Grundlegende Listen-Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenfunktionen.html">
+     Nützliche Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02b.html">
+   2.2 Hinterlistige Übungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03_intro.html">
+   3.1 Motoren der Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_was_ist_for-loop.html">
+     Was ist ein For-Loop?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_for-loops_in_python.html">
+     For-Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_range.html">
+     Exkurs: Zahlenreihen erstellen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_%C3%BCber_zahlenreihe_loopen.html">
+     Loop durch Zahlenreihe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_variablen_ver%C3%A4ndern.html">
+     Variablen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_unver%C3%A4nderbare_objekte.html">
+     Exkurs: (un-)veränderbare Objekte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_listen_ver%C3%A4ndern.html">
+     Listen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_modulo.html">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_geschachtelte_for-loops.html">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_nutzen_for-loops.html">
+     ABM &amp; For-Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03b.html">
+   3.2 Gefangen im Loop
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04_intro.html">
+   4.1 Eine Brise Gefühl
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if-statements.html">
+     If-Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_boolsche_ausdr%C3%BCcke.html">
+     Boolesche Ausdrücke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if_else_elif.html">
+     If, else, elif
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_modul_import.html">
+     Exkurs 1: Module importieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_dicts.html">
+     Exkurs 2: das Dictionary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04b.html">
+   4.2 Das NaSch-Modell
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05/amp05_intro.html">
+   5.1 Funktionen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_eigene_funktionen.html">
+     Eigene Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_ohne_input.html">
+     Funktionen ohne In- und Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_mit_input.html">
+     Funktionen mit Input
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_mit_output.html">
+     Funktionen mit Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_standardwerte.html">
+     Funktionen mit Standardwerten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_scoping.html">
+     Scopes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_docstrings.html">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05/amp05b_funktionen.html">
+   5.2 Funktionales Training
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="amp06_intro.html">
+   6.1 Diagramme
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp06a_01_matplotlib.html">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Funktionales Interface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp06a_03_exkurs_mehrfachzuweisung.html">
+     Exkurs: Mehrfachzuweisung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp06a_04_objektorientiertes_matplotlib.html">
+     Objektorientiertes Interface
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="amp06b.html">
+   6.2 Modelle sozialer Beeinflussung
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/06/amp06a_02_funktionales_matplotlib.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F06/amp06a_02_funktionales_matplotlib.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/06/amp06a_02_funktionales_matplotlib.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#liniendiagramme-mit-plt-plot">
+   Liniendiagramme mit plt.plot()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mehr-als-eine-linie">
+   Mehr als eine Linie
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#das-diagramm-aufhubschen">
+   Das Diagramm aufhübschen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#achsen-beschriften">
+     Achsen beschriften
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#legende-einfugen">
+     Legende einfügen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gitter-einfugen">
+     Gitter einfügen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alternative-styles">
+     Alternative Styles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mittels-for-loop-zeichnen">
+   Mittels For-Loop zeichnen
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="funktionales-interface">
+<h1>Funktionales Interface<a class="headerlink" href="#funktionales-interface" title="Permalink to this headline">¶</a></h1>
+<p>Mit der “funktionalen” Bedinung von Matplotlib kann man relativ schnell relativ einfache Diagramme erstellen. Hat man Matplotlib bzw. Pyplot mit <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> importiert, dann kann man z.B. ein simples Liniendiagramm mit der Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> erstellen. Im Folgenden schauen wir uns v.a. die Erstellung von Liniendiagrammen an, wir werden aber im Verlauf des Kurses noch andere Diagrammtypen kennenlernen.</p>
+<div class="section" id="liniendiagramme-mit-plt-plot">
+<h2>Liniendiagramme mit plt.plot()<a class="headerlink" href="#liniendiagramme-mit-plt-plot" title="Permalink to this headline">¶</a></h2>
+<p>Die Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> erwartet mindestens eine <em>Datenreihe</em>, also z.B. eine Liste mit Zahlen, um die Linie zeichnen zu können. Unten im Beispiel erstelle ich zunächst die Liste <code class="docutils literal notranslate"><span class="pre">infections</span></code>, welche (fiktive) Daten über eine ansteckende Krankheit deiner Wahl enthält. Diese Datenreihe - die Liste <code class="docutils literal notranslate"><span class="pre">infections</span></code> - stecke ich als Input in die Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> und schon wird ein Liniendiagramm angezeigt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">infections</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">infections</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2458085e388&gt;]
+</pre></div>
+</div>
+<img alt="../_images/amp06a_02_funktionales_matplotlib_1_1.png" src="../_images/amp06a_02_funktionales_matplotlib_1_1.png" />
+</div>
+</div>
+<p>Das ging einfach. Allerdings ist es, je nach Programmierumgebung oder auch je nach Einstellungen in Spyder, möglicherweise notwendig, nach der Anwendung der Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> noch die Funktion <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> anzuwenden, damit das Diagramm auch tatsächlich angezeigt wird. Man kann sich vorstellen, dass durch die Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> das Diagramm bereits “verdeckt” gezeichnet wird, aber noch nicht unbedingt direkt angezeigt wird, weil Python abwartet, ob man nicht vielleicht noch mehr in das Diagramm einzeichnen möchte. Damit der Code immer reproduziert werden kann bzw. die Grafiken auch tatsächlich angezeigt werden, sollte man sich angewöhnen, die Funktion <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> so oder so immer zu verwenden. Der Code sieht dann insgesamt so aus, das Diagramm sieht aber noch exakt gleich aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">infections</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp06a_02_funktionales_matplotlib_3_0.png" src="../_images/amp06a_02_funktionales_matplotlib_3_0.png" />
+</div>
+</div>
+<p>Ein Liniendiagramm gehört klassischerweise zu den zweidimensionalen Diagrammen. D.h. die Position eines Datenpunktes im Diagramm bestimmt sich durch einen Wert auf der X-Achse und einem Wert auf der Y-Achse - wie in einem “Koordinaten-System”. Wir haben der Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> aber nur eine Datenreihe und somit nur Informationen über eine Dimension d.h. eine Achse gegeben. Bevor du weiterliest: Schaue dir doch mal das Diagramm an und überlege, für welche der beiden Achsen die eingegebene Datenreihe verwendet wurde.</p>
+<p>Bei der Eingabe von genau einer Datenreihe verwendet die Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> die darin enthaltenen Daten als Positionen auf der Y-Achse. Die X-Achse hingegen ergibt sich einfach aus der Position der Zahl in der Datenreihe, in diesem Fall also aus den Positionen von 0 bis 8. Möchte man hingegen selbst Daten für die Werte der X-Achse verwenden, dann kann man eine zweite Datenreihe mit derselben Länge wie die erste Datenreihe eingeben.</p>
+<p>Wichtig ist nun allerdings, dass die Datenreihe, welche die X-Positionen angeben, an erster Stelle und die Datenreihe, welche die Y-Positionen angeben, an zweiter Stelle in die Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> eingegeben werden. Im Falle von zwei eingegebenen Datenreihen sieht die allgemeine Syntax somit also so aus: <code class="docutils literal notranslate"><span class="pre">plt.plot(XDATA,</span> <span class="pre">YDATA)</span></code>. Gibt man hingegen nur eine Datenreihe ein, dann sieht die allgemeine Syntax so aus: <code class="docutils literal notranslate"><span class="pre">plt.plot(YDATA)</span></code>.</p>
+<p>Im Folgenden definiere ich zusätzlich zur Liste <code class="docutils literal notranslate"><span class="pre">infections</span></code> noch die Liste <code class="docutils literal notranslate"><span class="pre">days</span></code> und gebe sie mit in die Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> ein, um die Anzahl der Infektionen an bestimmten Tagen darzustellen. Wichtig ist, dass beide Datenreihen gleich lang sind!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infections</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+<span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">29</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">days</span><span class="p">,</span> <span class="n">infections</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp06a_02_funktionales_matplotlib_5_0.png" src="../_images/amp06a_02_funktionales_matplotlib_5_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="mehr-als-eine-linie">
+<h2>Mehr als eine Linie<a class="headerlink" href="#mehr-als-eine-linie" title="Permalink to this headline">¶</a></h2>
+<p>Möchte man mehr als eine Linie in dasselbe Diagramm einzeichnen, dann kann man die Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> einfach mehrmals hintereinander mit unterschiedlichen Daten ausführen.</p>
+<p>Unten erstelle ich zunächst zwei mal zwei Datenreihen namens <code class="docutils literal notranslate"><span class="pre">density_data_1</span></code> und <code class="docutils literal notranslate"><span class="pre">speed_data_1</span></code> sowie <code class="docutils literal notranslate"><span class="pre">density_data_2</span></code> und <code class="docutils literal notranslate"><span class="pre">speed_data_2</span></code>. Dann führe ich zwei mal hintereinander die Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> mit den jeweiligen X- und Y-Datenreihen aus und rufe dann schließlich die Funktion <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> auf.</p>
+<div class="admonition-zur-info admonition">
+<p class="admonition-title">Zur Info</p>
+<p>Die Daten entstammen einem Simulationsexperiment auf Basis des Nasch-Modells, wobei untersucht wird, inwiefern die Verkehrsdichte auf einer Straße auf die durchschnittlich gefahrene Geschwindigkeit wirkt. Die Wahrscheinlichkeit des zufälligen Abbremsens (Trödelwahrscheinlichkeit) war bei der Generierung der Datenreihen <code class="docutils literal notranslate"><span class="pre">density_data_1</span></code> und <code class="docutils literal notranslate"><span class="pre">speed_data_1</span></code> auf <code class="docutils literal notranslate"><span class="pre">0</span></code>, bei <code class="docutils literal notranslate"><span class="pre">density_data_2</span></code> und <code class="docutils literal notranslate"><span class="pre">speed_data_2</span></code> hingegen auf <code class="docutils literal notranslate"><span class="pre">0.3</span></code> eingestellt. Dadurch kann eine Moderation des Zusammenhangs zwischen der Verkehrsdichte und der durchschnittlichen Geschwindigkeit untersucht werden.</p>
+<p>In der Forschungspraxis kommt es natürlich selten vor, dass man die Datenreihen selbst per Hand als Code eingibt, so wie ich es hier tue. Stattdessen produziert man solche Daten natürlich durch das automatisierte Ausführen der Modelle und der direkten Speicherung der Ergebnisse als Datensatz bzw. in einem Datencontainer wie z.B. einer Liste.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Daten für erste Linie</span>
+<span class="n">density_data_1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.17</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.09</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
+<span class="n">speed_data_1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
+
+
+<span class="c1"># Daten für zweite Linie</span>
+<span class="n">density_data_2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.17</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.09</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
+<span class="n">speed_data_2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.59</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">,</span> <span class="mf">1.68</span><span class="p">,</span> <span class="mf">2.24</span><span class="p">,</span> <span class="mf">2.75</span><span class="p">,</span> <span class="mf">3.32</span><span class="p">,</span> <span class="mf">3.74</span><span class="p">,</span> <span class="mf">4.24</span><span class="p">,</span> <span class="mf">4.64</span><span class="p">,</span> <span class="mf">4.66</span><span class="p">,</span> <span class="mf">4.67</span><span class="p">,</span> <span class="mf">4.68</span><span class="p">,</span> <span class="mf">4.68</span><span class="p">,</span> <span class="mf">4.69</span><span class="p">,</span> <span class="mf">4.69</span><span class="p">,</span> <span class="mf">4.69</span><span class="p">]</span>
+
+<span class="c1"># Daten plotten</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">density_data_1</span><span class="p">,</span> <span class="n">speed_data_1</span><span class="p">)</span> <span class="c1"># erste Linie zeichnen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">density_data_2</span><span class="p">,</span> <span class="n">speed_data_2</span><span class="p">)</span> <span class="c1"># zweite Linie zeichnen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp06a_02_funktionales_matplotlib_8_0.png" src="../_images/amp06a_02_funktionales_matplotlib_8_0.png" />
+</div>
+</div>
+<p>Beim obigen Beispiel ist es besonders wichtig, die Funktion <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> wirklich erst dann aufzurufen, nachdem man alles in das Diagramm eingezeichnet hat. Denn nachdem die erste Anwendung von <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> ein neues Diagramm intern erstellt, zeichnen alle darauffolgenden Anwendungen von <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> ihre Linien (oder auch Punkte) in dieses Diagramm - solange bis die Funktion <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> ausgeführt wird. Durch <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> wird der “Bearbeitungsmodus” des aktuellen Diagramms beendet. Ein nun folgender Aufruf der Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> erstellt wieder ein neues Diagramm, in das dann wieder solange alle danach folgenden Aufrufe von <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> ihre Graphen malen bis die Funktion <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> aufgerufen wird.</p>
+</div>
+<div class="section" id="das-diagramm-aufhubschen">
+<h2>Das Diagramm aufhübschen<a class="headerlink" href="#das-diagramm-aufhubschen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="achsen-beschriften">
+<h3>Achsen beschriften<a class="headerlink" href="#achsen-beschriften" title="Permalink to this headline">¶</a></h3>
+<p>Zu einem richtigen Diagramm gehören vernünftige Beschriftungen. Mit den Funktionen <code class="docutils literal notranslate"><span class="pre">plt.xlabel()</span></code> und <code class="docutils literal notranslate"><span class="pre">plt.ylabel()</span></code> kann man die X- und Y-Achse beschriften, wie ich unten im Beispiel zeige:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">density_data_1</span><span class="p">,</span> <span class="n">speed_data_1</span><span class="p">)</span> <span class="c1"># erste Linie zeichnen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">density_data_2</span><span class="p">,</span> <span class="n">speed_data_2</span><span class="p">)</span> <span class="c1"># zweite Linie zeichnen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Verkehrsdichte&quot;</span><span class="p">)</span> <span class="c1"># X-Achse beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Durchschnittliche Geschwindigkeit&quot;</span><span class="p">)</span> <span class="c1"># Y-Achse beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp06a_02_funktionales_matplotlib_11_0.png" src="../_images/amp06a_02_funktionales_matplotlib_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="legende-einfugen">
+<h3>Legende einfügen<a class="headerlink" href="#legende-einfugen" title="Permalink to this headline">¶</a></h3>
+<p>Hat man mehr als eine Linie im Diagramm, dann macht es Sinn auch die Linien innerhalb einer Legende zu beschriften. Dies erreicht man, indem man beim Aufruf der Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> zusätzlich dem Argument <code class="docutils literal notranslate"><span class="pre">label</span></code> eine jeweilige Beschriftung für die zuweist, so wie ich es unten tue. Um dann auch wirklich innerhalb des Plots die Legende anzeigen zu lassen, muss man zusätzlich noch die Funktion <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> aufrufen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">density_data_1</span><span class="p">,</span> <span class="n">speed_data_1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ohne Trödeln&quot;</span><span class="p">)</span> <span class="c1"># erste Linie zeichnen und beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">density_data_2</span><span class="p">,</span> <span class="n">speed_data_2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mit Trödeln&quot;</span><span class="p">)</span> <span class="c1"># zweite Linie zeichnen und beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Verkehrsdichte&quot;</span><span class="p">)</span> <span class="c1"># X-Achse beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Durchschnittliche Geschwindigkeit&quot;</span><span class="p">)</span> <span class="c1"># Y-Achse beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1"># Legende anzeigen lassen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp06a_02_funktionales_matplotlib_13_0.png" src="../_images/amp06a_02_funktionales_matplotlib_13_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="gitter-einfugen">
+<h3>Gitter einfügen<a class="headerlink" href="#gitter-einfugen" title="Permalink to this headline">¶</a></h3>
+<p>Möchte man zur besseren Lesbarkeit des Diagramms ein Gitter in den Hintergrund einzeichnen, dann kann man das durch den Aufruf der Funktion <code class="docutils literal notranslate"><span class="pre">plt.grid()</span></code> tun.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">density_data_1</span><span class="p">,</span> <span class="n">speed_data_1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ohne Trödeln&quot;</span><span class="p">)</span> <span class="c1"># erste Linie zeichnen und beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">density_data_2</span><span class="p">,</span> <span class="n">speed_data_2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mit Trödeln&quot;</span><span class="p">)</span> <span class="c1"># zweite Linie zeichnen und beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Verkehrsdichte&quot;</span><span class="p">)</span> <span class="c1"># X-Achse beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Durchschnittliche Geschwindigkeit&quot;</span><span class="p">)</span> <span class="c1"># Y-Achse beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1"># Legende anzeigen lassen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span> <span class="c1"># Gitter anzeigen lassen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp06a_02_funktionales_matplotlib_15_0.png" src="../_images/amp06a_02_funktionales_matplotlib_15_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="alternative-styles">
+<h3>Alternative Styles<a class="headerlink" href="#alternative-styles" title="Permalink to this headline">¶</a></h3>
+<p>Gefällt einem der standardmäßig eingestellte Farbstil von Matplotlib nicht, dann kann man mit dem Befehl <code class="docutils literal notranslate"><span class="pre">plt.style.use()</span></code> einen anderen Style aussuchen. Dabei muss man den Namen eines anderen Stils wissen und als Argument in die Funktion <code class="docutils literal notranslate"><span class="pre">plt.style.use()</span></code> eingeben. Eine Auswahl an verfügbaren Stilen findest du z.B. <a class="reference external" href="https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html">hier</a>. Unten rufe ich die <code class="docutils literal notranslate"><span class="pre">plt.style.use()</span></code> und gebe den Style <code class="docutils literal notranslate"><span class="pre">&quot;ggplot&quot;</span></code> als Argument ein:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alle ab jetzt erstellten Diagramme werden in dem oben eingestellten Stil erstellt. <strong>ACHTUNG</strong>: Bei manchen Stilen, wie z.B. dem Stil <code class="docutils literal notranslate"><span class="pre">&quot;ggplot&quot;</span></code> ist das Gitter bereits voreingestellt. Ein erneutes Aufrufen der Funktion <code class="docutils literal notranslate"><span class="pre">plt.grid()</span></code> würde das Gitter tatsächlich wieder verschwinden lassen. Daher rufe ich unten nicht die Funktion <code class="docutils literal notranslate"><span class="pre">plt.grid()</span></code> auf.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">density_data_1</span><span class="p">,</span> <span class="n">speed_data_1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ohne Trödeln&quot;</span><span class="p">)</span> <span class="c1"># erste Linie zeichnen und beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">density_data_2</span><span class="p">,</span> <span class="n">speed_data_2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mit Trödeln&quot;</span><span class="p">)</span> <span class="c1"># zweite Linie zeichnen und beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Verkehrsdichte&quot;</span><span class="p">)</span> <span class="c1"># X-Achse beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Durchschnittliche Geschwindigkeit&quot;</span><span class="p">)</span> <span class="c1"># Y-Achse beschriften</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1"># Legende anzeigen lassen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp06a_02_funktionales_matplotlib_19_0.png" src="../_images/amp06a_02_funktionales_matplotlib_19_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mittels-for-loop-zeichnen">
+<h2>Mittels For-Loop zeichnen<a class="headerlink" href="#mittels-for-loop-zeichnen" title="Permalink to this headline">¶</a></h2>
+<p>Wenn man viele Linen zu zeichnen hat, dann kann man das ganze auch beispielsweise mit einem For-Loop automatisieren. Hier ein Beispiel, bei dem ich die drei Y-Datenreihen <code class="docutils literal notranslate"><span class="pre">y1</span></code>, <code class="docutils literal notranslate"><span class="pre">y2</span></code> und <code class="docutils literal notranslate"><span class="pre">y3</span></code> gesammelt in der Liste <code class="docutils literal notranslate"><span class="pre">data</span></code> vorliegen habe und diese nacheinander per For-Loop in dasselbe Diagramm einzeichne. Hier ist es besonders wichtig, die Funktion <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> erst nach dem For-Loop aufzurufen!</p>
+<p>Im Rahmen von ABM kann das z.B. vorkommen, wenn man eine Liste von Agenten vorliegen hat und für jeden Agenten z.B. dessen als Agenten-Attribut vorliegende Meinungsveränderung über mehrere Zeitschritte in ein Diagramm einzeichnen möchte.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">y3</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">y_data</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp06a_02_funktionales_matplotlib_21_0.png" src="../_images/amp06a_02_funktionales_matplotlib_21_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-amp-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-amp-py",
+            path: "./06"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-amp-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="amp06a_01_matplotlib.html" title="previous page">Matplotlib</a>
+    <a class='right-next' id="next-link" href="amp06a_03_exkurs_mehrfachzuweisung.html" title="next page">Exkurs: Mehrfachzuweisung</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Marius Kaffai<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
