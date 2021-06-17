@@ -1,0 +1,1813 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABM animieren &#8212; ABM mit Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.2 Schellings Segregationsmodell" href="amp07b.html" />
+    <link rel="prev" title="Matrix grafisch darstellen" href="amp07a_02_imshow.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ABM mit Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Willkommen
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01_intro.html">
+   1.1 Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einf%C3%BChrung.html">
+     Was ist ABM?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_python_und_anaconda.html">
+     Verwendete Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01a_einstieg_python.html">
+     Einstieg in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/amp01b.html">
+   1.2 Warm-up
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/amp01c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02_intro.html">
+   2.1 Woraus alles besteht
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listen_agenten_populationen.html">
+     Listen, Agenten &amp; Populationen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenzugriff.html">
+     Der Zugriff auf Listen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_exkurs_funktionen_methoden.html">
+     Exkurs: Funktionen &amp; Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenmethoden.html">
+     Grundlegende Listen-Methoden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02a_listenfunktionen.html">
+     Nützliche Funktionen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/amp02b.html">
+   2.2 Hinterlistige Übungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/amp02c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03_intro.html">
+   3.1 Motoren der Simulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_was_ist_for-loop.html">
+     Was ist ein For-Loop?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_for-loops_in_python.html">
+     For-Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_range.html">
+     Exkurs: Zahlenreihen erstellen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_%C3%BCber_zahlenreihe_loopen.html">
+     Loop durch Zahlenreihe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_variablen_ver%C3%A4ndern.html">
+     Variablen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_unver%C3%A4nderbare_objekte.html">
+     Exkurs: (un-)veränderbare Objekte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_listen_ver%C3%A4ndern.html">
+     Listen verändern im Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_exkurs_modulo.html">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_geschachtelte_for-loops.html">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03a_nutzen_for-loops.html">
+     ABM &amp; For-Loops
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/amp03b.html">
+   3.2 Gefangen im Loop
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/amp03c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04_intro.html">
+   4.1 Eine Brise Gefühl
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if-statements.html">
+     If-Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_boolsche_ausdr%C3%BCcke.html">
+     Boolesche Ausdrücke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_if_else_elif.html">
+     If, else, elif
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_modul_import.html">
+     Exkurs 1: Module importieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04a_dicts.html">
+     Exkurs 2: das Dictionary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/amp04b.html">
+   4.2 Das NaSch-Modell
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/amp04c.html">
+     Lösungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05/amp05_intro.html">
+   5.1 Funktionen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_eigene_funktionen.html">
+     Eigene Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_ohne_input.html">
+     Funktionen ohne In- und Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_mit_input.html">
+     Funktionen mit Input
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_funktionen_mit_output.html">
+     Funktionen mit Output
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_standardwerte.html">
+     Funktionen mit Standardwerten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_scoping.html">
+     Scopes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/amp05a_docstrings.html">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05/amp05b_funktionen.html">
+   5.2 Funktionales Training
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06/amp06_intro.html">
+   6.1 Diagramme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06/amp06a_01_matplotlib.html">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06/amp06a_02_funktionales_matplotlib.html">
+     Funktionales Interface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06/amp06a_03_exkurs_mehrfachzuweisung.html">
+     Exkurs: Mehrfachzuweisung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06/amp06a_04_objektorientiertes_matplotlib.html">
+     Objektorientiertes Interface
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06/amp06b.html">
+   6.2 Modelle sozialer Beeinflussung
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="amp07_intro.html">
+   7.1 Diagramme &amp; Animationen
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp07a_01_exkurs_matrix.html">
+     Matrix als Welt der Agenten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="amp07a_02_imshow.html">
+     Matrix grafisch darstellen
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     ABM animieren
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="amp07b.html">
+   7.2 Schellings Segregationsmodell
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/07/amp07a_03_celluloid.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F07/amp07a_03_celluloid.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/07/amp07a_03_celluloid.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-der-benotigten-pakete">
+   Installation der benötigten Pakete
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ffmpeg-installieren">
+     ffmpeg installieren
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#celluloid-uber-pip-installieren">
+     Celluloid über Pip installieren
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#animationen-mit-matplotlib-und-celluloid">
+   Animationen mit Matplotlib und Celluloid
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="abm-animieren">
+<h1>ABM animieren<a class="headerlink" href="#abm-animieren" title="Permalink to this headline">¶</a></h1>
+<p>Die Animation von agentenbasierten Modellen ist eine gute Methode, deren Dynamiken über die Zeit zu untersuchen und intuitiv zugänglich zu machen. Auch Fehler in der Programmierung fallen durch die Animation bestimmter Modell-Aspekte recht gut auf. Für Erstellung von Animationen in Python bietet sich v.a. das Modul Matplotlib an. Mit diesem kann man prinzipiell eine große Bandbreite an Animationen erstellen. Allerdings ist die Umsetzung von Animationen direkt mit Matplotlib anfangs etwas unnötig kompliziert. Aus diesem Grund gibt es das <a class="reference external" href="https://github.com/jwkvam/celluloid">Modul Celluloid</a>, welches eine vereinfachte Bedinung für die Erstellung von Animationen mit Matplotlib bereitstellt.</p>
+<div class="section" id="installation-der-benotigten-pakete">
+<h2>Installation der benötigten Pakete<a class="headerlink" href="#installation-der-benotigten-pakete" title="Permalink to this headline">¶</a></h2>
+<p>Bevor wir mit Celluloid arbeiten können, müssen Celluloid sowie ein weiteres Paket installieren. Leider muss man beide auf unterschiedliche Wege installieren.</p>
+<div class="section" id="ffmpeg-installieren">
+<h3>ffmpeg installieren<a class="headerlink" href="#ffmpeg-installieren" title="Permalink to this headline">¶</a></h3>
+<p>Für die Erstellung von Animationen benötigt Celluloid das Paket <strong>ffmpeg</strong>. Dieses Paket kannst du, genau wie wir im vorherigen Kapitel Matplotlib installiert haben, über den Anaconda-Navigator installieren.</p>
+</div>
+<div class="section" id="celluloid-uber-pip-installieren">
+<h3>Celluloid über Pip installieren<a class="headerlink" href="#celluloid-uber-pip-installieren" title="Permalink to this headline">¶</a></h3>
+<p>Celluloid ist leider in Anaconda nicht verfügbar, weshalb wir hier einen anderen Weg für die Installation wählen müssen. Statt Pakete über Anaconda zu installieren, installieren wir das Paket über <strong>Pip</strong>. Pip ist tatsächlich der ganz klassische Weg, um Pakete in Python zu installieren. Mittels Pip können wir direkt über die Spyder-Konsole Pakete installieren.</p>
+<p>Die allgemein Syntax für das Installieren neuer Pakete mit Pip in der Spyder Konsole lautet so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! pip install NAME_OF_MODULE
+</pre></div>
+</div>
+<p>Möchte man konkret z.B. das Modul <code class="docutils literal notranslate"><span class="pre">Celluloid</span></code> installieren, dann müsste man das hier in die Spyder-Konsole eintippen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! pip install Celluloid
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In der Vergangenheit gab es immer wieder Probleme, wenn ffmpeg über Pip installiert wurde. Du solltest daher das Paket <strong>ffmpeg</strong> auf keinen Fall über Pip installieren, sondern dafür den Anaconda-Navigator nutzen!</p>
+</div>
+</div>
+</div>
+<div class="section" id="animationen-mit-matplotlib-und-celluloid">
+<h2>Animationen mit Matplotlib und Celluloid<a class="headerlink" href="#animationen-mit-matplotlib-und-celluloid" title="Permalink to this headline">¶</a></h2>
+<p>Das Prinzip der Erstellung von Animationen mit Celluloid ist relativ simpel. Jede Animation besteht aus mehreren Matplotlib-Grafiken, welche nacheinander erstellt werden und dann zu einem “Film” zusammengesetzt werden. Während wir unsere Grafiken/Diagramme ganz normal weiterhin mit Matplotlib erstellen, übernimmt das Modul Celluloid das <em>Sammeln</em> und <em>Zusammensetzen</em> der Grafiken zu einer Animation.</p>
+<p>Schauen wir uns ein Beispiel an.</p>
+<ul class="simple">
+<li><p>Unten importiere ich zunächst Matplotlib und Celluloid. Zudem erstelle ich eine Liste mit Matrizen namens <code class="docutils literal notranslate"><span class="pre">list_of_matrices</span></code>, welche nacheinander mittels Matplotlib in ein <code class="docutils literal notranslate"><span class="pre">imshow()</span></code>-Diagramm eingezeichet werden sollen.</p></li>
+</ul>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">celluloid</span> <span class="k">as</span> <span class="nn">cld</span>
+
+<span class="c1"># Liste mit Matrizen, welche nacheinander ins Diagramm gezeichnet werden sollen</span>
+<span class="n">list_of_matrices</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+    
+    <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+    
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+    
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+    
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
+
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+    
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+    
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+    
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Im nächsten Schritt erstelle ich mit <code class="docutils literal notranslate"><span class="pre">leinwand,</span> <span class="pre">diagramm</span> <span class="pre">=</span> <span class="pre">plt.subplots()</span></code>wie gewohnt Figure- und Axes-Objekte, mit denen wir die Diagramme erstellen.</p></li>
+<li><p>In der Zeile <code class="docutils literal notranslate"><span class="pre">camera</span> <span class="pre">=</span> <span class="pre">cld.Camera(leinwand)</span></code> wird dann ein <code class="docutils literal notranslate"><span class="pre">Camera</span></code>-Objekt aus dem Modul Celluloid erstellt. Dieses <code class="docutils literal notranslate"><span class="pre">Camera</span></code>-Objekt übernimmt die Aufgabe, die Diagramme zwischenzuspeichern und später zur Animation zusammenzusetzen. Man kann sich das so vorstellen, als ob ein <code class="docutils literal notranslate"><span class="pre">Camera</span></code>-Objekt Fotos von unseren Diagrammen knippst und dann diese Fotos zur Erstellung des Films verwendet. Damit die Kamera richtig ausgerichtet ist und Fotos von den richtigen Diagrammen schießt, müssen wir die Kamera auf die richtige “Leinwand”, auf die wir die Diagramme zeichnen, ausrichten. Daher fügen wir bei der Erstellung des <code class="docutils literal notranslate"><span class="pre">Camera</span></code>-Objektes das Figure-Objekt <code class="docutils literal notranslate"><span class="pre">leinwand</span></code> als Input in das Objekt ein, um das <code class="docutils literal notranslate"><span class="pre">Camera</span></code>-Objekt auf dieses Figure-Objekt auszurichten.</p></li>
+<li><p>Es startet ein For-Loop, in welchem zunächst jede Matrix mittels <code class="docutils literal notranslate"><span class="pre">diagramm.imshow(matrix,</span> <span class="pre">vmin=0,</span> <span class="pre">vmax=1)</span></code> in ein entsprechendes Diagramm übersetzt wird.</p></li>
+<li><p>Per <code class="docutils literal notranslate"><span class="pre">camera.snap()</span></code> wird nun das “Foto” vom eben gezeichneten Diagramm geschossen und der <code class="docutils literal notranslate"><span class="pre">camera</span></code> gespeichert.</p></li>
+<li><p>Nachdem der For-Loop vorüber ist werden mit <code class="docutils literal notranslate"><span class="pre">animation</span> <span class="pre">=</span> <span class="pre">camera.animate()</span></code> die geschossenen Fotos zu einer Animation zusammengesetzt und als Animations-Objekt in der Variable <code class="docutils literal notranslate"><span class="pre">animation</span></code> gespeichert.</p></li>
+<li><p>Um die Animation als Video auf dem Computer zu speichern führe ich die Methode <code class="docutils literal notranslate"><span class="pre">animation.save()</span></code> aus und gebe als Input einen Dateipfad an. Das Video wird als .mp4-Datei gespeichert, weshalb der verwendete Dateipfad auf “.mp4” enden muss. Zudem stelle ich über den Parameter <code class="docutils literal notranslate"><span class="pre">dpi</span></code> noch die Videoqualität ein, welche ich auf 300dpi setze. Mit dem Parameter <code class="docutils literal notranslate"><span class="pre">fps</span></code> (frames per second) kann man die Abspielgeschwindigkeit des Videos bestimmen.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figure- und Axes-Objekt erstellen</span>
+<span class="n">leinwand</span><span class="p">,</span> <span class="n">diagramm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Celluloid-Kamera erstellen und auf Figure-Objekt (leinwand) ausrichten</span>
+<span class="n">camera</span> <span class="o">=</span> <span class="n">cld</span><span class="o">.</span><span class="n">Camera</span><span class="p">(</span><span class="n">leinwand</span><span class="p">)</span>
+
+<span class="c1"># Liste von Matrizen durchgehen</span>
+<span class="k">for</span> <span class="n">matrix</span> <span class="ow">in</span> <span class="n">list_of_matrices</span><span class="p">:</span>
+    
+    <span class="c1"># auf Diagramm zeichnen</span>
+    <span class="n">diagramm</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Foto machen</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">snap</span><span class="p">()</span>
+
+<span class="c1"># Animation aus geschossenen Fotos erstellen</span>
+<span class="n">animation</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">animate</span><span class="p">()</span>
+
+<span class="c1"># Animation abspeichern</span>
+<span class="n">animation</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;my_first_animation.mp4&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/amp07a_03_celluloid_5_0.png" src="../_images/amp07a_03_celluloid_5_0.png" />
+</div>
+</div>
+<p>Nun sollte man das Video an der entsprechenden Stelle auf dem Computer finden und einfach mit einem geeigneten Videoplayer abspielen.</p>
+<p>Da dieses Dokument in einem Jupyter Notebook geschrieben ist, kann ich das Video auch hier anzeigen lassen (was in Spyder leider nicht geht):</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">animation</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script language="javascript">
+  function isInternetExplorer() {
+    ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    return ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+  }
+
+  /* Define the Animation class */
+  function Animation(frames, img_id, slider_id, interval, loop_select_id){
+    this.img_id = img_id;
+    this.slider_id = slider_id;
+    this.loop_select_id = loop_select_id;
+    this.interval = interval;
+    this.current_frame = 0;
+    this.direction = 0;
+    this.timer = null;
+    this.frames = new Array(frames.length);
+
+    for (var i=0; i<frames.length; i++)
+    {
+     this.frames[i] = new Image();
+     this.frames[i].src = frames[i];
+    }
+    var slider = document.getElementById(this.slider_id);
+    slider.max = this.frames.length - 1;
+    if (isInternetExplorer()) {
+        // switch from oninput to onchange because IE <= 11 does not conform
+        // with W3C specification. It ignores oninput and onchange behaves
+        // like oninput. In contrast, Mircosoft Edge behaves correctly.
+        slider.setAttribute('onchange', slider.getAttribute('oninput'));
+        slider.setAttribute('oninput', null);
+    }
+    this.set_frame(this.current_frame);
+  }
+
+  Animation.prototype.get_loop_state = function(){
+    var button_group = document[this.loop_select_id].state;
+    for (var i = 0; i < button_group.length; i++) {
+        var button = button_group[i];
+        if (button.checked) {
+            return button.value;
+        }
+    }
+    return undefined;
+  }
+
+  Animation.prototype.set_frame = function(frame){
+    this.current_frame = frame;
+    document.getElementById(this.img_id).src =
+            this.frames[this.current_frame].src;
+    document.getElementById(this.slider_id).value = this.current_frame;
+  }
+
+  Animation.prototype.next_frame = function()
+  {
+    this.set_frame(Math.min(this.frames.length - 1, this.current_frame + 1));
+  }
+
+  Animation.prototype.previous_frame = function()
+  {
+    this.set_frame(Math.max(0, this.current_frame - 1));
+  }
+
+  Animation.prototype.first_frame = function()
+  {
+    this.set_frame(0);
+  }
+
+  Animation.prototype.last_frame = function()
+  {
+    this.set_frame(this.frames.length - 1);
+  }
+
+  Animation.prototype.slower = function()
+  {
+    this.interval /= 0.7;
+    if(this.direction > 0){this.play_animation();}
+    else if(this.direction < 0){this.reverse_animation();}
+  }
+
+  Animation.prototype.faster = function()
+  {
+    this.interval *= 0.7;
+    if(this.direction > 0){this.play_animation();}
+    else if(this.direction < 0){this.reverse_animation();}
+  }
+
+  Animation.prototype.anim_step_forward = function()
+  {
+    this.current_frame += 1;
+    if(this.current_frame < this.frames.length){
+      this.set_frame(this.current_frame);
+    }else{
+      var loop_state = this.get_loop_state();
+      if(loop_state == "loop"){
+        this.first_frame();
+      }else if(loop_state == "reflect"){
+        this.last_frame();
+        this.reverse_animation();
+      }else{
+        this.pause_animation();
+        this.last_frame();
+      }
+    }
+  }
+
+  Animation.prototype.anim_step_reverse = function()
+  {
+    this.current_frame -= 1;
+    if(this.current_frame >= 0){
+      this.set_frame(this.current_frame);
+    }else{
+      var loop_state = this.get_loop_state();
+      if(loop_state == "loop"){
+        this.last_frame();
+      }else if(loop_state == "reflect"){
+        this.first_frame();
+        this.play_animation();
+      }else{
+        this.pause_animation();
+        this.first_frame();
+      }
+    }
+  }
+
+  Animation.prototype.pause_animation = function()
+  {
+    this.direction = 0;
+    if (this.timer){
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+  }
+
+  Animation.prototype.play_animation = function()
+  {
+    this.pause_animation();
+    this.direction = 1;
+    var t = this;
+    if (!this.timer) this.timer = setInterval(function() {
+        t.anim_step_forward();
+    }, this.interval);
+  }
+
+  Animation.prototype.reverse_animation = function()
+  {
+    this.pause_animation();
+    this.direction = -1;
+    var t = this;
+    if (!this.timer) this.timer = setInterval(function() {
+        t.anim_step_reverse();
+    }, this.interval);
+  }
+</script>
+
+<style>
+.animation {
+    display: inline-block;
+    text-align: center;
+}
+input[type=range].anim-slider {
+    width: 374px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.anim-buttons {
+    margin: 8px 0px;
+}
+.anim-buttons button {
+    padding: 0;
+    width: 36px;
+}
+.anim-state label {
+    margin-right: 8px;
+}
+.anim-state input {
+    margin: 0;
+    vertical-align: middle;
+}
+</style>
+
+<div class="animation">
+  <img id="_anim_img55e3b8079eae462cb987aa53c3a94a4d">
+  <div class="anim-controls">
+    <input id="_anim_slider55e3b8079eae462cb987aa53c3a94a4d" type="range" class="anim-slider"
+           name="points" min="0" max="1" step="1" value="0"
+           oninput="anim55e3b8079eae462cb987aa53c3a94a4d.set_frame(parseInt(this.value));"></input>
+    <div class="anim-buttons">
+      <button title="Decrease speed" onclick="anim55e3b8079eae462cb987aa53c3a94a4d.slower()">
+          <i class="fa fa-minus"></i></button>
+      <button title="First frame" onclick="anim55e3b8079eae462cb987aa53c3a94a4d.first_frame()">
+        <i class="fa fa-fast-backward"></i></button>
+      <button title="Previous frame" onclick="anim55e3b8079eae462cb987aa53c3a94a4d.previous_frame()">
+          <i class="fa fa-step-backward"></i></button>
+      <button title="Play backwards" onclick="anim55e3b8079eae462cb987aa53c3a94a4d.reverse_animation()">
+          <i class="fa fa-play fa-flip-horizontal"></i></button>
+      <button title="Pause" onclick="anim55e3b8079eae462cb987aa53c3a94a4d.pause_animation()">
+          <i class="fa fa-pause"></i></button>
+      <button title="Play" onclick="anim55e3b8079eae462cb987aa53c3a94a4d.play_animation()">
+          <i class="fa fa-play"></i></button>
+      <button title="Next frame" onclick="anim55e3b8079eae462cb987aa53c3a94a4d.next_frame()">
+          <i class="fa fa-step-forward"></i></button>
+      <button title="Last frame" onclick="anim55e3b8079eae462cb987aa53c3a94a4d.last_frame()">
+          <i class="fa fa-fast-forward"></i></button>
+      <button title="Increase speed" onclick="anim55e3b8079eae462cb987aa53c3a94a4d.faster()">
+          <i class="fa fa-plus"></i></button>
+    </div>
+    <form title="Repetition mode" action="#n" name="_anim_loop_select55e3b8079eae462cb987aa53c3a94a4d"
+          class="anim-state">
+      <input type="radio" name="state" value="once" id="_anim_radio1_55e3b8079eae462cb987aa53c3a94a4d"
+             >
+      <label for="_anim_radio1_55e3b8079eae462cb987aa53c3a94a4d">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_55e3b8079eae462cb987aa53c3a94a4d"
+             checked>
+      <label for="_anim_radio2_55e3b8079eae462cb987aa53c3a94a4d">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_55e3b8079eae462cb987aa53c3a94a4d"
+             >
+      <label for="_anim_radio3_55e3b8079eae462cb987aa53c3a94a4d">Reflect</label>
+    </form>
+  </div>
+</div>
+
+
+<script language="javascript">
+  /* Instantiate the Animation class. */
+  /* The IDs given should match those used in the template above. */
+  (function() {
+    var img_id = "_anim_img55e3b8079eae462cb987aa53c3a94a4d";
+    var slider_id = "_anim_slider55e3b8079eae462cb987aa53c3a94a4d";
+    var loop_select_id = "_anim_loop_select55e3b8079eae462cb987aa53c3a94a4d";
+    var frames = new Array(11);
+
+  frames[0] = "data:image/png;base64,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\
+7/kAAAAASUVORK5CYII=\
+"
+  frames[1] = "data:image/png;base64,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\
+"
+  frames[2] = "data:image/png;base64,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\
+"
+  frames[3] = "data:image/png;base64,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\
+"
+  frames[4] = "data:image/png;base64,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\
+"
+  frames[5] = "data:image/png;base64,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\
+"
+  frames[6] = "data:image/png;base64,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\
+"
+  frames[7] = "data:image/png;base64,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\
+"
+  frames[8] = "data:image/png;base64,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\
+"
+  frames[9] = "data:image/png;base64,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\
+"
+  frames[10] = "data:image/png;base64,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\
+7/kAAAAASUVORK5CYII=\
+"
+
+
+    /* set a timeout to make sure all the above elements are created before
+       the object is initialized. */
+    setTimeout(function() {
+        anim55e3b8079eae462cb987aa53c3a94a4d = new Animation(frames, img_id, slider_id, 200.0,
+                                 loop_select_id);
+    }, 0);
+  })()
+</script>
+</div></div>
+</div>
+<div class="admonition-ubrigens admonition">
+<p class="admonition-title">Übrigens</p>
+<p>Animationen können prinzipiell mit jeder Art von Matplotlib-Diagramm erstellt werden, also z.B. auch mit Linien- oder Streudiagrammen.</p>
+</div>
+<p>Sieht man von der Diagramm-Erstellung mittels Matplotlib ab, so kann man die Schritte, welche man mit Celluloid vollziehen muss, um aus mehreren Diagrammen eine Animation zu erstellen, so zusammenfassen:</p>
+<ol class="simple">
+<li><p>Celluloid importieren: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">celluloid</span> <span class="pre">as</span> <span class="pre">cld</span></code></p></li>
+<li><p>Kamera erstellen und auf Figure-Objekt ausrichten <code class="docutils literal notranslate"><span class="pre">camera</span> <span class="pre">=</span> <span class="pre">cld.Camera(HIER</span> <span class="pre">FIGURE-OBJEKT</span> <span class="pre">EINSETZEN)</span></code></p></li>
+<li><p>Fotos schießen von Diagrammen, welche (meist) mittels For-Loops nacheinander gezeichnet werden: <code class="docutils literal notranslate"><span class="pre">camera.snap()</span></code></p></li>
+<li><p>Fotos zu Film zusammensetzen und Animationsobjekt erstellen: <code class="docutils literal notranslate"><span class="pre">animation</span> <span class="pre">=</span> <span class="pre">camera.animate()</span></code></p></li>
+<li><p>Animation als Video exportieren: `animation.save(HIER DATEIPFAD EINFÜGEN)</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-abm_seminar-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-abm_seminar-py",
+            path: "./07"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-abm_seminar-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="amp07a_02_imshow.html" title="previous page">Matrix grafisch darstellen</a>
+    <a class='right-next' id="next-link" href="amp07b.html" title="next page">7.2 Schellings Segregationsmodell</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Marius Kaffai<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
