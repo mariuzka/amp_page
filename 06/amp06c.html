@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; ABM mit Python</title>
+    <title>Lösungen &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.1 Diagramme &amp; Animationen" href="../07/amp07_intro.html" />
+    <link rel="prev" title="6.2 Modelle sozialer Beeinflussung" href="amp06b.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -87,7 +89,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/amp01_intro.html">
    1.1 Einführung
@@ -403,17 +405,29 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="amp06b.html">
    6.2 Modelle sozialer Beeinflussung
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lösungen
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../07/amp07_intro.html">
    7.1 Diagramme &amp; Animationen
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -438,6 +452,33 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../07/amp07b.html">
    7.2 Schellings Segregationsmodell
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../08/amp08_intro.html">
+   8.1 Experimente &amp; Pandas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08/amp08a_01_pandas.html">
+     Ein kurzer Blick auf Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08/amp08a_02_simulationsexperiment.html">
+     Ein Simulationsexperiment durchführen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08/amp08b.html">
+   8.2 Mit Schelling experimentieren
   </a>
  </li>
 </ul>
@@ -543,7 +584,17 @@
                 <i class="fas fa-list"></i> Contents
             </div>
             <nav id="bd-toc-nav">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-2">
+   Aufgabe 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-3">
+   Aufgabe 3
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -555,7 +606,9 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="losungen">
+<h1>Lösungen<a class="headerlink" href="#losungen" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -583,57 +636,6 @@
             <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
 
-<span class="k">def</span> <span class="nf">get_opinion_weights_2</span><span class="p">(</span><span class="n">focal_agent</span><span class="p">,</span> <span class="n">population</span><span class="p">):</span>
-    
-    <span class="sd">&quot;&quot;&quot;Ermittelt die Beeinflussungsgewichte nach den Regeln von Modell 2.&quot;&quot;&quot;</span>
-    
-    <span class="c1"># für jeden Agenten bzw. jede Position in Population</span>
-    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
-        
-        <span class="c1"># Absoluten Meinungsunterschied (nicht Positionsunterschied wie in Modell 1) berechnen</span>
-        <span class="n">abs_opinion_diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">])</span>
-        
-        <span class="c1"># Wenn Meinungsunterschied kleinergleich Grenzwert</span>
-        <span class="k">if</span> <span class="n">abs_opinion_diff</span> <span class="o">&lt;=</span> <span class="mf">0.2</span><span class="p">:</span>
-            <span class="c1"># Gewicht von 1 einspeichern</span>
-            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-        
-        <span class="c1"># Ansonsten: </span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Gewicht von 0 einspeichern</span>
-            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-
-
-            
-<span class="k">def</span> <span class="nf">get_opinion_weights_3</span><span class="p">(</span><span class="n">focal_agent</span><span class="p">,</span> <span class="n">population</span><span class="p">):</span>
-    
-    <span class="sd">&quot;&quot;&quot;Ermittelt die Beeinflussungsgewichte nach den Regeln von Modell 3.&quot;&quot;&quot;</span>
-    
-    <span class="c1"># für jeden Agenten bzw. jede Position in Population</span>
-    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
-        
-        <span class="c1"># absoluten Meinungsunterschied berechnen</span>
-        <span class="n">abs_opinion_diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">])</span>
-        
-        
-        <span class="sd">&quot;&quot;&quot;Anmerkung zu Gewichten:</span>
-<span class="sd">        Die Gewichte werden nun auf einen kontinuierlichen Bereich zwischen -1 bis 1 skaliert.</span>
-<span class="sd">        Meinungsunterschiede von &gt;0.5 bis 1 führen zu Gewichten von &lt;0 bis -1.</span>
-<span class="sd">        Meinungsunterschiede von 0 bis 0.5 führen zu Gewichten von 1 bis 0,</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        
-        <span class="c1"># Wenn Meinungsunterschied größer Grenzwert</span>
-        <span class="k">if</span> <span class="n">abs_opinion_diff</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
-            <span class="c1"># negatives Gewicht einspeichern</span>
-            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">abs_opinion_diff</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-       
-        <span class="c1"># ansonsten:</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># positives Gewicht einspeichern</span>
-            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">abs_opinion_diff</span><span class="p">)</span>
-
-
-        
 
 <span class="k">def</span> <span class="nf">calculate_opinion_change</span><span class="p">(</span><span class="n">focal_agent</span><span class="p">,</span> <span class="n">population</span><span class="p">):</span>
     
@@ -701,9 +703,6 @@
     <span class="c1"># Alte Meinung des Agenten durch neue Meinung ersetzen</span>
     <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_opinion</span>
     
-
-
-
 
 <span class="k">def</span> <span class="nf">run_model</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">ticks</span><span class="p">,</span> <span class="n">model_type</span><span class="o">=</span><span class="s2">&quot;model1&quot;</span><span class="p">):</span>
 
@@ -776,7 +775,34 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/amp06c_1_0.png" src="../_images/amp06c_1_0.png" />
+<img alt="../_images/amp06c_2_0.png" src="../_images/amp06c_2_0.png" />
+</div>
+</div>
+<div class="section" id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_opinion_weights_2</span><span class="p">(</span><span class="n">focal_agent</span><span class="p">,</span> <span class="n">population</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;Ermittelt die Beeinflussungsgewichte nach den Regeln von Modell 2.&quot;&quot;&quot;</span>
+    
+    <span class="c1"># für jeden Agenten bzw. jede Position in Population</span>
+    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        
+        <span class="c1"># Absoluten Meinungsunterschied (nicht Positionsunterschied wie in Modell 1) berechnen</span>
+        <span class="n">abs_opinion_diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">])</span>
+        
+        <span class="c1"># Wenn Meinungsunterschied kleinergleich Grenzwert</span>
+        <span class="k">if</span> <span class="n">abs_opinion_diff</span> <span class="o">&lt;=</span> <span class="mf">0.2</span><span class="p">:</span>
+            <span class="c1"># Gewicht von 1 einspeichern</span>
+            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        
+        <span class="c1"># Ansonsten: </span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Gewicht von 0 einspeichern</span>
+            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -801,7 +827,42 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/amp06c_2_0.png" src="../_images/amp06c_2_0.png" />
+<img alt="../_images/amp06c_5_0.png" src="../_images/amp06c_5_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="aufgabe-3">
+<h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_opinion_weights_3</span><span class="p">(</span><span class="n">focal_agent</span><span class="p">,</span> <span class="n">population</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;Ermittelt die Beeinflussungsgewichte nach den Regeln von Modell 3.&quot;&quot;&quot;</span>
+    
+    <span class="c1"># für jeden Agenten bzw. jede Position in Population</span>
+    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+        
+        <span class="c1"># absoluten Meinungsunterschied berechnen</span>
+        <span class="n">abs_opinion_diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">focal_agent</span><span class="p">[</span><span class="s2">&quot;opinion&quot;</span><span class="p">])</span>
+        
+        
+        <span class="sd">&quot;&quot;&quot;Anmerkung zu Gewichten:</span>
+<span class="sd">        Die Gewichte werden nun auf einen kontinuierlichen Bereich zwischen -1 bis 1 skaliert.</span>
+<span class="sd">        Meinungsunterschiede von &gt;0.5 bis 1 führen zu Gewichten von &lt;0 bis -1.</span>
+<span class="sd">        Meinungsunterschiede von 0 bis 0.5 führen zu Gewichten von 1 bis 0,</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># Wenn Meinungsunterschied größer Grenzwert</span>
+        <span class="k">if</span> <span class="n">abs_opinion_diff</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="c1"># negatives Gewicht einspeichern</span>
+            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">abs_opinion_diff</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+       
+        <span class="c1"># ansonsten:</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># positives Gewicht einspeichern</span>
+            <span class="n">agent</span><span class="p">[</span><span class="s2">&quot;temporary_opinion_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">abs_opinion_diff</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -826,7 +887,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/amp06c_3_0.png" src="../_images/amp06c_3_0.png" />
+<img alt="../_images/amp06c_8_0.png" src="../_images/amp06c_8_0.png" />
+</div>
+</div>
 </div>
 </div>
 
@@ -855,6 +918,8 @@
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="amp06b.html" title="previous page">6.2 Modelle sozialer Beeinflussung</a>
+    <a class='right-next' id="next-link" href="../07/amp07_intro.html" title="next page">7.1 Diagramme &amp; Animationen</a>
 
         </div>
         
