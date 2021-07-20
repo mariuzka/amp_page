@@ -1,0 +1,5 @@
+# 10. Die Matching-Hypothese
+
+In diesem Kapitel sollst du in einer Art finalen Übungsaufgabe einmal versuchen, eigenständig ein Simulationsmodell eines Forschungsartikels so gut es geht zu replizieren.
+Es geht dabei um diese Studie: [Kalick/Hamilton (1986): The Matching Hypothesis Reexamined. Journal of Personality and Social Psychology, Vol 51(4), p. 673-682.](https://doi.apa.org/buy/1987-04005-001). Leider kann man den Text der Studie nicht ohne weiteres downloaden, Seminarteilnehmende finden diesen daher in der entsprechenden Ilias-Gruppe.
+Lies den Text und versuche das beschriebene Modell und die Experimente so gut es geht zu replizieren. Die Ergebnisdarstellung mit den Diagrammen musst du natürlich nicht exakt so machen, wie es im Artikel gemacht wurde. Teilweise musst du wahrscheinlich auch noch recherchieren, wie man bestimmte Dinge in Python macht (z.B. das berechnen eines Korrelationskoeffizienten). Viel Erfolg!
