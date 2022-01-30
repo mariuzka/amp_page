@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Was ist ein For-Loop? &#8212; ABM mit Python</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -31,19 +31,19 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -52,7 +52,10 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -69,6 +72,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
@@ -78,12 +85,12 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Willkommen
+   ABM mit Python
   </a>
  </li>
 </ul>
@@ -610,7 +617,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -661,12 +668,12 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
@@ -759,10 +766,111 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Was ist ein For-Loop?</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Was ist ein For-Loop?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops-in-python">
+   For-Loops in Python
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-schleifenvariable">
+     Die Schleifenvariable
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verruckter-code">
+     Verrückter Code
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exkurs-eine-zahlenreihe-erstellen-mit-range">
+     Exkurs: Eine Zahlenreihe erstellen mit range()
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#uber-eine-zahlenreihe-loopen-mit-range">
+       Über eine Zahlenreihe loopen (mit range())
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mit-for-loops-variablen-verandern">
+     Mit For-Loops Variablen verändern
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mit-for-loops-listen-erstellen">
+     Mit For-Loops Listen erstellen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exkurs-veranderbare-und-unveranderbare-objekte">
+   Exkurs: Veränderbare und unveränderbare Objekte
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mit-for-loops-die-elemente-einer-liste-verandern">
+     Mit For-Loops die Elemente einer Liste verändern
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unveranderbare-elemente-in-einer-liste-im-for-loop-per-listenindizierung-uberschreiben">
+       Unveränderbare Elemente in einer Liste im For-Loop per Listenindizierung überschreiben
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#veranderbare-elemente-in-einer-liste-im-for-loop-direkt-verandern">
+       Veränderbare Elemente in einer Liste im For-Loop direkt verändern
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exkurs-modulo">
+     Exkurs: Modulo
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geschachtelte-for-loops">
+     Geschachtelte For-Loops
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wofur-wir-for-loops-brauchen">
+     Wofür wir For-Loops brauchen
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="was-ist-ein-for-loop">
+  <div class="tex2jax_ignore mathjax_ignore section" id="was-ist-ein-for-loop">
 <h1>Was ist ein For-Loop?<a class="headerlink" href="#was-ist-ein-for-loop" title="Permalink to this headline">¶</a></h1>
 <p>Haben wir unseren Code einmal aufgeschrieben, so können wir diesen immer und immer wieder ausführen. Das ist ziemlich praktisch. Die Lösung sich wiederholender Probleme muss nur ein einziges mal in einem Computerprogramm festgehalten werden und kann dann immer wieder verwendet werden. Dies kann uns Menschen eine Menge unliebsam repetitiver Arbeit ersparen. Das Einzige was wir dann noch machen müssen, ist einfach immer wieder auf den <em>Start-Knopf</em> zu drücken. Doch selbst innerhalb eines Computerprogrammes kann es dazu kommen, dass bestimmte Aktionen häufig wiederholt werden müssen. Schnell kann das dazu führen, dass die Programmierarbeit, die ja eigentlich repetitive Arbeit verhindern soll, selbst zur repetitiven Arbeit wird. Das will niemand! Um solche Wiederholungen innerhalb des Codes zu vermeiden, gibt es eine tolle Erfindung: der sogenannte <strong>Loop</strong> bzw. die <strong>Schleife</strong>. Ein Loop ermöglicht uns, eine Aktion bzw. einen Codeblock beliebig oft innerhalb des Programmes automatisch wiederholen zu lassen. Bei Loops unterscheidet man in der Regel zwischen sogenannten <em>While-Loops</em> und sogenannten <em>For-Loops</em>. In diesem Kapitel werden wir uns die For-Loops anschauen, da wir v.a. diese bei der Programmierung von ABM brauchen werden.</p>
 <p>Was ist ein For-Loop? Ein For-Loop führt für jedes Element einer Reihe von Elementen (also z.B. eine Liste) eine von uns angegebene “Aktion” aus. Deswegen heißt diese Form des Loops auch <strong>For</strong>-Loop: <strong>FÜR</strong> jedes Element einer Reihe von Elementen wird eine Aktion ausgeführt. Im Rahmen von ABM könnte das z.B. sein, dass wir <em>für jeden Agenten</em> unserer Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> eine Funktion/Aktion (oder was auch immer) ausführen lassen wollen.</p>
@@ -771,7 +879,7 @@
 <p>Du befindest dich praktisch in einem For-Loop! Du führst <em>für jeden Chip in der Chipstüte</em> immer wieder dieselbe Handlung aus. Diese Dauerschleife hält so lange an, bis du jeden Chip in der Chipstüte durchgegangen bist und für diesen die Handlung “Chip essen” ausgeführt hast. Du könntest dein Handlungsspektrum natürlich auch noch erweitern und für jeden Chip zwei Handlungen ausführen. Zum Beispiel:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Für</span> <span class="pre">jeden</span> <span class="pre">Chip</span> <span class="pre">in</span> <span class="pre">Chipstüte:</span>&#160;&#160;&#160;&#160; <span class="pre">Chip</span> <span class="pre">essen</span>&#160;&#160;&#160;&#160; <span class="pre">Sich</span> <span class="pre">denken:</span> <span class="pre">&quot;Ok,</span> <span class="pre">das</span> <span class="pre">war</span> <span class="pre">jetzt</span> <span class="pre">aber</span> <span class="pre">wirklich</span> <span class="pre">der</span> <span class="pre">Letzte.&quot;</span></code></p>
 </div>
-<div class="section" id="for-loops-in-python">
+<div class="tex2jax_ignore mathjax_ignore section" id="for-loops-in-python">
 <h1>For-Loops in Python<a class="headerlink" href="#for-loops-in-python" title="Permalink to this headline">¶</a></h1>
 <p>Ungefähr so wie in dem obigen Beispiel funktionieren auch For-Loops in Python. Wir haben immer eine Menge an Elementen (z.B. in einer Liste) und geben dann an, was wir <em>mit</em> bzw. <em>für</em> jedes Element machen wollen. Oben war die Menge an Elementen eben der Inhalt der Chipstüte und dann haben wir angegeben, was mit jedem bzw. für jeden Chip gemacht wird. Das Gute ist, dass so ähnlich, wie wir den Chipstüten-For-Loop aufgeschrieben haben, auch For-Loops in Python aufgeschrieben werden. Allgemein und abstrakt formuliert sieht ein For-Loop in Python immer so aus:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ELEMENT</span> <span class="ow">in</span> <span class="n">MENGE</span><span class="p">:</span>
@@ -1291,7 +1399,7 @@ Das erste Element in der Liste eines jeden Agenten repräsentiert jeweils den Na
 <p><strong>Übrigens:</strong> Da man sehr oft mittels For-Loop Listen erstellen oder verändern muss, gibt es in Python auch für das Erstellen und Verändern von Listen mittels For-Loop eine sehr nützliche Kurzschreibweise, die sogenannte <a class="reference external" href="https://www.youtube.com/watch?v=AhSvKGTh28Q">list comprehension</a>. Da diese jedoch am Anfang etwas gewöhnungsbedürftig ist und an dieser Stelle noch nicht notwendig ist, werden wir uns diese erst später anschauen.</p>
 </div>
 </div>
-<div class="section" id="exkurs-veranderbare-und-unveranderbare-objekte">
+<div class="tex2jax_ignore mathjax_ignore section" id="exkurs-veranderbare-und-unveranderbare-objekte">
 <h1>Exkurs: Veränderbare und unveränderbare Objekte<a class="headerlink" href="#exkurs-veranderbare-und-unveranderbare-objekte" title="Permalink to this headline">¶</a></h1>
 <p>In Python gibt es veränderbare und unveränderbare Objekte. Die eine Art von Objekten kann man also verändern, die andere Art von Objekten kann man nicht verändern.</p>
 <p>Stell dir vor, du besitzt ein Auto. Um damit ordentlich Eindruck auf der Straße zu machen, möchtest du gerne dein Auto tunen lassen und von 100 PS auf 150 PS upgraden. Du fährst also in eine Werkstatt und bittest um die gewünschte Veränderung. In der Werkstatt könntest du nun zwei Dinge zu hören bekommen, nämlich entweder</p>
@@ -1841,32 +1949,28 @@ Zeitschritt: 2 /// Handelnder Agent: agent3
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-
-        </div>
-        
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Marius Kaffai<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      By Marius Kaffai<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
