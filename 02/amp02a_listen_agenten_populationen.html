@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Listen, Agenten &amp; Populationen &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -736,13 +737,13 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="listen-agenten-populationen">
+  <section class="tex2jax_ignore mathjax_ignore" id="listen-agenten-populationen">
 <h1>Listen, Agenten &amp; Populationen<a class="headerlink" href="#listen-agenten-populationen" title="Permalink to this headline">¶</a></h1>
 <p>Nachdem wir nun über die grundlegensten Datentypen und Funktionen in Python Bescheid wissen, steigen wir in diesem Kapitel tiefer in die Funktionsweise eines ganz bestimmten und überaus wichtigen Datentyps ein: <strong>Listen</strong>.
 Listen sind in Python - sowie in fast jeder anderen Programmiersprache - ein unverzichtbarer Bestandteil.
 Listen kann man als eine Art von <strong>Datencontainer</strong> ansehen, in welchen wir alle möglichen Objekte ablegen können.
 Listen helfen uns damit dabei, die Objekte unseres Programmes sinnvoll zu strukturieren, damit wir z.B. den Überblick behalten oder auch alle Objekte innerhalb einer Liste auf einmal greifen und mit diesen irgendwas machen können.</p>
-<div class="section" id="wiederholung-listen">
+<section id="wiederholung-listen">
 <h2>Wiederholung: Listen<a class="headerlink" href="#wiederholung-listen" title="Permalink to this headline">¶</a></h2>
 <p><strong>Zur Erinnerung</strong>: Listen werden in Python durch zwei eckige Klammern erzeugt. Der Inhalt der Listen - irgendwelche Objekte - steht zwischen diesen beiden eckigen Klammern und wird jeweils mit einem Komma getrennt. Dies ist beispielsweise eine leere Liste komplett ohne Inhalt: <code class="docutils literal notranslate"><span class="pre">[]</span></code>. Dies ist eine Liste mit 3 Objekten: <code class="docutils literal notranslate"><span class="pre">[&quot;Haus&quot;,</span> <span class="pre">123,</span> <span class="pre">False]</span></code>. Listen kann man natürlich auch als Variable speichern:</p>
 <div class="cell docutils container">
@@ -767,8 +768,8 @@ Listen helfen uns damit dabei, die Objekte unseres Programmes sinnvoll zu strukt
 </div>
 <p>Die Liste <code class="docutils literal notranslate"><span class="pre">meine_tolle_liste</span></code> ermöglicht es also, die 3 Objekte <code class="docutils literal notranslate"><span class="pre">&quot;Haus&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">123</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> kompakt zu einem Paket zusammenzuschnüren und unter einem Namen zu speichern. Diese Eigenschaft ist allgemein für die Organisation unserer Programme sehr, sehr praktisch.</p>
 <p>Wir werden im Verlauf dieses Kapitels u.a. noch lernen, wie wir auf die einzelnen Elemente zugreifen und wie wir weitere Objekte hinzufügen. Nun reiße ich aber erstmal kurz an, wofür wir Listen im Rahmen der Programmierung von ABM meist brauchen.</p>
-</div>
-<div class="section" id="wofur-wir-listen-brauchen">
+</section>
+<section id="wofur-wir-listen-brauchen">
 <h2>Wofür wir Listen brauchen<a class="headerlink" href="#wofur-wir-listen-brauchen" title="Permalink to this headline">¶</a></h2>
 <p>Ganz allgemein kann man sagen, dass wir Listen im Kontext von ABM brauchen, weil ABMs Computerprogramme sind und man in Computerprogrammen eben Listen braucht. Punkt. Das stimmt zwar. Und wir werden Listen auch an allen Enden und Ecken brauchen, doch gibt es zwei <em>klassische</em> Anwendungsfälle für Listen im Bereich von ABM. Einerseits können wir unsere Gruppen bzw. Populationen von Agenten innerhalb von Listen organisieren. Andererseits können wir auch die Agenten selbst als Listen in unserem Programm repräsentieren, wobei jedes Element in der Liste dann eine Eigenschaft eines Agenten repräsentieren würde.</p>
 <p>Doch beginnen wir von vorne. Bei agentenbasierter Modellierung geht es darum, das Handeln und Interagieren vieler Akteure mithilfe eines Computerprogrammes zu simulieren. Das heißt, wir müssen die handelnden Akteure - die Agenten - irgendwie in unserem Programm mittels Objekte repräsentieren. Wie machen wir das?</p>
@@ -920,8 +921,8 @@ Dies könnte dann so aussehen:</p>
 <p class="admonition-title">Zugegeben</p>
 <p>Die Repräsentation der Agenten als Listen ist nicht sonderlich elegant. Wir müssen uns ja z.B. merken, welcher Stelle in der Liste welche Eigenschaft der Agenten steht. U.a. deshalb ist es auf lange Sicht unpraktisch, die Agenten als Listen darzustellen. Wir werden später die Agenten durch andere Objekt-Klassen ersetzen. Am Anfang macht es allerdings Sinn, nicht nur, weil wir Listen sowieso zwingend kennenlernen müssen, sondern auch, weil es eine relativ unkomplizierte und schnell erlernbare Form der Agenten-Repräsentation “mit einfachen Mitteln” ist.</p>
 </div>
-</div>
-<div class="section" id="noch-ein-paar-worte-zur-reprasentation-von-agenten">
+</section>
+<section id="noch-ein-paar-worte-zur-reprasentation-von-agenten">
 <h2>Noch ein paar Worte zur Repräsentation von Agenten<a class="headerlink" href="#noch-ein-paar-worte-zur-reprasentation-von-agenten" title="Permalink to this headline">¶</a></h2>
 <p>Wenn wir Agenten einfach nur als einzelne Werte oder Listen von Werten darstellen, dann stellen wir zunächst eigentlich nur die “passiven” Eigenschaften der Agenten mit relativ “passiven” Daten dar. Da fehlt aber doch noch etwas? Ein Agent ist doch ein handelnder Akteur und nicht nur ein passiver Datensatz! Ein Agent sollte ja beispielsweise nicht nur die passive Eigenschaft haben, eine Meinung zu besitzen, sondern auch die aktive Eigenschaft, diese beispielsweise auch kundtun oder ändern zu können. Und ein Agent darf in Simulationen nicht nur einen Infektionsstatus haben, sondern muss auch die aktive Eigenschaft, andere Agenten anstecken zu können, besitzen.</p>
 <p>Den aktiven Teil der Agenten werden wir meist als Funktionen, also Programmanweisungen darüber, wie die Daten/Eigenschaften der Agenten verarbeitet werden sollen, repräsentieren. Zum Beispiel könnten wir die Handlung “anstecken” darstellen, indem wir mithilfe einer Funktion den Infektionsstatus <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code> vom einen Agenten auf einen anderen Agenten mit dem Status <code class="docutils literal notranslate"><span class="pre">&quot;infizierbar&quot;</span></code> übertragen, sodass dieser zweite Agent dann auch den Status <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code> aufweist.</p>
@@ -931,8 +932,8 @@ Dies könnte dann so aussehen:</p>
 <p class="admonition-title">Übrigens</p>
 <p>Auch wenn wir selbst erst in späteren Kapiteln lernen werden, wie man Objekte definiert, die sowohl passive Daten als auch aktive Funktionen innerhalb eines Objektes integrieren, werden wir diese Art von Objekten dennoch schon vorher verwenden. Denn Python ist voll mit diesen Objekten. Auch Listen selbst verfügen übrigens über eine “aktive” Seite, welche Listen überhaupt erst so praktisch machen und wir noch in diesem Kapitel kennenlernen werden.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

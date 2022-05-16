@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Boolesche Ausdrücke &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -790,7 +791,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="boolesche-ausdrucke">
+  <section class="tex2jax_ignore mathjax_ignore" id="boolesche-ausdrucke">
 <h1>Boolesche Ausdrücke<a class="headerlink" href="#boolesche-ausdrucke" title="Permalink to this headline">¶</a></h1>
 <p>Boolsche Ausdrücke kann man ganz generell als “logische” Aussagen, die entweder <strong>wahr</strong> oder <strong>falsch</strong> sein können, verstehen. Wichtig ist, dass ein boolscher Ausdruck auf jeden Fall immer entweder ausschließlich 100% wahr oder ausschließlich 100% falsch ist. Niemals ist ein boolscher Ausdruck irgendwas dazwischen oder beides. Boolsche Ausdrücke gibt es übrigens nicht nur in Python, sondern diese sind elementarer Bestandteil in der Mathematik, Informatik und Logik. In Python können boolsche Ausdrücke in unterschiedlicher Form vorkommen, aber immer wenn Python einen boolschen Ausdruck <em>sieht</em>, dann versucht Python herauszufinden, ob die Aussage wahr oder falsh ist. Am Ende eines solchen Wahrheitsfindungsprozesses gibt Python dann entweder den Wert <code class="docutils literal notranslate"><span class="pre">True</span></code> oder den Wert <code class="docutils literal notranslate"><span class="pre">False</span></code> aus und sagt uns damit praktisch, ob der soeben evaluierte boolsche Ausdruck bzw. die Aussage <code class="docutils literal notranslate"><span class="pre">True</span></code> (wahr) oder <code class="docutils literal notranslate"><span class="pre">False</span></code> (falsch) ist.</p>
 <p>Wie sieht denn nun ein solcher Boolscher Ausdruck in Python aus? Die einfachste und elementarste Form eines boolschen Ausdrucks sind die beiden Wahrheitswerte <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code> selbst. Diese beiden Werte sind in Python Werte des Typs <code class="docutils literal notranslate"><span class="pre">bool</span></code> und nicht nur das Ergebnis einer jeden Evaluation boolscher Ausdrücke sondern für sich genommen eben selbst boolsche Ausdrücke. Evaluiert man die Aussage <code class="docutils literal notranslate"><span class="pre">True</span></code> auf ihren Wahrheitsgehalt, so kommt man natürlich selbst wieder auf das Ergebnis <code class="docutils literal notranslate"><span class="pre">True</span></code>. Evaluiert man die Aussage <code class="docutils literal notranslate"><span class="pre">False</span></code> auf ihren Wahrheitsgehalt, so kommt man natürlich auch hier wieder auf das Ergebnis <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
@@ -818,7 +819,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="vergleiche">
+<section id="vergleiche">
 <h2>Vergleiche<a class="headerlink" href="#vergleiche" title="Permalink to this headline">¶</a></h2>
 <p>Man versteht am besten, was boolsche Ausdrücke sind, wenn man etwas über ihre elementarste (aber noch etwas <em>inhaltslose</em>) Existenzweise als <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code> hinausgeht und sich anschaut, in welcher Form uns boolsche Ausdrücke in <em>richtigen Programmen</em> oft begegnen. Eine sehr wichtige Form boolscher Ausdrücke sind <strong>Vergleiche</strong>. In Vergleichen können wir zwei Werte bzw. Variablen miteinander vergleichen. Dabei stehen uns die typischen <strong>Vergleichsoperatoren</strong>, die dir bestimmt bekannt sind, zur Verfügung.</p>
 <p>Ein Beispiel: Unten vergleiche ich die beiden Werte <code class="docutils literal notranslate"><span class="pre">1</span></code> und <code class="docutils literal notranslate"><span class="pre">2</span></code> daraufhin, ob <code class="docutils literal notranslate"><span class="pre">1</span></code> kleiner als <code class="docutils literal notranslate"><span class="pre">2</span></code> ist. Python führt für uns den Vergleich aus und gibt uns eine Antwort:</p>
@@ -941,8 +942,8 @@ Wenn ich sage, “<em>1 ist größer als 2</em>”, dann antwortet Python mit �
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="abstrakte-variablen-statt-konkrete-werte">
+</section>
+<section id="abstrakte-variablen-statt-konkrete-werte">
 <h2>Abstrakte Variablen statt konkrete Werte<a class="headerlink" href="#abstrakte-variablen-statt-konkrete-werte" title="Permalink to this headline">¶</a></h2>
 <p>In den obigen Beispielen habe ich die zu vergleichenden Werte immer direkt innerhalb des Vergleiches konkret ausformuliert. Das werden wir innerhalb eines richtigen Programmes aber eigentlich niemals in der Form tun. Stattdessen werden wir in den meisten Fällen innerhalb von Vergleichen bzw. allgemein innerhalb von boolschen Ausdrücken nicht alle Werte konkret ausschreiben, sondern Variablen als Platzhalter für konkrete Werte einfügen. Dadurch können wir dann Werte miteinander vergleichen, die wir zum Zeitpunkt des Programmierens nicht genau kennen, weil diese sich entweder aus einem sehr großen Datensatz ergeben oder sogar vielleicht erst “dynamisch” innerhalb unseres Programmes entstehen oder verändert werden. Erst wenn wir die Antwort nicht genau kennen, machen solche Vergleiche ja erst wirklich Sinn.</p>
 <p>Unten im Beispiel gehe ich z.B. die Liste <code class="docutils literal notranslate"><span class="pre">age_list</span></code> durch und frage für jedes Element nach, ob dieses größer 40 ist. Das funktioniert, weil der Vergleich <code class="docutils literal notranslate"><span class="pre">age</span> <span class="pre">&gt;</span> <span class="pre">40</span></code> diesmal nich nur direkt ausformulierte Werte, sondern u.a. die Variable <code class="docutils literal notranslate"><span class="pre">age</span></code> enthält. In jeder Runde des For-Loops bekommt die Variable <code class="docutils literal notranslate"><span class="pre">age</span></code> den Wert eines anderen Elementes der Liste <code class="docutils literal notranslate"><span class="pre">age_list</span></code> zugewiesen, sodass dieselbe “Vergleichsstruktur” für unterschiedliche konkrete Werte durchgeführt wird.</p>
@@ -967,8 +968,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="die-logischen-operatoren-nicht-und-oder">
+</section>
+<section id="die-logischen-operatoren-nicht-und-oder">
 <h2>Die logischen Operatoren NICHT, UND &amp; ODER<a class="headerlink" href="#die-logischen-operatoren-nicht-und-oder" title="Permalink to this headline">¶</a></h2>
 <p>Mithilfe der Operatoren <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> und <code class="docutils literal notranslate"><span class="pre">not</span></code> können wir auch kompliziertere, verknüpfte Bedingungen aufstellen. Die Funktionsweise der drei Operatoren entspricht dabei der Funktionsweise der logischen Operatoren UND, ODER und NICHT der klassischen Aussagenlogik.</p>
 <p>Ein Video zur klassichen Aussagenlogik und der grundlegenden Funktionsweise der logischen Operatoren bzw. Verknüpfungen findest du hier:</p>
@@ -990,7 +991,7 @@ True
 ></iframe>
 </div></div>
 </div>
-<div class="section" id="negation-not">
+<section id="negation-not">
 <h3>Negation: not<a class="headerlink" href="#negation-not" title="Permalink to this headline">¶</a></h3>
 <p>Das Wörtchen <code class="docutils literal notranslate"><span class="pre">not</span></code> ermöglicht uns “verneinte” Aussagen aufzustellen d.h. Aussagen, welche besagen, dass <em>etwas</em> <strong>nicht</strong> wahr ist. Ganz allgemein wird durch ein <code class="docutils literal notranslate"><span class="pre">not</span></code> aus jedem <code class="docutils literal notranslate"><span class="pre">True</span></code> ein <code class="docutils literal notranslate"><span class="pre">False</span></code> und aus jedem <code class="docutils literal notranslate"><span class="pre">False</span></code> ein <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
@@ -1043,8 +1044,8 @@ True
 </div>
 </div>
 <p>Die Aussage “<em>1 ist nicht größer 0</em>” ist natürlich <code class="docutils literal notranslate"><span class="pre">False</span></code>. Wir können obige “Aussage” natürlich auch wieder als “Frage” lesen: “<em>Ist 1 nicht größer 0?</em>”. Darauf wäre die Antwort dann “<em>Nein</em>”.</p>
-</div>
-<div class="section" id="konjunktion-and">
+</section>
+<section id="konjunktion-and">
 <h3>Konjunktion: and<a class="headerlink" href="#konjunktion-and" title="Permalink to this headline">¶</a></h3>
 <p>Bisher haben wir immer nur “einfache” Aussagen aufgestellt (z.B. einen Vergleich auf einmal durchgeführt). Mithilfe von <code class="docutils literal notranslate"><span class="pre">and</span></code> und <code class="docutils literal notranslate"><span class="pre">or</span></code> können wir mehrere Aussagen gleichzeitig aufstellen und somit mehrere Teil-Aussagen zu einer Gesamt-Aussage verknüpfen (wir können dadurch z.B. mehrere Vergleiche auf einmal durchführen). Schauen wir uns an dieser Stelle zunächst die sogenannte UND-Verknüpfung an.</p>
 <p>Der logische Operator <code class="docutils literal notranslate"><span class="pre">and</span></code> ermöglicht es uns, zwei Teilaussagen so zu verknüpfen, dass die Gesamtaussage genau dann wahr ist, wenn alle Teilaussagen wahr sind.
@@ -1130,8 +1131,8 @@ Ich könnte beispielsweise gleichzeitig die Aussagen “<em>1 ist größer 0</em
 </div>
 </div>
 <p>Wir sehen, eine UND-Verknüpfung wird nur genau dann <code class="docutils literal notranslate"><span class="pre">True</span></code>, wenn beide Teil-Aussagen <code class="docutils literal notranslate"><span class="pre">True</span></code> sind.</p>
-</div>
-<div class="section" id="disjunktion-or">
+</section>
+<section id="disjunktion-or">
 <h3>Disjunktion: or<a class="headerlink" href="#disjunktion-or" title="Permalink to this headline">¶</a></h3>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">and</span></code> können wir sehr detailreiche &amp; spezifische Aussagen aufstellen bzw. fragen, die nur <code class="docutils literal notranslate"><span class="pre">True</span></code> sind, wenn auch alle Teil-Aussagen <code class="docutils literal notranslate"><span class="pre">True</span></code> sind. Dadurch können wir später sehr strenge Bedingungen aufstellen. Hingegen eignet sich der Operator <code class="docutils literal notranslate"><span class="pre">or</span></code> sehr gut, wenn wir etwas “lockerere” Bedingungen aufstellen wollen. Ein <code class="docutils literal notranslate"><span class="pre">or</span></code> verknüpft zwei Teil-Aussagen so, dass die Gesamtaussage genau dann wahr ist, wenn mindestens eine der beiden Teil-Aussagen wahr ist. Es kann also die eine, die andere oder beide Teil-Aussagen wahr sein, damit die Gesamt-Aussage wahr wird. Nur wenn beide Teil-Aussagen falsch sind, wird auch die Gesamt-Aussage falsch.</p>
 <p>Verknüpft man z.B. die wahre Aussage “<em>1 ist größer 0</em>” und die falsche Aussage “<em>2 ist gleich 3</em>” mit einem <code class="docutils literal notranslate"><span class="pre">or</span></code> zur Aussage “<em>1 ist größer 0 oder 2 ist gleich 3</em>”, dann ist diese Gesamt-Aussage wahr, weil man mit einem <code class="docutils literal notranslate"><span class="pre">or</span></code> impliziert, dass es sein kann, dass nur eine von beiden Aussagen wahr ist.</p>
@@ -1199,8 +1200,8 @@ Ich könnte beispielsweise gleichzeitig die Aussagen “<em>1 ist größer 0</em
 </div>
 </div>
 <p>Wie dir vielleicht schon aufgefallen ist, hat ein “oder” innerhalb der klassichen Aussagenlogik eine leicht andere Bedeutung als ein “oder” in der Alltagssprache. In der Alltagssprache meinen wir mit “oder” typischerweise, dass wir erwarten, dass <strong>genau eine</strong> der beiden Aussagen wahr sein kann (entweder die eine oder die andere). In der Aussagenlogik bzw. hier in Python meinen wir mit “oder”, dass wir die Richtigkeit <strong>mindestens</strong> einer der beiden Aussagen erwarten. Das “oder”, das wir hier benutzen, nennt man übrigens auch “nichtausschließendes oder”. Das “oder” der Alltagssprache nennt man “ausschließendes oder”.</p>
-</div>
-<div class="section" id="mehrere-verknupfungen">
+</section>
+<section id="mehrere-verknupfungen">
 <h3>Mehrere Verknüpfungen<a class="headerlink" href="#mehrere-verknupfungen" title="Permalink to this headline">¶</a></h3>
 <p>Wir können natürlich auch mehrere <code class="docutils literal notranslate"><span class="pre">and</span></code>- und <code class="docutils literal notranslate"><span class="pre">or</span></code>-Verknüpfungen kombinieren, z.B.:</p>
 <p>“2 ist gleich 2 oder 2 ist gleich 3 und 0 ist größer 1”</p>
@@ -1279,9 +1280,9 @@ Ich könnte beispielsweise gleichzeitig die Aussagen “<em>1 ist größer 0</em
 </pre></div>
 </div>
 <p>Des Weiteren gelten für logische Ausdrücke und deren Priorität auch die typischen Klammergesetze der Mathematik. So kann beispielsweise die Priorität des <code class="docutils literal notranslate"><span class="pre">and</span></code> vor dem <code class="docutils literal notranslate"><span class="pre">or</span></code> durch entsprechende Klammersetzung durchbrochen werden.</p>
-</div>
-</div>
-<div class="section" id="das-keyword-in">
+</section>
+</section>
+<section id="das-keyword-in">
 <h2>Das Keyword “in”<a class="headerlink" href="#das-keyword-in" title="Permalink to this headline">¶</a></h2>
 <p>Bedingungen können nicht nur mathematische Vergleiche beinhalten. Das super praktische Keyword <code class="docutils literal notranslate"><span class="pre">in</span></code> ermöglicht es uns z.B. zu erfragen, ob ein bestimmter Wert in einem sequentiellen Datentyp (z.B. Liste oder String) ist.</p>
 <p>Fragen wir uns beispielsweise, ob der Wert <code class="docutils literal notranslate"><span class="pre">10</span></code> in der Liste <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">2,</span> <span class="pre">8,</span> <span class="pre">1]</span></code> vorkommt, können wir schreiben:</p>
@@ -1311,8 +1312,8 @@ Ich könnte beispielsweise gleichzeitig die Aussagen “<em>1 ist größer 0</em
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

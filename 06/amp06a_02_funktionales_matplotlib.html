@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Funktionales Interface &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -790,10 +791,10 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="funktionales-interface">
+  <section class="tex2jax_ignore mathjax_ignore" id="funktionales-interface">
 <h1>Funktionales Interface<a class="headerlink" href="#funktionales-interface" title="Permalink to this headline">¶</a></h1>
 <p>Mit der “funktionalen” Bedinung von Matplotlib kann man relativ schnell relativ einfache Diagramme erstellen. Hat man Matplotlib bzw. Pyplot mit <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> importiert, dann kann man z.B. ein simples Liniendiagramm mit der Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> erstellen. Im Folgenden schauen wir uns v.a. die Erstellung von Liniendiagrammen an, wir werden aber im Verlauf des Kurses noch andere Diagrammtypen kennenlernen.</p>
-<div class="section" id="liniendiagramme-mit-plt-plot">
+<section id="liniendiagramme-mit-plt-plot">
 <h2>Liniendiagramme mit plt.plot()<a class="headerlink" href="#liniendiagramme-mit-plt-plot" title="Permalink to this headline">¶</a></h2>
 <p>Die Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> erwartet mindestens eine <em>Datenreihe</em>, also z.B. eine Liste mit Zahlen, um die Linie zeichnen zu können. Unten im Beispiel erstelle ich zunächst die Liste <code class="docutils literal notranslate"><span class="pre">infections</span></code>, welche (fiktive) Daten über eine ansteckende Krankheit deiner Wahl enthält. Diese Datenreihe - die Liste <code class="docutils literal notranslate"><span class="pre">infections</span></code> - stecke ich als Input in die Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> und schon wird ein Liniendiagramm angezeigt.</p>
 <div class="cell docutils container">
@@ -843,8 +844,8 @@
 <img alt="../_images/amp06a_02_funktionales_matplotlib_5_0.png" src="../_images/amp06a_02_funktionales_matplotlib_5_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="mehr-als-eine-linie">
+</section>
+<section id="mehr-als-eine-linie">
 <h2>Mehr als eine Linie<a class="headerlink" href="#mehr-als-eine-linie" title="Permalink to this headline">¶</a></h2>
 <p>Möchte man mehr als eine Linie in dasselbe Diagramm einzeichnen, dann kann man die Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> einfach mehrmals hintereinander mit unterschiedlichen Daten ausführen.</p>
 <p>Unten erstelle ich zunächst zwei mal zwei Datenreihen namens <code class="docutils literal notranslate"><span class="pre">density_data_1</span></code> und <code class="docutils literal notranslate"><span class="pre">speed_data_1</span></code> sowie <code class="docutils literal notranslate"><span class="pre">density_data_2</span></code> und <code class="docutils literal notranslate"><span class="pre">speed_data_2</span></code>. Dann führe ich zwei mal hintereinander die Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> mit den jeweiligen X- und Y-Datenreihen aus und rufe dann schließlich die Funktion <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> auf.</p>
@@ -876,10 +877,10 @@
 </div>
 </div>
 <p>Beim obigen Beispiel ist es besonders wichtig, die Funktion <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> wirklich erst dann aufzurufen, nachdem man alles in das Diagramm eingezeichnet hat. Denn nachdem die erste Anwendung von <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> ein neues Diagramm intern erstellt, zeichnen alle darauffolgenden Anwendungen von <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> ihre Linien (oder auch Punkte) in dieses Diagramm - solange bis die Funktion <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> ausgeführt wird. Durch <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> wird der “Bearbeitungsmodus” des aktuellen Diagramms beendet. Ein nun folgender Aufruf der Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> erstellt wieder ein neues Diagramm, in das dann wieder solange alle danach folgenden Aufrufe von <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> ihre Graphen malen bis die Funktion <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> aufgerufen wird.</p>
-</div>
-<div class="section" id="das-diagramm-aufhubschen">
+</section>
+<section id="das-diagramm-aufhubschen">
 <h2>Das Diagramm aufhübschen<a class="headerlink" href="#das-diagramm-aufhubschen" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="achsen-beschriften">
+<section id="achsen-beschriften">
 <h3>Achsen beschriften<a class="headerlink" href="#achsen-beschriften" title="Permalink to this headline">¶</a></h3>
 <p>Zu einem richtigen Diagramm gehören vernünftige Beschriftungen. Mit den Funktionen <code class="docutils literal notranslate"><span class="pre">plt.xlabel()</span></code> und <code class="docutils literal notranslate"><span class="pre">plt.ylabel()</span></code> kann man die X- und Y-Achse beschriften, wie ich unten im Beispiel zeige:</p>
 <div class="cell docutils container">
@@ -896,8 +897,8 @@
 <img alt="../_images/amp06a_02_funktionales_matplotlib_11_0.png" src="../_images/amp06a_02_funktionales_matplotlib_11_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="legende-einfugen">
+</section>
+<section id="legende-einfugen">
 <h3>Legende einfügen<a class="headerlink" href="#legende-einfugen" title="Permalink to this headline">¶</a></h3>
 <p>Hat man mehr als eine Linie im Diagramm, dann macht es Sinn auch die Linien innerhalb einer Legende zu beschriften. Dies erreicht man, indem man beim Aufruf der Funktion <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> zusätzlich dem Argument <code class="docutils literal notranslate"><span class="pre">label</span></code> eine jeweilige Beschriftung für die zuweist, so wie ich es unten tue. Um dann auch wirklich innerhalb des Plots die Legende anzeigen zu lassen, muss man zusätzlich noch die Funktion <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> aufrufen.</p>
 <div class="cell docutils container">
@@ -915,8 +916,8 @@
 <img alt="../_images/amp06a_02_funktionales_matplotlib_13_0.png" src="../_images/amp06a_02_funktionales_matplotlib_13_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="gitter-einfugen">
+</section>
+<section id="gitter-einfugen">
 <h3>Gitter einfügen<a class="headerlink" href="#gitter-einfugen" title="Permalink to this headline">¶</a></h3>
 <p>Möchte man zur besseren Lesbarkeit des Diagramms ein Gitter in den Hintergrund einzeichnen, dann kann man das durch den Aufruf der Funktion <code class="docutils literal notranslate"><span class="pre">plt.grid()</span></code> tun.</p>
 <div class="cell docutils container">
@@ -935,8 +936,8 @@
 <img alt="../_images/amp06a_02_funktionales_matplotlib_15_0.png" src="../_images/amp06a_02_funktionales_matplotlib_15_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="alternative-styles">
+</section>
+<section id="alternative-styles">
 <h3>Alternative Styles<a class="headerlink" href="#alternative-styles" title="Permalink to this headline">¶</a></h3>
 <p>Gefällt einem der standardmäßig eingestellte Farbstil von Matplotlib nicht, dann kann man mit dem Befehl <code class="docutils literal notranslate"><span class="pre">plt.style.use()</span></code> einen anderen Style aussuchen. Dabei muss man den Namen eines anderen Stils wissen und als Argument in die Funktion <code class="docutils literal notranslate"><span class="pre">plt.style.use()</span></code> eingeben. Eine Auswahl an verfügbaren Stilen findest du z.B. <a class="reference external" href="https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html">hier</a>. Unten rufe ich die <code class="docutils literal notranslate"><span class="pre">plt.style.use()</span></code> und gebe den Style <code class="docutils literal notranslate"><span class="pre">&quot;ggplot&quot;</span></code> als Argument ein:</p>
 <div class="cell docutils container">
@@ -962,9 +963,9 @@
 <img alt="../_images/amp06a_02_funktionales_matplotlib_19_0.png" src="../_images/amp06a_02_funktionales_matplotlib_19_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="mittels-for-loop-zeichnen">
+</section>
+</section>
+<section id="mittels-for-loop-zeichnen">
 <h2>Mittels For-Loop zeichnen<a class="headerlink" href="#mittels-for-loop-zeichnen" title="Permalink to this headline">¶</a></h2>
 <p>Wenn man viele Linen zu zeichnen hat, dann kann man das ganze auch beispielsweise mit einem For-Loop automatisieren. Hier ein Beispiel, bei dem ich die drei Y-Datenreihen <code class="docutils literal notranslate"><span class="pre">y1</span></code>, <code class="docutils literal notranslate"><span class="pre">y2</span></code> und <code class="docutils literal notranslate"><span class="pre">y3</span></code> gesammelt in der Liste <code class="docutils literal notranslate"><span class="pre">data</span></code> vorliegen habe und diese nacheinander per For-Loop in dasselbe Diagramm einzeichne. Hier ist es besonders wichtig, die Funktion <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> erst nach dem For-Loop aufzurufen!</p>
 <p>Im Rahmen von ABM kann das z.B. vorkommen, wenn man eine Liste von Agenten vorliegen hat und für jeden Agenten z.B. dessen als Agenten-Attribut vorliegende Meinungsveränderung über mehrere Zeitschritte in ein Diagramm einzeichnen möchte.</p>
@@ -986,8 +987,8 @@
 <img alt="../_images/amp06a_02_funktionales_matplotlib_21_0.png" src="../_images/amp06a_02_funktionales_matplotlib_21_0.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

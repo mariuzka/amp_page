@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>If, else, elif &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -736,9 +737,9 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="if-else-elif">
+  <section class="tex2jax_ignore mathjax_ignore" id="if-else-elif">
 <h1>If, else, elif<a class="headerlink" href="#if-else-elif" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="wenn-dies-dann-das-if-statements-mit-if">
+<section id="wenn-dies-dann-das-if-statements-mit-if">
 <h2>Wenn dies, dann das - If-Statements mit if.<a class="headerlink" href="#wenn-dies-dann-das-if-statements-mit-if" title="Permalink to this headline">¶</a></h2>
 <p>Nun haben wir uns sehr genau einen bestimmten Bestandteil der If-Statements angeschaut. Kommen wir nun dazu, If-Statements als Ganzes zu benutzen, um damit die Ausführung unseres Codes situationsspezifisch zu steuern. Wie oben bereits gezeigt, besteht ein If-Statement im einfachsten Fall aus zwei Bestandteilen: dem Wenn-Teil und dem Dann-Teil.</p>
 <p>Der Wenn-Teil beginnt mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">if</span></code> und endet mit einem <code class="docutils literal notranslate"><span class="pre">:</span></code>. Dazwischen, also dort wo unten der Platzhalter <code class="docutils literal notranslate"><span class="pre">THIS_STATEMENT_IS_TRUE</span></code> steht, muss ein boolscher Ausdruck stehen. Ist der boolsche Ausdruck wahr d.h. wird er letztlich auf den Wert <code class="docutils literal notranslate"><span class="pre">True</span></code> reduziert, dann wird der eingerückte Codeblock darunter ausgeführt. Wenn der boolsche Ausdruck falsch ist, dann wird der eingerückte Codeblock einfach ignoriert. Die Bedingung dafür, dass der Codeblock ausgeführt wird, ist also dass der boolsche Ausdruck wahr ist.</p>
@@ -815,8 +816,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="nein-dann-das-if-statements-mit-else">
+</section>
+<section id="nein-dann-das-if-statements-mit-else">
 <h2>Nein? Dann das! If-Statements mit else.<a class="headerlink" href="#nein-dann-das-if-statements-mit-else" title="Permalink to this headline">¶</a></h2>
 <p>Wir können nun If-Statements schreiben, welche bestimmten Code ausführen, sobald eine Bedingung erfüllt ist. Falls die Bedingung allerdings nicht erfüllt ist, dann passiert in unseren bisherigen If-Statements einfach gar nichts. Manchmal ist es aber sehr praktisch auch bei Nicht-Erfüllung der Bedingung etwas auszuführen - nur dann eben etwas anderes. Das können wir in Python mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">else</span></code>. Mit <code class="docutils literal notranslate"><span class="pre">else</span></code> können wir unseren Wenn-Dann-Satz praktisch um einen “Ansonsten”-Teil erweitern, welcher eintritt, wenn die Bedingung nicht zutrifft. Ein Beispiel aus dem Alltag: <strong>Wenn</strong> das Paket heute ankommt, <strong>dann</strong> freue ich mich, <strong>ansonsten</strong> bin ich sehr traurig.</p>
 <p>Allgemein formuliert können wir unser If-Statement also wie folgt erweitern:</p>
@@ -910,8 +911,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="nein-dann-vielleicht-das-hier-if-statements-mit-elif">
+</section>
+<section id="nein-dann-vielleicht-das-hier-if-statements-mit-elif">
 <h2>Nein? Dann vielleicht das hier? If-Statements mit elif.<a class="headerlink" href="#nein-dann-vielleicht-das-hier-if-statements-mit-elif" title="Permalink to this headline">¶</a></h2>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">if</span></code> und <code class="docutils literal notranslate"><span class="pre">else</span></code> können wir angeben, was passieren soll, wenn ein bestimmter Fall eintritt und was passieren soll, wenn dieser bestimmte Fall nicht eintritt. Was ist aber, wenn wir nicht nur zwischen <em>das</em> und <em>nicht das</em>, sondern feiner zwischen verschiedenen Fällen differenzieren wollen? Dann brauchen wir <code class="docutils literal notranslate"><span class="pre">elif</span></code>! Mit <code class="docutils literal notranslate"><span class="pre">elif</span></code> können wir unserem If-Statement weitere Bedingungen hinzufügen. Diese werden geprüft, wenn die Bedingung davor nicht erfüllt wurde. Wir können also die Struktur der folgenden fiktiven Wenn-Dann-Satz-Konstruktion in Python bilden:</p>
 <p><em>Wenn es Burger gibt, dann esse ich Burger.</em></p>
@@ -1111,8 +1112,8 @@
 <p class="admonition-title">Wichtig</p>
 <p>Die Reihenfolge der Bedingungen kann bei längeren If-Elif-Else-Statements sehr wichtig sein!</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Funktionen mit Output &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -716,7 +717,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="funktionen-mit-output">
+  <section class="tex2jax_ignore mathjax_ignore" id="funktionen-mit-output">
 <h1>Funktionen mit Output<a class="headerlink" href="#funktionen-mit-output" title="Permalink to this headline">¶</a></h1>
 <p>Unsere selbstdefinierten Funktionen haben bisher keinen explizitigen Output. Sie zeigen zwar Strings in der Konsole an, damit kann man innerhalb eines richtigen Computerprogrammes aber nicht wirklich viel anfangen. Möchte man, dass eine Funktion einem auch etwas (ein Objekt) zurückgibt, womit man innerhalb des Programmes weiterarbeiten kann, nachdem man sie aufgerufen hat, dann müssen wir dies explizit in der Funktionsdefinition festlegen. Dies machen wir mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">return</span></code>. Das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">return</span></code> platzieren wir (meist) am Ende der Funktion und schreiben dahinter das Objekt, das wir als Output ausgegeben haben wollen.</p>
 <p>Im Folgenden definiere ich eine Funktion, die nichts anderes tut, als der funktionsinternen Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> den Wert <code class="docutils literal notranslate"><span class="pre">10</span></code> zuzuweisen und dann mittels return zurückzugeben.</p>
@@ -823,7 +824,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="funktionen-haben-immer-einen-output">
+<section id="funktionen-haben-immer-einen-output">
 <h2>Funktionen haben immer einen Output<a class="headerlink" href="#funktionen-haben-immer-einen-output" title="Permalink to this headline">¶</a></h2>
 <p>Genaugenommen gibt jede Funktion <strong>immer</strong> einen Output zurück - egal, ob wir <code class="docutils literal notranslate"><span class="pre">return</span></code> verwenden oder nicht. Wenn wir kein <code class="docutils literal notranslate"><span class="pre">return</span></code> in einer Funktion verwenden, dann gibt eine Funktion standardmäßig den Wert <code class="docutils literal notranslate"><span class="pre">None</span></code> zurück. Das demonstriere ich unten an der Funktion <code class="docutils literal notranslate"><span class="pre">random_list()</span></code> von oben, wobei ich die <code class="docutils literal notranslate"><span class="pre">return</span></code>-Zeile entfernt habe.</p>
 <div class="cell docutils container">
@@ -856,8 +857,8 @@
 </div>
 </div>
 <p>Wenn wir keinen Output explizit definieren, dann ist der Output einer jeden Funktion gleich <code class="docutils literal notranslate"><span class="pre">None</span></code>. Das kann einem in den meisten Fällen eigentlich egal sein, ist aber durchaus hilfreich zu wissen, wenn im Programm plötzlich und auf unerklärliche Weise eine Variable mit dem Wert <code class="docutils literal notranslate"><span class="pre">None</span></code> auftaucht… Dann hat man vielleicht in einer Funktion das <code class="docutils literal notranslate"><span class="pre">return</span></code> vergessen. :)</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

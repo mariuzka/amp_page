@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>3.2 Gefangen im Loop &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -816,7 +817,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="gefangen-im-loop">
+  <section class="tex2jax_ignore mathjax_ignore" id="gefangen-im-loop">
 <h1>3.2 Gefangen im Loop<a class="headerlink" href="#gefangen-im-loop" title="Permalink to this headline">¶</a></h1>
 <p>In dieser Übungsaufgabe bewegen wir uns einen kleinen Schritt näher in Richtung der eigenen Programmierung von agentenbasierter Modellierung. Wir “simulieren” sich auf einer Straße fortbewegende Agenten. Wir machen das mit den relativ simplen, nicht immer effizienten und nicht immer eleganten, aber uns aktuell eben zur Verfügung stehenden Mitteln machen. Auch wenn das noch kein richtiges oder sinnvolles ABM ist, lernen wir hier die Grundstruktur eines jeden ABM kennen: Viele viele For-Loops mit denen wir uns u.a. durch die Zeit bewegen, aber auch nacheinander jeden Agenten fassen, auf dessen Eigenschaften zugreifen und den Agenten entsprechend seiner Eigenschaften zum “handeln” bewegen. Wir werden auch eine gaaaaanz einfache “graphische Darstellung” der Simulation programmieren.</p>
 <p>Zusätzlich zur generellen Einübung von For-Loops und dem Kennenlernen der ABM-Grundstruktur mit ihren vielen For-Loops, ist diese Übungsaufgabe auch eine Vorbereitung auf das, was im nächsten Kapitel kommt: das <a class="reference external" href="https://de.wikipedia.org/wiki/Nagel-Schreckenberg-Modell">Nagel-Schreckenberg-Modell</a>. Dieses Modell ist in seiner Grundform ein relativ einfaches Modell, um das Phänomen des “Staus aus dem Nichts” zu erklären. Falls du schon jetzt wissen willst, was das ist, schau doch mal in diese Videos rein:</p>
@@ -857,7 +858,7 @@
 </div>
 <p>In dieser Übungsaufgabe werden wir noch nicht die Entstehung von Stau simulieren können, da uns dazu noch ein paar wichtige Werkzeuge fehlen. Z.B. können wir unsere Agenten noch nicht auf ihre Umwelt reagieren lassen. Stattdessen werden unsere Agenten in der nun folgenden Übungsaufgabe einfach ganz stur und komplett reaktionslos ohne auch nur ein kleines bisschen auf ihre Umgebung zu achten geradeaus “fahren”.</p>
 <p>Wir wollen nun die “Autofahrt” mehrerer Agenten auf einer einspurigen Straße “simulieren”. Die Grundidee ist, dass wir eine Population von Agenten haben, deren einzige Eigenschaft deren aktuelle Position auf dieser Straße ist. Diese Position, die man sich vorstellen kann wie eine Koordinate auf einer Achse in einem (eindimensionalen) Koordinatensystem, speichern wir einfach als Zahl. Unsere Population an Agenten besteht somit insgesamt einfach aus Zahlen, da ja jeder Agent einfach nur durch dessen aktueller Position auf der Straße repräsentiert wird. In unserer Simulation lassen wir dann die Agenten “fahren”, indem wir deren Position in jedem Zeitschritt verändern. Das ist auch schon alles, was unsere Agenten in dieser Simulation machen können. Graphisch darstellen werden wir das Ganze einfach indem wir die Straße mit den Agenten auf ihrer Position als Zeichenkette (String) darstellen und in die Konsole <em>printen</em> werden. Fangen wir an!</p>
-<div class="section" id="aufgabe-1">
+<section id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
 <p>Wir beginnen damit, ein paar grundlegende Variablen zu definieren, welche wir gleich öfter brauchen oder einfach sehr wichtig sind und somit direkt am Anfang schön sichtbar definiert werden sollten.</p>
 <ul class="simple">
@@ -865,16 +866,16 @@
 <li><p>Erstelle zudem die Variable <code class="docutils literal notranslate"><span class="pre">TICKS</span></code> und weise dieser den Wert <code class="docutils literal notranslate"><span class="pre">10</span></code> zu. Diese Variable wird später festlegen, wie viele Zeitschritte wir simulieren möchten.</p></li>
 <li><p>Erstelle die Variable <code class="docutils literal notranslate"><span class="pre">SPEED</span></code> und weise dieser den Wert <code class="docutils literal notranslate"><span class="pre">1</span></code> zu. Diese Variable benutzen wir später, um die Geschwindigkeit der Agenten festzulegen.</p></li>
 </ul>
-</div>
-<div class="section" id="aufgabe-2">
+</section>
+<section id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <p>Nun erstellen wir unsere Agenten. Die Agenten verfügen in dieser Simulation ja nur über eine einzige Eigenschaft, nämlich ihre Position auf der Straße, welche wir als Integer (ganze Zahl) repräsentieren. Die Agenten speichern wir alle in einer Liste namens <code class="docutils literal notranslate"><span class="pre">population</span></code>.</p>
 <ul class="simple">
 <li><p>Erstelle nun die Liste <code class="docutils literal notranslate"><span class="pre">population</span></code>, welche so aussehen soll: <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">4,</span> <span class="pre">7]</span></code>.</p></li>
 </ul>
 <p>Wir haben somit drei Agenten, welche sich anfangs auf den Positionen 0, 4 und 7 auf unserer (im Moment noch vorgestellten) Straße befinden. Die Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> ist noch keine direkte Repräsentation der Straße, sondern erstmal nur der Ort, wo wir notieren, auf welcher Position sich unserer Agenten gerade befinden.</p>
-</div>
-<div class="section" id="aufgabe-3">
+</section>
+<section id="aufgabe-3">
 <h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
 <p>Als erstes basteln wir uns nun die graphische Darstellung der Straße mit den darauf fahrenden Agenten. Die Frage ist, wie eine solche grafische Darstellung aussehen könnte, denn wir wissen ja noch gar nichts darüber, wie man in Python Grafiken, Diagramme oder Animationen erstellen kann. Das einzige Mittel, mit dem wir aktuell Dinge auf dem Bildschirm darstellen können, ist die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code>. Mit dieser können wir einfache Zeichen in der Konsole anzeigen lassen. Damit werden wir nun auch unsere Straße darstellen!</p>
 <p>Jetzt ist noch die Frage, mit welcher Datenstruktur wir die Straße “grafisch” repräsentieren. Dafür benutzen wir zunächst einfach eine Liste, deren Elemente jeweils entweder ein leeres Stück Straße oder ein von einem Auto aktuell besetztes bzw. befahrenes Stück Straße repräsentieren. Einen leeren Straßenabschnitt repräsentieren wir in der Liste mit einem <code class="docutils literal notranslate"><span class="pre">&quot;_&quot;</span></code> und ein befahrenen Straßenabschnitt stellen wir in der Liste mit einem <code class="docutils literal notranslate"><span class="pre">&quot;#&quot;</span></code> dar. Wir brauchen also eine Liste, die so viele Elemente hat, wie die Straße lang ist und an einer Position entweder ein <code class="docutils literal notranslate"><span class="pre">&quot;_&quot;</span></code> oder ein <code class="docutils literal notranslate"><span class="pre">&quot;#&quot;</span></code> aufweist. Wir konstruieren uns diese Liste, indem wir uns eine zunächst leere Liste mit den Symbolen für den leeren Straßenabschnitt befülllen und dann an den entsprechenden Stellen die leeren Straßenabschnitte durch befahrene Straßenabschnitte (also Agenten mit ihren Autos) austauschen.</p>
@@ -886,8 +887,8 @@
 <ul class="simple">
 <li><p>Überprüfe, ob die Liste <code class="docutils literal notranslate"><span class="pre">street</span></code> so aussieht: <code class="docutils literal notranslate"><span class="pre">[&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;]</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="aufgabe-4">
+</section>
+<section id="aufgabe-4">
 <h2>Aufgabe 4<a class="headerlink" href="#aufgabe-4" title="Permalink to this headline">¶</a></h2>
 <p>Die Liste <code class="docutils literal notranslate"><span class="pre">street</span></code> repräsentiert nun eine komplett leere Straße mit der Länge <code class="docutils literal notranslate"><span class="pre">STREET_LEN</span></code>. Nun wollen wir die grafische Darstellung unserer Agenten an den entsprechenden Positionen auf der Straße in die Liste <code class="docutils literal notranslate"><span class="pre">street</span></code> einfügen. Wir müssen also unsere Population von Agenten durchgehen und für jeden Agenten dessen grafische Darstellung in die Liste <code class="docutils literal notranslate"><span class="pre">street</span></code> an der richtigen Position einfügen. Dafür nutzen wir einen For-Loop und Listenindizierung.</p>
 <ul class="simple">
@@ -895,8 +896,8 @@
 <li><p>Setze für jeden Agenten bzw. für jede <code class="docutils literal notranslate"><span class="pre">agent_position</span></code> ein <code class="docutils literal notranslate"><span class="pre">&quot;#&quot;</span></code> an die entsprechende Position <code class="docutils literal notranslate"><span class="pre">agent_position</span></code> in der Liste <code class="docutils literal notranslate"><span class="pre">street</span></code> ein. Nutze also die Schleifenvariable <code class="docutils literal notranslate"><span class="pre">agent_position</span></code> als Index beim Zugriff auf die Liste <code class="docutils literal notranslate"><span class="pre">street</span></code>. Überschreibe in der Liste <code class="docutils literal notranslate"><span class="pre">street</span></code> das Symbol für einen leeren Straßenabschnitt mit dem Symbol für einen befahrenen Straßenabschnitt jeweils an allen Positionen, wo sich ein Agent befindet.</p></li>
 </ul>
 <p>Die Liste <code class="docutils literal notranslate"><span class="pre">street</span></code> sollte nun so aussehen: <code class="docutils literal notranslate"><span class="pre">[&quot;#&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;#&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;#&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;,</span> <span class="pre">&quot;_&quot;]</span></code></p>
-</div>
-<div class="section" id="aufgabe-5">
+</section>
+<section id="aufgabe-5">
 <h2>Aufgabe 5<a class="headerlink" href="#aufgabe-5" title="Permalink to this headline">¶</a></h2>
 <p>Nun haben wir es geschafft, die aktuellen Positionen der 3 Agenten auf einer Straße “grafisch” darzustellen. Wir können unsere grafische Darstellung aber noch etwas optimieren. Dies tun wir, indem wir die Elemente unserer Liste <code class="docutils literal notranslate"><span class="pre">street</span></code> als eine Zeichenkette (also einen String) zusammenfügen. Wir könnten dies natürlich auch wieder in einem tollen For-Loop machen, in welchem wir die Liste <code class="docutils literal notranslate"><span class="pre">street</span></code> durchgehen, die Elemente nacheinander herausholen und nach und nach als einen String zusammensetzen. Wir gehen hier aber eine Abkürzung und nutzen die uns noch unbekannte String-Methode <code class="docutils literal notranslate"><span class="pre">.join()</span></code>. Ich verzichte hier auf genauere Erläuterungen der Methode <code class="docutils literal notranslate"><span class="pre">.join()</span></code>, wenn du mehr über diese Methode wissen willst, schau doch mal <a class="reference external" href="https://www.python-lernen.de/string-methode-join.htm">hier</a> oder vielleicht sogar <a class="reference external" href="https://realpython.com/python-string-split-concatenate-join/">hier</a>.</p>
 <ul class="simple">
@@ -907,16 +908,16 @@
 <li><p>Benutze in deinem Skript nun die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code>, um die Variable <code class="docutils literal notranslate"><span class="pre">street_as_string</span></code> in die Konsole zu printen.</p></li>
 </ul>
 <p>Dies ist dann die Stelle im Code, durch die einmal pro Zeitschritt der aktuelle Zustand der Straße dargestellt wird. Aktuell ist das eben noch nur genau ein Zeitschritt, sodass beim gesamten Ausführen des Codes/Skriptes nun genau einmal der aktuelle Zustand der Variable <code class="docutils literal notranslate"><span class="pre">street_as_string</span></code> dargestellt werden sollte.</p>
-</div>
-<div class="section" id="aufgabe-6">
+</section>
+<section id="aufgabe-6">
 <h2>Aufgabe 6<a class="headerlink" href="#aufgabe-6" title="Permalink to this headline">¶</a></h2>
 <p>Der bisherige Code stellt genau einen Zeitschritt dar. Wir wollen aber mehrere Zeitschritte simulieren.</p>
 <ul class="simple">
 <li><p>Schreibe einen For-Loop, der den gesamten bisherigen Code, außer der Definition der Variablen <code class="docutils literal notranslate"><span class="pre">STREET_LEN</span></code>, <code class="docutils literal notranslate"><span class="pre">TICKS</span></code>, <code class="docutils literal notranslate"><span class="pre">SPEED</span></code> und <code class="docutils literal notranslate"><span class="pre">population</span></code>, mehrere male komplett ausführt. Wie oft der Code durch den For-Loop wiederholt wird, soll dabei durch die Variable <code class="docutils literal notranslate"><span class="pre">TICKS</span></code> bestimmt werden.</p></li>
 </ul>
 <p>Wenn nun das gesamte Python-Skript ausgeführt wird, dann sollte 10 mal hintereinander <code class="docutils literal notranslate"><span class="pre">&quot;#___#__#____________&quot;</span></code> in der Konsole erscheinen.</p>
-</div>
-<div class="section" id="aufgabe-7">
+</section>
+<section id="aufgabe-7">
 <h2>Aufgabe 7<a class="headerlink" href="#aufgabe-7" title="Permalink to this headline">¶</a></h2>
 <p>Der bisherige Code simuliert zwar 10 Zeitschritte, aber die Agenten machen nichts. Sie stehen einfach auf der Straße rum. Wir wollen sie nun fahren lassen! Das machen wir, indem wir in jeden Zeitschritt die Position der Agenten um den Wert von <code class="docutils literal notranslate"><span class="pre">SPEED</span></code> (also 1) erhöhen.</p>
 <ul class="simple">
@@ -929,16 +930,16 @@
 <p>Nun sollten sich die <code class="docutils literal notranslate"><span class="pre">&quot;#&quot;</span></code> auf unserer Straße in jedem Zeitschritt um eine Position nach vorne bewegen.</p>
 <p>Wow! Wir haben es geschafft. Wir haben unsere Population von Agenten zum Handeln gebracht. Zugegeben unsere Agenten sind noch etwas blöd, fahren die ganze Zeit nur gerade aus und besonders spannend ist das auch alles nicht. Aber wir wissen nun, wie ungefähr jede Simulation ganz ganz grob aussehen wird, auch wenn wir später unsere Agenten mit anderen Objekt-Typen darstellen werden oder auch etwas anschaulichere grafische Darstellungen verwenden werden.</p>
 <p>Wenn du hier angekommen bist, dann kannst dir auf die Schulter klopfen und stolz sein!</p>
-</div>
-<div class="section" id="aufgabe-8">
+</section>
+<section id="aufgabe-8">
 <h2>Aufgabe 8<a class="headerlink" href="#aufgabe-8" title="Permalink to this headline">¶</a></h2>
 <p>Wir haben am Anfang die Variablen <code class="docutils literal notranslate"><span class="pre">STREET_LEN</span></code>, <code class="docutils literal notranslate"><span class="pre">TICKS</span></code> und <code class="docutils literal notranslate"><span class="pre">SPEED</span></code> definiert. Diese können wir als “Parameter” unserer Simulation verstehen. Verändern wir diese, verändern wir den Output unserer Simulation.</p>
 <ul class="simple">
 <li><p>Experimentiere etwas mit den Variablen <code class="docutils literal notranslate"><span class="pre">STREET_LEN</span></code>, <code class="docutils literal notranslate"><span class="pre">TICKS</span></code> und <code class="docutils literal notranslate"><span class="pre">SPEED</span></code> und weise diesen beliebige andere Werte zu.</p></li>
 </ul>
 <p>Es kann sehr gut sein, dass Python bei bestimmten Werten für diese Variablen einen <strong>Fehler</strong> anzeigt.</p>
-</div>
-<div class="section" id="aufgabe-9">
+</section>
+<section id="aufgabe-9">
 <h2>Aufgabe 9<a class="headerlink" href="#aufgabe-9" title="Permalink to this headline">¶</a></h2>
 <p>Wenn du nun etwas mit den “Parametern” unserer Simulation herumgespielt hast, dann ist sehr wahrscheinlich nach einiger Zeit dieser Fehler aufgetreten:</p>
 <p><code class="docutils literal notranslate"><span class="pre">IndexError:</span> <span class="pre">list</span> <span class="pre">assignment</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code></p>
@@ -950,14 +951,14 @@
 <li><p>Erweitere die aktuelle Berechnung der neuen Position mit dem Modulo, sodass die neue Position auf 0 gesetzt wird, sobald diese zu hoch wird.</p></li>
 <li><p>Teste dein Programm.</p></li>
 </ul>
-</div>
-<div class="section" id="aufgabe-10">
+</section>
+<section id="aufgabe-10">
 <h2>Aufgabe 10<a class="headerlink" href="#aufgabe-10" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Schaffst du es, die Fahrtrichtung der Agenten zu ändern?</p></li>
 </ul>
-</div>
-<div class="section" id="hilfestellung">
+</section>
+<section id="hilfestellung">
 <h2>Hilfestellung<a class="headerlink" href="#hilfestellung" title="Permalink to this headline">¶</a></h2>
 <p>Es ist manchmal etwas schwer aus sprachlichen Beschreibungen darüber, was das Programm machen soll, wirklich zu verstehen, wie der Code aussehen soll. Prinzipiell gibt es auch viele mögliche Wege, das zu coden, was ich oben beschreibe. Als kleine Hilfestellung zeige ich dir unten Ausschnitte aus meiner Lösung der Aufgaben. Alle <code class="docutils literal notranslate"><span class="pre">...</span></code> müssen durch den richtigen Code ersetzt werden. Vielleicht hilft das ja. Beachte, dass der For-Loop <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">tick</span> <span class="pre">in</span> <span class="pre">TICKS:</span></code> erst in Aufgabe 6 nachträglich eingebaut wird und somit auch erst dann der Code, der nach der Zeile <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">tick</span> <span class="pre">in</span> <span class="pre">TICKS:</span></code> kommt, entsprechend eingerückt wird.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
@@ -991,10 +992,10 @@
         
 </pre></div>
 </div>
-</div>
+</section>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

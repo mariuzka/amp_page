@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Lösungen &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -51,8 +52,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.1 Funktionen" href="../05/amp05_intro.html" />
-    <link rel="prev" title="4.2 Das NaSch-Modell" href="amp04b.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -96,7 +95,7 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/amp01_intro.html">
    1.1 Einführung
@@ -311,18 +310,18 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="amp04b.html">
    4.2 Das NaSch-Modell
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -790,7 +789,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="losungen">
+  <section class="tex2jax_ignore mathjax_ignore" id="losungen">
 <h1>Lösungen<a class="headerlink" href="#losungen" title="Permalink to this headline">¶</a></h1>
 <p>Den Code des Modells kann man grob in 6 Teile untergliedern:</p>
 <ol class="simple">
@@ -802,17 +801,17 @@
 <li><p>Handeln der Agenten</p></li>
 </ol>
 <p>Ich gebe diesmal einen großen Teil des Codes, nämlich die Schritte 1 - 5, vor. Deine Aufgabe ist es zunächst den von mir vorgegebenen Code so gut es geht nachzuvollziehen. Im nächsten Schritt sollst du das Handeln der Agenten, die vier <a class="reference external" href="https://en.wikipedia.org/wiki/Nagel%E2%80%93Schreckenberg_model#Outline_of_the_model">Handlungsregeln der Agenten</a>, als sechsten Schritt der Simulation zum Code hinzuzufügen.</p>
-<div class="section" id="aufgabe-1">
+<section id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
 <p>Im Folgenden beschreibe ich die einzelnen Schritte des Codes jeweils kurz.</p>
 <ul class="simple">
 <li><p>Versuche den Code so gut es geht nachzuvollziehen!</p></li>
 </ul>
-<div class="section" id="schritt-1-import-von-zusatzlichen-modulen">
+<section id="schritt-1-import-von-zusatzlichen-modulen">
 <h3>Schritt 1 - Import von zusätzlichen Modulen<a class="headerlink" href="#schritt-1-import-von-zusatzlichen-modulen" title="Permalink to this headline">¶</a></h3>
 <p>Zu Beginn eines jeden Python-Programmes müssen die zusätzlichen Module, die wir benötigen, importiert werden. In diesem Fall wird das Modul <code class="docutils literal notranslate"><span class="pre">random</span></code> aus der Standard-Bibliothek importiert. Wir brauchen das Modul <code class="docutils literal notranslate"><span class="pre">random</span></code> später, um das zufällige Trödeln der Agenten einzubauen.</p>
-</div>
-<div class="section" id="schritt-2-definition-wichtiger-parameter-der-simulation">
+</section>
+<section id="schritt-2-definition-wichtiger-parameter-der-simulation">
 <h3>Schritt 2 - Definition wichtiger Parameter der Simulation<a class="headerlink" href="#schritt-2-definition-wichtiger-parameter-der-simulation" title="Permalink to this headline">¶</a></h3>
 <p>An dieser Stelle werden wichtige Parameter unserer unserer Simulation definiert. Wir können hier als Parameter all diejenigen Werte verstehen, die das allgemeine “Verhalten” unserer Simulation beeinflussen. Ich schreibe übrigens die Variablennamen der Parameter alle bewusst groß, da es in der Informatik eine Konvention gibt, Variablen, deren Werte sich im gesamten Verlauf des Programmes nicht verändert, groß zu schreiben. Eine solche Variable nennt man auch Konstante.</p>
 <ul class="simple">
@@ -823,8 +822,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">INITIAL_DISTANCE</span></code>: Die Agenten werden am Anfang mit gleichmäßigem Abstand zueinander auf der Straße verteilt. Diese Variable gibt die anfängliche Distanz von Agent zu Agent an.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">STREET_LEN</span></code>: Die Länge der Straße bzw. die Anzahl an Straßenabschnitten (Zellen) der Straße, welche von den Agenten befahren werden können. Diese ergibt sich aus der Anzahl der Agenten und deren anfängliche Distanz zueinander.</p></li>
 </ul>
-</div>
-<div class="section" id="schritt-3-erstellen-der-population">
+</section>
+<section id="schritt-3-erstellen-der-population">
 <h3>Schritt 3 - Erstellen der Population<a class="headerlink" href="#schritt-3-erstellen-der-population" title="Permalink to this headline">¶</a></h3>
 <p>Wie so oft wird zunächst eine leere Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> erstellt, welche dann in einem For-Loop nach und nach mit Agenten befüllt wird.</p>
 <p>Die Eigenschaften der Agenten repräsentieren wir diesmal als ein Dictionary. Das vereinfacht uns vieles. Z.B. können wir die einzelnen Eigenchaften der Agenten benennen und dann auch mit Namen auf diese zugreifen. Genau wie Listen sind Dictionaries gehören Dictionaries zu den veränderbaren Datentypen. Dadurch können wir sehr einfach die Eigenschaften der Agenten (z.B. innerhalb von For-Loops) verändern.</p>
@@ -837,21 +836,21 @@
 </ul>
 <p>Nachdem nun die Population erstellt wurde, füge ich nochmal zwei Eigenschaften zu jedem Agenten hinzufügen: den jeweils vorausfahrenden Agenten und den jeweils hinterherfahrenden Agenten. Da in unserer Simulation nicht überholt werden kann, sind dies immer die selben zwei Agenten. Um später die <em>Interaktion</em> zwischen den Agenten bzw. die Reaktionen der Agenten aufeinander zu modellieren, ist es praktisch, wenn sich alle Agenten merken, wer vor oder hinter dem Agenten fährt. Tatsächlich speichern wir dabei nicht eine <em>Kopie</em> der jeweiligen voraus- oder nachfahrenden Agenten selbst ein, sondern nur <em>Verweise</em> bzw. <em>Zeiger</em> auf die jeweiligen Agenten-Objekte. Das ist sehr praktisch, weil wir so über einen Agenten immer auch auf den jeweils voraus- oder hinterherfahrenden Agenten zugreifen können und diesen verändern können (da die Agenten als veränderbare Dictionaries repräsentiert sind)! Auf jeden Agenten wird nun also einmal in der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code>, aber auch einmal innerhalb eines anderen Agenten als vorausfahrender Agent und einmal innerhalb eines anderen Agenten als nachfahrender Agent verwiesen.</p>
 <p>Die voraus- und nachfahrenden Agenten werden unter <code class="docutils literal notranslate"><span class="pre">&quot;agent_ahead&quot;</span></code> und <code class="docutils literal notranslate"><span class="pre">&quot;agent_behind&quot;</span></code> als Eigenschaft eines jeden Agenten eingespeichert. Versuche mal nachzuvollziehen, wie die beiden Agenten jeweils gefunden werden. Wenn dir das nicht 100% klar ist, ist das aber nicht so schlimm. Merken solltest du dir v.a., dass sich unter dem Dictionary-Key <code class="docutils literal notranslate"><span class="pre">&quot;agent_ahead&quot;</span></code> der vorausfahrende und unter dem Dictionary-Key <code class="docutils literal notranslate"><span class="pre">&quot;agent_behind&quot;</span></code> jeweils der hinterherfahrende Agent befindet.</p>
-</div>
-<div class="section" id="schritt-4-das-starten-der-simulation-mittels-for-loop-durch-die-zeit">
+</section>
+<section id="schritt-4-das-starten-der-simulation-mittels-for-loop-durch-die-zeit">
 <h3>Schritt 4 - Das Starten der Simulation mittels For-Loop durch die Zeit<a class="headerlink" href="#schritt-4-das-starten-der-simulation-mittels-for-loop-durch-die-zeit" title="Permalink to this headline">¶</a></h3>
 <p>Nach der obigen <em>Initialisierungsphase</em> wird nun die eigentliche Simulation gestartet. Mittels For-Loop wird jeder nun nachfolgende, eingerückte Code für jeden zu simulierenden Zeitschritt wiederholt. In jedem Zeitschritt wird die grafische Darstellung aktualisiert und ausgegeben sowie jeder Agent zum handeln gebracht.</p>
-</div>
-<div class="section" id="schritt-5-die-grafische-darstellung-der-simulation">
+</section>
+<section id="schritt-5-die-grafische-darstellung-der-simulation">
 <h3>Schritt 5 - Die grafische Darstellung der Simulation<a class="headerlink" href="#schritt-5-die-grafische-darstellung-der-simulation" title="Permalink to this headline">¶</a></h3>
 <p>An dieser Stelle wird die sehr simple grafische Darstellung des Modells erstellt. Diese ist vom Prinzip her genau gleich wie die grafische Darstellung in den Übungsaufgaben des letzten Kapitels. Diesmal werden leere Straßenabschnitte allerdings als <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code> und Agenten als Zahl, die die aktuelle Geschwindigkeit anzeigt, dargestellt.</p>
-</div>
-<div class="section" id="schritt-6-das-handeln-der-agenten">
+</section>
+<section id="schritt-6-das-handeln-der-agenten">
 <h3>Schritt 6 - Das Handeln der Agenten<a class="headerlink" href="#schritt-6-das-handeln-der-agenten" title="Permalink to this headline">¶</a></h3>
 <p>In diesem Schritt Handeln die Agenten. Hier ist es dann gleich deine Aufgabe, die noch fehlende Umsetzung der vier <a class="reference external" href="https://en.wikipedia.org/wiki/Nagel%E2%80%93Schreckenberg_model#Outline_of_the_model">Handlungsregeln der Agenten</a> zu programmieren. Einen Teil, welcher nicht direkt in den 4 Handlungsregeln besprochen wird, habe ich aber auch hier bereits vorgegeben. In diesem von mir bereits vorgegebenen Teil geht es darum, dass nachdem die Agenten entsprechend der 4 Handlungsregeln gehandelt haben, nochmal alle Agenten durchgegangen werden, um ihre “Sicht” auf die Straße zu aktualisieren. Da die Agenten gefahren sind, hat sich evtl. der Abstand zum vorausfahrenden (und zum nachfahrenden Agenten) verändert. Diese Information müssen wir natürlich den Agenten mitteilen, damit sie im nächsten Zeitschritt ein richtiges <em>Abbild</em> der Straße <em>im Kopf</em> haben.</p>
-</div>
-</div>
-<div class="section" id="aufgabe-2">
+</section>
+</section>
+<section id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <p>Der gesamte Code ist, so wie er unten zu sehen ist, vollkommen funktionsfähig. Du kannst den Code kopieren und komplett ausführen. Achte dabei, dass alle Einrückungen des Codes exakt so bleiben! Du solltest nach der Ausführung des Codes in der Konsole sehen, dass die Simulation entsprechend der simulierten Zeitschritte ausgeführt wurde, aber die Agenten sich nicht nach vorne bewegen. Um das zu ändern, sollst du nun an die entsprechenden Stellen die vier Handlungsregeln einbauen.</p>
 <ul class="simple">
@@ -1582,8 +1581,8 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1609,21 +1608,7 @@
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="amp04b.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">4.2 Das NaSch-Modell</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../05/amp05_intro.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">5.1 Funktionen</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
             
         </div>

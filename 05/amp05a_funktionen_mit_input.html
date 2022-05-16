@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Funktionen mit Input &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -726,7 +727,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="funktionen-mit-input">
+  <section class="tex2jax_ignore mathjax_ignore" id="funktionen-mit-input">
 <h1>Funktionen mit Input<a class="headerlink" href="#funktionen-mit-input" title="Permalink to this headline">¶</a></h1>
 <p>Die obige Funktion ermöglicht uns es Code zwar schön zu verpacken und immer wieder zu verwenden, die Funktion führt aber tatsächlich immer exakt den gleichen Code aus. Um Funktionen nicht nur als starre Code-Pakete zu verwenden, sondern auch situationsspezifisch einsetzen und kontrollieren zu können, können wir einen variablen Input festlegen.</p>
 <p>Wenn die Funktion einen <em>Input</em> haben soll, dann können wir innerhalb der runden Klammern eine beliebige Zahl von beliebig gewählten Namen für die “Input-Variablen”, welche man auch “Parameter” oder “Argumente” nennt, eintragen. Allgemein sieht das dann so aus:</p>
@@ -798,7 +799,7 @@ hello world
 </div>
 </div>
 </div>
-<div class="section" id="funktionen-mit-mehreren-inputs">
+<section id="funktionen-mit-mehreren-inputs">
 <h2>Funktionen mit mehreren Inputs<a class="headerlink" href="#funktionen-mit-mehreren-inputs" title="Permalink to this headline">¶</a></h2>
 <p>Wir können eine beliebige Anzahl an Inputs einer Funktion festlegen. Ich kombiniere nun z.B. die Funktionalität der Funktion <code class="docutils literal notranslate"><span class="pre">say_hello_to()</span></code> mit der Funktionalität der Funktion <code class="docutils literal notranslate"><span class="pre">say_hello_several_times</span></code>, sodass mithilfe von zwei Inputs sowohl die zu begrüßende Person als auch die Häufigkeit der Begrüßung festgelegt werden kann.</p>
 <div class="cell docutils container">
@@ -827,8 +828,8 @@ Hello Monty !
 </div>
 <p>Hat eine Funktion mehrere Inputs, dann ist es sehr wichtig darauf zu achten, in welcher Reihenfolge die Inputs erfolgen müssen. Steht in der Funktionsdefinition der Input <code class="docutils literal notranslate"><span class="pre">name</span></code> an erster Stelle innerhalb der runden Klammer, dann muss bei der Ausführung der Funktion der entsprechende Wert, welcher für <code class="docutils literal notranslate"><span class="pre">name</span></code> eingesetzt werden soll, auch an erster Stelle kommen. Steht der Input <code class="docutils literal notranslate"><span class="pre">n</span></code> an zweiter Stelle, dann muss der entsprechend eingesetzt Wert an zweiter Stelle eingesetzt werden. Werden die Inputs allein anhand der Position in der runden Klammer zugeordnet, dann nennt man diese (auf Englisch) “positional arguments”.</p>
 <p>Vor allem wenn eine Funktion viele Inputs erwartet, kann es relativ schnell relativ kompliziert werden, die genaue Reihenfolge der Inputs einzuhalten. Schnell kann es dazu kommen, dass man die eingegebenen Werte an eine falsche Stelle setzt und somit falschen Inputvariablen zuordnet. Eine Lösung für das Problem kann sein, sogenannte “keyword arguments” zu verwenden.</p>
-</div>
-<div class="section" id="input-mittels-keyword-arguments">
+</section>
+<section id="input-mittels-keyword-arguments">
 <h2>Input mittels keyword arguments<a class="headerlink" href="#input-mittels-keyword-arguments" title="Permalink to this headline">¶</a></h2>
 <p>Der Input jeder Funktion kann immer auch über “keyword arguments” zugewiesen werden. Das bedeutet, dass die eingegebenen Werte nicht über die Position in den runden Klammern zugeordnet werden, sondern man weist innerhalb der runden Klammern den eingegebenen Wert mittels Gleichheitszeichen dem entsprechenden Argument/Platzhalter zu, wie man hier sieht:</p>
 <div class="cell docutils container">
@@ -862,8 +863,8 @@ Hello Monty !
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

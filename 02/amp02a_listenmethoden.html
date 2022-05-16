@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Grundlegende Listen-Methoden &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -746,10 +747,10 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="grundlegende-listen-methoden">
+  <section class="tex2jax_ignore mathjax_ignore" id="grundlegende-listen-methoden">
 <h1>Grundlegende Listen-Methoden<a class="headerlink" href="#grundlegende-listen-methoden" title="Permalink to this headline">¶</a></h1>
 <p>Schauen wir uns nun ein paar grundlegene Methoden von Listen an. All die folgenden “Funktionen” sind also Fähigkeiten von Listen, bestimmte Dinge zu tun. Diese Methoden sind exklusiv auf Listen zugeschnitten und funktionieren nur, wenn diese an Listen bzw. Variablennamen von Listen mit einem Punkt angehängt werden.</p>
-<div class="section" id="ein-element-anhangen-append">
+<section id="ein-element-anhangen-append">
 <h2>Ein Element anhängen: append()<a class="headerlink" href="#ein-element-anhangen-append" title="Permalink to this headline">¶</a></h2>
 <p>Die Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> fügt ein Element der Liste hinten an. Wir müssen das entsprechende Element dafür als Input in die Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> einfügen.</p>
 <p>Hier im Beispiel definiere ich zunächst die Liste <code class="docutils literal notranslate"><span class="pre">words</span></code>, welche ein paar Wörter enthält.</p>
@@ -794,8 +795,8 @@
 </div>
 </div>
 <p>Beachte: Wir haben die Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> verändert, ohne diese mittels Variablendefinition (mit Gleichheitsszeichen) zu überschreiben! Die Liste hat sich praktisch durch das Ausführen ihrer Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> selbst verändert.</p>
-</div>
-<div class="section" id="eine-liste-anhangen-extend">
+</section>
+<section id="eine-liste-anhangen-extend">
 <h2>Eine Liste anhängen: extend()<a class="headerlink" href="#eine-liste-anhangen-extend" title="Permalink to this headline">¶</a></h2>
 <p>Man kann nicht nur einzelne Elemente an eine Liste anhängen, sondern man kann auch direkt eine ganze Liste von Objekten anhängen. Dabei werden aber nicht wie oben, die Liste mit Objekten einfach als Gesamtpaket d.h. als ein Objekt angehängt, sondern entpackt und als einzelne Objekte angehängt. Schauen wir uns das am besten einfach mal am Beispiel der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> an, welche zunächst noch so aussieht:</p>
 <div class="cell docutils container">
@@ -852,8 +853,8 @@
 </div>
 </div>
 <p>Und wir sehen, der Inhalt der Liste <code class="docutils literal notranslate"><span class="pre">more_words</span></code> befindet sich nur in der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code>. Wir haben die beiden Listen praktisch miteinander verschmolzen.</p>
-</div>
-<div class="section" id="ein-element-an-beliebiger-stelle-einfugen-insert">
+</section>
+<section id="ein-element-an-beliebiger-stelle-einfugen-insert">
 <h2>Ein Element an beliebiger Stelle einfügen: insert()<a class="headerlink" href="#ein-element-an-beliebiger-stelle-einfugen-insert" title="Permalink to this headline">¶</a></h2>
 <p>Nun wissen wir, wie wir Elemente oder ganze Listen hinten an eine Liste anhängen. Wir wissen auch, wie wir mittels Indizierung auf ein Element in einer Liste zugreifen und dieses ggf. verändern oder austauschen. Was wir noch nicht wissen, ist, wie man ein Element zwischen die Elemente einer Liste einfügt. Dies geht u.a. mit der Methode <code class="docutils literal notranslate"><span class="pre">insert()</span></code>.</p>
 <p>Die Methode <code class="docutils literal notranslate"><span class="pre">insert()</span></code> benötigt zwei Argumente:</p>
@@ -876,8 +877,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="das-letzte-element-ausgeben-und-abhangen-pop">
+</section>
+<section id="das-letzte-element-ausgeben-und-abhangen-pop">
 <h2>Das letzte Element ausgeben und abhängen: pop()<a class="headerlink" href="#das-letzte-element-ausgeben-und-abhangen-pop" title="Permalink to this headline">¶</a></h2>
 <p>Die Methode <code class="docutils literal notranslate"><span class="pre">pop()</span></code> tut zwei Dinge: Zum einen wird das letzte Element einer Liste abgehängt d.h. aus der Liste entfernt. Zum anderen wird aber zugleich auch das letzte Element auch zurückgegeben, sodass wir es bspw. einer Variable zuweisen können und es nicht weg ist, nachdem wir es von unserer Liste abgehängt haben. Wir können also mit der Funktion <code class="docutils literal notranslate"><span class="pre">pop()</span></code> das letzte Element aus der Liste herausnehmen und etwas anderes mit diesem machen. Letzteres müssen wir aber auch nicht. Wenn wir das zurückgegebene Element nicht wieder irgendwo speichern, dann verschwindet es einfach.</p>
 <div class="cell docutils container">
@@ -935,8 +936,8 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

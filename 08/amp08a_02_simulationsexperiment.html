@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Ein Simulationsexperiment durchführen &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -746,7 +747,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="ein-simulationsexperiment-durchfuhren">
+  <section class="tex2jax_ignore mathjax_ignore" id="ein-simulationsexperiment-durchfuhren">
 <h1>Ein Simulationsexperiment durchführen<a class="headerlink" href="#ein-simulationsexperiment-durchfuhren" title="Permalink to this headline">¶</a></h1>
 <p>Um den Effekt eines Modellparameters auf den Ablauf der Simulation bzw. auf einen <em>Outcome</em> zu untersuchen, führt man typischerweise Simulationsexperimente durch. Dabei lässt man ein Modell mehrmals mit verschiedenen Parameterwerten laufen, misst für jedes Modell einen interessierenden “Output” mit einer geeigneten Maßzahl, vergleicht die Ergebnisse zwischen den Modellen und schaut, ob die Variation des Parameters einen Unterschied für die Ergebnisse des Modells macht. Mit Pandas haben wir jetzt das richtige Werkzeug, um die Daten eines solchen Simulationsexperimentes sinnvoll zu speichern und für weitere Analysen handhabbar zu machen.</p>
 <p>Im Folgenden demonstriere ich beispielhaft die Durchführung eines einfachen Simulationsexperimentes und einer sinnvollen Speicherung der dabei entstehenden Output-Daten anhand des allseits beliebten NaSch-Modells. Ziel des Experimentes ist es zu untersuchen, welchen Einfluss die Verkehrsdichte sowie die indivuduelle Auftretenswahrscheinlichkeit des Trödelns auf die durchschnittlich gefahrene Geschwindigkeit der Population hat.</p>
@@ -896,7 +897,7 @@
 </div>
 </div>
 <p>Unsere Funktion ist nun soweit, dass sie uns für einen entsprechenden Parameter-Input das Simulationsmodell laufen lässen und uns anschließend einen kompakten Output mit allen relevanten Informationen zum vollzogenenen Modelldurchlauf in einem Dictionary zurückliefert. In einem Simulationsexperiment lassen führen wir die Funktion für verschiedene Parameter-Werte aus, speichern die jeweils zurückgegebenen Dictionaries mit den relevanten Informationen in einer Liste und können diese dann in einen Pandas-Dataframe überführen, um die Daten auszuwerten.</p>
-<div class="section" id="experiment-mit-einer-unabhangigen-variable">
+<section id="experiment-mit-einer-unabhangigen-variable">
 <h2>Experiment mit einer unabhängigen Variable<a class="headerlink" href="#experiment-mit-einer-unabhangigen-variable" title="Permalink to this headline">¶</a></h2>
 <p>Untersuchen wir zunächst allein den Effekt der Verkehrsdichte auf die durchschnittliche Geschwindigkeit. Die Verkehrsdichte wird im Modell über das Argugment <code class="docutils literal notranslate"><span class="pre">initial_distance</span></code>, welche die anfängliche Distanz zwischen den Agenten auf der Straße angibt, gesteuert.</p>
 <ul class="simple">
@@ -1333,8 +1334,8 @@
 </div>
 <p>Die Ergebnisse des Experimentes zeigen bisher, dass eine Erhöhung der Verkehrsdichte nach einem anfänglichen Plateu bei sehr niedriger Straßenauslastung zu einem sehr starken Absinken der durchschnittlich gefahrenen Geschwindigkeit führt. Es gibt somit einen <em>kritischen Punkt</em>, wo eine Erhöhung der Verkehrsdichte zu einem rapiden Ausbremsen des Verkehrs führt.</p>
 <p>Mit Matplotlib wird das Anzeigen der Ergebnisse aber spätestens, wenn wir eine dritte Variable im Diagramm darstellen wollen, unnötig kompliziert, weshalb wir in Kürze einen kurzen Blick auf das Grafik-Paket <strong>Seaborn</strong> werfen werden</p>
-</div>
-<div class="section" id="experiment-mit-zwei-unabhangigen-variablen">
+</section>
+<section id="experiment-mit-zwei-unabhangigen-variablen">
 <h2>Experiment mit zwei unabhängigen Variablen<a class="headerlink" href="#experiment-mit-zwei-unabhangigen-variablen" title="Permalink to this headline">¶</a></h2>
 <p>Nun wollen wir in einem weiteren Experiment prüfen, welche Rolle das Ausmaß von unnötigem Abbremsen d.h. der Höhe der Trödelwahrscheinlichkeit für den Zusammenhang zwischen Verkehrsdichte und Durchschnittsgeschwindkeit spielt. Genaugenommen prüfen wir damit einen sogenannten Interaktionseffekt bzw. eine Moderation.</p>
 <p>Im Folgenden lasse ich die Funktion <code class="docutils literal notranslate"><span class="pre">nasch_model()</span></code> nicht nur mit unterschiedlichen Werten für das Argument <code class="docutils literal notranslate"><span class="pre">initial_distance</span></code> laufen, sondern zudem lasse ich mithilfe eines zweiten For-Loops ebenfalls die Werte für das Argument <code class="docutils literal notranslate"><span class="pre">dawdling_prob</span></code> (die Trödelwahrscheinlichkeit) variieren. Dadurch wird das obige Experiment für verschiedene Werte der Trödelwahrscheinlichkeit jeweils komplett wiederholt.</p>
@@ -1767,8 +1768,8 @@
 </div></div></div>
 </div>
 <p>Wie man nun das Ergebnis eines solchen Experimentes in einem Diagramm mit 3 Variablen darstellen kann, schauen wir uns im Folgenden Exkurs zum Paket Seaborn an.</p>
-</div>
-<div class="section" id="exkurs-ergebnisse-mit-seaborn-darstellen">
+</section>
+<section id="exkurs-ergebnisse-mit-seaborn-darstellen">
 <h2>Exkurs: Ergebnisse mit Seaborn darstellen<a class="headerlink" href="#exkurs-ergebnisse-mit-seaborn-darstellen" title="Permalink to this headline">¶</a></h2>
 <p>Um den gemeinsamen Effekt der Verkehrsdichte und der Trödelwahscheinlichkeit auf die Durchschnittsgeschwindigkeit darzustellen, bietet sich u.a. ein Linien-Diagramm an, in welchem der Zusammenhang zwischen Verkehrsdichte und Durchschnittsgeschwindigkeit getrennt nach jeweilige Trödelwahscheinlichkeit abgetragen ist. Für solche Diagramme ist Matplotlib allerdings unnötig kompliziert, weshalb ich empfehle mal einen Blick auf das Paket <a class="reference external" href="https://seaborn.pydata.org/">Seaborn</a> zu werfen. Mit Seaborn kann man Daten relativ unkompliziert gruppiert nach einer dritten Variable anzeigen lassen. Zudem ist Seaborn auf die Verwendung von Pandas-Dataframes zugeschnitten.</p>
 <ul class="simple">
@@ -1802,8 +1803,8 @@
 </div>
 </div>
 <p>Die Ergebnisse zeigen, dass durch das Vorhandensein von “Trödeln” u.a. der Kipp-Punkt, ab welchem eine Erhöhung der Verkehrsdichte die gefahrene Durchschnittsgeschwindigkeit deutlich absenkt, bereits bei niedrigeren Verkehrsdichten auftritt.</p>
-</div>
-<div class="section" id="mehrere-replikationen-einer-parameterkombination">
+</section>
+<section id="mehrere-replikationen-einer-parameterkombination">
 <h2>Mehrere Replikationen einer Parameterkombination<a class="headerlink" href="#mehrere-replikationen-einer-parameterkombination" title="Permalink to this headline">¶</a></h2>
 <p>Spielt in einem Simulationsmodell der Zufall eine große Rolle, dann ist es gängige Praxis, für jede Kombination an Parametern mehrere Wiederholungen des Modells zu rechnen und dann den Mittelwert über alle Wiederholungen pro Parameterkombination zu berechnen, um eventuellen Zufallsschwankungen auf der interessierenden abhängigen Variable entgegenzuwirken.</p>
 <p>Ein Weg, um mehrere Replikationen für eine Parameterkombination laufen zu lassen, kann sein, einfach einen weiteren For-Loop zu verwenden, um für jede Parameterkombination eine bestimmte Anzahl an Wiederholungen der Modelldurchläufe laufen zu lassen. Unten füge ich daher in den bisherigen Code einen weiteren For-Loop <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">replication</span> <span class="pre">in</span> <span class="pre">range(10):</span></code> ein, welcher bewirkt, dass die Funktion <code class="docutils literal notranslate"><span class="pre">nasch_model()</span></code> 10 mal für jede Kombination von <code class="docutils literal notranslate"><span class="pre">dawdling_prob</span></code> und <code class="docutils literal notranslate"><span class="pre">initial_distance</span></code> ausgeführt wird und die Daten gespeichert werden. Der Output-Datensatz wird dadurch demendsprechend nochmal um den Faktor 10 länger.</p>
@@ -1865,8 +1866,8 @@
 </div>
 </div>
 <p>Eigentlich zeigt Seaborn auch automatisch ein Art Konfidenzintervall um die berechneten Mitttelwerte an. Im Falle des NaSch-Modells scheint die Streuung zwischen den einzelnen Simulationen mit gleichen Parametern allerdings so gering zu sein, dass man dieses im obigen Diagramm nicht sieht.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

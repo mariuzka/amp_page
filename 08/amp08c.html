@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Lösungen &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -736,10 +737,10 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="losungen">
+  <section class="tex2jax_ignore mathjax_ignore" id="losungen">
 <h1>Lösungen<a class="headerlink" href="#losungen" title="Permalink to this headline">¶</a></h1>
 <p>Im Folgenden wird ein Experiment, mit welchem der Zusammenhang von individueller Segregationspräferenz und realisierter Segregation untersucht werden kann, implementiert.</p>
-<div class="section" id="schritt-1-daten-sammeln">
+<section id="schritt-1-daten-sammeln">
 <h2>Schritt 1 - Daten sammeln<a class="headerlink" href="#schritt-1-daten-sammeln" title="Permalink to this headline">¶</a></h2>
 <p>Zunächst muss die Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> so verändert werden, dass die gewünschten Daten eines Simulationsdurchlaufs gesammelt werden. Am Ende der Funktion <code class="docutils literal notranslate"><span class="pre">run_model()</span></code> werden daher u.a. die realisierte Segregation als durchschnittliche Anzahl von Nachbarn der eigenen Gruppe sowie die individuelle Segregationspräferenz (<code class="docutils literal notranslate"><span class="pre">threshold</span></code>) in einem Dictionary gesammelt und ausgegeben.</p>
 <div class="cell docutils container">
@@ -927,8 +928,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="schritt-2-experiment-durchfuhren">
+</section>
+<section id="schritt-2-experiment-durchfuhren">
 <h2>Schritt 2 - Experiment durchführen<a class="headerlink" href="#schritt-2-experiment-durchfuhren" title="Permalink to this headline">¶</a></h2>
 <p>Da der Parameter <code class="docutils literal notranslate"><span class="pre">threshold</span></code> die unabhängige Variable darstellt, wird dieser im Folgenden variiert, sodass das Simulationsmodell jeweils mit unterschiedlichen Werten für <code class="docutils literal notranslate"><span class="pre">threshold</span></code> und mit jeweils mehreren Replikationen durchgeführt wird. Die von jedem Simulationsdurchgang produzierten Dictionaries werden in der Liste <code class="docutils literal notranslate"><span class="pre">data</span></code> gespeichert und schließlich in einen Dataframe namens <code class="docutils literal notranslate"><span class="pre">df</span></code> überführt.</p>
 <div class="cell docutils container">
@@ -1119,8 +1120,8 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="schritt-3-ergebnisse-darstellen">
+</section>
+<section id="schritt-3-ergebnisse-darstellen">
 <h2>Schritt 3 - Ergebnisse darstellen<a class="headerlink" href="#schritt-3-ergebnisse-darstellen" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1156,8 +1157,8 @@
 <li><p>Bereits jedoch ab einer individuellen Segregationspräferenz von 0.2 bis 0.3 beginnt die realisierte Segregation über das Basislevel von 0.5 hinaus stark anzusteigen und bei vergleichsweise niedrigen Segregationspräferenzen nun vergleichsweise starke Segregation zu erzeugen. Bis zu einer individuellen Segregationspräferenz von ca. 0.7 wird jeweils im Vergleich zu den individuellen Präferenzen eine stark “überhöhte” Segregation realisiert.</p></li>
 <li><p>Ab einer Segregationspräferenz von ca. 0.7 sinkt die realisierte Segregation wieder auf das “Basis-Niveau” ab. Dies ist damit zu erklären, dass nun die Bedürfnisse der Agenten nicht mehr erfüllt werden zu scheinen, diese daher ständig auf einen zufälligen neuen Platz umziehen und somit eine ständige Durchmischung erzeugen. Dieser Effekt ist jedoch vermutlich auf die spezielle Implementierung des Modells zurückzuführen: Würden Agenten beispielsweise bei Unzufriedenheit mit der Nachbarschaft nicht auf einen zufälligen neuen Ort umziehen, sondern nur auf Orte mit einer “besseren” Zusammensetzung der Nachbarschaft, dann würde vermutlich kein Absinken, sondern lediglich eine Stagnation der realisierten Segregation bei sehr hohen individuellen Segregationspräferenzen zu beobachten sein.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

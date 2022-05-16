@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Objektorientiertes Interface &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -780,7 +781,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="objektorientiertes-interface">
+  <section class="tex2jax_ignore mathjax_ignore" id="objektorientiertes-interface">
 <h1>Objektorientiertes Interface<a class="headerlink" href="#objektorientiertes-interface" title="Permalink to this headline">¶</a></h1>
 <p>Mit dem <em>funktionalen Interface</em> haben wir eine einfache und schnelle Variante des Plottens mit Matplotlib kennengelernt. Diese Form der Verwendungform von Matplotlib reicht in vielen Fällen aus, um einfache Graphiken zu erstellen. Dennoch stößt dieser Ansatz an seine Grenzen, möchte man die “volle Kontrolle” beim Erstellen von Diagrammen haben. Und vor allem, wenn man fortgeschrittene Techniken wie die Animation von Diagrammen anwenden möchte, dann müssen wir die nun vorgestellte objektorientierte Form der Anwendung von Matplotlib verwenden.</p>
 <p>Während man bei der funktionalen Bedinung von Matplotlib vor allem verschiedene Funktionen verwendet hat, arbeitet man in der objektorientierten Bedinung vor allem mit den Objekten, aus denen die Diagramme zusammengesetzt werden, sowie ihren Methoden. Denn jedes Diagramm besteht in Matplotlib aus mehreren Einzelteilen, welche wir z.B. bei der Verwendung von <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> ohne es zu merken im Hintergrund erstellt haben. Wir erstellen diese ab jetzt selbst.</p>
@@ -791,7 +792,7 @@
 <p><img alt="" src="../_images/figure_axes.png" /></p>
 <p>In ein Figure-Objekt können prinzipiell beliebig viele, beliebig große Axes-Objekte an beliebigen Positionen eingefügt werden.</p>
 <p>Wie erstellt man nun solche Figure- und Axes-Objekte? Der ursprünglich einmal von Matplotlib erdachte Weg um diese Objekte hat sich im Verlauf der Zeit als etwas unnötig kompliziert herausgestellt. Dabei erstellt man z.B. ein Figure-Objekt mit dem Befehl <code class="docutils literal notranslate"><span class="pre">plt.Figure()</span></code>, wobei man mit dem dadurch erstellten Objekt dann weiterarbeitet und z.B. mit der Figure-Methode <code class="docutils literal notranslate"><span class="pre">.add_axes()</span></code> die Axes-Objekte erstellt. Tatsächlich sieht man dieses Vorgehen aber äußerst selten. Im Folgenden schauen wir uns an, wie man stattdessen in der Regel die benötigten Objekte erstellt und mit diesen das Diagramm erstellt.</p>
-<div class="section" id="axes-und-figures-mit-plt-subplots-erstellen">
+<section id="axes-und-figures-mit-plt-subplots-erstellen">
 <h2>Axes und Figures mit plt.subplots() erstellen<a class="headerlink" href="#axes-und-figures-mit-plt-subplots-erstellen" title="Permalink to this headline">¶</a></h2>
 <p>Die Funktion <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code> ermöglicht es, gleichzeitig ein Figure-Objekt sowie ein oder mehrere Axes-Objekte gleichzeitig zu erstellen. Im einfachsten Fall - ohne irgendeineinen weiteren Input - gibt die Funktion <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code> genau ein Figure-Objekt und genau ein Axes-Objekt zurück. Ruft man die Funktion <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code> z.B. in der Spyder-Konsole auf, dann gibt diese einen Tupel (das ist so etwas wie eine Liste), welcher das Figure- und das Axes-Objekt enthält, aus. Das sieht in dann ungefähr so aus:</p>
 <p><code class="docutils literal notranslate"><span class="pre">(&lt;Figure</span> <span class="pre">size</span> <span class="pre">432x288</span> <span class="pre">with</span> <span class="pre">1</span> <span class="pre">Axes&gt;,</span>&#160; <span class="pre">&lt;matplotlib.axes._subplots.AxesSubplot</span> <span class="pre">at</span> <span class="pre">0x2a7520de848&gt;)</span></code></p>
@@ -834,12 +835,12 @@
 <p class="admonition-title">Übrigens</p>
 <p>Einer der großen Vorteile der objektorientierten Verwendung von Matplotlib und der Funktion <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code> ist, dass dadurch relativ einfach mehrere Diagramme bzw. Diagrammbereiche in ein und dasselbe Figure-Objekt eingezeichnet werden können. Das brauchen wir in diesem Kurs nicht unbedingt, kann aber relativ praktisch sein. Falls du daran interessiert bist, wie das funktioniert, schau doch mal <a class="reference external" href="https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html">hier</a>. Wir nutzen das objektorientierte Interface von Matplotlib in diesem Kurs vorrangig, weil man dieses für die Erstellung von Animationen benötigt.</p>
 </div>
-</div>
-<div class="section" id="diagramme-aufhubschen">
+</section>
+<section id="diagramme-aufhubschen">
 <h2>Diagramme aufhübschen<a class="headerlink" href="#diagramme-aufhubschen" title="Permalink to this headline">¶</a></h2>
 <p>Auch im objektorientierten Interface von Matplotlib können wir natürlich die Diagramme noch etwas schicker und leserlicher machen. Einiges ist dabei ähnlich, anderes ist etwas anders im Vergleich zum funktionalen Interface.</p>
 <p><strong>Wichtig:</strong> Alle Beispiele erfolgen anhand eines Figure-Objektes mit einem Axes-Objekt. Sind mehrere Axes-Objekte auf einem Figure-Objekt vorhanden, muss dementsprechend der Axes-spezifische Code auf die jeweiligen Axes-Objekte angepasst werden.</p>
-<div class="section" id="diagramm-titel-und-achsen-label">
+<section id="diagramm-titel-und-achsen-label">
 <h3>Diagramm-Titel und Achsen-Label<a class="headerlink" href="#diagramm-titel-und-achsen-label" title="Permalink to this headline">¶</a></h3>
 <p>Wichtig für die Lesbarkeit von Diagrammen ist deren Betitelung und die Beschriftung der Achsen. Um diese hinzuzufügen, kann die Axes-Methode <code class="docutils literal notranslate"><span class="pre">set()</span></code> ausgeführt werden und den Parametern <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">xlabel</span></code> und <code class="docutils literal notranslate"><span class="pre">ylabel</span></code> die gewünschten Werte zugewiesen werden.</p>
 <p>Unten erstelle ich zunächst wieder Beispieldaten, erstelle ein Figure- und ein Axes-Objekt, plotte die Daten und füge dann schließlich die Beschriftungen hinzu.</p>
@@ -867,8 +868,8 @@
 <img alt="../_images/amp06a_04_objektorientiertes_matplotlib_13_0.png" src="../_images/amp06a_04_objektorientiertes_matplotlib_13_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="achsenbereiche-festlegen">
+</section>
+<section id="achsenbereiche-festlegen">
 <h3>Achsenbereiche festlegen<a class="headerlink" href="#achsenbereiche-festlegen" title="Permalink to this headline">¶</a></h3>
 <p>Manchmal kann es notwendig sein, den angezeigten Bereich der X- und Y-Achsen selbst zu bestimmen. Auch dies geht innerhalb der Methode <code class="docutils literal notranslate"><span class="pre">set()</span></code>. Die Parameter <code class="docutils literal notranslate"><span class="pre">xlim</span></code> und <code class="docutils literal notranslate"><span class="pre">ylim</span></code> nehmen eine Liste, welche das jeweilige Achsenminimum und das Achsenmaximum enthält, entgegen. Zur besseren Übersicht schreibe ich unten die Paramter der Methode <code class="docutils literal notranslate"><span class="pre">set()</span></code> untereinander.</p>
 <div class="cell docutils container">
@@ -901,8 +902,8 @@
 <img alt="../_images/amp06a_04_objektorientiertes_matplotlib_15_0.png" src="../_images/amp06a_04_objektorientiertes_matplotlib_15_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="linienbeschriftung-und-legende">
+</section>
+<section id="linienbeschriftung-und-legende">
 <h3>Linienbeschriftung und Legende<a class="headerlink" href="#linienbeschriftung-und-legende" title="Permalink to this headline">¶</a></h3>
 <p>Wenn man mehrere Datenreihen in ein Diagramm bzw. ein Axes-Objekt einzeichnen möchte, dann empfiehlt es sich auch hier die einzelnen Datenreihen zu bezeichnen und dann deren Bezeichnung in einer Legende anzuzeigen. Dafür kann in der Methode, mit welcher die Daten gezeichnet werden - in diesem Fall <code class="docutils literal notranslate"><span class="pre">plot()</span></code> -  der Parameter <code class="docutils literal notranslate"><span class="pre">label</span></code> genutzt werden, um die gerade gezeichnete Datenreihe zu bezeichnen. Unten geschieht dies in den Zeilen 10 und 11. Schließlich muss noch die Legende angezeigt werden. Dies geschieht über die Axes-Methode <code class="docutils literal notranslate"><span class="pre">legend()</span></code> in Zeile 17.</p>
 <div class="cell docutils container">
@@ -934,8 +935,8 @@
 <img alt="../_images/amp06a_04_objektorientiertes_matplotlib_17_0.png" src="../_images/amp06a_04_objektorientiertes_matplotlib_17_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="gitter-anzeigen">
+</section>
+<section id="gitter-anzeigen">
 <h3>Gitter anzeigen<a class="headerlink" href="#gitter-anzeigen" title="Permalink to this headline">¶</a></h3>
 <p>Um ein Gitter im Hintergrund des Plots anzuzeigen, kann die Axes-Methode <code class="docutils literal notranslate"><span class="pre">grid()</span></code> aufgerufen werden.</p>
 <div class="cell docutils container">
@@ -970,8 +971,8 @@
 <img alt="../_images/amp06a_04_objektorientiertes_matplotlib_19_0.png" src="../_images/amp06a_04_objektorientiertes_matplotlib_19_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="grosze-festlegen">
+</section>
+<section id="grosze-festlegen">
 <h3>Größe festlegen<a class="headerlink" href="#grosze-festlegen" title="Permalink to this headline">¶</a></h3>
 <p>Möchte man die Größe des erstellten Fensters, also dem Figure-Objekt, per Programmierung bestimmen, kann man die Methode <code class="docutils literal notranslate"><span class="pre">set_size_inches()</span></code> verwenden. Die Methode erwartet zwei Zahlen, welche die Höhe und Breite des Figure-Objektes in der Einheit Inch festlegen.</p>
 <div class="cell docutils container">
@@ -1015,9 +1016,9 @@
 <img alt="../_images/amp06a_04_objektorientiertes_matplotlib_21_0.png" src="../_images/amp06a_04_objektorientiertes_matplotlib_21_0.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

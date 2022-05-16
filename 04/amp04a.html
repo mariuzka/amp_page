@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>If-Statements &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -320,7 +321,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -900,7 +901,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="if-statements">
+  <section class="tex2jax_ignore mathjax_ignore" id="if-statements">
 <h1>If-Statements<a class="headerlink" href="#if-statements" title="Permalink to this headline">¶</a></h1>
 <p>Unsere Agenten sind bisher ziemlich unsensibel. Sie führen starr ihr (Verhaltens-)Programm aus, ohne auf besondere Bedingungen der aktuellen Situation zu reagieren. In den Übungsaufgaben des letzten Kapitels sind unsere z.B. Agenten im kompletten Blindflug über die Straße geheizt. Das wollen wir in diesem Kapitel ändern! Wir lernen nun, wie wir unseren Agenten bzw. unserem gesamten Computerprogramm die <em>Augen öffnen</em>, das <em>Wahrnehmen</em> und <em>situationsspezifishe Handeln</em> beibringen. Was wir dafür brauchen sind sogenannte <strong>If-Statements</strong>.</p>
 <p>If-Statements geben an, was im Programm gemacht werden soll, wenn eine bestimmte Bedingung erfüllt ist. Damit erlauben sie uns, den Programmablauf mittels <em>Wenn-Dann-Aussage</em> zu steuern: <em>Wenn dieser Fall eintritt, dann passiert das und das. Wenn X, dann Y. Wenn es Pizza gibt, dann freue ich mich. Wenn zu viele Nachbarn nicht meiner Gruppe angehören, dann ziehe ich um. Wenn vor mir ein Auto fährt, dann bremse ich ab.</em></p>
@@ -916,7 +917,7 @@
 </div>
 <p>Das If-Statement beginnt mit dem Wenn-Teil, welches durch das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">if</span></code> eingeleitet wird. Nach dem einleitenden Schlüsselwort <code class="docutils literal notranslate"><span class="pre">if</span></code> folgt eine Aussage bzw. ein <em>boolscher Ausdruck</em>, welcher durch Python darauf hin untersucht wird, ob er wahr oder falsch ist. Ist die Aussage wahr, dann wird der Code, der nach dem Doppelpunkt in der nächsten Zeile eingerückt steht, ausführt.</p>
 <p>Bevor wir uns nun wirklich anschauen, wie und wo man If-Statements in Python am besten verwendet und was man damit alles für Möglichkeiten gibt, müsen wir uns zunächst einem ganz bestimmten, aber sehr zentralen Bestandteil der If-Statements widmen: den Aussagen bzw. den boolschen Ausdrücken des Wenn-Teils. Wir schauen uns also nun all das an, was oben an Stelle des Platzhalters <code class="docutils literal notranslate"><span class="pre">THIS_STATEMENT_IS_TRUE</span></code> stehen könnte. In diesem Teil des If-Statements spielt sich im wahrsten Sinne des Wortes die <em>Logik</em> von If-Statements ab.</p>
-<div class="section" id="boolesche-ausdrucke">
+<section id="boolesche-ausdrucke">
 <h2>Boolesche Ausdrücke<a class="headerlink" href="#boolesche-ausdrucke" title="Permalink to this headline">¶</a></h2>
 <p>Boolsche Ausdrücke kann man ganz generell als “logische” Aussagen, die entweder <strong>wahr</strong> oder <strong>falsch</strong> sein können, verstehen. Wichtig ist, dass ein boolscher Ausdruck auf jeden Fall immer entweder ausschließlich 100% wahr oder ausschließlich 100% falsch ist. Niemals ist ein boolscher Ausdruck irgendwas dazwischen oder beides. Boolsche Ausdrücke gibt es übrigens nicht nur in Python, sondern diese sind elementarer Bestandteil in der Mathematik, Informatik und Logik. In Python können boolsche Ausdrücke in unterschiedlicher Form vorkommen, aber immer wenn Python einen boolschen Ausdruck <em>sieht</em>, dann versucht Python herauszufinden, ob die Aussage wahr oder falsh ist. Am Ende eines solchen Wahrheitsfindungsprozesses gibt Python dann entweder den Wert <code class="docutils literal notranslate"><span class="pre">True</span></code> oder den Wert <code class="docutils literal notranslate"><span class="pre">False</span></code> aus und sagt uns damit praktisch, ob der soeben evaluierte boolsche Ausdruck bzw. die Aussage <code class="docutils literal notranslate"><span class="pre">True</span></code> (wahr) oder <code class="docutils literal notranslate"><span class="pre">False</span></code> (falsch) ist.</p>
 <p>Wie sieht denn nun ein solcher Boolscher Ausdruck in Python aus? Die einfachste und elementarste Form eines boolschen Ausdrucks sind die beiden Wahrheitswerte <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code> selbst. Diese beiden Werte sind in Python Werte des Typs <code class="docutils literal notranslate"><span class="pre">bool</span></code> und nicht nur das Ergebnis einer jeden Evaluation boolscher Ausdrücke sondern für sich genommen eben selbst boolsche Ausdrücke. Evaluiert man die Aussage <code class="docutils literal notranslate"><span class="pre">True</span></code> auf ihren Wahrheitsgehalt, so kommt man natürlich selbst wieder auf das Ergebnis <code class="docutils literal notranslate"><span class="pre">True</span></code>. Evaluiert man die Aussage <code class="docutils literal notranslate"><span class="pre">False</span></code> auf ihren Wahrheitsgehalt, so kommt man natürlich auch hier wieder auf das Ergebnis <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
@@ -944,7 +945,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="vergleiche">
+<section id="vergleiche">
 <h3>Vergleiche<a class="headerlink" href="#vergleiche" title="Permalink to this headline">¶</a></h3>
 <p>Man versteht am besten, was boolsche Ausdrücke sind, wenn man etwas über ihre elementarste (aber noch etwas <em>inhaltslose</em>) Existenzweise als <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code> hinausgeht und sich anschaut, in welcher Form uns boolsche Ausdrücke in <em>richtigen Programmen</em> oft begegnen. Eine sehr wichtige Form boolscher Ausdrücke sind <strong>Vergleiche</strong>. In Vergleichen können wir zwei Werte bzw. Variablen miteinander vergleichen. Dabei stehen uns die typischen <strong>Vergleichsoperatoren</strong>, die dir bestimmt bekannt sind, zur Verfügung.</p>
 <p>Ein Beispiel: Unten vergleiche ich die beiden Werte <code class="docutils literal notranslate"><span class="pre">1</span></code> und <code class="docutils literal notranslate"><span class="pre">2</span></code> daraufhin, ob <code class="docutils literal notranslate"><span class="pre">1</span></code> kleiner als <code class="docutils literal notranslate"><span class="pre">2</span></code> ist. Python führt für uns den Vergleich aus und gibt uns eine Antwort:</p>
@@ -1067,8 +1068,8 @@ Wenn ich sage, “<em>1 ist größer als 2</em>”, dann antwortet Python mit �
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="abstrakte-variablen-statt-konkrete-werte">
+</section>
+<section id="abstrakte-variablen-statt-konkrete-werte">
 <h3>Abstrakte Variablen statt konkrete Werte<a class="headerlink" href="#abstrakte-variablen-statt-konkrete-werte" title="Permalink to this headline">¶</a></h3>
 <p>In den obigen Beispielen habe ich die zu vergleichenden Werte immer direkt innerhalb des Vergleiches konkret ausformuliert. Das werden wir innerhalb eines richtigen Programmes aber eigentlich niemals in der Form tun. Stattdessen werden wir in den meisten Fällen innerhalb von Vergleichen bzw. allgemein innerhalb von boolschen Ausdrücken nicht alle Werte konkret ausschreiben, sondern Variablen als Platzhalter für konkrete Werte einfügen. Dadurch können wir dann Werte miteinander vergleichen, die wir zum Zeitpunkt des Programmierens nicht genau kennen, weil diese sich entweder aus einem sehr großen Datensatz ergeben oder sogar vielleicht erst “dynamisch” innerhalb unseres Programmes entstehen oder verändert werden. Erst wenn wir die Antwort nicht genau kennen, machen solche Vergleiche ja erst wirklich Sinn.</p>
 <p>Unten im Beispiel gehe ich z.B. die Liste <code class="docutils literal notranslate"><span class="pre">age_list</span></code> durch und frage für jedes Element nach, ob dieses größer 40 ist. Das funktioniert, weil der Vergleich <code class="docutils literal notranslate"><span class="pre">age</span> <span class="pre">&gt;</span> <span class="pre">40</span></code> diesmal nich nur direkt ausformulierte Werte, sondern u.a. die Variable <code class="docutils literal notranslate"><span class="pre">age</span></code> enthält. In jeder Runde des For-Loops bekommt die Variable <code class="docutils literal notranslate"><span class="pre">age</span></code> den Wert eines anderen Elementes der Liste <code class="docutils literal notranslate"><span class="pre">age_list</span></code> zugewiesen, sodass dieselbe “Vergleichsstruktur” für unterschiedliche konkrete Werte durchgeführt wird.</p>
@@ -1093,8 +1094,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="die-logischen-operatoren-nicht-und-oder">
+</section>
+<section id="die-logischen-operatoren-nicht-und-oder">
 <h3>Die logischen Operatoren NICHT, UND &amp; ODER<a class="headerlink" href="#die-logischen-operatoren-nicht-und-oder" title="Permalink to this headline">¶</a></h3>
 <p>Mithilfe der Operatoren <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> und <code class="docutils literal notranslate"><span class="pre">not</span></code> können wir auch kompliziertere, verknüpfte Bedingungen aufstellen. Die Funktionsweise der drei Operatoren entspricht dabei der Funktionsweise der logischen Operatoren UND, ODER und NICHT der klassischen Aussagenlogik.</p>
 <p>Ein Video zur klassichen Aussagenlogik und der grundlegenden Funktionsweise der logischen Operatoren bzw. Verknüpfungen findest du hier:</p>
@@ -1116,8 +1117,8 @@ True
 ></iframe>
 </div></div>
 </div>
-</div>
-<div class="section" id="negation-not">
+</section>
+<section id="negation-not">
 <h3>Negation: not<a class="headerlink" href="#negation-not" title="Permalink to this headline">¶</a></h3>
 <p>Das Wörtchen <code class="docutils literal notranslate"><span class="pre">not</span></code> ermöglicht uns “verneinte” Aussagen aufzustellen d.h. Aussagen, welche besagen, dass <em>etwas</em> <strong>nicht</strong> wahr ist. Ganz allgemein wird durch ein <code class="docutils literal notranslate"><span class="pre">not</span></code> aus jedem <code class="docutils literal notranslate"><span class="pre">True</span></code> ein <code class="docutils literal notranslate"><span class="pre">False</span></code> und aus jedem <code class="docutils literal notranslate"><span class="pre">False</span></code> ein <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
@@ -1170,8 +1171,8 @@ True
 </div>
 </div>
 <p>Die Aussage “<em>1 ist nicht größer 0</em>” ist natürlich <code class="docutils literal notranslate"><span class="pre">False</span></code>. Wir können obige “Aussage” natürlich auch wieder als “Frage” lesen: “<em>Ist 1 nicht größer 0?</em>”. Darauf wäre die Antwort dann “<em>Nein</em>”.</p>
-</div>
-<div class="section" id="konjunktion-and">
+</section>
+<section id="konjunktion-and">
 <h3>Konjunktion: and<a class="headerlink" href="#konjunktion-and" title="Permalink to this headline">¶</a></h3>
 <p>Bisher haben wir immer nur “einfache” Aussagen aufgestellt (z.B. einen Vergleich auf einmal durchgeführt). Mithilfe von <code class="docutils literal notranslate"><span class="pre">and</span></code> und <code class="docutils literal notranslate"><span class="pre">or</span></code> können wir mehrere Aussagen gleichzeitig aufstellen und somit mehrere Teil-Aussagen zu einer Gesamt-Aussage verknüpfen (wir können dadurch z.B. mehrere Vergleiche auf einmal durchführen). Schauen wir uns an dieser Stelle zunächst die sogenannte UND-Verknüpfung an.</p>
 <p>Der logische Operator <code class="docutils literal notranslate"><span class="pre">and</span></code> ermöglicht es uns, zwei Teilaussagen so zu verknüpfen, dass die Gesamtaussage genau dann wahr ist, wenn alle Teilaussagen wahr sind.
@@ -1257,8 +1258,8 @@ Ich könnte beispielsweise gleichzeitig die Aussagen “<em>1 ist größer 0</em
 </div>
 </div>
 <p>Wir sehen, eine UND-Verknüpfung wird nur genau dann <code class="docutils literal notranslate"><span class="pre">True</span></code>, wenn beide Teil-Aussagen <code class="docutils literal notranslate"><span class="pre">True</span></code> sind.</p>
-</div>
-<div class="section" id="disjunktion-or">
+</section>
+<section id="disjunktion-or">
 <h3>Disjunktion: or<a class="headerlink" href="#disjunktion-or" title="Permalink to this headline">¶</a></h3>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">and</span></code> können wir sehr detailreiche &amp; spezifische Aussagen aufstellen bzw. fragen, die nur <code class="docutils literal notranslate"><span class="pre">True</span></code> sind, wenn auch alle Teil-Aussagen <code class="docutils literal notranslate"><span class="pre">True</span></code> sind. Dadurch können wir später sehr strenge Bedingungen aufstellen. Hingegen eignet sich der Operator <code class="docutils literal notranslate"><span class="pre">or</span></code> sehr gut, wenn wir etwas “lockerere” Bedingungen aufstellen wollen. Ein <code class="docutils literal notranslate"><span class="pre">or</span></code> verknüpft zwei Teil-Aussagen so, dass die Gesamtaussage genau dann wahr ist, wenn mindestens eine der beiden Teil-Aussagen wahr ist. Es kann also die eine, die andere oder beide Teil-Aussagen wahr sein, damit die Gesamt-Aussage wahr wird. Nur wenn beide Teil-Aussagen falsch sind, wird auch die Gesamt-Aussage falsch.</p>
 <p>Verknüpft man z.B. die wahre Aussage “<em>1 ist größer 0</em>” und die falsche Aussage “<em>2 ist gleich 3</em>” mit einem <code class="docutils literal notranslate"><span class="pre">or</span></code> zur Aussage “<em>1 ist größer 0 oder 2 ist gleich 3</em>”, dann ist diese Gesamt-Aussage wahr, weil man mit einem <code class="docutils literal notranslate"><span class="pre">or</span></code> impliziert, dass es sein kann, dass nur eine von beiden Aussagen wahr ist.</p>
@@ -1326,8 +1327,8 @@ Ich könnte beispielsweise gleichzeitig die Aussagen “<em>1 ist größer 0</em
 </div>
 </div>
 <p>Wie dir vielleicht schon aufgefallen ist, hat ein “oder” innerhalb der klassichen Aussagenlogik eine leicht andere Bedeutung als ein “oder” in der Alltagssprache. In der Alltagssprache meinen wir mit “oder” typischerweise, dass wir erwarten, dass <strong>genau eine</strong> der beiden Aussagen wahr sein kann (entweder die eine oder die andere). In der Aussagenlogik bzw. hier in Python meinen wir mit “oder”, dass wir die Richtigkeit <strong>mindestens</strong> einer der beiden Aussagen erwarten. Das “oder”, das wir hier benutzen, nennt man übrigens auch “nichtausschließendes oder”. Das “oder” der Alltagssprache nennt man “ausschließendes oder”.</p>
-</div>
-<div class="section" id="mehrere-verknupfungen">
+</section>
+<section id="mehrere-verknupfungen">
 <h3>Mehrere Verknüpfungen<a class="headerlink" href="#mehrere-verknupfungen" title="Permalink to this headline">¶</a></h3>
 <p>Wir können natürlich auch mehrere <code class="docutils literal notranslate"><span class="pre">and</span></code>- und <code class="docutils literal notranslate"><span class="pre">or</span></code>-Verknüpfungen kombinieren, z.B.:</p>
 <p>“2 ist gleich 2 oder 2 ist gleich 3 und 0 ist größer 1”</p>
@@ -1406,8 +1407,8 @@ Ich könnte beispielsweise gleichzeitig die Aussagen “<em>1 ist größer 0</em
 </pre></div>
 </div>
 <p>Des Weiteren gelten für logische Ausdrücke und deren Priorität auch die typischen Klammergesetze der Mathematik. So kann beispielsweise die Priorität des <code class="docutils literal notranslate"><span class="pre">and</span></code> vor dem <code class="docutils literal notranslate"><span class="pre">or</span></code> durch entsprechende Klammersetzung durchbrochen werden.</p>
-</div>
-<div class="section" id="das-keyword-in">
+</section>
+<section id="das-keyword-in">
 <h3>Das Keyword “in”<a class="headerlink" href="#das-keyword-in" title="Permalink to this headline">¶</a></h3>
 <p>Bedingungen können nicht nur mathematische Vergleiche beinhalten. Das super praktische Keyword <code class="docutils literal notranslate"><span class="pre">in</span></code> ermöglicht es uns z.B. zu erfragen, ob ein bestimmter Wert in einem sequentiellen Datentyp (z.B. Liste oder String) ist.</p>
 <p>Fragen wir uns beispielsweise, ob der Wert <code class="docutils literal notranslate"><span class="pre">10</span></code> in der Liste <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">2,</span> <span class="pre">8,</span> <span class="pre">1]</span></code> vorkommt, können wir schreiben:</p>
@@ -1437,9 +1438,9 @@ Ich könnte beispielsweise gleichzeitig die Aussagen “<em>1 ist größer 0</em
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="die-grundform-der-if-statements">
+</section>
+</section>
+<section id="die-grundform-der-if-statements">
 <h2>Die Grundform der If-Statements<a class="headerlink" href="#die-grundform-der-if-statements" title="Permalink to this headline">¶</a></h2>
 <p>Nun haben wir uns sehr genau einen bestimmten Bestandteil der If-Statements angeschaut. Kommen wir nun dazu, If-Statements als Ganzes zu benutzen, um damit die Ausführung unseres Codes situationsspezifisch zu steuern. Wie oben bereits gezeigt, besteht ein If-Statement im einfachsten Fall aus zwei Bestandteilen: dem Wenn-Teil und dem Dann-Teil.</p>
 <p>Der Wenn-Teil beginnt mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">if</span></code> und endet mit einem <code class="docutils literal notranslate"><span class="pre">:</span></code>. Dazwischen, also dort wo unten der Platzhalter <code class="docutils literal notranslate"><span class="pre">THIS_STATEMENT_IS_TRUE</span></code> steht, muss ein boolscher Ausdruck stehen. Ist der boolsche Ausdruck wahr d.h. wird er letztlich auf den Wert <code class="docutils literal notranslate"><span class="pre">True</span></code> reduziert, dann wird der eingerückte Codeblock darunter ausgeführt. Wenn der boolsche Ausdruck falsch ist, dann wird der eingerückte Codeblock einfach ignoriert. Die Bedingung dafür, dass der Codeblock ausgeführt wird, ist also dass der boolsche Ausdruck wahr ist.</p>
@@ -1516,8 +1517,8 @@ Ich könnte beispielsweise gleichzeitig die Aussagen “<em>1 ist größer 0</em
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="nein-dann-das-if-statements-mit-else">
+</section>
+<section id="nein-dann-das-if-statements-mit-else">
 <h2>Nein? Dann das! If-Statements mit else.<a class="headerlink" href="#nein-dann-das-if-statements-mit-else" title="Permalink to this headline">¶</a></h2>
 <p>Wir können nun If-Statements schreiben, welche bestimmten Code ausführen, sobald eine Bedingung erfüllt ist. Falls die Bedingung allerdings nicht erfüllt ist, dann passiert in unseren bisherigen If-Statements einfach gar nichts. Manchmal ist es aber sehr praktisch auch bei Nicht-Erfüllung der Bedingung etwas auszuführen - nur dann eben etwas anderes. Das können wir in Python mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">else</span></code>. Mit <code class="docutils literal notranslate"><span class="pre">else</span></code> können wir unseren Wenn-Dann-Satz praktisch um einen “Ansonsten”-Teil erweitern, welcher eintritt, wenn die Bedingung nicht zutrifft. Ein Beispiel aus dem Alltag: <strong>Wenn</strong> das Paket heute ankommt, <strong>dann</strong> freue ich mich, <strong>ansonsten</strong> bin ich sehr traurig.</p>
 <p>Allgemein formuliert können wir unser If-Statement also wie folgt erweitern:</p>
@@ -1611,8 +1612,8 @@ Ich könnte beispielsweise gleichzeitig die Aussagen “<em>1 ist größer 0</em
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="nein-dann-vielleicht-das-hier-if-statements-mit-elif">
+</section>
+<section id="nein-dann-vielleicht-das-hier-if-statements-mit-elif">
 <h2>Nein? Dann vielleicht das hier? If-Statements mit elif.<a class="headerlink" href="#nein-dann-vielleicht-das-hier-if-statements-mit-elif" title="Permalink to this headline">¶</a></h2>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">if</span></code> und <code class="docutils literal notranslate"><span class="pre">else</span></code> können wir angeben, was passieren soll, wenn ein bestimmter Fall eintritt und was passieren soll, wenn dieser bestimmte Fall nicht eintritt. Was ist aber, wenn wir nicht nur zwischen <em>das</em> und <em>nicht das</em>, sondern feiner zwischen verschiedenen Fällen differenzieren wollen? Dann brauchen wir <code class="docutils literal notranslate"><span class="pre">elif</span></code>! Mit <code class="docutils literal notranslate"><span class="pre">elif</span></code> können wir unserem If-Statement weitere Bedingungen hinzufügen. Diese werden geprüft, wenn die Bedingung davor nicht erfüllt wurde. Wir können also die Struktur der folgenden fiktiven Wenn-Dann-Satz-Konstruktion in Python bilden:</p>
 <p><em>Wenn es Burger gibt, dann esse ich Burger.</em></p>
@@ -1827,8 +1828,8 @@ Ich könnte beispielsweise gleichzeitig die Aussagen “<em>1 ist größer 0</em
 ></iframe>
 </div></div>
 </div>
-</div>
-<div class="section" id="exkurs-1-standard-module-importieren-und-nutzen-am-beispiel-random">
+</section>
+<section id="exkurs-1-standard-module-importieren-und-nutzen-am-beispiel-random">
 <h2>Exkurs 1: Standard-Module importieren und nutzen (am Beispiel “random”)<a class="headerlink" href="#exkurs-1-standard-module-importieren-und-nutzen-am-beispiel-random" title="Permalink to this headline">¶</a></h2>
 <p>Bisher haben wir ausschließlich Code aus dem Basis-Python und nur sogenannte Built-in-Funktionen verwendet. Das ist der Python-Code, der uns unmittelbar mit jedem Python-Interpreter zur Verfügung steht. Allein damit kann man schon ziemlich viel machen. Man kann das Spektrum an verfügbaren Funktionen usw. aber noch enorm erweitern, wenn man sogenannte Module importiert. Module stellen uns weitere Objekte und Funktionen zur Verfügung, die wir (im aktuellen Programm) nicht selber geschrieben haben, aber anwenden können. Im einfachsten Fall ist ein Modul selbst wiederum ein Python-Skript, in dem jemand nützliche Funktionen definiert hat, sodass wir diese nicht mehr selbst schreiben müssen. Python verfügt über eine sogenannte Standardbibliothek, in der schon eine ganze Reihe nützliche Module vorhanden sind.
 Manche Module muss man aber auch extra installieren. Wie das funktioniert, schauen wir uns in einem der nächsten Kapitel an. Hier beschränken wir uns darauf, wie man bereits installierte Module aus der Python-Standard-Bibliothek nutzen kann.</p>
@@ -1893,10 +1894,10 @@ Manche Module muss man aber auch extra installieren. Wie das funktioniert, schau
 </div>
 </div>
 </div>
-<div class="section" id="zwei-nutzliche-funktionen-des-moduls-random">
+<section id="zwei-nutzliche-funktionen-des-moduls-random">
 <h3>Zwei nützliche Funktionen des Moduls random<a class="headerlink" href="#zwei-nutzliche-funktionen-des-moduls-random" title="Permalink to this headline">¶</a></h3>
 <p>Das Modul <code class="docutils literal notranslate"><span class="pre">random</span></code> ist insgesamt ein super praktisches Modul. Es liefert uns ein paar nützliche Funktionen, mit der wir Zufallszahlen generieren oder Zufallswahlen vollziehen können.</p>
-<div class="section" id="random-random">
+<section id="random-random">
 <h4>random.random()<a class="headerlink" href="#random-random" title="Permalink to this headline">¶</a></h4>
 <p>Eine oft gebrauchte Funktion ist die Funktion <code class="docutils literal notranslate"><span class="pre">random()</span></code>. Nicht verwirren lassen dadurch, dass die Funktion genauso wie das Modul heißt. Die Funktion <code class="docutils literal notranslate"><span class="pre">random()</span></code> liefert einen Zufalls-<code class="docutils literal notranslate"><span class="pre">float</span></code> zwischen 0 und 1.</p>
 <div class="cell docutils container">
@@ -1930,8 +1931,8 @@ Manche Module muss man aber auch extra installieren. Wie das funktioniert, schau
 </div>
 </div>
 <p>Da die Funtion <code class="docutils literal notranslate"><span class="pre">random()</span></code> eine (gleichverteilte) Zufallszahl zwischen 0 und 1 ausgibt, wird die von <code class="docutils literal notranslate"><span class="pre">random.random()</span></code> ausgegebene Zahl mit einer Wahrscheinlichkeit von 0.3 kleiner oder gleich dem Wert 0.3 sein. Wenn wir etwas mit der Wahrscheinlichkeit von 0.3 machen wollen, dann müssen wir also einfach mithilfe eines If-Statements sagen: Wenn der ausgegebene Zufallswert kleiner oder gleich 0.3 ist, dann mache das und das.</p>
-</div>
-<div class="section" id="random-choice">
+</section>
+<section id="random-choice">
 <h4>random.choice()<a class="headerlink" href="#random-choice" title="Permalink to this headline">¶</a></h4>
 <p>Die Funktion <code class="docutils literal notranslate"><span class="pre">choice()</span></code> wurde oben schon kurz verwendet, aber nicht erläutert. Diese Funktion zieht ein Element zufällig aus einer Menge z.B. einer Liste. Das ist z.B. praktisch, wenn wir pro Zeiteinheit nur genau einen zufälligen Agenten handeln lassen wollen und daher einen Agenten zufällig aus der Populations-Liste ziehen wollen. Als Argument wird die Menge, aus der gezogen werden soll, in die Funktion <code class="docutils literal notranslate"><span class="pre">choice()</span></code> eingegeben. Ein Beispiel:</p>
 <div class="cell docutils container">
@@ -1950,10 +1951,10 @@ Manche Module muss man aber auch extra installieren. Wie das funktioniert, schau
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="exkurs-2-das-dictionary">
+</section>
+</section>
+</section>
+<section id="exkurs-2-das-dictionary">
 <h2>Exkurs 2: das Dictionary<a class="headerlink" href="#exkurs-2-das-dictionary" title="Permalink to this headline">¶</a></h2>
 <p>Schauen wir uns an dieser Stelle einen neuen Objekt-Typ an, der sich gut dazu eignet, einen Agenten mit mehreren Eigenschaften darzustellen: <strong>das Dictionary</strong> bzw. <code class="docutils literal notranslate"><span class="pre">dict</span></code>. Ein Dictionary ist ähnlich wie eine Liste ein Form von Datencontainer, in den wir alle möglichen Objekte ablegen können. Listen sind zwar praktisch, weil man dort relativ unkompliziert, relativ viele Dinge einfach “reinwerfen” kann. Will man aus der Liste allerdings ein ganz spezifisches Objekt wiederfinden, dann ist das nicht mehr so unkompliziert. Dann müsste man entweder den spezifischen Positionsindex wissen oder das Objekt mit verschiedenen Methoden suchen. Eine Liste eignet sich daher v.a. dafür, wenn man viele gleiche oder unspezifische Objekte einfach irgendwo “sammeln” muss, damit man dann z.B. innerhalb eines For-Loops diese Objekte nacheinander abarbeiten kann. Eine Liste ist also z.B. perfekt, um eine Population von Agenten abzuspeichern. Um die Agenten selbst zu repräsentieren, mit den je spezifischen Eigenschaften der Agenten, auf die man beim Handeln der Agenten ganz gezielt zugreifen muss, eignen sich Listen also eigentlich gar nicht so wirklich gut. Viel besser sind tatsächlich Dictionaries.</p>
 <p>Ein Dictionary sind ein Datencontainer, in welchen man Objekte unter einem (sinnvollen) Namen ablegen kann. Diesen Namen nennt man auch <strong>Key</strong>. Mithilfe eines solchen Keys kann man dann, ganz gezielt die Objekte wiederfinden und darauf zugreifen. Das ist praktisch, wenn man Objekte etwas “geordneter” als in Listen verstauen möchte. Wie sehen solche Dictionaries aus? Während Listen mit zwei eckigen Klammern <code class="docutils literal notranslate"><span class="pre">[]</span></code> erzeugt werden, erzeugt man Dictionaries mit zwei geschweiften Klammern: <code class="docutils literal notranslate"><span class="pre">{}</span></code>. <code class="docutils literal notranslate"><span class="pre">{}</span></code> ist ein leeres Dictionary.</p>
@@ -2155,7 +2156,7 @@ Manche Module muss man aber auch extra installieren. Wie das funktioniert, schau
 </div>
 </div>
 </div>
-<div class="section" id="ein-dictionary-erweitern-update">
+<section id="ein-dictionary-erweitern-update">
 <h3>Ein Dictionary erweitern: update()<a class="headerlink" href="#ein-dictionary-erweitern-update" title="Permalink to this headline">¶</a></h3>
 <p>Ein Dictionary verfügt über eine ganze Reihe von Methoden. An dieser Stelle möchte ich eine davon vorstellen, die man hin und wieder braucht. Mit der Methode <code class="docutils literal notranslate"><span class="pre">update()</span></code> kann man ein bereits bestehendes Dictionary um ein oder mehr Elemente bzw. Key-Value-Paare erweitern.</p>
 <p>Man hängt die Methode <code class="docutils literal notranslate"><span class="pre">update()</span></code> wie jede Methode an das entsprechende Dictionary-Objekt an. Als Input erwartet die Methode <code class="docutils literal notranslate"><span class="pre">update()</span></code> ein weiteres Dictionary, das dann in das bereits bestehende Dictionary integriert wird. Die Methode <code class="docutils literal notranslate"><span class="pre">update()</span></code> ist letztlich genau das, was die Methode <code class="docutils literal notranslate"><span class="pre">extend()</span></code> für Listen ist.</p>
@@ -2219,9 +2220,9 @@ Manche Module muss man aber auch extra installieren. Wie das funktioniert, schau
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Matplotlib &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -726,7 +727,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="matplotlib">
+  <section class="tex2jax_ignore mathjax_ignore" id="matplotlib">
 <h1>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h1>
 <p>Bis zu diesem Punkt haben wir die Simulationsergebnisse v.a. als String in der Konsole anzeigen lassen. Nun ist es Zeit diese behelfsmäßige Form der grafischen Darstellung hinter uns zu lassen und endlich eine <em>richtige</em> Form der grafischen Darstellung zu erlernen. Denn nicht alle Simulationen lassen sich so einfach darstellen wie z.B. da NaSch-Modell. Und spätestens, wenn es zur systematischen Auswertung von Simulationsexperimenten kommt - also dem Vergleich vieler Modelle mit unterschiedlichen Parameter-Einstellungen - sind <em>richtige</em> Diagramme unverzichtbar. Sie sind später unser Hauptwerkzeug der Analyse. In diesem Kapitel lernen wir daher das Paket <strong>Matplotlib</strong> kennen.</p>
 <p>Matplotlib ist <em>DAS</em> Standard-Paket zur Erstellung von Grafiken und Animationen in Python, um das man in Python nicht drumherum kommt. Matplotlib gehört in Python zwar nicht zu den aller neusten Grafik-Paketen zur Erstellung von fancy Hochglanz-Diagrammen. Es ist eher ein altbewährtes, funktionierendes, wissenschaftliches Werkzeug, das aufgrund seiner Zuverlässigkeit z.B. auch in aktuellen NASA-Missionen eingesetzt wird, wie man in <a class="reference external" href="https://youtu.be/aZX24dPIAGg?t=24">diesem Video</a> sieht.</p>
@@ -735,7 +736,7 @@
 <p>Neben Matplotlib existieren eine Reihe anderer Grafik-Pakete in Python, welche sich zur Erstellung von schönen Diagrammen eignen. Wenn es darum geht, große Datensätze mit mehreren Variablen grafisch auszuwerten, dann bieten viele alternative Pakete oft auch eine einfachere Bedinung als Matplotlib auf. Zu empfehlen ist z.B. das Paket <a class="reference external" href="https://seaborn.pydata.org/">Seaborn</a> oder auch das Paket <a class="reference external" href="https://altair-viz.github.io/getting_started/overview.html">Altair</a>. <a class="reference external" href="https://plotnine.readthedocs.io/en/stable/">Plotnine</a> ist vor allem für Personen super, die Erfahrung mit R haben und nicht mehr ohne ggplot2-Grafiken leben können.</p>
 </div>
 <p>Um mit Matplotlib Grafiken erstellen zu können, gibt es zwei verschiedene <em>Bedinungsarten</em> von Matplotlib: das sogenannte <em>funktionale</em> Interface und das sogenannte <em>objektorientierte</em> Interface. Das funktionale Interface eignet sich v.a. für das schnelle und unkomplzierte plotten, ist jedoch in der Funktionalität etwas eingeschränkt. Das objektorientierte Interface ist etwas flexibler, man braucht jedoch etwas mehr Hintergrundwissen über die Funktionsweise von Matplotlib und der Code wird evtl. auch 1 bis 2 Zeilen länger. Wir schauen uns im Folgenden beide Formen nacheinander an. Die objektorientierte Form der Bedinung von Matplotlib brauchen wir später v.a. auch für das Erstellen von Animationen.</p>
-<div class="section" id="matplotlib-installieren">
+<section id="matplotlib-installieren">
 <h2>Matplotlib installieren<a class="headerlink" href="#matplotlib-installieren" title="Permalink to this headline">¶</a></h2>
 <p>Um Matplotlib nutzen zu können, muss es sowohl in deiner genutzten Anaconda-Umgebung installiert als auch in die aktuelle Python-Sitzung importiert sein. Falls du Python in der “base”- bzw. “root”-Umgebung von Anaconda nutzt, dann sollte Matplotlib bereits installiert sein. Falls du jedoch eine neue Umgebung für diesen Kurs angelegt hast, dann musst du vermutlich Matplotlib noch installieren.</p>
 <p>Eine Möglichkeit, Matplotlib in deiner Anaconda-Umgebung zu installieren, findest du im Folgenden:</p>
@@ -748,8 +749,8 @@
 <li><p>Setze den Haken bei “matplotlib” und drücke auf “apply”</p></li>
 </ol>
 <p>Wenn das Paket installiert ist, sollte nun der Import in die aktuelle Python-Sitzung z.B. in Spyder möglich sein.</p>
-</div>
-<div class="section" id="matplotlib-pyplot-importieren">
+</section>
+<section id="matplotlib-pyplot-importieren">
 <h2>Matplotlib / Pyplot importieren<a class="headerlink" href="#matplotlib-pyplot-importieren" title="Permalink to this headline">¶</a></h2>
 <p>Wenn wir mit Matplotlib arbeiten, dann verwenden wir genaugenommen nur ein Modul aus dem großen Paket Matplotlib. Dieses Modul heißt <strong>Pyplot</strong>. Der Import des Moduls Pyplot sieht daher zunächst so aus:</p>
 <div class="cell docutils container">
@@ -767,8 +768,8 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

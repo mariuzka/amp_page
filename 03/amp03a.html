@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Was ist ein For-Loop? &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -320,7 +321,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -870,7 +871,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="was-ist-ein-for-loop">
+  <section class="tex2jax_ignore mathjax_ignore" id="was-ist-ein-for-loop">
 <h1>Was ist ein For-Loop?<a class="headerlink" href="#was-ist-ein-for-loop" title="Permalink to this headline">¶</a></h1>
 <p>Haben wir unseren Code einmal aufgeschrieben, so können wir diesen immer und immer wieder ausführen. Das ist ziemlich praktisch. Die Lösung sich wiederholender Probleme muss nur ein einziges mal in einem Computerprogramm festgehalten werden und kann dann immer wieder verwendet werden. Dies kann uns Menschen eine Menge unliebsam repetitiver Arbeit ersparen. Das Einzige was wir dann noch machen müssen, ist einfach immer wieder auf den <em>Start-Knopf</em> zu drücken. Doch selbst innerhalb eines Computerprogrammes kann es dazu kommen, dass bestimmte Aktionen häufig wiederholt werden müssen. Schnell kann das dazu führen, dass die Programmierarbeit, die ja eigentlich repetitive Arbeit verhindern soll, selbst zur repetitiven Arbeit wird. Das will niemand! Um solche Wiederholungen innerhalb des Codes zu vermeiden, gibt es eine tolle Erfindung: der sogenannte <strong>Loop</strong> bzw. die <strong>Schleife</strong>. Ein Loop ermöglicht uns, eine Aktion bzw. einen Codeblock beliebig oft innerhalb des Programmes automatisch wiederholen zu lassen. Bei Loops unterscheidet man in der Regel zwischen sogenannten <em>While-Loops</em> und sogenannten <em>For-Loops</em>. In diesem Kapitel werden wir uns die For-Loops anschauen, da wir v.a. diese bei der Programmierung von ABM brauchen werden.</p>
 <p>Was ist ein For-Loop? Ein For-Loop führt für jedes Element einer Reihe von Elementen (also z.B. eine Liste) eine von uns angegebene “Aktion” aus. Deswegen heißt diese Form des Loops auch <strong>For</strong>-Loop: <strong>FÜR</strong> jedes Element einer Reihe von Elementen wird eine Aktion ausgeführt. Im Rahmen von ABM könnte das z.B. sein, dass wir <em>für jeden Agenten</em> unserer Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> eine Funktion/Aktion (oder was auch immer) ausführen lassen wollen.</p>
@@ -878,8 +879,8 @@
 <p><code class="docutils literal notranslate"><span class="pre">Für</span> <span class="pre">jeden</span> <span class="pre">Chip</span> <span class="pre">in</span> <span class="pre">Chipstüte:</span>&#160;&#160;&#160;&#160; <span class="pre">Chip</span> <span class="pre">essen</span></code></p>
 <p>Du befindest dich praktisch in einem For-Loop! Du führst <em>für jeden Chip in der Chipstüte</em> immer wieder dieselbe Handlung aus. Diese Dauerschleife hält so lange an, bis du jeden Chip in der Chipstüte durchgegangen bist und für diesen die Handlung “Chip essen” ausgeführt hast. Du könntest dein Handlungsspektrum natürlich auch noch erweitern und für jeden Chip zwei Handlungen ausführen. Zum Beispiel:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Für</span> <span class="pre">jeden</span> <span class="pre">Chip</span> <span class="pre">in</span> <span class="pre">Chipstüte:</span>&#160;&#160;&#160;&#160; <span class="pre">Chip</span> <span class="pre">essen</span>&#160;&#160;&#160;&#160; <span class="pre">Sich</span> <span class="pre">denken:</span> <span class="pre">&quot;Ok,</span> <span class="pre">das</span> <span class="pre">war</span> <span class="pre">jetzt</span> <span class="pre">aber</span> <span class="pre">wirklich</span> <span class="pre">der</span> <span class="pre">Letzte.&quot;</span></code></p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="for-loops-in-python">
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="for-loops-in-python">
 <h1>For-Loops in Python<a class="headerlink" href="#for-loops-in-python" title="Permalink to this headline">¶</a></h1>
 <p>Ungefähr so wie in dem obigen Beispiel funktionieren auch For-Loops in Python. Wir haben immer eine Menge an Elementen (z.B. in einer Liste) und geben dann an, was wir <em>mit</em> bzw. <em>für</em> jedes Element machen wollen. Oben war die Menge an Elementen eben der Inhalt der Chipstüte und dann haben wir angegeben, was mit jedem bzw. für jeden Chip gemacht wird. Das Gute ist, dass so ähnlich, wie wir den Chipstüten-For-Loop aufgeschrieben haben, auch For-Loops in Python aufgeschrieben werden. Allgemein und abstrakt formuliert sieht ein For-Loop in Python immer so aus:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ELEMENT</span> <span class="ow">in</span> <span class="n">MENGE</span><span class="p">:</span>
@@ -966,7 +967,7 @@
 </div>
 <p>Na das ist ja praktisch! Wir bekommen dasselbe Ergebnis wie oben, müssen aber deutlich weniger tippen.
 Python ist nun nacheinander jedes <code class="docutils literal notranslate"><span class="pre">word</span></code> in der Liste <code class="docutils literal notranslate"><span class="pre">list_of_words</span></code> durchgegangen und hat für jedes <code class="docutils literal notranslate"><span class="pre">word</span></code> die Funktionen <code class="docutils literal notranslate"><span class="pre">len()</span></code> und <code class="docutils literal notranslate"><span class="pre">print()</span></code> auf das <code class="docutils literal notranslate"><span class="pre">word</span></code> angewendet.</p>
-<div class="section" id="die-schleifenvariable">
+<section id="die-schleifenvariable">
 <h2>Die Schleifenvariable<a class="headerlink" href="#die-schleifenvariable" title="Permalink to this headline">¶</a></h2>
 <p>Wichtig ist bei dem obigen Beispiel noch zu wissen, dass der Name <code class="docutils literal notranslate"><span class="pre">word</span></code> nicht durch Python vorgegeben ist, sondern ich frei gewählt habe. Das <em>Wort</em> <code class="docutils literal notranslate"><span class="pre">word</span></code> ist in diesem Fall die sogenannte <strong>Schleifenvariable</strong>. Die Schleifenvariable ist bei einem For-Loop in Python immer das <em>Wort</em>, das hinter dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">for</span></code> steht. Diese Schleifenvariable kann von uns, genau wie jede andere <em>Variable</em>, fast beliebig benannt werden. Doch was ist eine Schleifenvariable?</p>
 <p>Ein For-Loop geht ja immer eine Menge von Elementen Schritt für Schritt von vorne nach hinten durch. Und dabei repräsentiert die Schleifenvariable immer genau das spezifische Element, auf das der For-Loop in dieser Runde gerade zugreift und <em>für</em> welches er gerade eine “Aktion” ausführt. Stell dir vor, du nimmst nacheinander die Chips aus der Chipstüte. Die Schleifenvariable repräsentiert dabei immer genau den Chip, den du gerade in der Hand hälst, sodass du mit diesem irgendetwas machen kannst (z.B. essen). In jeder Runde des For-Loops d.h. für jedes “<em>in die Chipstüte greifen</em>”, steht die Schleifenvariable für einen anderen “Chip”.</p>
@@ -1010,8 +1011,8 @@ Dies hier hat nichts mit dem Wert der Schleifenvariable zu tun.
 </div>
 <p>Das ist praktisch, wenn man einfach ein und denselben Code X-mal ausführen möchte, ohne sich dabei wirklich für die Elemente in einer Liste zu interessieren. Wir brauchen die Liste aber, um anzugeben, wie viele Runden der Loop haben soll. Die Anzahl der Runden entspricht dann einfach der Länge der angegebenen Liste. Das ist ungefähr so, als würden wir für jeden Chip in einer Chipstüte einmal in die Hände klatschen ohne sonst noch irgendwas mit dem Chip zu machen. Die Anzahl der Chips in der Chipstüte bestimmt dann, wie oft wir in die Hände klatschen. Weitere Auswirkungen haben die konkreten Chips in der Chipstüte dann aber nicht auf uns. Die Chips in der Chipstüte sind also nur ein Vorwand, um irgendeine Aktion zu wiederholen.</p>
 <p>Tatsächlich kommt dieser Fall, dass wir die Liste bzw. irgendeine Menge an Elementen nur brauchen, um die Wiederholungsanzahl des For-Loops festzulegen, ziemlich häufig vor. Dann ist es aber ziemlich unpraktisch, jedes mal eine Liste mit der richtigen Länge im For-Loop anzugeben. Stell dir vor, wir wollen einen For-Loop mit 1000 Runden ausführen. Dann müssen wir eine Liste der Länge 1000 angeben. An dieser Stelle wird eine Funktion namens <code class="docutils literal notranslate"><span class="pre">range()</span></code> nützlich, mit welcher wir “Listen” einer beliebigen Länge unkompliziert und kompakt erstellen können. Diese Funktion schauen wir uns gleich weiter unten an. Vorher werfen wir aber noch kurz einen Blick auf eine andere wichtige Sache bei For-Loops.</p>
-</div>
-<div class="section" id="verruckter-code">
+</section>
+<section id="verruckter-code">
 <h2>Verrückter Code<a class="headerlink" href="#verruckter-code" title="Permalink to this headline">¶</a></h2>
 <p>Bestimmt ist dir aufgefallen, dass ich den <strong>Code-Block</strong> eines For-Loops, in welchem die zu wiederholende “Aktion” definiert wird (wie z.B. “Chip essen”), immer etwas nach rechts eingerückt habe. Dieses Einrücken dient nicht nur der Übersichtlichkeit für uns Menschen, sondern wird von Python auch explizit gelesen und ist daher in einem For-Loop absolut notwendig. Python erwartet unter der <strong>Kopf-Zeile</strong> eines For-Loops, also einer Zeile der Form <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">ELEMENT</span> <span class="pre">in</span> <span class="pre">MENGE:</span></code> immer mindestens eine Zeile, die eine Tab-Breite (4 Leerzeichen) weiter nach rechts eingerückt ist. Wenn das nicht der Fall ist, dann entsteht ein Fehler, wie man hier sieht:</p>
 <div class="cell docutils container">
@@ -1094,8 +1095,8 @@ yo yo yo
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exkurs-eine-zahlenreihe-erstellen-mit-range">
+</section>
+<section id="exkurs-eine-zahlenreihe-erstellen-mit-range">
 <h2>Exkurs: Eine Zahlenreihe erstellen mit range()<a class="headerlink" href="#exkurs-eine-zahlenreihe-erstellen-mit-range" title="Permalink to this headline">¶</a></h2>
 <p>Schauen wir uns nun die Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code> an, die man in vielen For-Loops braucht. Die Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code> erstellt eine Zahlenreihe einer bestimmten Länge. Das ist vor allem in zwei Situationen praktisch:</p>
 <ol class="simple">
@@ -1141,7 +1142,7 @@ yo yo yo
 </div>
 </div>
 </div>
-<div class="section" id="uber-eine-zahlenreihe-loopen-mit-range">
+<section id="uber-eine-zahlenreihe-loopen-mit-range">
 <h3>Über eine Zahlenreihe loopen (mit range())<a class="headerlink" href="#uber-eine-zahlenreihe-loopen-mit-range" title="Permalink to this headline">¶</a></h3>
 <p>Wir können die durch <code class="docutils literal notranslate"><span class="pre">range()</span></code> produzierte Zahlenreihe nun auch als diejenige Menge nehmen, durch die ein For-Loop looped, nacheinander ein Element herausgreift und <em>für</em> jedes Element irgendetwas macht. Das Gute ist, dass wir ein range-Objekt nicht zwingend in eine richtige Liste umwandeln müssen, wenn wir über die produzierte Zahlenreihe loopen wollen. Denn For-Loops können ja nicht nur über Listen loopen, sondern ganz allgemein über sogenannte <em>iterierbare</em> Objekte. Eine Liste ist ein solches iterierbares Objekt, das durch die Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code> produzierte range-Objekt ist aber glücklicherweise auch “iterierbar”, sodass der For-Loop auch ein solches “lesen” kann.</p>
 <p>Im untigen Beispiel loope ich über eine Zahlenreihe der Länge 5 und führe für jede Zahl der Zahlenreihe den Befehl <code class="docutils literal notranslate"><span class="pre">print(&quot;hello</span> <span class="pre">world&quot;)</span></code> aus. Die konkreten Zahlen des range-Objektes sind uns dabei komplett egal, uns geht es hier nur darum, dass der Loop 5 Runden lang läuft.</p>
@@ -1258,9 +1259,9 @@ Wenn du dir aber nochmal ein Video anschauen möchtest, in dem u.a. auch noch we
 ></iframe>
 </div></div>
 </div>
-</div>
-</div>
-<div class="section" id="mit-for-loops-variablen-verandern">
+</section>
+</section>
+<section id="mit-for-loops-variablen-verandern">
 <h2>Mit For-Loops Variablen verändern<a class="headerlink" href="#mit-for-loops-variablen-verandern" title="Permalink to this headline">¶</a></h2>
 <p>Mittels For-Loops können bestimmte Programmprozeduren mehrmals hintereinander wiederholt werden. Eine typische Programmprozedur, die innerhalb von For-Loops wiederholt wird, ist das Verändern von Variablen.</p>
 <p><strong>Ein Beispiel:</strong> Wir haben eine Variable <code class="docutils literal notranslate"><span class="pre">counter</span></code>, die zunächst den Wert <code class="docutils literal notranslate"><span class="pre">0</span></code> aufweist. Danach startet ein For-Loop, wobei in jeder Runde des For-Loops die Variable <code class="docutils literal notranslate"><span class="pre">counter</span></code> um 1 erhöht wird.</p>
@@ -1367,8 +1368,8 @@ Das erste Element in der Liste eines jeden Agenten repräsentiert jeweils den Na
 </pre></div>
 </div>
 <p>Beide Ausdrücke liefern dasselbe Ergebnis. Ähnliche Kurzschreibweisen gibt es beispielsweise auch noch für Subtraktion, Multiplikation, Division und noch ein paar mehr Operationen.</p>
-</div>
-<div class="section" id="mit-for-loops-listen-erstellen">
+</section>
+<section id="mit-for-loops-listen-erstellen">
 <h2>Mit For-Loops Listen erstellen<a class="headerlink" href="#mit-for-loops-listen-erstellen" title="Permalink to this headline">¶</a></h2>
 <p>Eine häufige Anwendung von For-Loops ist auch das Erstellen von Listen. Eigentlich ist das auch nur eine weitere Form davon, wie man mit For-Loops Variablen dauerhaft verändern kann. Praktisch ist das z.B. wenn man große Populationen von Agenten erstellen möchte.</p>
 <p>Das Vorgehen ist dabei so: Wir erstellen zunächst eine leere Liste. Dann fügen wir innerhalb eines For-Loops in jeder Runde des Loops ein Element mittels der Listen-Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> zur Liste hinzu. Beispiel:</p>
@@ -1397,9 +1398,9 @@ Das erste Element in der Liste eines jeden Agenten repräsentiert jeweils den Na
 </div>
 </div>
 <p><strong>Übrigens:</strong> Da man sehr oft mittels For-Loop Listen erstellen oder verändern muss, gibt es in Python auch für das Erstellen und Verändern von Listen mittels For-Loop eine sehr nützliche Kurzschreibweise, die sogenannte <a class="reference external" href="https://www.youtube.com/watch?v=AhSvKGTh28Q">list comprehension</a>. Da diese jedoch am Anfang etwas gewöhnungsbedürftig ist und an dieser Stelle noch nicht notwendig ist, werden wir uns diese erst später anschauen.</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="exkurs-veranderbare-und-unveranderbare-objekte">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exkurs-veranderbare-und-unveranderbare-objekte">
 <h1>Exkurs: Veränderbare und unveränderbare Objekte<a class="headerlink" href="#exkurs-veranderbare-und-unveranderbare-objekte" title="Permalink to this headline">¶</a></h1>
 <p>In Python gibt es veränderbare und unveränderbare Objekte. Die eine Art von Objekten kann man also verändern, die andere Art von Objekten kann man nicht verändern.</p>
 <p>Stell dir vor, du besitzt ein Auto. Um damit ordentlich Eindruck auf der Straße zu machen, möchtest du gerne dein Auto tunen lassen und von 100 PS auf 150 PS upgraden. Du fährst also in eine Werkstatt und bittest um die gewünschte Veränderung. In der Werkstatt könntest du nun zwei Dinge zu hören bekommen, nämlich entweder</p>
@@ -1572,11 +1573,11 @@ Das erste Element in der Liste eines jeden Agenten repräsentiert jeweils den Na
 </div>
 <p>Wir sehen, die Liste wurde verändert, ist aber nach wie vor dasselbe Objekt mit derselben Identifikationsnummer. Die Variable <code class="docutils literal notranslate"><span class="pre">my_list</span></code> verweist also nach wie vor auf dasselbe Objekt. Das Objekt selbst wurde aber verändert.</p>
 <p>Uff! Das ist schon echt kompliziert. Nun wissen wir, dass es veränderbare und unveränderbare Objekte in Python gibt. Aber warum ist das wichtig? Ob ein Objekt veränderbar oder unveränderbar ist, macht eben immer dann einen Unterschied, wenn wir ein Objekt bzw. eine Variable verändern wollen. Und im Folgenden schauen wir uns an, wie man innerhalb von For-Loops die Elemente der Liste, auf die man im For-Loop zugreift, verändern kann. Je nachdem, ob die Elemente der Liste veränderbar sind oder nicht, müssen wir einen bestimmten Weg verwenden, um die Elemente in der Liste zu ändern.</p>
-<div class="section" id="mit-for-loops-die-elemente-einer-liste-verandern">
+<section id="mit-for-loops-die-elemente-einer-liste-verandern">
 <h2>Mit For-Loops die Elemente einer Liste verändern<a class="headerlink" href="#mit-for-loops-die-elemente-einer-liste-verandern" title="Permalink to this headline">¶</a></h2>
 <p>Oft verwendet man For-Loops nicht nur, um auf die Elemente einer Liste (oder eines sonstigen iterierbaren Objektes) nacheinander zuzugreifen, sondern diese auch zu verändern. Dabei gibt es zwei verschiedene Wege, Elemente einer Liste innerhalb eines For-Loops zu verändern und man muss je nachdem, mit welchen Objekten man es innerhalb der Liste zu tun hat, einen bestimmten Weg wählen. Zu unterscheiden sind dabei sogenannte <em>unveränderbare</em> Objekte und <em>veränderbare</em> Objekte.</p>
 <p>Bei veränderbaren Objekten können wir diese unter Umständen direkt anhand der Schleifenvariable verändern. Bei unveränderbaren Objekten hingegen ändert sich bei Veränderung der Schleifenvariable nichts am repräsentierten Objekt. In diesem Fall muss das Objekt per Listenindizierung direkt in der Liste mit dem neuen Wert überschrieben werden.</p>
-<div class="section" id="unveranderbare-elemente-in-einer-liste-im-for-loop-per-listenindizierung-uberschreiben">
+<section id="unveranderbare-elemente-in-einer-liste-im-for-loop-per-listenindizierung-uberschreiben">
 <h3>Unveränderbare Elemente in einer Liste im For-Loop per Listenindizierung überschreiben<a class="headerlink" href="#unveranderbare-elemente-in-einer-liste-im-for-loop-per-listenindizierung-uberschreiben" title="Permalink to this headline">¶</a></h3>
 <p>Angenommen wir wir haben eine Liste <code class="docutils literal notranslate"><span class="pre">money</span></code>, welche 3 Elemente des Typs <code class="docutils literal notranslate"><span class="pre">int</span></code> enthält. Diese erstelle ich im Folgenden:</p>
 <div class="cell docutils container">
@@ -1632,8 +1633,8 @@ Das erste Element in der Liste eines jeden Agenten repräsentiert jeweils den Na
 </div>
 </div>
 <p><strong>Wir merken uns:</strong> Sind die Elemente/Objekte, auf die die Schleifenvariable nach und nach zeigt, unveränderbar, dann können wir diese nicht direkt über die Schleifenvariable selbst ändern, sondern müssen per Listenindizierung auf die Elemente/Objekte zugreifen und diese überschreiben.</p>
-</div>
-<div class="section" id="veranderbare-elemente-in-einer-liste-im-for-loop-direkt-verandern">
+</section>
+<section id="veranderbare-elemente-in-einer-liste-im-for-loop-direkt-verandern">
 <h3>Veränderbare Elemente in einer Liste im For-Loop direkt verändern<a class="headerlink" href="#veranderbare-elemente-in-einer-liste-im-for-loop-direkt-verandern" title="Permalink to this headline">¶</a></h3>
 <p>Das Vorgehen von oben müssen wir allerdings nicht jedes mal so machen, sondern eben nur, wenn wir eigentlich unveränderbare Objekte innerhalb einer Liste in einem For-Loop “verändern” wollen. Im Falle von sogenannten veränderbaren Objekten müssen wir diesen Umweg über die Listenindizierung allerdings nicht nehmen, sondern können die Schleifenvariable so behandeln als wäre es das Objekt selbst: Jede Veränderung an der Schleifenvariable ist eine Veränderung am eigentlichen Objekt in der Liste, über die wir loopen.</p>
 <p>Schauen wir uns das Ganze anhand eines Beispieles bei der wir den Inhalt einer Liste von Listen (also Listen) innerhalb eines For-Loops verändern wollen. Wie gesagt, eine Liste ist ein veränderbares Objekt. Dadurch können wir in einem For-Loop diesmal direkt nacheinander auf den Inhalt der geschachtelten Liste zugreifen und diesen direkt anhand der Schleifenvariable verändern. Denn der Inhalt der geschachtelten Liste sind Listen und Listen sind veränderbare Objekte.</p>
@@ -1679,9 +1680,9 @@ Das erste Element in der Liste eines jeden Agenten repräsentiert jeweils den Na
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="exkurs-modulo">
+</section>
+</section>
+<section id="exkurs-modulo">
 <h2>Exkurs: Modulo<a class="headerlink" href="#exkurs-modulo" title="Permalink to this headline">¶</a></h2>
 <p>Weil wir sowieso gerade dabei sind, relativ kompliziertes Zeug zu besprechen, schauen wir uns nun noch den Modulo an. Dieser hat nicht zwingend etwas mit Loops zu tun, kann aber sehr praktisch innerhalb von Loops sein. Der Modulo gibt uns den Rest einer “Division mit Rest” zurück. Teilt man beispielsweise 5 durch 2, dann “passt” die 2 genau zwei mal vollständig in die 5. Es bleibt aber ein ungeteilter Rest von 1. Dieser Rest entspricht dem Wert, der durch den Modulo-Operator zurückgegeben wird.</p>
 <p>Der Modulo-Operator wird in Python durch das Prozentzeichen <code class="docutils literal notranslate"><span class="pre">%</span></code> dargestellt. Wenn man den Rest einer Division haben möchte, dann setzt man einfach an die Stelle, wo bei einer “normalen” Division der Divisions-Operator <code class="docutils literal notranslate"><span class="pre">/</span></code> stehen würde, den Modulo-Operator <code class="docutils literal notranslate"><span class="pre">%</span></code>.</p>
@@ -1851,8 +1852,8 @@ hallo
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="geschachtelte-for-loops">
+</section>
+<section id="geschachtelte-for-loops">
 <h2>Geschachtelte For-Loops<a class="headerlink" href="#geschachtelte-for-loops" title="Permalink to this headline">¶</a></h2>
 <p>In Python kann man so gut wie alles schachteln - auch For-Loops. Wir können innerhalb eines For-Loops also noch einen For-Loop starten. Den Inhalt dieses zweiten For-Loops muss man damm dementsprechend noch eine Ebene weiter einrücken.</p>
 <p>Im untigen Beispiel sieht man zwei geschachtelte For-Loops. Der erste For-Loop looped dabei über das range-Objekt <code class="docutils literal notranslate"><span class="pre">range(3)</span></code> und führt in jeder Runde einen weiteren For-Loop aus, welcher jedes mal komplett über die Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> looped.</p>
@@ -1909,8 +1910,8 @@ Zeitschritt: 2 /// Handelnder Agent: agent3
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="wofur-wir-for-loops-brauchen">
+</section>
+<section id="wofur-wir-for-loops-brauchen">
 <h2>Wofür wir For-Loops brauchen<a class="headerlink" href="#wofur-wir-for-loops-brauchen" title="Permalink to this headline">¶</a></h2>
 <p>Wir haben jetzt eine ganze Menge über For-Loops gelernt. For-Loops sind allgemein in der Programmierung essentiell. Und wie immer gilt daher: ABM sind Computerprogramme, weshalb auch in ABM For-Loops essentiell sind. Doch was sind die typischen Anwendungen von For-Loops innerhalb von ABM? In eigentlich jedem ABM brauchen wir For-Loops mindestens in diesen beiden Situationen:</p>
 <ol class="simple">
@@ -1924,8 +1925,8 @@ Zeitschritt: 2 /// Handelnder Agent: agent3
 </pre></div>
 </div>
 <p><strong>Für jeden Zeitschritt</strong> wird <strong>für jeden Agenten</strong> etwas getan, bspw. den Agenten zum handeln gebracht. Diese Loops sind dann der eigentliche “run” der Simulation. Bevor die Loops jedoch anlaufen, werden in einer Initialisierungsphase noch die benötigten Variablen definiert z.B. die Populationsliste erstellt (für deren Erstellung wir nicht selten auch einen For-Loop verwenden), die Agenten definiert oder die Zeitspanne festgelegt. Das wird alles später an konkreten Beispielen noch klarer. Zumindest hast du jetzt schon mal eine grobe Idee davon, wofür wir Loops hauptsächlich brauchen werden. Neben diesen beiden zentralen Anwendungen, brauchen wir Loops auch in anderen Situationen, die in den obigen Beispielen angedeutet wurden, sehr oft.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

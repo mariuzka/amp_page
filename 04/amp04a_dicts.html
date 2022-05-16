@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Exkurs 2: das Dictionary &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -716,7 +717,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="exkurs-2-das-dictionary">
+  <section class="tex2jax_ignore mathjax_ignore" id="exkurs-2-das-dictionary">
 <h1>Exkurs 2: das Dictionary<a class="headerlink" href="#exkurs-2-das-dictionary" title="Permalink to this headline">¶</a></h1>
 <p>Schauen wir uns an dieser Stelle einen neuen Objekt-Typ an, der sich gut dazu eignet, einen Agenten mit mehreren Eigenschaften darzustellen: <strong>das Dictionary</strong> bzw. <code class="docutils literal notranslate"><span class="pre">dict</span></code>. Ein Dictionary ist ähnlich wie eine Liste ein Form von Datencontainer, in den wir alle möglichen Objekte ablegen können. Listen sind zwar praktisch, weil man dort relativ unkompliziert, relativ viele Dinge einfach “reinwerfen” kann. Will man aus der Liste allerdings ein ganz spezifisches Objekt wiederfinden, dann ist das nicht mehr so unkompliziert. Dann müsste man entweder den spezifischen Positionsindex wissen oder das Objekt mit verschiedenen Methoden suchen. Eine Liste eignet sich daher v.a. dafür, wenn man viele gleiche oder unspezifische Objekte einfach irgendwo “sammeln” muss, damit man dann z.B. innerhalb eines For-Loops diese Objekte nacheinander abarbeiten kann. Eine Liste ist also z.B. perfekt, um eine Population von Agenten abzuspeichern. Um die Agenten selbst zu repräsentieren, mit den je spezifischen Eigenschaften der Agenten, auf die man beim Handeln der Agenten ganz gezielt zugreifen muss, eignen sich Listen also eigentlich gar nicht so wirklich gut. Viel besser sind tatsächlich Dictionaries.</p>
 <p>Ein Dictionary sind ein Datencontainer, in welchen man Objekte unter einem (sinnvollen) Namen ablegen kann. Diesen Namen nennt man auch <strong>Key</strong>. Mithilfe eines solchen Keys kann man dann, ganz gezielt die Objekte wiederfinden und darauf zugreifen. Das ist praktisch, wenn man Objekte etwas “geordneter” als in Listen verstauen möchte. Wie sehen solche Dictionaries aus? Während Listen mit zwei eckigen Klammern <code class="docutils literal notranslate"><span class="pre">[]</span></code> erzeugt werden, erzeugt man Dictionaries mit zwei geschweiften Klammern: <code class="docutils literal notranslate"><span class="pre">{}</span></code>. <code class="docutils literal notranslate"><span class="pre">{}</span></code> ist ein leeres Dictionary.</p>
@@ -920,7 +921,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="ein-dictionary-erweitern-update">
+<section id="ein-dictionary-erweitern-update">
 <h2>Ein Dictionary erweitern: update()<a class="headerlink" href="#ein-dictionary-erweitern-update" title="Permalink to this headline">¶</a></h2>
 <p>Ein Dictionary verfügt über eine ganze Reihe von Methoden. An dieser Stelle möchte ich eine davon vorstellen, die man hin und wieder braucht. Mit der Methode <code class="docutils literal notranslate"><span class="pre">update()</span></code> kann man ein bereits bestehendes Dictionary um ein oder mehr Elemente bzw. Key-Value-Paare erweitern.</p>
 <p>Man hängt die Methode <code class="docutils literal notranslate"><span class="pre">update()</span></code> wie jede Methode an das entsprechende Dictionary-Objekt an. Als Input erwartet die Methode <code class="docutils literal notranslate"><span class="pre">update()</span></code> ein weiteres Dictionary, das dann in das bereits bestehende Dictionary integriert wird. Die Methode <code class="docutils literal notranslate"><span class="pre">update()</span></code> ist letztlich genau das, was die Methode <code class="docutils literal notranslate"><span class="pre">extend()</span></code> für Listen ist.</p>
@@ -984,8 +985,8 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

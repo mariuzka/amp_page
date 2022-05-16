@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Matrix als Welt der Agenten &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -726,12 +727,12 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="matrix-als-welt-der-agenten">
+  <section class="tex2jax_ignore mathjax_ignore" id="matrix-als-welt-der-agenten">
 <h1>Matrix als Welt der Agenten<a class="headerlink" href="#matrix-als-welt-der-agenten" title="Permalink to this headline">¶</a></h1>
 <p>In agentenbasierten Modellen, in denen Raum eine Rolle spielt, wird dieser sehr oft mittels sogenannter <strong>Grids</strong> (auch Lattice genannt) dargestellt. Ein solches Grid ist eigentlich nichts anderes als eine Matrix, deren Zellen jeweils eine mögliche Position bzw. einen Ort in der simulierten Welt, auf welcher sich z.B. ein Agent befinden kann, darstellt. Grids lassen sich super grafisch darstellen und helfen so, entstehende räumliche Muster in der simulierten Welt zu erfassen. Unten sieht man z.B. den Endzustand eines <em>Schelling-Modells</em>.</p>
 <p><img alt="" src="../_images/schelling_matrix.PNG" /></p>
 <p>Um eine solche Grafik wie oben zu erstellen, braucht man nicht nur eine spezielle Matplotlib-Funktion/Methode, welche einen solchen Diagramm-Typ erstellt, viel mehr müssen wir eine Matrix als einen bestimmten Datentyp in Python repräsentieren, um überhaupt die notwendigen Informationen über die Beschaffenheit des Grids an eine diagrammerstellende Funktion übergeben zu können. Bevor wir uns daher auf den nächsten Seiten anschauen, wie wir mit Matplotlib Matrizen grafisch darstellen können, schauen wir uns hier kurz an, als welcher Datentyp Matrizen innerhalb von Python repräsentiert werden können.</p>
-<div class="section" id="matrizen-als-geschachtelte-listen">
+<section id="matrizen-als-geschachtelte-listen">
 <h2>Matrizen als geschachtelte Listen<a class="headerlink" href="#matrizen-als-geschachtelte-listen" title="Permalink to this headline">¶</a></h2>
 <p>Wie können wir solche Matrizen in Python darstellen? Es gibt in Python zahlreiche spezielle Datentypen für Matrizen, z.B. aus dem Modul Numpy das sogenannte <code class="docutils literal notranslate"><span class="pre">array</span></code> oder aus dem Modul Pandas der sogenannte <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Da jedoch jedes neue Modul gleichzeitig auch das Erlernen der jeweils etwas eigenen “Syntax” und sonstiger Besonderheiten dieses Moduls bedeutet, sollte man Module vor allem als Programmierneuling nur dann benutzen, wenn man sie wirklich braucht. Tatächlich kann man eine Matrix auch relativ einfach mit den Python-Basics darstellen: als <strong>Liste von Listen</strong>. Innerhalb einer Liste befinden sich dabei Unterlisten, welche die Zeilen einer Matrix repräsentieren. Innerhalb jeder Unterliste befinden sich Elemente, deren Position jeweils einer Spalte der Matrix entspricht.</p>
 <p>Im Folgenden ein Beispiel für eine Matrix mit 3 Zeilen und 3 Spalten. Um eine solche Matrix darzustellen, benötigt man eine Liste, mit 3 Unterlisten (Zeilen), welche wiederum jeweils 3 Elemente (Spalten) enthalten.</p>
@@ -798,8 +799,8 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span><span class="p">[</span><span class="n">ZEILE</span><span class="p">][</span><span class="n">SPALTE</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="matrizen-per-for-loop-erstellen">
+</section>
+<section id="matrizen-per-for-loop-erstellen">
 <h2>Matrizen per For-Loop erstellen<a class="headerlink" href="#matrizen-per-for-loop-erstellen" title="Permalink to this headline">¶</a></h2>
 <p>Kleine Matrizen kann man noch relativ gut per Hand erstellen. Manchmal muss man auch solch “individuelle” Matrizen erstellen, dass man um die Erstellung dieser per Hand nicht drumherum kommt. Oft können wir die Erstellung von Matrizen aber per For-Loop automatisieren. Unten erstelle ich mittels zweier geschachtelter For-Loops eine Matrix mit 10 Zeilen und 10 Spalten, in deren Zellen jeweils eine 0 eingefügt wird.</p>
 <div class="cell docutils container">
@@ -850,8 +851,8 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

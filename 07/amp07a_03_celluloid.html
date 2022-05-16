@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>ABM animieren &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -750,17 +751,17 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="abm-animieren">
+  <section class="tex2jax_ignore mathjax_ignore" id="abm-animieren">
 <h1>ABM animieren<a class="headerlink" href="#abm-animieren" title="Permalink to this headline">¶</a></h1>
 <p>Die Animation von agentenbasierten Modellen ist eine gute Methode, deren Dynamiken über die Zeit zu untersuchen und intuitiv zugänglich zu machen. Auch Fehler in der Programmierung fallen durch die Animation bestimmter Modell-Aspekte recht gut auf. Für Erstellung von Animationen in Python bietet sich v.a. das Modul Matplotlib an. Mit diesem kann man prinzipiell eine große Bandbreite an Animationen erstellen. Allerdings ist die Umsetzung von Animationen direkt mit Matplotlib anfangs etwas unnötig kompliziert. Aus diesem Grund gibt es das <a class="reference external" href="https://github.com/jwkvam/celluloid">Modul Celluloid</a>, welches eine vereinfachte Bedinung für die Erstellung von Animationen mit Matplotlib bereitstellt.</p>
-<div class="section" id="installation-der-benotigten-pakete">
+<section id="installation-der-benotigten-pakete">
 <h2>Installation der benötigten Pakete<a class="headerlink" href="#installation-der-benotigten-pakete" title="Permalink to this headline">¶</a></h2>
 <p>Bevor wir mit Celluloid arbeiten können, müssen Celluloid sowie ein weiteres Paket installieren. Leider muss man beide auf unterschiedliche Wege installieren.</p>
-<div class="section" id="ffmpeg-installieren">
+<section id="ffmpeg-installieren">
 <h3>ffmpeg installieren<a class="headerlink" href="#ffmpeg-installieren" title="Permalink to this headline">¶</a></h3>
 <p>Für die Erstellung von Animationen benötigt Celluloid das Paket <strong>ffmpeg</strong>. Dieses Paket kannst du, genau wie wir im vorherigen Kapitel Matplotlib installiert haben, über den Anaconda-Navigator installieren.</p>
-</div>
-<div class="section" id="celluloid-uber-pip-installieren">
+</section>
+<section id="celluloid-uber-pip-installieren">
 <h3>Celluloid über Pip installieren<a class="headerlink" href="#celluloid-uber-pip-installieren" title="Permalink to this headline">¶</a></h3>
 <p>Celluloid ist leider in Anaconda nicht verfügbar, weshalb wir hier einen anderen Weg für die Installation wählen müssen. Statt Pakete über Anaconda zu installieren, installieren wir das Paket über <strong>Pip</strong>. Pip ist tatsächlich der ganz klassische Weg, um Pakete in Python zu installieren. Mittels Pip können wir direkt über die Spyder-Konsole Pakete installieren.</p>
 <p>Die allgemein Syntax für das Installieren neuer Pakete mit Pip in der Spyder Konsole lautet so:</p>
@@ -775,9 +776,9 @@
 <p class="admonition-title">Warning</p>
 <p>In der Vergangenheit gab es immer wieder Probleme, wenn ffmpeg über Pip installiert wurde. Du solltest daher das Paket <strong>ffmpeg</strong> auf keinen Fall über Pip installieren, sondern dafür den Anaconda-Navigator nutzen!</p>
 </div>
-</div>
-</div>
-<div class="section" id="animationen-mit-matplotlib-und-celluloid">
+</section>
+</section>
+<section id="animationen-mit-matplotlib-und-celluloid">
 <h2>Animationen mit Matplotlib und Celluloid<a class="headerlink" href="#animationen-mit-matplotlib-und-celluloid" title="Permalink to this headline">¶</a></h2>
 <p>Das Prinzip der Erstellung von Animationen mit Celluloid ist relativ simpel. Jede Animation besteht aus mehreren Matplotlib-Grafiken, welche nacheinander erstellt werden und dann zu einem “Film” zusammengesetzt werden. Während wir unsere Grafiken/Diagramme ganz normal weiterhin mit Matplotlib erstellen, übernimmt das Modul Celluloid das <em>Sammeln</em> und <em>Zusammensetzen</em> der Grafiken zu einer Animation.</p>
 <p>Schauen wir uns ein Beispiel an.</p>
@@ -1926,8 +1927,8 @@ asmASZJaMmCSpJYMmCSpJQMmSWrJgEmSWjJgkqSWDJgkqSUDJklqyYBJkloyYJKklv4P62uuMzpu\
 <li><p>Fotos zu Film zusammensetzen und Animationsobjekt erstellen: <code class="docutils literal notranslate"><span class="pre">animation</span> <span class="pre">=</span> <span class="pre">camera.animate()</span></code></p></li>
 <li><p>Animation als Video exportieren: <code class="docutils literal notranslate"><span class="pre">animation.save(HIER</span> <span class="pre">DATEIPFAD</span> <span class="pre">EINFÜGEN)</span></code></p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

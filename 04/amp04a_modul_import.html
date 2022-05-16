@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Exkurs 1: Module importieren &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -740,7 +741,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="exkurs-1-module-importieren">
+  <section class="tex2jax_ignore mathjax_ignore" id="exkurs-1-module-importieren">
 <h1>Exkurs 1: Module importieren<a class="headerlink" href="#exkurs-1-module-importieren" title="Permalink to this headline">¶</a></h1>
 <p>Bisher haben wir ausschließlich Code aus dem Basis-Python und nur sogenannte Built-in-Funktionen verwendet. Das ist der Python-Code, der uns unmittelbar mit jedem Python-Interpreter zur Verfügung steht. Allein damit kann man schon ziemlich viel machen. Man kann das Spektrum an verfügbaren Funktionen usw. aber noch enorm erweitern, wenn man sogenannte Module importiert. Module stellen uns weitere Objekte und Funktionen zur Verfügung, die wir (im aktuellen Programm) nicht selber geschrieben haben, aber anwenden können. Im einfachsten Fall ist ein Modul selbst wiederum ein Python-Skript, in dem jemand nützliche Funktionen definiert hat, sodass wir diese nicht mehr selbst schreiben müssen. Python verfügt über eine sogenannte Standardbibliothek, in der schon eine ganze Reihe nützliche Module vorhanden sind.
 Manche Module muss man aber auch extra installieren. Wie das funktioniert, schauen wir uns in einem der nächsten Kapitel an. Hier beschränken wir uns darauf, wie man bereits installierte Module aus der Python-Standard-Bibliothek nutzen kann.</p>
@@ -805,10 +806,10 @@ Manche Module muss man aber auch extra installieren. Wie das funktioniert, schau
 </div>
 </div>
 </div>
-<div class="section" id="zwei-nutzliche-funktionen-des-moduls-random">
+<section id="zwei-nutzliche-funktionen-des-moduls-random">
 <h2>Zwei nützliche Funktionen des Moduls random<a class="headerlink" href="#zwei-nutzliche-funktionen-des-moduls-random" title="Permalink to this headline">¶</a></h2>
 <p>Das Modul <code class="docutils literal notranslate"><span class="pre">random</span></code> ist insgesamt ein super praktisches Modul. Es liefert uns ein paar nützliche Funktionen, mit der wir Zufallszahlen generieren oder Zufallswahlen vollziehen können.</p>
-<div class="section" id="random-random">
+<section id="random-random">
 <h3>random.random()<a class="headerlink" href="#random-random" title="Permalink to this headline">¶</a></h3>
 <p>Eine oft gebrauchte Funktion ist die Funktion <code class="docutils literal notranslate"><span class="pre">random()</span></code>. Nicht verwirren lassen dadurch, dass die Funktion genauso wie das Modul heißt. Die Funktion <code class="docutils literal notranslate"><span class="pre">random()</span></code> liefert einen Zufalls-<code class="docutils literal notranslate"><span class="pre">float</span></code> zwischen 0 und 1.</p>
 <div class="cell docutils container">
@@ -842,8 +843,8 @@ Manche Module muss man aber auch extra installieren. Wie das funktioniert, schau
 </div>
 </div>
 <p>Da die Funtion <code class="docutils literal notranslate"><span class="pre">random()</span></code> eine (gleichverteilte) Zufallszahl zwischen 0 und 1 ausgibt, wird die von <code class="docutils literal notranslate"><span class="pre">random.random()</span></code> ausgegebene Zahl mit einer Wahrscheinlichkeit von 0.3 kleiner oder gleich dem Wert 0.3 sein. Wenn wir etwas mit der Wahrscheinlichkeit von 0.3 machen wollen, dann müssen wir also einfach mithilfe eines If-Statements sagen: Wenn der ausgegebene Zufallswert kleiner oder gleich 0.3 ist, dann mache das und das.</p>
-</div>
-<div class="section" id="random-choice">
+</section>
+<section id="random-choice">
 <h3>random.choice()<a class="headerlink" href="#random-choice" title="Permalink to this headline">¶</a></h3>
 <p>Die Funktion <code class="docutils literal notranslate"><span class="pre">choice()</span></code> wurde oben schon kurz verwendet, aber nicht erläutert. Diese Funktion zieht ein Element zufällig aus einer Menge z.B. einer Liste. Das ist z.B. praktisch, wenn wir pro Zeiteinheit nur genau einen zufälligen Agenten handeln lassen wollen und daher einen Agenten zufällig aus der Populations-Liste ziehen wollen. Als Argument wird die Menge, aus der gezogen werden soll, in die Funktion <code class="docutils literal notranslate"><span class="pre">choice()</span></code> eingegeben. Ein Beispiel:</p>
 <div class="cell docutils container">
@@ -862,9 +863,9 @@ Manche Module muss man aber auch extra installieren. Wie das funktioniert, schau
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

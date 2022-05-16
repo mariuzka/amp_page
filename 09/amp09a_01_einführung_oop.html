@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>OOP in Python &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -778,7 +779,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="oop-in-python">
+  <section class="tex2jax_ignore mathjax_ignore" id="oop-in-python">
 <h1>OOP in Python<a class="headerlink" href="#oop-in-python" title="Permalink to this headline">¶</a></h1>
 <p>Python ist eine objektorientierte Programmiersprache. Dennoch haben wir es bis zu diesem Punkt geschafft, uns nicht wirklich tiefergehend mit dem Thema <em>objektorientiertes Programmieren</em> auseinandersetzen zu müssen. Unser Programmierstil war nicht wirklich objektorientiert. Wir haben zwar mit Objekten herumhantiert (in Python ist eigentlich alles ein Objekt) und die Methoden bereits vorhandener Objekt verwendet, wir selbst haben unsere eigenen Programmteile aber nicht in Objekten organisiert, also z.B. keine eigenen Objekte bzw. Objekt-Klassen erstellt. In diesem Kapitel wenden wir uns nun der objektorientierten Programmierung und der Definition eigener Objekt-Klassen zu, weil damit agentenbasiert Modelle noch einmal deutlich <em>natürlicher</em>, eleganter und effizienter umgesetzt werden können. Auch viele Python-Pakete setzen Grundkenntnisse zur objektorientierten Programmierung voraus.</p>
 <div class="admonition-ubrigens admonition">
@@ -809,14 +810,14 @@
 ></iframe>
 </div></div>
 </div>
-<div class="section" id="klassen-instanzen">
+<section id="klassen-instanzen">
 <h2>Klassen &amp; Instanzen<a class="headerlink" href="#klassen-instanzen" title="Permalink to this headline">¶</a></h2>
 <p>Am Anfang ist es wichtig zu verstehen, was eine <strong>Objekt-Klasse</strong> und was eine <strong>Objekt-Instanz</strong> ist.</p>
 <ul class="simple">
 <li><p>Eine Objekt-Klasse beschreibt die allgemeine Struktur, den allgemeinen Bauplan eines Objektes - und zwar nicht nur von einem ganz bestimmten Objekt, sondern prinzipiell von allen Objekten desselben Typs bzw. derselben Klasse. In der Definition der Objekt-Klasse legen wir allgemein fest, über welche Attribute (Daten, “passive” Eigenschaften) und Methoden (Funktionen, “aktive” Eigenschaften) ein Objekt dieser Art verfügt. Mit der Definition der Klasse wird selbst noch kein Objekt erstellt.</p></li>
 <li><p>Eine Objekt-Instanz ist ein Objekt, das nach den Bauplänen einer Objekt-Klasse erstellt wurde. Auf Basis einer einzigen Objekt-Klasse können prinzipiell <em>unendlich</em> viele Objekt-Instanzen kreiert werden. Jede Objekt-Instanz hat eine eigene <em>Identität</em>, ist ein Objekt für sich.</p></li>
 </ul>
-<div class="section" id="eine-objekt-klasse-definieren">
+<section id="eine-objekt-klasse-definieren">
 <h3>Eine Objekt-Klasse definieren<a class="headerlink" href="#eine-objekt-klasse-definieren" title="Permalink to this headline">¶</a></h3>
 <p>Die Definition einer Klasse wird in Python mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">class</span></code> eingeleitet. In derselben Zeile folgt ein (fast) freiwählbarer Name für diese Klasse und schließlich ein Doppelpunkt. Die allgemein Form der “Kopfzeile” einer Klassendefinition lautet also:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CLASS_NAME</span><span class="p">:</span>
@@ -860,8 +861,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="instanzen-erstellen">
+</section>
+<section id="instanzen-erstellen">
 <h3>Instanzen erstellen<a class="headerlink" href="#instanzen-erstellen" title="Permalink to this headline">¶</a></h3>
 <p>Wir haben jetzt zwar eine Klasse definiert, aber wir haben dadurch noch kein existierendes Objekt, noch keine Instanz dieser Klasse erstellt. Um eine Instanz einer Klasse zu erstellen, muss man den Konstruktor einer Klasse ausführen. Das bedeutet nichts anderes als den Namen der Objekt-Klasse zusammen mit zwei runden Klammern - wie bei dem Ausführen einer Funktion - aufzurufen. Allgemein formuliert schreibt man also einfach <code class="docutils literal notranslate"><span class="pre">CLASS_NAME()</span></code>, um eine Instanz einer Klasse zu erstellen. Die so erstellte Instanz der Klasse kann man dann z.B. einer Variable zuordnen oder direkt in eine Liste einfügen. Unten erstelle ich eine Instanz der Klasse <code class="docutils literal notranslate"><span class="pre">Agent</span></code> und speichere diese Instanz unter der Variable <code class="docutils literal notranslate"><span class="pre">agent1</span></code> ab:</p>
 <div class="cell docutils container">
@@ -952,8 +953,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="methoden-ausfuhren">
+</section>
+<section id="methoden-ausfuhren">
 <h3>Methoden ausführen<a class="headerlink" href="#methoden-ausfuhren" title="Permalink to this headline">¶</a></h3>
 <p>Oben hatten wir unserer Klasse <code class="docutils literal notranslate"><span class="pre">Agent</span></code> bereits eine Methode namens <code class="docutils literal notranslate"><span class="pre">say_hello_world()</span></code> zugewiesen. Wir können diese aufrufen, indem wir den Namen der Methode mit einem Punkt an eine entsprechende Instanz der Klasse hängen. Allgemein sieht das so aus:</p>
 <p><code class="docutils literal notranslate"><span class="pre">INSTANCE.METHOD()</span></code></p>
@@ -1009,8 +1010,8 @@ hello world
 </div>
 </div>
 <p>Der obige Loop ist bei der Programmierung von ABM ein ganz typischer Loop. Wir gehen die Populationsliste durch und bringen alle Agenten nacheinander zum handeln. Natürlich ist auch hier der Name der Schleifenvariable willkürlich gewählt. Man kann statt <code class="docutils literal notranslate"><span class="pre">agent</span></code> auch <code class="docutils literal notranslate"><span class="pre">element</span></code> oder sonst was schreiben - wichtig ist zu verstehen, dass sich in jeder Runde hinter dem Namen der Schleifenvariable eine (andere) Instanz der Klasse <code class="docutils literal notranslate"><span class="pre">Agent</span></code> befindet.</p>
-</div>
-<div class="section" id="instanz-attribute-die-methode-init">
+</section>
+<section id="instanz-attribute-die-methode-init">
 <h3>Instanz-Attribute &amp; die Methode _<em>init</em>_()<a class="headerlink" href="#instanz-attribute-die-methode-init" title="Permalink to this headline">¶</a></h3>
 <p>Okay, wir haben nun zwar handelnde Objekte, aber einen wirklichen Vorteil hat uns das Ganze noch nicht gebracht. Das liegt daran, dass unsere Klasse <code class="docutils literal notranslate"><span class="pre">Agent</span></code> zwar über Methoden, aber über gar keine Attribute d.h. Daten verfügt. Die wirkliche Stärke von Objekten ist ja aber gerade die Vereinigung von Daten und Funktionen bzw. Attributen und Methoden innerhalb einer abgeschlossenen Einheit.</p>
 <p>Prinzipiell kann man jedem Objekt, wenn es bereits existiert, nachträglich Attribute hinzufügen und/oder bereits existierende Attribute verändern. Dies machen wir, indem wir einen Attribut-Namen mit einem Punkt an den Instanz-Namen anhängen und diesem einen Wert zuweisen:</p>
@@ -1334,8 +1335,8 @@ hello world
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="methoden-als-funktionen-aus-der-perspektive-der-objekte">
+</section>
+<section id="methoden-als-funktionen-aus-der-perspektive-der-objekte">
 <h3>Methoden als Funktionen aus der Perspektive der Objekte<a class="headerlink" href="#methoden-als-funktionen-aus-der-perspektive-der-objekte" title="Permalink to this headline">¶</a></h3>
 <p>Weiter oben hatten wir der Klasse <code class="docutils literal notranslate"><span class="pre">Agent</span></code> mit der Methode <code class="docutils literal notranslate"><span class="pre">say_hello_world()</span></code> bereits eine “Fähigkeit” gegeben. Diese Fähigkeit war jedoch nicht besonders individuell, weil die persönlichen Attribute eines Agenten nicht in die Methode einbezogen wurden. Im Folgenden zeige ich, wie Objekte innerhalb ihrer Methoden auf sich selbst und auch auf andere Instanzen zugreifen können.</p>
 <p>Instanzen können innerhalb ihrer Methoden auf sich selbst bzw. auf ihre eigenen Attribute zugreifen, indem sie sich auf den in jeder Methode vorhandenen Parameter <code class="docutils literal notranslate"><span class="pre">self</span></code> beziehen. Aus der Sicht einer Instanz ist die Instanz selbst immer unter <code class="docutils literal notranslate"><span class="pre">self</span></code> zu finden. Hilfreich ist es, sich bei der Definition einer Klasse in die Klasse bzw. eine Instanz dieser Klasse hineinzuversetzen und diese aus der Sicht dieser Instanz zu programmieren. Alles was man selbst ist oder hat, findet man unter dem Parameter <code class="docutils literal notranslate"><span class="pre">self</span></code>. Das bin ich, die Instanz.</p>
@@ -1489,9 +1490,9 @@ Hallo, ich will Pizza !
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

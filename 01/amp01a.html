@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Python &amp; Anaconda &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -320,7 +321,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -900,7 +901,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="python-anaconda">
+  <section class="tex2jax_ignore mathjax_ignore" id="python-anaconda">
 <h1>Python &amp; Anaconda<a class="headerlink" href="#python-anaconda" title="Permalink to this headline">¶</a></h1>
 <p>Wir nutzen im Kurs die Programmiersprache Python. Python ist eine professionelle und universell einsetzbare Programmiersprache, die momentan zu den <a class="reference external" href="https://www.northeastern.edu/graduate/blog/most-popular-programming-languages/">populärsten Programmiersprachen weltweit</a> zählt. Zur offiziellen Website von Python geht es <a class="reference external" href="https://www.python.org/">hier</a>.</p>
 <p><strong>Wir benutzen Python in diesem Seminar aus folgenden Gründen:</strong></p>
@@ -931,7 +932,7 @@
 <img alt="../_images/amp01a_2_0.png" src="../_images/amp01a_2_0.png" />
 </div>
 </div>
-<div class="section" id="spyder">
+<section id="spyder">
 <h2>Spyder<a class="headerlink" href="#spyder" title="Permalink to this headline">¶</a></h2>
 <p>Wir werden zunächst v.a. mit der Programmierumgebung Spyder arbeiten. Spyder ist eine Integrierte-Entwicklungs-Umgebung (integrated development environment, kurz: IDE), welche auf die wissenschaftliche Anwendung von Python spezialisiert ist. Wir können in dieser sowohl den Code unseres Programmes schreiben, unsere Daten/Variablen untersuchen, Graphiken anzeigen lassen als auch interaktiv mit Python kommunizieren. Wenn du vielleicht schonmal mit R und R-Studio gearbeitet hast: Spyder ist quasi das R-Studio für Python.</p>
 <p>Spyder besteht aus drei zentralen Fenstern:</p>
@@ -963,12 +964,12 @@
 <img alt="../_images/amp01a_4_0.png" src="../_images/amp01a_4_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="einstieg-in-python-was-sind-variablen-datentypen-und-funktionen">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="einstieg-in-python-was-sind-variablen-datentypen-und-funktionen">
 <h1>Einstieg in Python: Was sind Variablen, Datentypen und Funktionen?<a class="headerlink" href="#einstieg-in-python-was-sind-variablen-datentypen-und-funktionen" title="Permalink to this headline">¶</a></h1>
 <p>Bevor wir mit der Programmierung von ABM loslegen können, müssen wir erstmal grob verstehen, wie Python funktioniert und was die allgemeine Logik von Programmiersprachen ist. Damit du die folgenden Ausführungen sowie alle anderen Kapitel dieses Kurses nachverfolgen und vielleicht sogar mittippen kannst, solltest du am besten Spyder geöffnet haben, wenn du diesen Kurs durcharbeitest.</p>
-<div class="section" id="python-als-taschenrechner">
+<section id="python-als-taschenrechner">
 <h2>Python als Taschenrechner<a class="headerlink" href="#python-als-taschenrechner" title="Permalink to this headline">¶</a></h2>
 <p>Den intuitivsten Einstieg erhält man, wenn man Python zunächst einfach als Taschenrechner verwendet. Python kann zwar als Programmiersprache vieles mehr, dennoch machen wir auch mit Python oft das, was was man auch mit einem Taschenrechner oder im Kopf hätte machen können: Wir verrechnen irgendwelche Zahlen auf irgendeine Art und Weise. Du kannst das Ausprobieren, indem du einfach typische Berechnungen, die du auch in einen klassischen Taschenrechner eintippen könntest, in die Konsole eintippst und Enter drückst.</p>
 <p>Zum Beispiel:</p>
@@ -986,8 +987,8 @@
 </div>
 <p>Wir sehen, Python weiß also was Zahlen bedeuten und weiß auch über die Bedeutung von bestimmten mathematischen Operatoren, wie <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> und <code class="docutils literal notranslate"><span class="pre">/</span></code> Bescheid. Diese beiden Elemente von Berechnungen - Zahlen und Operatoren - vermitteln auch einen intuitiven Eindruck davon, woraus letztlich jedes Computerprogramm besteht: nämlich aus irgendwelchen <em>Daten</em> und irgendwelchen <em>Funktionen</em>, die irgendwas mit den Daten machen. In diesem Falle sind die Daten die eingegebenen Zahlen und die Funktionen sind die mathematischen Operatoren, die vorgeben, wie die Daten verrechnet werden sollen. Es gibt jedoch neben Zahlen und mathematischen Operatoren eine ganze Reihe an anderen Datentypen und Funktionen, dennoch werden wir diese fast in jedem Programm benutzen. Dazu später mehr.</p>
 <p>Übrigens ist all das, was in Python existiert, also auch die obigen Zahlen und Operatoren bzw. Daten und Funktionen, auch ein sogenanntes Software-Objekt bzw. Objekt. Objekte sind die kleinsten Einheiten in Python, aus dem alles besteht. Dabei gibt es verschiedene Klassen bzw. Typen von Objekten, welche bestimmen, was ein bestimmtes Objekt machen kann und was nicht. Auch dazu werden wir im Verlauf des Kurses noch mehr lernen.</p>
-</div>
-<div class="section" id="variablen">
+</section>
+<section id="variablen">
 <h2>Variablen<a class="headerlink" href="#variablen" title="Permalink to this headline">¶</a></h2>
 <p>Geben wir Berechnungen wie oben oder auch einfach nur irgendwelche Werte in die Konsole ein, dann bekommen wir das Ergebnis unmittelbar ausgegeben. Wir können aber einzelne Werte oder das Ergebnis einer Berechnung auch speichern, indem wir diese einer sogenannten Variable zuweisen. Dadurch können wir die so abgelegten Werte später immer wieder unter dem angegebenen Variablennamen aufrufen und im Programm weiter verwenden.</p>
 <p>Eine Variablenzuweisung erfolgt mithilfe des Gleichheitszeichens, wobei auf der rechten Seite der Wert und auf der linken Seite der Name, unter dem der Wert auf der rechten Seite aufzurufen ist, geschrieben. Unten weisen wir beispielsweise den Wert <code class="docutils literal notranslate"><span class="pre">1500</span></code> dem Variablennamen <code class="docutils literal notranslate"><span class="pre">income</span></code> zu. Führen wir diesen Code aus, passiert erstmal nichts. Zumindest nichts, was für uns sichtbar ist.</p>
@@ -1050,8 +1051,8 @@
 </div>
 </div>
 <p>Man könnte denken, dass sich im Speicher nun zweimal der Wert <code class="docutils literal notranslate"><span class="pre">100</span></code>, einmal an dem Ort <code class="docutils literal notranslate"><span class="pre">x</span></code> und einmal an dem Ort <code class="docutils literal notranslate"><span class="pre">y</span></code> befindet. Doch die Variablenzuweisung in Python funktioniert anders. Stattdessen befindet sich die <code class="docutils literal notranslate"><span class="pre">100</span></code> immer noch nur genau einmal im Speicher an genau einem Ort. Dieser eine Ort im Speicher, an dem die <code class="docutils literal notranslate"><span class="pre">100</span></code> liegt, kann nun aber mit zwei Variablennamen gefunden werden: <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code>. Variablen sind in Python also immer nur “Zeiger” auf Werte bzw. Objekte, die irgendwo im Speicher liegen. Diese Eigenschaft von Python ist zu diesem Zeitpunkt noch nicht so wichtig, später aber wird dies sowohl eine sehr verwirrende als auch hilfreiche Eigenschaft sein.</p>
-</div>
-<div class="section" id="datentypen">
+</section>
+<section id="datentypen">
 <h2>Datentypen<a class="headerlink" href="#datentypen" title="Permalink to this headline">¶</a></h2>
 <p>Die grundlegensten Software-Objekte in Python sind Daten. Daten können in verschiedener Form vorliegen bzw. gespeichert sein. Man nennt die unterschiedlichen Formen, in denen Datenwerte vorliegen können, auch Datentyp. Ein Datentyp gibt vor, was man mit bestimmten Datenwerten machen kann d.h. welche Funktionen auf diesen Datentyp anwendbar sind. Beispielsweise gehört eine 2 in Python zum Datentyp “Integer”, also “ganze Zahl”. Für diesen Datentyp ist zum Beispiel das Addieren mit einem weiteren Datenelement vom Typ “Integer” eine zulässige Verarbeitung, wie wir bereits im Taschenrechner-Beispiel gesehen haben.</p>
 <p>In Python gibt es eine Reihe grundlegender Datentypen, die fast in jedem Programm verwendet werden und wir deren Eigenschaften daher gut kennen sollten. Hier ist eine Auswahl an Datentypen, die wir von Anfang an brauchen werden und ich daher ganz kurz vorstellen möchte.</p>
@@ -1062,15 +1063,15 @@
 <li><p>Boolean</p></li>
 <li><p>List</p></li>
 </ul>
-<div class="section" id="integer">
+<section id="integer">
 <h3>Integer<a class="headerlink" href="#integer" title="Permalink to this headline">¶</a></h3>
 <p>Integers sind “ganze Zahlen” und werden in Python mit <code class="docutils literal notranslate"><span class="pre">int</span></code> abgekürzt. Eine <code class="docutils literal notranslate"><span class="pre">42</span></code> ist beispielsweise eine ganze Zahl.</p>
-</div>
-<div class="section" id="float">
+</section>
+<section id="float">
 <h3>Float<a class="headerlink" href="#float" title="Permalink to this headline">¶</a></h3>
 <p>Floats heißen in Python alle “Kommazahlen” bzw. “Fließkommazahl”. In Python wird als Trennzeichen jedoch kein Komma, sondern ein Punkt verwendet. Beispielsweise gehört die <code class="docutils literal notranslate"><span class="pre">42.35</span></code>, aber auch die <code class="docutils literal notranslate"><span class="pre">42.0</span></code> zum Datentyp <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
-</div>
-<div class="section" id="string">
+</section>
+<section id="string">
 <h3>String<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h3>
 <p>Strings sind “Zeichen” oder “Zeichenketten”. Diese werden in Python über die Einbettung in Anführungszeichen gekennzeichnet. Der Datentyp wird in Python mit <code class="docutils literal notranslate"><span class="pre">str</span></code> abgekürzt. Beispielsweise gehören <code class="docutils literal notranslate"><span class="pre">&quot;Haus&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;jhfe93f39jh3129f&quot;</span></code>, aber auch eine <code class="docutils literal notranslate"><span class="pre">&quot;10&quot;</span></code>, weil in Anführungszeichen, zum Datentyp String.</p>
 <p>Das Besondere an Strings ist, dass diese für den Computer - anders als beispielsweise Integers oder Floats - zunächst keine “inhaltliche” d.h. “mathematische” Bedeutung haben. Bei Integers und Floats weiß der Computer, dass man damit rechnen kann und ein bestimmter Zahlenwert eine bestimmte Bedeutung bei den Berechnungen hat. Wenn aber ein Symbol, das aus mathematischer Sicht eine verrechenbare Zahl darstellt, in Anführungszeichen und somit als String verwendet wird, dann interpretiert Python dieses nicht mehr als Zahl, wodurch damit auch nicht mehr klassischerweise gerechnet werden kann.</p>
@@ -1120,8 +1121,8 @@
 </div>
 <p>Juhu, kein Fehler, aber das Ergebnis einer Addition zweier Einsen ist das auch nicht. Stattdessen hat Python nun den String <code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code> und den String <code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code> zum String <code class="docutils literal notranslate"><span class="pre">&quot;11&quot;</span></code> zusammengefügt. Wir sehen, zwar kann man mit Strings nicht “mathematisch rechnen”, aber dennoch kann man zumindest den Plus-Operator für das unkomplizierte Zusammenfügen zweier Strings verwenden. Diese Funktion kann an der ein oder anderen Stelle nützlich sein.</p>
 <p>Allgemein wird deutlich: Achte darauf, in welchem Datentyp die Werte vorliegen! Zum einen können bestimmte Operationen nur mit bestimmten Datentypen vollzogen werden, zum anderen kann sich die Funktionsweise eines Operators, wie dem Plus-Operator, je nach Datentyp ändern.</p>
-</div>
-<div class="section" id="booleans">
+</section>
+<section id="booleans">
 <h3>Booleans<a class="headerlink" href="#booleans" title="Permalink to this headline">¶</a></h3>
 <p>Booleans heißen in Python logische Wahrheitswerte. Es gibt genau zwei Wahrheitswerte: Wahr und Falsch. In Python heißen diese <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <p>Wir werden Booleans später brauchen, um angeben zu können, ob eine bestimmte Bedingung erfüllt ist oder nicht. Beispielsweise könnte es an einer bestimmten Stelle im Programm wichtig sein zu wissen, ob das Einkommen einer Person größer als 1000€ ist. Um das herauszufinden, würde man Python fragen, ob die Variable, die das Einkommen repräsentiert, größer als 1000€ ist. Das Ergebnis ist dann entweder <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
@@ -1138,8 +1139,8 @@
 </div>
 </div>
 <p>Wir werden solche Vergleiche später v.a. in sogenannten If-Statements, über die es ein eigenes Kapitel geben wird, benötigen.</p>
-</div>
-<div class="section" id="listen">
+</section>
+<section id="listen">
 <h3>Listen<a class="headerlink" href="#listen" title="Permalink to this headline">¶</a></h3>
 <p>Eine Liste ist ein sogenannter Datencontainer, also ein Objekt, in welchem wir andere Objekte ablegen können und so auf sehr gute Weise strukturieren können. Listen werden in Python durch zwei eckige Klammern erzeugt. Dies ist beispielsweise eine leere Liste: <code class="docutils literal notranslate"><span class="pre">[]</span></code> . Die Objekte in den Listen werden durch Kommata getrennt. Die Objekte einer Liste nennt man Element. Wir können übrigens alles Mögliche in Listen als Elemente ablegen. Hier lege ich beispielsweise alles mögliche in einer Liste ab und speichere diese unter dem Variablennamen <code class="docutils literal notranslate"><span class="pre">my_stuff</span></code> ab:</p>
 <div class="cell docutils container">
@@ -1157,9 +1158,9 @@
 </div>
 </div>
 <p>Praktisch an Listen ist, dass wir dort Objekte ablegen und speichern können, ohne dass wir jedes einzelne Element als Variable speichern müssen. Das ist praktisch, weil wir es oft mit sehr vielen Daten bzw. Objekten zu tun haben, die wir zwar alle  brauchen, aber nicht alle einzeln als Variable benennen wollen. Legen wir alle Objekte in einer Liste ab, so brauchen wir nur die Liste zu speichern und wir haben dennoch alle Daten gespeichert. Da Listen wirklich sehr praktisch sind, gibt es später ein eigenes Kapitel zu Listen. Dort zeige ich euch auch, wie man auf die in der Liste gespeicherten Elemente zugreifen kann, um sie für irgendwas zu benutzen.</p>
-</div>
-</div>
-<div class="section" id="funktionen">
+</section>
+</section>
+<section id="funktionen">
 <h2>Funktionen<a class="headerlink" href="#funktionen" title="Permalink to this headline">¶</a></h2>
 <p>Wir haben nun schon eine ganze Reihe von Datentypen kennengelernt. Doch Programme bestehen ja aus Daten sowie Funktionen, die irgendwas mit den Daten machen. Deshalb werfen wir nun kurz einen Blick auf Funktionen.</p>
 <ul class="simple">
@@ -1230,7 +1231,7 @@
 </div>
 <p>Jetzt hat Python versucht die Funktion auszuführen, hat aber gemerkt, dass die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code> zwingend ein Argument erwartet - nämlich ein Objekt, dessen Länge gemessen werden kann.</p>
 <p>Im Folgenden werden ein paar Funktionen, die am Anfang wichtig sind, vorgestellt. Im Verlauf des Kurses werden wir immer wieder neue Funktionen kennenlernen. Später werden wir auch unsere eigenen Funktionen schreiben.</p>
-<div class="section" id="len">
+<section id="len">
 <h3>len()<a class="headerlink" href="#len" title="Permalink to this headline">¶</a></h3>
 <p>Gibt die Länge von sequentiellen Datentypen, also z.B. Listen und Strings, an.</p>
 <div class="cell docutils container">
@@ -1257,8 +1258,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="type">
+</section>
+<section id="type">
 <h3>type()<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
 <p>Gibt den Datentyp eines Objekts zurück.</p>
 <div class="cell docutils container">
@@ -1285,8 +1286,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="help">
+</section>
+<section id="help">
 <h3>help()<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
 <p>Gibt einem nähere Informationen über ein Objekt. Auch Funktionen können als Argument eingegeben werden, dafür müssen aber die runden Klammern weggelassen werden, damit die Funktion nicht ausgeführt wird, sondern als normales Objekt behandelt wird.</p>
 <div class="cell docutils container">
@@ -1342,8 +1343,8 @@ class _Helper(builtins.object)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="int-float-str">
+</section>
+<section id="int-float-str">
 <h3>int(), float(), str()<a class="headerlink" href="#int-float-str" title="Permalink to this headline">¶</a></h3>
 <p>Die Namen dieser Variablen bezeichnen nicht nur den jeweiligen Datentyp, sondern versuchen als Funktion auch ein eingegebenes Objekt in den jeweilgen Datentyp zu konvertieren. Hier wird beispielsweise eine Zahl im Integer-Format in einen String umgewandelt:</p>
 <div class="cell docutils container">
@@ -1390,8 +1391,8 @@ class _Helper(builtins.object)
 </div>
 </div>
 <p>Man kann also nicht alle möglichen Werte bzw. Datentypen in alle möglichen anderen Datentypen umwandeln. So kann man z.B. auch einen Float niemals in eine Liste umwandeln. Bei den Datentypen <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code> und <code class="docutils literal notranslate"><span class="pre">str</span></code> kann man aber zumindest Zahlen-Symbole relativ problemlos ineinander umwandeln.</p>
-</div>
-<div class="section" id="print">
+</section>
+<section id="print">
 <h3>print()<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h3>
 <p>Eine äußerst nützliche Funktion ist zudem die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code>. Diese Funktion bewirkt, dass der Wert einer Variable bzw. eines Ausdrucks in der Konsole ausgegeben wird. Du fragst dich bestimmt, wofür wir das brauchen, denn bisher konnten wir uns die Werte ja auch einfach durch das eingeben des Variablennamens oder der Berechnung in der Konsole unmittelbar ausgeben lassen. Das funktioniert in Spyder aber nur in der interaktiven Konsole!</p>
 <p>Wenn wir längere Programme im Editor-Fenster schreiben und wollen, dass während der Laufzeit des Programms bestimmte Werte in der Konsole angezeigt werden, dann brauchen wir die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code>. Außerdem müssen wir dann nicht immer wieder den Namen der Variable in die Konsole eingeben, sondern bekommen, wenn wir den <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Befehl in unserem Programm haben, den Wert immer wieder automatisch ausgegeben. Insgesamt kann es sinnvoll sein, die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> zur Kontrolle des Verhaltens unseres Programmes zu nutzen, indem wir beispielsweise während der Laufzeit des Programms bestimmte Werte, mit denen wir die Funktionalität oder den Status unseres Programms ablesen können, ausgeben zu lassen.</p>
@@ -1421,9 +1422,9 @@ class _Helper(builtins.object)
 </div>
 </div>
 <p>Dieses Dokument ist übrigens in einem <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> verfasst worden. Da auch in Jupyter Notebooks die Werte von Variablen, zumindest wenn sie am Ende eines ausgeführten Code-Blocks stehen, durch das Eintippen ihrer Namen automatisch auch angezeigt werden, verwende ich hier auch nur, wenn es notwendig ist, die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
-</div>
-</div>
-<div class="section" id="kommentare">
+</section>
+</section>
+<section id="kommentare">
 <h2>Kommentare<a class="headerlink" href="#kommentare" title="Permalink to this headline">¶</a></h2>
 <p>Wenn wir Code im  Editor schreiben, ist es sinnvoll, diesen zu kommentieren. Denn Programme können sehr schnell sehr kompliziert werden und nach ein paar Tagen wissen selbst die besten Programmierer*innen nicht mehr, was denn eigentlich ihr schönes Programm da macht, wenn man den Code nicht gut kommentiert hat. Das kennst du möglicherweise auch schon von SPSS oder R. Kommentare dienen allein der besseren Strukturierung/Erklärung des Codes für uns Menschen. Python überliest diese Kommentare bei der Ausführung des Programms.</p>
 <p>Einzeilige Kommentare können mit einem <code class="docutils literal notranslate"><span class="pre">#</span></code> eingefügt werden:</p>
@@ -1438,8 +1439,8 @@ class _Helper(builtins.object)
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

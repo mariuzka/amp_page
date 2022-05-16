@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Matrix grafisch darstellen &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -736,7 +737,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="matrix-grafisch-darstellen">
+  <section class="tex2jax_ignore mathjax_ignore" id="matrix-grafisch-darstellen">
 <h1>Matrix grafisch darstellen<a class="headerlink" href="#matrix-grafisch-darstellen" title="Permalink to this headline">¶</a></h1>
 <p>Für die einfache grafische Darstellung von Grids bzw. Matrizen eignet sich in Matplotlib die Funktion/Methode <code class="docutils literal notranslate"><span class="pre">imshow()</span></code>. Diese kann ähnlich wie z.B. <code class="docutils literal notranslate"><span class="pre">plot()</span></code> als Funktion oder Methode eines Axes-Objektes ausgeführt werden, erwartet jedoch statt einer eindimensionalen Datenreihe (z.B. eine Liste mit Zahlen) einen zweidimensionalen, matrixartigen Datentyp (z.B. eine geschachtelte Liste mit Zahlen) als Input.</p>
 <p>Im Folgenden erstelle ich zunächst eine 2x2-Matrix, welche Nullen und Einsen enthält. Dann erstelle ich wie gewohnt ein Figure- und ein Axes-Objekt mit <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code> und wende schließlich dort, wo in vorherigen Kapiteln meist <code class="docutils literal notranslate"><span class="pre">plot()</span></code> verwendet wurde, die Axes-Methode <code class="docutils literal notranslate"><span class="pre">imshow()</span></code> mit der 2x2-Matrix als Input an.</p>
@@ -868,7 +869,7 @@
 <img alt="../_images/amp07a_02_imshow_8_0.png" src="../_images/amp07a_02_imshow_8_0.png" />
 </div>
 </div>
-<div class="section" id="colormap-andern">
+<section id="colormap-andern">
 <h2>Colormap ändern<a class="headerlink" href="#colormap-andern" title="Permalink to this headline">¶</a></h2>
 <p>Mithilfe des Parameters <code class="docutils literal notranslate"><span class="pre">cmap</span></code> können wir die verwendete Colormap ändern. Dafür müssen wir <code class="docutils literal notranslate"><span class="pre">cmap</span></code> die Bezeichnung der gewünschten Colormap zuweisen. Unten setze ich den Parameter <code class="docutils literal notranslate"><span class="pre">cmap</span></code> auf <code class="docutils literal notranslate"><span class="pre">&quot;Dark2&quot;</span></code>. Anders als <code class="docutils literal notranslate"><span class="pre">&quot;viridis&quot;</span></code> hat <code class="docutils literal notranslate"><span class="pre">&quot;Dark2&quot;</span></code> weniger Farben und harte Übergänge zwischen den Farbbereichen. Wie man unten sieht, wird dadurch mehreren Zahlen die jeweils gleiche Farbe zugeordnet.</p>
 <div class="cell docutils container">
@@ -883,8 +884,8 @@
 <img alt="../_images/amp07a_02_imshow_10_0.png" src="../_images/amp07a_02_imshow_10_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="skalenbereich-selbst-festlegen">
+</section>
+<section id="skalenbereich-selbst-festlegen">
 <h2>Skalenbereich selbst festlegen<a class="headerlink" href="#skalenbereich-selbst-festlegen" title="Permalink to this headline">¶</a></h2>
 <p>Die Funktion/Methode <code class="docutils literal notranslate"><span class="pre">imshow()</span></code> nimmt (ohne weitere Einstellung) den kleinsten in der Matrix gefundenen Wert als Skalenminimum und den größten in der Matrix gefundenen Wert als Skalenmaximum an. Wir können aber auch selbst das Skalenminimum und -maximum festlegen. Das ist sinnvoll, wenn wir über mehrere Plots hinweg die Farbzuweisungen gleich halten wollen, obwohl sich in den verschiedenen Plots evtl. die kleinsten und größten Werte voneinander unterscheiden. Das ist auch bei der Animation dieser Diagramme sehr wichtig.</p>
 <p>Das Skalenminimum und Skalenmaximum stellen wir mit den beiden Parametern <code class="docutils literal notranslate"><span class="pre">vmin</span></code> und <code class="docutils literal notranslate"><span class="pre">vmax</span></code> ein. Im Beispiel unten gehe ich per For-Loop eine Liste von Matrizen namens <code class="docutils literal notranslate"><span class="pre">matrices</span></code> durch und plotte diese nacheinander auf eigene “Leinwände”. Obwohl jede Matrix der Liste <code class="docutils literal notranslate"><span class="pre">matrices</span></code> andere Zahlenkombinationen beinhaltet, sehen alle Diagramme gleich aus. Das liegt daran, dass in jeder Matrix nur zwei unterschiedliche Zahlen vorkommen, somit die verwendete Skala nur aus zwei Werten besteht, welche den jeweiligen Enden der Colormap zugeordnet werden.</p>
@@ -941,8 +942,8 @@
 <img alt="../_images/amp07a_02_imshow_14_2.png" src="../_images/amp07a_02_imshow_14_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="farben-per-rgb-code-bestimmen">
+</section>
+<section id="farben-per-rgb-code-bestimmen">
 <h2>Farben per RGB-Code bestimmen<a class="headerlink" href="#farben-per-rgb-code-bestimmen" title="Permalink to this headline">¶</a></h2>
 <p>Die Funktion/Methode <code class="docutils literal notranslate"><span class="pre">imshow()</span></code> akzeptiert auch Matrizen, deren Elemente sogenannte RGB-Farbcodes darstellen. Dadurch muss der Inhalt einer Matrix nicht mehr über eine Colormap in Farben übersetzt werden, sondern die Information über die anzuzeigende Farbe steht direkt in den Elementen der Matrix selbst.</p>
 <p>“RGB” steht für “rot grün blau”. Ein RGB-Farbcode definiert eine bestimmte Farbe, indem angegeben wird, wie viel rot, wie viel grün und wie viel blau in dieser Farbe steckt (jede Farbe besteht letztlich aus diesen drei Farben). Wie viel von einer Farbe in den Farbmix kommt, wird über eine Zahl zwischen 0 und 255 angegeben. Ein RGB-Farbcode besteht daher aus drei Zahlen zwischen 0 und 255. Die erste Farbe steht für die “Menge” an rot, die zweite Zahl für die “Menge” an grün und die dritte Zahl für die “Menge” an blau. Ein reines rot hat dementsprechend den RGB-Code “255 0 0”. Ein reines grün hat den Code “0 255 0” und ein reines blau den Code “0 0 255”. Die meisten Farben sind jedoch eine Mischung aus allem. <a class="reference external" href="https://zeamedia.de/helper/rgb-hex-color-codes.php">Hier</a> findest du eine Übersicht über gängige Farben und deren RGB-Farbcodes.</p>
@@ -971,8 +972,8 @@
 <img alt="../_images/amp07a_02_imshow_16_0.png" src="../_images/amp07a_02_imshow_16_0.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

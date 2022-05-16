@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Eigene Funktionen &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -320,7 +321,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -788,7 +789,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="eigene-funktionen">
+  <section class="tex2jax_ignore mathjax_ignore" id="eigene-funktionen">
 <h1>Eigene Funktionen<a class="headerlink" href="#eigene-funktionen" title="Permalink to this headline">¶</a></h1>
 <p>Wir haben im bisherigen Verlauf des Kurses schon viel von Funktionen gesprochen und auch schon selbst viele davon benutzt. In diesem Kapitel lernen wir, wie wir selbst solche Funktionen erstellen.</p>
 <p>Funktionen ermöglichen es Code zu kleinen (oder großen) Paketen zusammenzufassen, damit wir diese Code-Pakete im Programm immer wieder verwenden können, ohne den Code selbst immer wieder schreiben zu müssen. Es sind quasi kleine, innerhalb unseres Programmes ausführbare Unterprogramme.</p>
@@ -801,7 +802,7 @@
 <li><p><strong>Bessere Lesbarkeit</strong>: Besteht ein Programm v.a. aus Funktionen, dann werden uns beim Lesen des Codes “irrelevante” Details erspart. Bei Bedarf können wir für die Details des Programms in die Funktionsdefinitionen schauen.</p></li>
 </ul>
 <p>(Im Folgenden lernen wir zwar genaugenommen nur wie wir allgemeine, <em>freistehende</em> Funktionen der Form <code class="docutils literal notranslate"><span class="pre">function()</span></code> definieren, (fast) alles was wir hier lernen, gilt aber auch für die “objektgebundenen” Funktionen a.k.a. Methoden der Form <code class="docutils literal notranslate"><span class="pre">object.function()</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">object.method()</span></code>.)</p>
-<div class="section" id="funktionen-ohne-input">
+<section id="funktionen-ohne-input">
 <h2>Funktionen ohne Input<a class="headerlink" href="#funktionen-ohne-input" title="Permalink to this headline">¶</a></h2>
 <p>Für die Definition einer eigenen Funktion, benötigen wir die untige allgemeine Syntax. Wir schauen uns zunächst die einfachste Form eine Funktion an, eine Funktion <em>ohne</em> expliziten Input und <em>ohne</em> expliziten Output.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FUNCTION_NAME</span><span class="p">():</span>    <span class="c1"># Funktionskopf</span>
@@ -856,8 +857,8 @@ hello world
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="funktionen-mit-input">
+</section>
+<section id="funktionen-mit-input">
 <h2>Funktionen mit Input<a class="headerlink" href="#funktionen-mit-input" title="Permalink to this headline">¶</a></h2>
 <p>Die obige Funktion ermöglicht uns es Code zwar schön zu verpacken und immer wieder zu verwenden, die Funktion führt aber tatsächlich immer exakt den gleichen Code aus. Um Funktionen nicht nur als starre Code-Pakete zu verwenden, sondern auch situationsspezifisch einsetzen zu können, können wir einen variablen Input festlegen.</p>
 <p>Wenn die Funktion einen <em>Input</em> haben soll, dann können wir innerhalb der runden Klammern eine beliebige Zahl von beliebig gewählten Namen für die “Input-Variablen”, welche man auch “Parameter” oder “Argumente” nennt, eintragen. Allgemein sieht das dann so aus:</p>
@@ -975,8 +976,8 @@ Hello Monty !
 </div>
 </div>
 <p>Hier wird nochmal deutlich, dass die Namen der Parameter bei der Definition der Funktion nichts mit dem eingegebenen Wert oder dem Namen der eingegebenen Variable zu tun haben. An die Stelle, wo bei der Definition der Funktion der z.B. der Input <code class="docutils literal notranslate"><span class="pre">name</span></code> steht, setze ich oben die Variable <code class="docutils literal notranslate"><span class="pre">person</span></code>. Dadurch wird quasi der funktionsinternen Variable <code class="docutils literal notranslate"><span class="pre">name</span></code> der Wert der Variable <code class="docutils literal notranslate"><span class="pre">person</span></code> zugewiesen.</p>
-</div>
-<div class="section" id="return-funktionen-mit-explizitem-output">
+</section>
+<section id="return-funktionen-mit-explizitem-output">
 <h2>return - Funktionen mit explizitem Output<a class="headerlink" href="#return-funktionen-mit-explizitem-output" title="Permalink to this headline">¶</a></h2>
 <p>Unsere Funktionen zeigen zwar Strings in der Konsole an, möchte man aber einen Output auch als einen Wert weiterverwendbaren Wert zurückgeliefert bekommen, dann müssen wir dies explizit in der Funktionsdefinition festlegen. Dies machen wir mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
 <p>Das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">return</span></code> schreiben wir meist an das Ende der Funktion. Hinter <code class="docutils literal notranslate"><span class="pre">return</span></code> schreiben wir den Wert bzw. das Objekt, das wir als Output ausgegeben haben wollen.</p>
@@ -1111,8 +1112,8 @@ Hello Monty !
 </div>
 </div>
 <p>D.h. wenn wir keinen Output explizit definieren, dann ist der Output einer jeden Funktion gleich <code class="docutils literal notranslate"><span class="pre">None</span></code>. Das ist hilfreich zu wissen, wenn im Programm plötzlich und auf unerklärliche Weise eine Variable mit dem Wert <code class="docutils literal notranslate"><span class="pre">None</span></code> auftaucht. Dann hat man vielleicht in einer Funktion das <code class="docutils literal notranslate"><span class="pre">return</span></code> vergessen. :)</p>
-</div>
-<div class="section" id="standardwerte-fur-parameter">
+</section>
+<section id="standardwerte-fur-parameter">
 <h2>Standardwerte für Parameter<a class="headerlink" href="#standardwerte-fur-parameter" title="Permalink to this headline">¶</a></h2>
 <p>In vielen Fällen kann es sinnvoll sein, einen Default-Wert für die Parameter d.h. die Inputs anzugeben. So kann man einen oft genutzten oder sinnvollen Input vorgeben, sodass man bei der Benutzung der Funktion diesen nicht immer eingeben muss, ihn aber bei Bedarf trotzdem ändern kann.</p>
 <p>Wir setzen Standardwerte für die Parameter einer Funktion, indem wir bei der Definition der Funktion den gewünschten Standardwert zusammen mit einem Gleichheitsszeichen hinter den entsprechenden Parameter schreiben. Wichtig ist dabei, dass die Parameter <strong>ohne</strong> Standardwert immer <strong>vorne</strong> und die Parameter <strong>mit</strong> Standardwert <strong>hinten</strong> in der Parameterliste stehen. Allgemein sieht das dann so aus:</p>
@@ -1202,8 +1203,8 @@ Hello Python !
 </div>
 </div>
 <p>Eine solche explizite Zuweisung kann man übrigens immer machen, auch wenn es sich nicht um Parameter mit Standardwert handelt. Dies kann sehr sinnvoll sein, wenn man z.B. bei einer Funktion sehr viele Input-Werte hat und man sonst den Überblick verlieren würde, was man da eigentlich welchem Parameter zuweist.</p>
-</div>
-<div class="section" id="lokale-und-globale-variablen">
+</section>
+<section id="lokale-und-globale-variablen">
 <h2>Lokale und globale Variablen<a class="headerlink" href="#lokale-und-globale-variablen" title="Permalink to this headline">¶</a></h2>
 <p>Fragt man Personen in Deutschland nach dem Namen “Angela Merkel”, dann wird fast jede Person sofort wissen, wer mit diesem Namen gemeint ist - egal wo man in Deutschland ist. Fragt man aber jemanden nach dem Namen “Katja Oldenburg-Schmidt”, dann weiß fast niemand etwas mit diesem Namen anzufangen - außer in Buxtehude. Angela Merkel ist fast allen Leuten in Deutschland ein Begriff, weil sie die Bundeskanzlerin ist und der Gültigkeitsberich ihres Amtes ist sich auf ganz Deutschland bezieht. Katja Oldenburg-Schmidt ist hingegen die Bürgermeisterin der Stadt Buxtehude, der “Gültigkeitsbereich” ihres Amtes liegt nur im Bereich Buxtehude. Deswegen kennt man sie auch nur dort.</p>
 <p>Auch Variablen in Python haben bestimmte Gültigkeitsbereiche. Jede Variablendefinition gilt jeweils nur in einem bestimmten Bereich (auch Scope genannt), in dem diese Zuweisung auch definiert wurde. Bisher haben wir davon nichts gemerkt, weil wir uns immer im allumfassenden, globalen Gültigkeitsbereich befunden haben. Wir haben bisher nur sogenannte globale Variablen, vergleichbar mit Angela Merkel, definiert. Man kennt sie überall (in Deutschland).</p>
@@ -1304,8 +1305,8 @@ global: kanzlerin
 <li><p>Jede Variable, die wir innerhalb einer Funktion erstellen, existiert nur innerhalb der Funktion.</p></li>
 <li><p>Alle Veränderungen, die wir mit einer Funktion im Programm bewirken wollen, müssen/sollten wir über die explizite Rückgabe eines Outputs mithilfe des Schlüsselwerts <code class="docutils literal notranslate"><span class="pre">return</span></code> vollziehen.</p></li>
 </ul>
-</div>
-<div class="section" id="docstrings">
+</section>
+<section id="docstrings">
 <h2>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h2>
 <p>Eine sinnvolle und sorgfältige Dokumentation und Kommentierung des Codes ist immer zu empfehlen. Für Funktionen gibt es die Möglichkeit einen sogenannten Docstring hinzuzufügen. Dies ist ein Kommentar, der in zwei dreifachen Anführungszeichen unmittelbar nach dem Funktionskopf steht.</p>
 <p>Ich füge hier der Funktion <code class="docutils literal notranslate"><span class="pre">square_it()</span></code> einen entsprechenden Docstring hinzu:</p>
@@ -1372,16 +1373,16 @@ square_it(number)
 ></iframe>
 </div></div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="aufgabenteil-1-ubungsaufgaben-zum-thema-funktionen">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="aufgabenteil-1-ubungsaufgaben-zum-thema-funktionen">
 <h1>Aufgabenteil 1 - Übungsaufgaben zum Thema Funktionen<a class="headerlink" href="#aufgabenteil-1-ubungsaufgaben-zum-thema-funktionen" title="Permalink to this headline">¶</a></h1>
 <ol class="simple">
 <li><p>Schreibe eine Funktion, die die Länge einer Liste misst und zurückgibt, ohne dabei selbst die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code> zu benutzen.</p></li>
 <li><p>Schreibe eine Funktion, welche aus einem eingegebenen Preis und der eingegebenen Höhe des bezahlten Geldes das entsprechende Rückgeld berechnet und als Output ausgibt.</p></li>
 <li><p>Schreibe eine Funktion, welche für einen eingegebenen Betrag Geld in Cents die Anzahl an 5-, 2- und 1-Centmünzen, die in Summe dem eingegebenen Betrag gleichwertig sind, in der Konsole anzeigt. Die Menge an Münzen soll dabei insgesamt immer so gering wie möglich sein. Gibt man z.B. einen Betrag von 18 Cent ein, sollte die Funktion anzeigen, dass insgesamt drei 5-Centmünzen, eine 2-Centmünze und eine 1-Centmünze diesem Geldbetrag entsprechen.</p></li>
 </ol>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Ein kurzer Blick auf Pandas &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -864,7 +865,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="ein-kurzer-blick-auf-pandas">
+  <section class="tex2jax_ignore mathjax_ignore" id="ein-kurzer-blick-auf-pandas">
 <h1>Ein kurzer Blick auf Pandas<a class="headerlink" href="#ein-kurzer-blick-auf-pandas" title="Permalink to this headline">¶</a></h1>
 <p>Spätestens bei der Durchführung von Simulationsexperimenten, dem systematischen Vergleich desselben Simulationsmodells mit jeweils unterschiedlichen Parametereinstellungen, macht es großen Sinn, die produzierten Daten als einen schön strukturierten, tabellförmigen Datensatz abzuspeichern - ein klassischer <em>Datensatz</em> also, wie man ihn vielleicht aus der Statistik kennt, mit <em>Variablen</em> in den Spalten und Beobachtungsfällen in den Zeilen. Das erleichtert uns nicht nur die Aufbereitung und Auswertung der Daten in Python, sondern ermöglicht uns auch das langfristige Speichern, den Export aus Python heraus und einen eventuellen Import der Daten in ein <em>Statistik-Programm</em> unserer Wahl, wie R, Stata, SPSS oder Excel. Unten siehst du ein Beispiel dafür, wie ein solcher “tabellenförmiger” Datensatz aussehen kann:</p>
 <p><img alt="" src="../_images/beispiel_df.png" /></p>
@@ -878,10 +879,10 @@
 <p class="admonition-title">Pro-Tipp</p>
 <p>Pandas kann man sich ein kleines bisschen wie eine Form von <a class="reference external" href="https://de.wikipedia.org/wiki/R_(Programmiersprache)"><strong>R</strong></a> in Python vorstellen, das alle Arten von <em>data wrangling</em> ermöglicht. Wir schauen uns hier jedoch nur einen kleinen Bruchteil der Funktionalität von Pandas an. Für eine tiefergehende Einführung in Pandas schau doch z.B. mal <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">hier</a> oder <a class="reference external" href="https://www.google.com/search?q=python+pandas+tutorial">hier</a>.</p>
 </div>
-<div class="section" id="dataframe-erstellen">
+<section id="dataframe-erstellen">
 <h2>Dataframe erstellen<a class="headerlink" href="#dataframe-erstellen" title="Permalink to this headline">¶</a></h2>
 <p>Bei der Durchführung von Simulationsexperimenten macht es Sinn, die Daten zunächst in <em>einfachen</em> Datenstrukturen wie Listen oder (noch besser) Dictionaries zu sammeln und dann nach dem Simulationsexperiment die gesammelten Daten in einen Dataframe zu überführen. Für die Erstellung von Dataframes aus Datentypen wie Listen oder Dictionaries gibt es in Pandas zahlreiche Möglichkeiten. Wir schauen uns nun zwei davon mit Beispieldaten an. Stell dir am besten vor, dass die Daten zuvor innerhalb einer Simulation bzw. eines Simulationsexperimentes gesammelt wurden und nun zur besseren Handhabung in einen Dataframe überführt werden sollen.</p>
-<div class="section" id="moglichkeit-1-dataframe-aus-einem-dictionary-mit-listen-erstellen">
+<section id="moglichkeit-1-dataframe-aus-einem-dictionary-mit-listen-erstellen">
 <h3>Möglichkeit 1 - Dataframe aus einem Dictionary mit Listen erstellen<a class="headerlink" href="#moglichkeit-1-dataframe-aus-einem-dictionary-mit-listen-erstellen" title="Permalink to this headline">¶</a></h3>
 <p>Bei dieser Variante einen Dataframe zu erstellen, liegen die Daten in Form eines Dictionaries, das in jedem seiner <em>Einträge</em> eine Datenreihe in Form einer Liste aufweist. Absolut wichtig ist dabei, dass alle Datenreihen die <strong>gleiche Länge</strong> haben! Unten siehst du ein Beispiel eines solchen Dictionaries mit zwei Einträgen d.h. zwei Datenreihen (wie immer ist es natürlich so, dass wir in der Praxis die Daten nicht so wie hier per Hand als Python-Code eintippen, sondern diese - wie gessagt - z.B. innerhalb eines Simulationsexperimentes <em>automatisch</em> erstellt und ausgegeben werden):</p>
 <div class="cell docutils container">
@@ -970,8 +971,8 @@
 </div></div></div>
 </div>
 <p>Wir sehen: das Dictionary wurde in einen tabellenförmige Datensatz umgewandelt. Jede Liste/Datenreihe, die als Eintrag im obigen Dictionary <code class="docutils literal notranslate"><span class="pre">data_dict</span></code> vorlag, wurde in eine Spalte des Dataframes überführt. Man kann sagen, dass wir mit dieser Methode den Dataframe <em>spaltenweise</em> erstellen können.</p>
-</div>
-<div class="section" id="moglichkeit-2-dataframe-aus-einer-liste-mit-dictionaries-erstellen">
+</section>
+<section id="moglichkeit-2-dataframe-aus-einer-liste-mit-dictionaries-erstellen">
 <h3>Möglichkeit 2 - Dataframe aus einer Liste mit Dictionaries erstellen<a class="headerlink" href="#moglichkeit-2-dataframe-aus-einer-liste-mit-dictionaries-erstellen" title="Permalink to this headline">¶</a></h3>
 <p>Wir haben eben den Dataframe aus einem <strong>Dictionary mit Listen</strong> <em>spaltenweise</em> erstellt. Nun schauen wir uns an, wie man einen Dataframe <em>zeilenweise</em> aus einer <strong>Liste mit Dictionaries</strong> erstellt. Dieses Vorgehen eignet sich (meiner Ansicht nach) besonders gut, um im Rahmen von Simulationsexperimenten die Daten zunächst über verschiedene Modelle hinweg zu sammeln und dann zu einem Dataframe zusammenzusetzen. Tatsächlich ändert sich nun nur die Struktur, in der wir die Daten <em>vor</em> der Erstellung des Dataframes vorliegen haben, die Erstellung des Dataframes durch Pandas bleibt exakt gleich.</p>
 <p>Unten siehst du beispielhaft, wie eine solche <em>Liste mit Dictionaries</em> aussehen kann. Wir haben eine Liste, die Dictionaries enthält. Jedes Dictionary enthält die Daten eines “Falles” und entspricht somit im Dataframe einer Zeile. Jeder Eintrag eines Dictionary wird anhand des Dictionary-Keys einer Spalte zugewiesen.</p>
@@ -1063,9 +1064,9 @@
 </div></div></div>
 </div>
 <p>Wir sehen: wir haben einen baugleichen Dataframe wie mit <em>Möglichkeit 1</em> erstellt. Der einzige Unterschied ist, dass die Daten zuvor anders strukturiert vorlagen.</p>
-</div>
-</div>
-<div class="section" id="auf-eine-spalte-zugreifen">
+</section>
+</section>
+<section id="auf-eine-spalte-zugreifen">
 <h2>Auf eine Spalte zugreifen<a class="headerlink" href="#auf-eine-spalte-zugreifen" title="Permalink to this headline">¶</a></h2>
 <p>Wenn wir einen fertigen Dataframe vorliegen haben, dann muss man oft auf einzelne Spalten des Dataframes zugreifen. Wir können einzelne Spalten eines Dataframes auswählen, indem wir - ähnlich wie bei Dictionaries - den Namen der auszuwählenden Spalte in eckige Klammern hinter den Namen des Dataframes schreiben. Allgemein formuliert sieht das dann so aus: <code class="docutils literal notranslate"><span class="pre">DATAFRAME[SPALTE]</span></code>. Unten greife ich beispielsweise auf die Spalte <code class="docutils literal notranslate"><span class="pre">&quot;density&quot;</span></code> des Dataframes <code class="docutils literal notranslate"><span class="pre">df</span></code> zu, welche dadurch ausgegeben wird.</p>
 <div class="cell docutils container">
@@ -1091,8 +1092,8 @@ Name: density, dtype: float64
 <p class="admonition-title">Übrigens</p>
 <p>Wenn du Erfahrung mit R hast, dann erinnert dich das vermutlich gerade daran. Natürlich kann man auch in Pandas nicht nur auf einzelne Spalten, sondern auch auf einzelne Zeilen oder Zellen zugreifen. Auch kann man <em>per Bedingung</em> Teile des Dataframes auswählen bzw. filtern. Schau doch z.B. mal <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html">hier</a> für weitere Infos zum Thema “Indizierung von Dataframes”.</p>
 </div>
-</div>
-<div class="section" id="vektorisiertes-rechnen">
+</section>
+<section id="vektorisiertes-rechnen">
 <h2>Vektorisiertes Rechnen<a class="headerlink" href="#vektorisiertes-rechnen" title="Permalink to this headline">¶</a></h2>
 <p>Neben vielen weiteren ist ein riesengroßer Vorteil von Dataframes das sogenannte <em>vektorisierte Rechnen</em>. Das bedeutet, dass wir nicht mehr nur einzelne Werte miteinander verrechnen können, sondern ganze Datenreihen auf einmal miteinander verrechnen können. Was das heißt, schauen wir uns am besten direkt an einem Beispiel an. Unten erstelle ich zunächst einen Dataframe mit zwei Spalten namens <code class="docutils literal notranslate"><span class="pre">&quot;einkommen_1&quot;</span></code> und <code class="docutils literal notranslate"><span class="pre">&quot;einkommen_2&quot;</span></code>.</p>
 <div class="cell docutils container">
@@ -1361,11 +1362,11 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="einen-uberblick-gewinnen">
+</section>
+<section id="einen-uberblick-gewinnen">
 <h2>Einen Überblick gewinnen<a class="headerlink" href="#einen-uberblick-gewinnen" title="Permalink to this headline">¶</a></h2>
 <p>Dataframes besitzen verschiedene Methoden bzw. Attribute, um relativ unkompliziert einen Blick auf den Dataframe zu werden und einzelne deskriptive Auswertungen zu machen. Im Folgenden einer kurzer, unkommentierter Überblick über einige ausgewählte Methoden/Attribute/Funktionen:</p>
-<div class="section" id="anzahl-spalten-und-zeilen">
+<section id="anzahl-spalten-und-zeilen">
 <h3>Anzahl Spalten und Zeilen<a class="headerlink" href="#anzahl-spalten-und-zeilen" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1392,8 +1393,8 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="eine-liste-aller-spalten-bezeichnungen">
+</section>
+<section id="eine-liste-aller-spalten-bezeichnungen">
 <h3>Eine Liste aller Spalten-Bezeichnungen<a class="headerlink" href="#eine-liste-aller-spalten-bezeichnungen" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1409,8 +1410,8 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="die-ersten-5-zeilen-des-dataframes-anschauen">
+</section>
+<section id="die-ersten-5-zeilen-des-dataframes-anschauen">
 <h3>Die ersten 5 Zeilen des Dataframes anschauen<a class="headerlink" href="#die-ersten-5-zeilen-des-dataframes-anschauen" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1483,8 +1484,8 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="die-letzen-5-zeilen-des-dataframes-anschauen">
+</section>
+<section id="die-letzen-5-zeilen-des-dataframes-anschauen">
 <h3>Die letzen 5 Zeilen des Dataframes anschauen<a class="headerlink" href="#die-letzen-5-zeilen-des-dataframes-anschauen" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1557,8 +1558,8 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="haufigkeiten-in-einer-spalte-zahlen">
+</section>
+<section id="haufigkeiten-in-einer-spalte-zahlen">
 <h3>Häufigkeiten in einer Spalte zählen<a class="headerlink" href="#haufigkeiten-in-einer-spalte-zahlen" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1577,8 +1578,8 @@ Name: einkommen_1, dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="durchschnitt-einer-spalte-berechnen">
+</section>
+<section id="durchschnitt-einer-spalte-berechnen">
 <h3>Durchschnitt einer Spalte berechnen<a class="headerlink" href="#durchschnitt-einer-spalte-berechnen" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1592,8 +1593,8 @@ Name: einkommen_1, dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="minimum-und-maximum-einer-spalte">
+</section>
+<section id="minimum-und-maximum-einer-spalte">
 <h3>Minimum und Maximum einer Spalte<a class="headerlink" href="#minimum-und-maximum-einer-spalte" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1619,8 +1620,8 @@ Name: einkommen_1, dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="verschiedene-summary-statistiken-auf-einmal">
+</section>
+<section id="verschiedene-summary-statistiken-auf-einmal">
 <h3>Verschiedene Summary-Statistiken auf einmal<a class="headerlink" href="#verschiedene-summary-statistiken-auf-einmal" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1714,9 +1715,9 @@ Name: einkommen_1, dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="dataframe-exportieren">
+</section>
+</section>
+<section id="dataframe-exportieren">
 <h2>Dataframe exportieren<a class="headerlink" href="#dataframe-exportieren" title="Permalink to this headline">¶</a></h2>
 <p>Wir können Dataframes u.a. im CSV-Format exportieren. Das ist praktisch, weil wir so nicht nur unsere Daten langfristig auf der Festplatte speichern können, sondern die Daten auch mit einem Statistik-Programm unserer Wahl öffnen und auswerten können. Das bietet sich v.a. in diesem Kurs an, weil wir hier in Python nur ganz oberflächlich Auswertungsmethoden kennenlernen. Falls du also mit einem anderen Statistik-Programm gut zurecht kommst, ist es z.B. denkbar, dass du die in Python gewonnen Simulationsdaten als Dataframe im CSV-Format exportierst und dann die Datenaufbereitung und Auswertung in einem anderen Programm vollziehst (z.B. R oder SPSS).</p>
 <p>Für den Export eines Dataframes im CSV-Format gibt es in Pandas die <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>-Methode <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code>. Um einen bestimmten Dataframe zu speichern, muss man die Methode von dem entsprechenden Dataframe aus ausführen und einen Dateipfad/Dateinamen eingeben. Der Dateiname muss auf <code class="docutils literal notranslate"><span class="pre">.csv</span></code> enden, da wir die Datei im CSV-Format speichern. Unten speichere ich den Dataframe namens <code class="docutils literal notranslate"><span class="pre">df</span></code> unter dem Namen <code class="docutils literal notranslate"><span class="pre">&quot;simulationsergebnisse.csv&quot;</span></code> auf meinem Computer. Gibt man keinen weiteren Dateipfad bzw. Ordner an, dann wird die Datei typischerweise dort gespeichert, wo auch das aktuelle Python-Skript liegt.</p>
@@ -1727,8 +1728,8 @@ Name: einkommen_1, dtype: int64
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

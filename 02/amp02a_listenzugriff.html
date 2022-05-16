@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Der Zugriff auf Listen &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -746,10 +747,10 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="der-zugriff-auf-listen">
+  <section class="tex2jax_ignore mathjax_ignore" id="der-zugriff-auf-listen">
 <h1>Der Zugriff auf Listen<a class="headerlink" href="#der-zugriff-auf-listen" title="Permalink to this headline">¶</a></h1>
 <p>Im Folgenden schauen wir uns die Eigenschaften von Listen etwas näher an. Wir gucken uns zunächst an, wie wir an den Inhalt von Listen rankommen, nachdem wir diese erstellt haben und wie wir diesen Inhalt verändern können. Dann werfen wir u.a. noch einen Blick auf die wichtigsten “Funktionen” von Listen, der “aktiven” Seite von Listen.</p>
-<div class="section" id="auf-elemente-in-listen-zugreifen-indizierung">
+<section id="auf-elemente-in-listen-zugreifen-indizierung">
 <h2>Auf Elemente in Listen zugreifen: Indizierung<a class="headerlink" href="#auf-elemente-in-listen-zugreifen-indizierung" title="Permalink to this headline">¶</a></h2>
 <p>Es ist ja schön und gut, dass wir die Agenten als Listen von Eigenschaften und die Population der Agenten als Liste von Listen von Eigenschaften repräsentieren können. Doch all das bringt uns nichts, wenn wir gar nicht wissen, wie wir auf die Elemente der Listen zugreifen können.</p>
 <p>Denn später werden wir in unseren Simulationen eigentlich immer das Folgende machen: Wir …</p>
@@ -843,8 +844,8 @@
 </div>
 </div>
 <p>Listen (und ähnliche Datentypen) sind also “von vorne” und “von hinten” durchnummeriert. Man kann also mithilfe von positven und negativen Indizes auf die Elemente in Listen zugreifen. Im Normalfall verwendet man die positiven Indizes, dennoch kann es in manchen Situationen sehr hilfreich sein, auf die hinteren Elemente einer Liste mithilfe der negativen Indizierung zuzugreifen.</p>
-</div>
-<div class="section" id="elemente-in-listen-andern">
+</section>
+<section id="elemente-in-listen-andern">
 <h2>Elemente in Listen ändern<a class="headerlink" href="#elemente-in-listen-andern" title="Permalink to this headline">¶</a></h2>
 <p>Mithilfe der Indizierung können wir nicht nur bestimmte Elemente einer Liste ausgeben lassen, sondern auch verändern. Dies machen wir genau so, wie wir Variablen definieren, geben aber auf der linken Seite des <code class="docutils literal notranslate"><span class="pre">=</span></code> keinen Variablennamen, sondern das entsprechende Listen-Element per Indizierung an, das verändert werden soll.</p>
 <p>Im Folgenden ändere ich den Infektionsstatus des Agenten <code class="docutils literal notranslate"><span class="pre">agent</span></code>. Zur Erinnerung, wie <code class="docutils literal notranslate"><span class="pre">agent</span></code> aussieht, lasse ich diesen zunächst ausgeben. Der Infektionsstatus steht an erster Stelle.</p>
@@ -899,8 +900,8 @@
 </div>
 <p>Der Agent basierend auf der Liste <code class="docutils literal notranslate"><span class="pre">agent</span></code> hat sich nun von einem vor 10 Tagen infizierten Agenten ohne Symptome zu einem vor 15 Tagen infizierten, nun symptomatischen und geimpften Agenten verändert.</p>
 <p>Während unseren Simulationen werden sich bestimmte Eigenschaften der Agenten ständig ändern und dann werden wir - wenn wir die Agenten als Listen repräsentieren - auch genau mit dieser Logik auf die Agenten zugreifen. Der Unterschied wird nur sein, dass wir nicht jeden einzelnen Zugriff explizit “per Hand” programmieren, sondern in der Regel werden solche Zugriffe in sogenannten Loops vollziehen. Das heißt wir programmieren einmal die allgemeine Struktur solcher Zugriffe und lassen das Programm dann automatisch für jeden Agenten solche Zugriffe vollziehen und die Werte der Agenten-Eigenschaften nach bestimmten Regeln ändern (oder auch nicht). Die Indexierung ist bei solchen Loops essentiell.</p>
-</div>
-<div class="section" id="sich-eine-scheibe-abschneiden-slicing">
+</section>
+<section id="sich-eine-scheibe-abschneiden-slicing">
 <h2>Sich eine Scheibe abschneiden: Slicing<a class="headerlink" href="#sich-eine-scheibe-abschneiden-slicing" title="Permalink to this headline">¶</a></h2>
 <p>Statt nur auf einzelne Elemente zuzugreifen, ist es auch möglich, auf mehrere nebeneinander stehende Elemente einer Liste gleichzeitig zuzugreifen. Weil man dabei praktisch <em>Schnitte</em> an bestimmten Stellen der Liste ansetzt, um einen bestimmten Teilbereich der Liste herauszutrennen, nennt man dieses Vorgehen auch Slicing. Beachtet werden muss aber, dass wir den Teilbereich dabei nicht ausschneiden, sondern kopieren. Slicing funktioniert wie folgt: Wir geben statt eines einzelnen Index einen <strong>Start-</strong> und einen <strong>End-Index</strong> in den eckigen Klammern hinter einer Liste an. Die beiden Indizes trennen wir dabei mit einem <strong>Doppelpunkt</strong>.</p>
 <p>Die allgemeine Syntax könnte man so formulieren:</p>
@@ -974,8 +975,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="der-zugriff-auf-geschachtelte-listen">
+</section>
+<section id="der-zugriff-auf-geschachtelte-listen">
 <h2>Der Zugriff auf geschachtelte Listen<a class="headerlink" href="#der-zugriff-auf-geschachtelte-listen" title="Permalink to this headline">¶</a></h2>
 <p>Wie wir weiter oben bereits gesehen haben, können Listen selbstverständlich geschachtelt werden. Wir können also innerhalb von Listen weitere Listen als Elemente ablegen, sodass wir eine <em>Liste von Listen</em> bzw. <em>geschachtelte Liste</em> erhalten. Wie oben schon gezeigt, wäre beispielsweise eine Liste von Agenten, welche selbst als Listen reprästentiert werden, eine geschachtelte Liste.</p>
 <p>Im Folgenden erstelle ich zunächst drei Agenten und versammle diese dann innerhalb der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code>:</p>
@@ -1069,8 +1070,8 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

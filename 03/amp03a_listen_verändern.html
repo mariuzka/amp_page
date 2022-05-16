@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Listen verändern im Loop &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -726,11 +727,11 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="listen-verandern-im-loop">
+  <section class="tex2jax_ignore mathjax_ignore" id="listen-verandern-im-loop">
 <h1>Listen verändern im Loop<a class="headerlink" href="#listen-verandern-im-loop" title="Permalink to this headline">¶</a></h1>
 <p>Oft verwendet man For-Loops nicht nur, um auf die Elemente einer Liste (oder eines sonstigen iterierbaren Objektes) nacheinander zuzugreifen, sondern diese auch zu verändern. Dabei gibt es zwei verschiedene Wege, Elemente einer Liste innerhalb eines For-Loops zu verändern und man muss je nachdem, mit welchen Objekten man es innerhalb der Liste zu tun hat, einen bestimmten Weg wählen. Zu unterscheiden sind dabei sogenannte <em>unveränderbare</em> Objekte und <em>veränderbare</em> Objekte.</p>
 <p>Bei veränderbaren Objekten können wir diese unter Umständen direkt anhand der Schleifenvariable verändern. Bei unveränderbaren Objekten hingegen ändert sich bei Veränderung der Schleifenvariable nichts am repräsentierten Objekt. In diesem Fall muss das Objekt per Listenindizierung direkt in der Liste mit dem neuen Wert überschrieben werden.</p>
-<div class="section" id="listen-mit-unveranderbaren-elementen">
+<section id="listen-mit-unveranderbaren-elementen">
 <h2>Listen mit unveränderbaren Elementen<a class="headerlink" href="#listen-mit-unveranderbaren-elementen" title="Permalink to this headline">¶</a></h2>
 <p>Angenommen wir wir haben eine Liste <code class="docutils literal notranslate"><span class="pre">money</span></code>, welche 3 Elemente des Typs <code class="docutils literal notranslate"><span class="pre">int</span></code> enthält. Diese erstelle ich im Folgenden:</p>
 <div class="cell docutils container">
@@ -786,8 +787,8 @@
 </div>
 </div>
 <p><strong>Wir merken uns:</strong> Sind die Elemente/Objekte, auf die die Schleifenvariable nach und nach zeigt, unveränderbar, dann können wir diese nicht direkt über die Schleifenvariable selbst ändern, sondern müssen per Listenindizierung auf die Elemente/Objekte zugreifen und diese überschreiben.</p>
-</div>
-<div class="section" id="listen-mit-veranderbaren-elementen">
+</section>
+<section id="listen-mit-veranderbaren-elementen">
 <h2>Listen mit veränderbaren Elementen<a class="headerlink" href="#listen-mit-veranderbaren-elementen" title="Permalink to this headline">¶</a></h2>
 <p>Das Vorgehen von oben müssen wir allerdings nicht jedes mal so machen, sondern eben nur, wenn wir eigentlich unveränderbare Objekte innerhalb einer Liste in einem For-Loop “verändern” wollen. Im Falle von sogenannten veränderbaren Objekten müssen wir diesen Umweg über die Listenindizierung allerdings nicht nehmen, sondern können die Schleifenvariable so behandeln als wäre es das Objekt selbst: Jede Veränderung an der Schleifenvariable ist eine Veränderung am eigentlichen Objekt in der Liste, über die wir loopen.</p>
 <p>Schauen wir uns das Ganze anhand eines Beispieles bei der wir den Inhalt einer Liste von Listen (also Listen) innerhalb eines For-Loops verändern wollen. Wie gesagt, eine Liste ist ein veränderbares Objekt. Dadurch können wir in einem For-Loop diesmal direkt nacheinander auf den Inhalt der geschachtelten Liste zugreifen und diesen direkt anhand der Schleifenvariable verändern. Denn der Inhalt der geschachtelten Liste sind Listen und Listen sind veränderbare Objekte.</p>
@@ -833,8 +834,8 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Listen &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -320,7 +321,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -890,7 +891,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="listen">
+  <section class="tex2jax_ignore mathjax_ignore" id="listen">
 <h1>Listen<a class="headerlink" href="#listen" title="Permalink to this headline">¶</a></h1>
 <p>Nachdem wir nun über die grundlegensten Datentypen und Funktionen in Python Bescheid wissen, steigen wir heute tiefer in die Funktionsweise eines ganz bestimmten und überaus wichtigen Datentyps ein: <strong>Listen</strong>.
 Listen sind in Python - sowie in fast jeder anderen Programmiersprache - ein unverzichtbarer Bestandteil.
@@ -919,7 +920,7 @@ Listen helfen uns damit dabei, die Objekte unseres Programmes sinnvoll zu strukt
 </div>
 <p>Die Liste <code class="docutils literal notranslate"><span class="pre">meine_tolle_liste</span></code> ermöglicht es also, die 3 Objekte <code class="docutils literal notranslate"><span class="pre">&quot;Haus&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">123</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> kompakt zu einem Paket zusammenzuschnüren und unter einem Namen zu speichern. Diese Eigenschaft ist allgemein für die Organisation unserer Programme sehr, sehr praktisch.</p>
 <p>Wir werden im Verlauf dieses Kapitels u.a. noch lernen, wie wir auf die einzelnen Elemente zugreifen und wie wir weitere Objekte hinzufügen. Nun reiße ich aber erstmal kurz an, wofür wir Listen im Rahmen der Programmierung von ABM meist brauchen.</p>
-<div class="section" id="der-nutzen-von-listen-und-anderen-datencontainern-fur-abm">
+<section id="der-nutzen-von-listen-und-anderen-datencontainern-fur-abm">
 <h2>Der Nutzen von Listen (und anderen Datencontainern) für ABM<a class="headerlink" href="#der-nutzen-von-listen-und-anderen-datencontainern-fur-abm" title="Permalink to this headline">¶</a></h2>
 <p>Ganz allgemein kann man sagen, dass wir Listen im Kontext von ABM brauchen, weil ABMs Computerprogramme sind und man in Computerprogrammen eben Listen braucht. Punkt. Das stimmt zwar. Und wir werden Listen auch an allen Enden und Ecken brauchen, doch gibt es zwei <em>klassische</em> Anwendungsfälle für Listen im Bereich von ABM. Einerseits können wir unsere Gruppen bzw. Populationen von Agenten innerhalb von Listen organisieren. Andererseits können wir auch die Agenten selbst als Listen in unserem Programm repräsentieren, wobei jedes Element in der Liste dann eine Eigenschaft eines Agenten repräsentieren würde.</p>
 <p>Doch beginnen wir von vorne. Bei agentenbasierter Modellierung geht es darum, das Handeln und Interagieren vieler Akteure mithilfe eines Computerprogrammes zu simulieren. Das heißt, wir müssen die handelnden Akteure - die Agenten - irgendwie in unserem Programm mittels Objekte repräsentieren. Wie machen wir das?</p>
@@ -1065,20 +1066,20 @@ Dies könnte dann so aussehen:</p>
 </ul>
 <p><strong>Übrigens:</strong> Oben sieht das Erstellen der Population von Agenten und den jeweils einzelnen Eigenschaften einzelner Agenten noch nach viel Getippe aus. In den nächsten Kapitel werden wir jedoch lernen, wie wir sehr große Populationen von Agenten relativ entspannt “automatisch” erstellen lassen können, ohne jeden Agenten einzeln selbst explizit definieren oder benennen zu müssen.</p>
 <p><strong>Zugegeben:</strong> Die Repräsentation der Agenten als Listen ist nicht sonderlich elegant. Wir müssen uns ja z.B. merken, welcher Stelle in der Liste welche Eigenschaft der Agenten steht. U.a. deshalb ist es auf lange Sicht unpraktisch, die Agenten als Listen darzustellen. Wir werden später die Agenten durch andere Objekt-Klassen ersetzen. Am Anfang macht es allerdings Sinn, nicht nur, weil wir Listen sowieso zwingend kennenlernen müssen, sondern auch, weil es eine relativ unkomplizierte und schnell erlernbare Form der Agenten-Repräsentation “mit einfachen Mitteln” ist.</p>
-</div>
-<div class="section" id="exkurs-noch-ein-paar-worte-zur-reprasentation-von-agenten">
+</section>
+<section id="exkurs-noch-ein-paar-worte-zur-reprasentation-von-agenten">
 <h2>Exkurs: Noch ein paar Worte zur Repräsentation von Agenten<a class="headerlink" href="#exkurs-noch-ein-paar-worte-zur-reprasentation-von-agenten" title="Permalink to this headline">¶</a></h2>
 <p>Wenn wir Agenten einfach nur als einzelne Werte oder Listen von Werten darstellen, dann stellen wir zunächst eigentlich nur die “passiven” Eigenschaften der Agenten mit relativ “passiven” Daten dar. Da fehlt aber doch noch etwas? Ein Agent ist doch ein handelnder Akteur und nicht nur ein passiver Datensatz! Ein Agent sollte ja beispielsweise nicht nur die passive Eigenschaft haben, eine Meinung zu besitzen, sondern auch die aktive Eigenschaft, diese beispielsweise auch kundtun oder ändern zu können. Und ein Agent darf in Simulationen nicht nur einen Infektionsstatus haben, sondern muss auch die aktive Eigenschaft, andere Agenten anstecken zu können, besitzen.</p>
 <p>Den aktiven Teil der Agenten werden wir meist als Funktionen, also Programmanweisungen darüber, wie die Daten/Eigenschaften der Agenten verarbeitet werden sollen, repräsentieren. Zum Beispiel könnten wir die Handlung “anstecken” darstellen, indem wir mithilfe einer Funktion den Infektionsstatus <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code> vom einen Agenten auf einen anderen Agenten mit dem Status <code class="docutils literal notranslate"><span class="pre">&quot;infizierbar&quot;</span></code> übertragen, sodass dieser zweite Agent dann auch den Status <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code> aufweist.</p>
 <p>Zu Beginn werden wir dabei Funktionen und Daten jedoch noch relativ getrennt voneinander organisieren d.h. wir werden an der einen Stelle im Code die “passiven” Eigenschaften der Agenten in irgendeiner Form als Daten darstellen und an der anderen Stelle im Code die potentiellen “Handlungen” der Agenten als Funktionen implementieren. Erst während der Simulation, wenn ein Agent handelt, werden wir Daten und Funktionen zusammenbringen. Dann wird die entsprechende Funktion auf die entsprechenden Daten des handelnden Agenten (z.B. der ansteckende Agent) sowie der an einer Interaktion beteiligten Agenten (z.B. der angesteckte Agent) angewendet.</p>
 <p>In einer ähnlichen Logik werden wir zwar immer die Handlungen der Agenten in den Simulationen darstellen, dennoch werden wir später die Trennung zwischen passiven und aktiven Eigenschaften aufheben. Wir werden dann Objekte definieren, die sowohl die passiven Daten als auch die aktiven Funktionen bzw. Handlungen der Agenten vereinen. Letztlich macht das für die Simulationsergebnisse keinen Unterschied, es ist nur eine bessere Form der Code-Organisation und “natürlichere” Form der Darstellung handelnder Akteure. Wie man das macht, werden wir im Kapitel zur “Objektorientierten Programmierung” lernen. Weil man dazu aber einiges an Wissen über die Grundlagen von Python braucht, werden wir zu Beginn die passiven Eigenschaften und die aktiven Eigenschaften der Agenten noch getrennt implementieren z.B. indem wir die Daten eines Agenten innerhalb einer Liste abspeichern, wie wir in diesem Kapitel lernen werden.</p>
 <p><strong>Übrigens:</strong> Auch wenn wir selbst erst in späteren Kapiteln lernen werden, wie man Objekte definiert, die sowohl passive Daten als auch aktive Funktionen innerhalb eines Objektes integrieren, werden wir diese Art von Objekten dennoch schon vorher verwenden. Denn Python ist voll mit diesen Objekten. Auch Listen selbst verfügen übrigens über eine “aktive” Seite, welche Listen überhaupt erst so praktisch machen und wir noch in diesem Kapitel kennenlernen werden.</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="der-zugriff-auf-listen">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="der-zugriff-auf-listen">
 <h1>Der Zugriff auf Listen<a class="headerlink" href="#der-zugriff-auf-listen" title="Permalink to this headline">¶</a></h1>
 <p>Im Folgenden schauen wir uns die Eigenschaften von Listen etwas näher an. Wir gucken uns zunächst an, wie wir an den Inhalt von Listen rankommen, nachdem wir diese erstellt haben und wie wir diesen Inhalt verändern können. Dann werfen wir u.a. noch einen Blick auf die wichtigsten “Funktionen” von Listen, der “aktiven” Seite von Listen.</p>
-<div class="section" id="auf-elemente-in-listen-zugreifen-indizierung">
+<section id="auf-elemente-in-listen-zugreifen-indizierung">
 <h2>Auf Elemente in Listen zugreifen: Indizierung<a class="headerlink" href="#auf-elemente-in-listen-zugreifen-indizierung" title="Permalink to this headline">¶</a></h2>
 <p>Es ist ja schön und gut, dass wir die Agenten als Listen von Eigenschaften und die Population der Agenten als Liste von Listen von Eigenschaften repräsentieren können. Doch all das bringt uns nichts, wenn wir gar nicht wissen, wie wir auf die Elemente der Listen zugreifen können.</p>
 <p>Denn später werden wir in unseren Simulationen eigentlich immer das Folgende machen: Wir …</p>
@@ -1191,8 +1192,8 @@ Dies könnte dann so aussehen:</p>
 </div>
 </div>
 <p>Listen (und ähnliche Datentypen) sind also “von vorne” und “von hinten” durchnummeriert. Man kann also mithilfe von positven und negativen Indizes auf die Elemente in Listen zugreifen. Im Normalfall verwendet man die positiven Indizes, dennoch kann es in manchen Situationen sehr hilfreich sein, auf die hinteren Elemente einer Liste mithilfe der negativen Indizierung zuzugreifen.</p>
-</div>
-<div class="section" id="elemente-in-listen-andern">
+</section>
+<section id="elemente-in-listen-andern">
 <h2>Elemente in Listen ändern<a class="headerlink" href="#elemente-in-listen-andern" title="Permalink to this headline">¶</a></h2>
 <p>Mithilfe der Indizierung können wir nicht nur bestimmte Elemente einer Liste ausgeben lassen, sondern auch verändern. Dies machen wir genau so, wie wir Variablen definieren, geben aber auf der linken Seite des <code class="docutils literal notranslate"><span class="pre">=</span></code> keinen Variablennamen, sondern das entsprechende Listen-Element per Indizierung an, das verändert werden soll.</p>
 <p>Im Folgenden ändere ich den Infektionsstatus des Agenten <code class="docutils literal notranslate"><span class="pre">agent</span></code>. Zur Erinnerung, wie <code class="docutils literal notranslate"><span class="pre">agent</span></code> aussieht, lasse ich diesen zunächst ausgeben. Der Infektionsstatus steht an erster Stelle.</p>
@@ -1247,8 +1248,8 @@ Dies könnte dann so aussehen:</p>
 </div>
 <p>Der Agent basierend auf der Liste <code class="docutils literal notranslate"><span class="pre">agent</span></code> hat sich nun von einem vor 10 Tagen infizierten Agenten ohne Symptome zu einem vor 15 Tagen infizierten, nun symptomatischen und geimpften Agenten verändert.</p>
 <p>Während unseren Simulationen werden sich bestimmte Eigenschaften der Agenten ständig ändern und dann werden wir - wenn wir die Agenten als Listen repräsentieren - auch genau mit dieser Logik auf die Agenten zugreifen. Der Unterschied wird nur sein, dass wir nicht jeden einzelnen Zugriff explizit “per Hand” programmieren, sondern in der Regel werden solche Zugriffe in sogenannten Loops vollziehen. Das heißt wir programmieren einmal die allgemeine Struktur solcher Zugriffe und lassen das Programm dann automatisch für jeden Agenten solche Zugriffe vollziehen und die Werte der Agenten-Eigenschaften nach bestimmten Regeln ändern (oder auch nicht). Die Indexierung ist bei solchen Loops essentiell.</p>
-</div>
-<div class="section" id="sich-eine-scheibe-abschneiden-slicing">
+</section>
+<section id="sich-eine-scheibe-abschneiden-slicing">
 <h2>Sich eine Scheibe abschneiden: Slicing<a class="headerlink" href="#sich-eine-scheibe-abschneiden-slicing" title="Permalink to this headline">¶</a></h2>
 <p>Statt nur auf einzelne Elemente zuzugreifen, ist es auch möglich, auf mehrere nebeneinander stehende Elemente einer Liste gleichzeitig zuzugreifen. Weil man dabei praktisch <em>Schnitte</em> an bestimmten Stellen der Liste ansetzt, um einen bestimmten Teilbereich der Liste herauszutrennen, nennt man dieses Vorgehen auch Slicing. Beachtet werden muss aber, dass wir den Teilbereich dabei nicht ausschneiden, sondern kopieren. Slicing funktioniert wie folgt: Wir geben statt eines einzelnen Index einen <strong>Start-</strong> und einen <strong>End-Index</strong> in den eckigen Klammern hinter einer Liste an. Die beiden Indizes trennen wir dabei mit einem <strong>Doppelpunkt</strong>.</p>
 <p>Die allgemeine Syntax könnte man so formulieren:</p>
@@ -1331,8 +1332,8 @@ Dies könnte dann so aussehen:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="der-zugriff-auf-geschachtelte-listen">
+</section>
+<section id="der-zugriff-auf-geschachtelte-listen">
 <h2>Der Zugriff auf geschachtelte Listen<a class="headerlink" href="#der-zugriff-auf-geschachtelte-listen" title="Permalink to this headline">¶</a></h2>
 <p>Wie wir weiter oben bereits gesehen haben, können Listen selbstverständlich geschachtelt werden. Wir können also innerhalb von Listen weitere Listen als Elemente ablegen, sodass wir eine <em>Liste von Listen</em> bzw. <em>geschachtelte Liste</em> erhalten. Wie oben schon gezeigt, wäre beispielsweise eine Liste von Agenten, welche selbst als Listen reprästentiert werden, eine geschachtelte Liste.</p>
 <p>Im Folgenden erstelle ich zunächst drei Agenten und versammle diese dann innerhalb der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code>:</p>
@@ -1426,8 +1427,8 @@ Dies könnte dann so aussehen:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exkurs-funktionen-methoden">
+</section>
+<section id="exkurs-funktionen-methoden">
 <h2>Exkurs: Funktionen &amp; Methoden<a class="headerlink" href="#exkurs-funktionen-methoden" title="Permalink to this headline">¶</a></h2>
 <p>Weiter unten möchte ich euch gleich noch ein paar wichtige Funktionen von Listen zeigen. Dazu müssen wir jedoch noch kurz eine besondere Form von Funktionen kennenlernen: die sogenannten Methoden.</p>
 <p>In Python kann man ganz allgemein zwischen zwei Formen von Funktionen unterscheiden. Auf der einen Seite gibt es das, was man ganz offiziell <strong>Funktion</strong> nennt. Eine solche Funktion ist beispielsweise die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> oder auch die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code>. Diese Funktionen sind als komplett eigenständige Objekte anzusehen. Sie sind Anweisungen für unser Programm, welche ihr Dasein als Objekte fristen. Funktionen sind in Objekte gegossene, objektgewordene Handlungen unseres Programmes, welche immer und immer wieder aufgerufen werden können.</p>
@@ -1451,11 +1452,11 @@ Dies könnte dann so aussehen:</p>
 <p><code class="docutils literal notranslate"><span class="pre">HANDELN(AGENT,</span> <span class="pre">ANDERER_AGENT)</span></code></p>
 <p>Hier ist also die Funktion <code class="docutils literal notranslate"><span class="pre">HANDELN()</span></code> nicht eine Eigenschaft eines Agenten, sondern verarbeitet nur die Daten des Agenten auf bestimmte Weise. In der Realität handeln ja aber die Agenten selbst und werden nicht von außen durch eine anonyme Macht “gehandelt”. Die objektgebundenen Methoden der objektorientierten Programmierung, bei denen der Agent praktisch selbst handelt, sind also viel “natürlicher” bzw. realistischer. Dies hilft uns u.a. auch bei der Übersetzung der Realität bzw. einer soziologischen Theorie in ein Computerprogramm, weil das viel eher unserem Denken entspricht. Technisch gesehen, ist es eigentlich egal, ob wir Funktionen oder Methoden benutzen. Wir können mit beiden mehr oder weniger das gleiche machen. Es geht dabei tatsächlich nur darum, wie wir unser Programm ausformulieren, wie wir unsere Gedanken dem Computer mitteilen wollen.</p>
 <p>Das ist alles noch etwas abstrakt und es ist an dieser Stelle auch noch gar nicht sooo wichtig. Einerseits soll dir nur schon mal ein Gefühl dafür gegeben werden, wie wir ABM in Python umsetzen können und auf welche Weisen wir das im Verlauf dieses Kurses machen werden. Andererseits ging es mir bei diesem Exkurs darum, dass du im nun folgenden Abschnitt nicht verwundert bist, warum wir plötzlich “Funktionen” ausführen, indem wir diese hinten an Objekte anhängen.</p>
-</div>
-<div class="section" id="grundlegende-methoden-von-listen">
+</section>
+<section id="grundlegende-methoden-von-listen">
 <h2>Grundlegende Methoden von Listen<a class="headerlink" href="#grundlegende-methoden-von-listen" title="Permalink to this headline">¶</a></h2>
 <p>Schauen wir uns nun ein paar grundlegene Methoden von Listen an. All die folgenden “Funktionen” sind also Fähigkeiten von Listen, bestimmte Dinge zu tun. Diese Methoden sind exklusiv auf Listen zugeschnitten und funktionieren nur, wenn diese an Listen bzw. Variablennamen von Listen mit einem Punkt angehängt werden.</p>
-<div class="section" id="ein-element-anhangen-append">
+<section id="ein-element-anhangen-append">
 <h3>Ein Element anhängen: append()<a class="headerlink" href="#ein-element-anhangen-append" title="Permalink to this headline">¶</a></h3>
 <p>Die Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> fügt ein Element der Liste hinten an. Wir müssen das entsprechende Element dafür als Input in die Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> einfügen.</p>
 <p>Hier im Beispiel definiere ich zunächst die Liste <code class="docutils literal notranslate"><span class="pre">words</span></code>, welche ein paar Wörter enthält.</p>
@@ -1523,8 +1524,8 @@ Dies könnte dann so aussehen:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="eine-liste-anhangen-extend">
+</section>
+<section id="eine-liste-anhangen-extend">
 <h3>Eine Liste anhängen: extend()<a class="headerlink" href="#eine-liste-anhangen-extend" title="Permalink to this headline">¶</a></h3>
 <p>Man kann nicht nur einzelne Elemente an eine Liste anhängen, sondern man kann auch direkt eine ganze Liste von Objekten anhängen. Dabei werden aber nicht wie oben, die Liste mit Objekten einfach als Gesamtpaket d.h. als ein Objekt angehängt, sondern entpackt und als einzelne Objekte angehängt. Schauen wir uns das am besten einfach mal am Beispiel der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> an, welche zunächst noch so aussieht:</p>
 <div class="cell docutils container">
@@ -1581,8 +1582,8 @@ Dies könnte dann so aussehen:</p>
 </div>
 </div>
 <p>Und wir sehen, der Inhalt der Liste <code class="docutils literal notranslate"><span class="pre">more_words</span></code> befindet sich nur in der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code>. Wir haben die beiden Listen praktisch miteinander verschmolzen.</p>
-</div>
-<div class="section" id="ein-element-an-beliebiger-stelle-einfugen-insert">
+</section>
+<section id="ein-element-an-beliebiger-stelle-einfugen-insert">
 <h3>Ein Element an beliebiger Stelle einfügen: insert()<a class="headerlink" href="#ein-element-an-beliebiger-stelle-einfugen-insert" title="Permalink to this headline">¶</a></h3>
 <p>Nun wissen wir, wie wir Elemente oder ganze Listen hinten an eine Liste anhängen. Wir wissen auch, wie wir mittels Indizierung auf ein Element in einer Liste zugreifen und dieses ggf. verändern oder austauschen. Was wir noch nicht wissen, ist, wie man ein Element zwischen die Elemente einer Liste einfügt. Dies geht u.a. mit der Methode <code class="docutils literal notranslate"><span class="pre">insert()</span></code>.</p>
 <p>Die Methode <code class="docutils literal notranslate"><span class="pre">insert()</span></code> benötigt zwei Argumente:</p>
@@ -1605,8 +1606,8 @@ Dies könnte dann so aussehen:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="das-letzte-element-ausgeben-und-abhangen-pop">
+</section>
+<section id="das-letzte-element-ausgeben-und-abhangen-pop">
 <h3>Das letzte Element ausgeben und abhängen: pop()<a class="headerlink" href="#das-letzte-element-ausgeben-und-abhangen-pop" title="Permalink to this headline">¶</a></h3>
 <p>Die Methode <code class="docutils literal notranslate"><span class="pre">pop()</span></code> tut zwei Dinge: Zum einen wird das letzte Element einer Liste abgehängt d.h. aus der Liste entfernt. Zum anderen wird aber zugleich auch das letzte Element auch zurückgegeben, sodass wir es bspw. einer Variable zuweisen können und es nicht weg ist, nachdem wir es von unserer Liste abgehängt haben. Wir können also mit der Funktion <code class="docutils literal notranslate"><span class="pre">pop()</span></code> das letzte Element aus der Liste herausnehmen und etwas anderes mit diesem machen. Letzteres müssen wir aber auch nicht. Wenn wir das zurückgegebene Element nicht wieder irgendwo speichern, dann verschwindet es einfach.</p>
 <div class="cell docutils container">
@@ -1664,12 +1665,12 @@ Dies könnte dann so aussehen:</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="noch-ein-paar-nutzliche-funktionen-zum-umgang-mit-listen">
+</section>
+</section>
+<section id="noch-ein-paar-nutzliche-funktionen-zum-umgang-mit-listen">
 <h2>Noch ein paar nützliche Funktionen zum Umgang mit Listen<a class="headerlink" href="#noch-ein-paar-nutzliche-funktionen-zum-umgang-mit-listen" title="Permalink to this headline">¶</a></h2>
 <p>Im Folgenden zeige ich noch kurz ein paar nützliche Funktionen, die wir beim Umgang mit Listen immer wieder brauchen werden. Diesmal sind es tatsächlich <em>richtige</em> Funktionen und keine Methoden.</p>
-<div class="section" id="summe-minimum-maximum-sum-min-max">
+<section id="summe-minimum-maximum-sum-min-max">
 <h3>Summe, Minimum &amp; Maximum: sum(), min(), max()<a class="headerlink" href="#summe-minimum-maximum-sum-min-max" title="Permalink to this headline">¶</a></h3>
 <p>Wenn eine Liste nur aus verrechenbaren Elementen besteht, also typischerweise aus Zahlen vom Typ <code class="docutils literal notranslate"><span class="pre">int</span></code> und <code class="docutils literal notranslate"><span class="pre">float</span></code>, dann kann man sich mit <code class="docutils literal notranslate"><span class="pre">sum()</span></code> die Summe, mit <code class="docutils literal notranslate"><span class="pre">min()</span></code> das Minimum und mit <code class="docutils literal notranslate"><span class="pre">max()</span></code> das Maximum aller Listenelemente ausgeben lassen.</p>
 <div class="cell docutils container">
@@ -1710,8 +1711,8 @@ Dies könnte dann so aussehen:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="elemente-loschen-del">
+</section>
+<section id="elemente-loschen-del">
 <h3>Elemente löschen: del()<a class="headerlink" href="#elemente-loschen-del" title="Permalink to this headline">¶</a></h3>
 <p>Die Funktion <code class="docutils literal notranslate"><span class="pre">del()</span></code> wird generell dazu verwendet, um Variablen zu löschen. Besonders praktisch ist diese Funktion aber, wenn man einzelne Elemente aus einer Liste herauslöschen möchte. Als Argument übergibt man per Indizierung dasjenige Element aus der Liste, das gelöscht werden soll.</p>
 <div class="cell docutils container">
@@ -1733,9 +1734,9 @@ Dies könnte dann so aussehen:</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

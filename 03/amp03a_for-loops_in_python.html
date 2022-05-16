@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>For-Loops in Python &#8212; ABM mit Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
@@ -322,7 +323,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/amp04c.html">
+    <a class="reference internal" href="../platzhalter-loesungen.html">
      Lösungen
     </a>
    </li>
@@ -726,7 +727,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="for-loops-in-python">
+  <section class="tex2jax_ignore mathjax_ignore" id="for-loops-in-python">
 <h1>For-Loops in Python<a class="headerlink" href="#for-loops-in-python" title="Permalink to this headline">¶</a></h1>
 <p>Ungefähr so wie in dem obigen Beispiel funktionieren auch For-Loops in Python. Wir haben immer eine Menge an Elementen (z.B. in einer Liste) und geben dann an, was wir <em>mit</em> bzw. <em>für</em> jedes Element machen wollen. Oben war die Menge an Elementen eben der Inhalt der Chipstüte und dann haben wir angegeben, was mit jedem bzw. für jeden Chip gemacht wird. Das Gute ist, dass so ähnlich, wie wir den Chipstüten-For-Loop aufgeschrieben haben, auch For-Loops in Python aufgeschrieben werden. Allgemein und abstrakt formuliert sieht ein For-Loop in Python immer so aus:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ELEMENT</span> <span class="ow">in</span> <span class="n">MENGE</span><span class="p">:</span>
@@ -813,7 +814,7 @@
 </div>
 <p>Na das ist ja praktisch! Wir bekommen dasselbe Ergebnis wie oben, müssen aber deutlich weniger tippen.
 Python ist nun nacheinander jedes <code class="docutils literal notranslate"><span class="pre">word</span></code> in der Liste <code class="docutils literal notranslate"><span class="pre">list_of_words</span></code> durchgegangen und hat für jedes <code class="docutils literal notranslate"><span class="pre">word</span></code> die Funktionen <code class="docutils literal notranslate"><span class="pre">len()</span></code> und <code class="docutils literal notranslate"><span class="pre">print()</span></code> auf das <code class="docutils literal notranslate"><span class="pre">word</span></code> angewendet.</p>
-<div class="section" id="die-schleifenvariable">
+<section id="die-schleifenvariable">
 <h2>Die Schleifenvariable<a class="headerlink" href="#die-schleifenvariable" title="Permalink to this headline">¶</a></h2>
 <p>Wichtig ist bei dem obigen Beispiel noch zu wissen, dass der Name <code class="docutils literal notranslate"><span class="pre">word</span></code> nicht durch Python vorgegeben ist, sondern ich frei gewählt habe. Das <em>Wort</em> <code class="docutils literal notranslate"><span class="pre">word</span></code> ist in diesem Fall die sogenannte <strong>Schleifenvariable</strong>. Die Schleifenvariable ist bei einem For-Loop in Python immer das <em>Wort</em>, das hinter dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">for</span></code> steht. Diese Schleifenvariable kann von uns, genau wie jede andere <em>Variable</em>, fast beliebig benannt werden. Doch was ist eine Schleifenvariable?</p>
 <p>Ein For-Loop geht ja immer eine Menge von Elementen Schritt für Schritt von vorne nach hinten durch. Und dabei repräsentiert die Schleifenvariable immer genau das spezifische Element, auf das der For-Loop in dieser Runde gerade zugreift und <em>für</em> welches er gerade eine “Aktion” ausführt. Stell dir vor, du nimmst nacheinander die Chips aus der Chipstüte. Die Schleifenvariable repräsentiert dabei immer genau den Chip, den du gerade in der Hand hälst, sodass du mit diesem irgendetwas machen kannst (z.B. essen). In jeder Runde des For-Loops d.h. für jedes “<em>in die Chipstüte greifen</em>”, steht die Schleifenvariable für einen anderen “Chip”.</p>
@@ -857,8 +858,8 @@ Dies hier hat nichts mit dem Wert der Schleifenvariable zu tun.
 </div>
 <p>Das ist praktisch, wenn man einfach ein und denselben Code X-mal ausführen möchte, ohne sich dabei wirklich für die Elemente in einer Liste zu interessieren. Wir brauchen die Liste aber, um anzugeben, wie viele Runden der Loop haben soll. Die Anzahl der Runden entspricht dann einfach der Länge der angegebenen Liste. Das ist ungefähr so, als würden wir für jeden Chip in einer Chipstüte einmal in die Hände klatschen ohne sonst noch irgendwas mit dem Chip zu machen. Die Anzahl der Chips in der Chipstüte bestimmt dann, wie oft wir in die Hände klatschen. Weitere Auswirkungen haben die konkreten Chips in der Chipstüte dann aber nicht auf uns. Die Chips in der Chipstüte sind also nur ein Vorwand, um irgendeine Aktion zu wiederholen.</p>
 <p>Tatsächlich kommt dieser Fall, dass wir die Liste bzw. irgendeine Menge an Elementen nur brauchen, um die Wiederholungsanzahl des For-Loops festzulegen, ziemlich häufig vor. Dann ist es aber ziemlich unpraktisch, jedes mal eine Liste mit der richtigen Länge im For-Loop anzugeben. Stell dir vor, wir wollen einen For-Loop mit 1000 Runden ausführen. Dann müssen wir eine Liste der Länge 1000 angeben. An dieser Stelle wird eine Funktion namens <code class="docutils literal notranslate"><span class="pre">range()</span></code> nützlich, mit welcher wir “Listen” einer beliebigen Länge unkompliziert und kompakt erstellen können. Diese Funktion schauen wir uns gleich weiter unten an. Vorher werfen wir aber noch kurz einen Blick auf eine andere wichtige Sache bei For-Loops.</p>
-</div>
-<div class="section" id="verruckter-code">
+</section>
+<section id="verruckter-code">
 <h2>Verrückter Code<a class="headerlink" href="#verruckter-code" title="Permalink to this headline">¶</a></h2>
 <p>Bestimmt ist dir aufgefallen, dass ich den <strong>Code-Block</strong> eines For-Loops, in welchem die zu wiederholende “Aktion” definiert wird (wie z.B. “Chip essen”), immer etwas nach rechts eingerückt habe. Dieses Einrücken dient nicht nur der Übersichtlichkeit für uns Menschen, sondern wird von Python auch explizit gelesen und ist daher in einem For-Loop absolut notwendig. Python erwartet unter der <strong>Kopf-Zeile</strong> eines For-Loops, also einer Zeile der Form <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">ELEMENT</span> <span class="pre">in</span> <span class="pre">MENGE:</span></code> immer mindestens eine Zeile, die eine Tab-Breite (4 Leerzeichen) weiter nach rechts eingerückt ist. Wenn das nicht der Fall ist, dann entsteht ein Fehler, wie man hier sieht:</p>
 <div class="cell docutils container">
@@ -941,8 +942,8 @@ yo yo yo
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
