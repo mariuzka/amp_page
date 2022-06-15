@@ -8,8 +8,9 @@
 
     <title>4.2 Das NaSch-Modell &#8212; ABM mit Python</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,36 +20,35 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -61,7 +61,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -70,9 +84,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -90,14 +105,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   ABM mit Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ABM mit Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/amp01_intro.html">
    1.1 Einführung
@@ -436,7 +452,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../platzhalter-loesungen6.html">
+    <a class="reference internal" href="../06/amp06c.html">
      Lösungen
     </a>
    </li>
@@ -589,107 +605,209 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/04/amp04b.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F04/amp04b.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/04/amp04b.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/04/amp04b.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/mariuzka/amp_page"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F04/amp04b.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/04/amp04b.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aufgabe-1">
    Aufgabe 1
@@ -746,12 +864,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>4.2 Das NaSch-Modell</h1>
@@ -824,11 +941,12 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="das-nasch-modell">
-<h1>4.2 Das NaSch-Modell<a class="headerlink" href="#das-nasch-modell" title="Permalink to this headline">¶</a></h1>
+<h1>4.2 Das NaSch-Modell<a class="headerlink" href="#das-nasch-modell" title="Permalink to this headline">#</a></h1>
 <p>Wie bereits im letzten Kapitel angekündigt, wollen wir hier nun das sogenannte <a class="reference external" href="https://en.wikipedia.org/wiki/Nagel%E2%80%93Schreckenberg_model">Nagel-Schreckenberg-Modell (NaSch-Modell)</a> grob nachbauen. Das Modell soll die Entstehung von sogenannten <em>Staus aus dem Nichts</em>, bei denen es eigentlich gar kein offensichtliches Hindernis, wie einen Unfall oder eine Baustelle gibt, erklären. Laut dem Modell würde es stattdessen bereits ausreichen, wenn auf einer ausreichend vollen Straße Menschen einfach ab und zu leicht bremesen d.h. ihre Geschwindigkeit nicht konstant aufrecht erhalten. Das würde dazu führen, dass auch die nachfolgenden Autos bremsen müssten und danach einige Zeit bräuchten, um wieder die Normalgeschwindigkeit zu erreichen. Genau dadurch müssen aber die darauf folgenden Autos noch ein bisschen mehr bremsen und dadurch auch wieder die danach kommenden Autos - bis sich das kollektive Bremsen zu einem Stau hochgeschaukelt hat, obwohl es letztlich gar kein stehendes Hindernis oder nicht mal eine Verengung der Straße gab. Es entsteht letztlich das <em>kollektive Phänomen Stau</em> als unbeabsichtigte Folge der individuellen, aufeinanderbezogenen Handlungen der Autofahrer*innen. Dieses kollektive Phänomen des Staus aus dem Nichts weist dabei interessanterweise die Form einer sogenannten Stau-Welle auf: Die Position des Staus verschiebt sich entlang der Straße entgegen die Fahrtrichtung.</p>
 <p>Auf Youtube findet man zahlreiche Videos, die das Phänomen behandeln und in denen auch nicht selten einer der Erfinder des NaSch-Modells zu Wort kommen:</p>
 <div class="cell docutils container">
@@ -924,7 +1042,7 @@
 </div></blockquote>
 <p><strong>Quelle: Wikipedia</strong> <a class="reference external" href="https://en.wikipedia.org/wiki/Nagel%E2%80%93Schreckenberg_model">https://en.wikipedia.org/wiki/Nagel–Schreckenberg_model</a></p>
 <section id="aufgabe-1">
-<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">#</a></h2>
 <p>Einen großen Teil des Codes für das Modell findest du bereits unten. Deine Aufgabe ist es am dieser Stelle dir den Code anzuschauen und in Kombination mit den nun folgenden Beschreibungen des Codes so gut es geht nachzuvollziehen. In der nächsten Aufgabe sollst du dann den noch fehlenden Code ergänzen.</p>
 <p>Den Code des Modells kann man grob in 6 Teile untergliedern:</p>
 <ol class="simple">
@@ -936,11 +1054,11 @@
 <li><p>Handeln der Agenten</p></li>
 </ol>
 <section id="schritt-1-import-von-zusatzlichen-modulen">
-<h3>Schritt 1 - Import von zusätzlichen Modulen<a class="headerlink" href="#schritt-1-import-von-zusatzlichen-modulen" title="Permalink to this headline">¶</a></h3>
+<h3>Schritt 1 - Import von zusätzlichen Modulen<a class="headerlink" href="#schritt-1-import-von-zusatzlichen-modulen" title="Permalink to this headline">#</a></h3>
 <p>Zu Beginn eines jeden Python-Programmes müssen die zusätzlichen Module, die wir benötigen, importiert werden. In diesem Fall wird das Modul <code class="docutils literal notranslate"><span class="pre">random</span></code> aus der Standard-Bibliothek importiert. Wir brauchen das Modul <code class="docutils literal notranslate"><span class="pre">random</span></code> später, um das zufällige Trödeln der Agenten einzubauen.</p>
 </section>
 <section id="schritt-2-definition-wichtiger-parameter-der-simulation">
-<h3>Schritt 2 - Definition wichtiger Parameter der Simulation<a class="headerlink" href="#schritt-2-definition-wichtiger-parameter-der-simulation" title="Permalink to this headline">¶</a></h3>
+<h3>Schritt 2 - Definition wichtiger Parameter der Simulation<a class="headerlink" href="#schritt-2-definition-wichtiger-parameter-der-simulation" title="Permalink to this headline">#</a></h3>
 <p>An dieser Stelle werden wichtige Parameter unserer unserer Simulation definiert. Wir können hier als Parameter all diejenigen Werte verstehen, die das allgemeine “Verhalten” unserer Simulation beeinflussen. Ich schreibe übrigens die Variablennamen der Parameter alle bewusst groß, da es in der Informatik eine Konvention gibt, Variablen, deren Werte sich im gesamten Verlauf des Programmes nicht verändert, groß zu schreiben. Eine solche Variable nennt man auch Konstante.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">TICKS</span></code>: Dies ist die Anzahl der simulierten Zeitschritte. In jedem Zeitschritt “wiederholt” sich der gesamte Ablauf der eigentlichen Simulation einmal.</p></li>
@@ -952,7 +1070,7 @@
 </ul>
 </section>
 <section id="schritt-3-erstellen-der-population">
-<h3>Schritt 3 - Erstellen der Population<a class="headerlink" href="#schritt-3-erstellen-der-population" title="Permalink to this headline">¶</a></h3>
+<h3>Schritt 3 - Erstellen der Population<a class="headerlink" href="#schritt-3-erstellen-der-population" title="Permalink to this headline">#</a></h3>
 <p>Wie so oft wird zunächst eine leere Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> erstellt, welche dann in einem For-Loop nach und nach mit Agenten befüllt wird.</p>
 <p>Die Eigenschaften der Agenten repräsentieren wir diesmal als ein Dictionary. Das vereinfacht uns vieles. Z.B. können wir die einzelnen Eigenchaften der Agenten benennen und dann auch mit Namen auf diese zugreifen. Genau wie Listen sind Dictionaries gehören Dictionaries zu den veränderbaren Datentypen. Dadurch können wir sehr einfach die Eigenschaften der Agenten (z.B. innerhalb von For-Loops) verändern.</p>
 <p>In einem ersten For-Loop erstelle ich jeden Agenten zunächst mit vier Eigenschaften und hänge diese an die Liste <code class="docutils literal notranslate"><span class="pre">population</span></code>.</p>
@@ -966,15 +1084,15 @@
 <p>Die voraus- und nachfahrenden Agenten werden unter <code class="docutils literal notranslate"><span class="pre">&quot;agent_ahead&quot;</span></code> und <code class="docutils literal notranslate"><span class="pre">&quot;agent_behind&quot;</span></code> als Eigenschaft eines jeden Agenten eingespeichert. Versuche mal nachzuvollziehen, wie die beiden Agenten jeweils gefunden werden. Wenn dir das nicht 100% klar ist, ist das aber nicht so schlimm. Merken solltest du dir v.a., dass sich unter dem Dictionary-Key <code class="docutils literal notranslate"><span class="pre">&quot;agent_ahead&quot;</span></code> der vorausfahrende und unter dem Dictionary-Key <code class="docutils literal notranslate"><span class="pre">&quot;agent_behind&quot;</span></code> jeweils der hinterherfahrende Agent befindet.</p>
 </section>
 <section id="schritt-4-das-starten-der-simulation-mittels-for-loop-durch-die-zeit">
-<h3>Schritt 4 - Das Starten der Simulation mittels For-Loop durch die Zeit<a class="headerlink" href="#schritt-4-das-starten-der-simulation-mittels-for-loop-durch-die-zeit" title="Permalink to this headline">¶</a></h3>
+<h3>Schritt 4 - Das Starten der Simulation mittels For-Loop durch die Zeit<a class="headerlink" href="#schritt-4-das-starten-der-simulation-mittels-for-loop-durch-die-zeit" title="Permalink to this headline">#</a></h3>
 <p>Nach der obigen <em>Initialisierungsphase</em> wird nun die eigentliche Simulation gestartet. Mittels For-Loop wird jeder nun nachfolgende, eingerückte Code für jeden zu simulierenden Zeitschritt wiederholt. In jedem Zeitschritt wird die grafische Darstellung aktualisiert und ausgegeben sowie jeder Agent zum handeln gebracht.</p>
 </section>
 <section id="schritt-5-die-grafische-darstellung-der-simulation">
-<h3>Schritt 5 - Die grafische Darstellung der Simulation<a class="headerlink" href="#schritt-5-die-grafische-darstellung-der-simulation" title="Permalink to this headline">¶</a></h3>
+<h3>Schritt 5 - Die grafische Darstellung der Simulation<a class="headerlink" href="#schritt-5-die-grafische-darstellung-der-simulation" title="Permalink to this headline">#</a></h3>
 <p>An dieser Stelle wird die sehr simple grafische Darstellung des Modells erstellt. Diese ist vom Prinzip her genau gleich wie die grafische Darstellung in den Übungsaufgaben des letzten Kapitels. Diesmal werden leere Straßenabschnitte allerdings als <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code> und Agenten als Zahl, die die aktuelle Geschwindigkeit anzeigt, dargestellt.</p>
 </section>
 <section id="schritt-6-das-handeln-der-agenten">
-<h3>Schritt 6 - Das Handeln der Agenten<a class="headerlink" href="#schritt-6-das-handeln-der-agenten" title="Permalink to this headline">¶</a></h3>
+<h3>Schritt 6 - Das Handeln der Agenten<a class="headerlink" href="#schritt-6-das-handeln-der-agenten" title="Permalink to this headline">#</a></h3>
 <p>In diesem Schritt Handeln die Agenten. Hier ist es dann gleich deine Aufgabe, die noch fehlende Umsetzung der vier <a class="reference external" href="https://en.wikipedia.org/wiki/Nagel%E2%80%93Schreckenberg_model#Outline_of_the_model">Handlungsregeln der Agenten</a> zu programmieren. Einen Teil, welcher nicht direkt in den 4 Handlungsregeln besprochen wird, habe ich aber auch hier bereits vorgegeben. In diesem von mir bereits vorgegebenen Teil geht es darum, dass nachdem die Agenten entsprechend der 4 Handlungsregeln gehandelt haben, nochmal alle Agenten durchgegangen werden, um ihre “Sicht” auf die Straße zu aktualisieren. Da die Agenten gefahren sind, hat sich evtl. der Abstand zum vorausfahrenden (und zum nachfahrenden Agenten) verändert. Diese Information müssen wir natürlich den Agenten mitteilen, damit sie im nächsten Zeitschritt ein richtiges <em>Abbild</em> der Straße <em>im Kopf</em> haben.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1093,7 +1211,7 @@
 </section>
 </section>
 <section id="aufgabe-2">
-<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">#</a></h2>
 <p>Der gesamte Code ist, so wie er oben zu sehen ist, vollkommen funktionsfähig. Du kannst den Code kopieren und komplett ausführen. Achte dabei, dass alle Einrückungen des Codes exakt so bleiben! Du solltest nach der Ausführung des Codes in der Konsole sehen, dass die Simulation entsprechend der simulierten Zeitschritte ausgeführt wurde, aber die Agenten sich nicht nach vorne bewegen (Achte darauf, dass die Konsole breit genug ziehst.). Um das zu ändern, sollst du nun an die entsprechenden Stellen die vier Handlungsregeln einbauen.</p>
 <ul class="simple">
 <li><p>Um die vier Handlungsregeln für jeden Agenten umzusetzen, musst du jeden Agenten nacheinander durchgehen. Starte einen entsprechenden For-Loop. Denk daran, dass die Agenten als Dictionaries veränderbare Agenten sind und daher direkt über die Agenten in der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code> loopen kannst (und nichts mit <code class="docutils literal notranslate"><span class="pre">range()</span></code> machen musst). Die folgenden Handlungsschritte werden dann innerhalb dieses For-Loops <em>für</em> jeden Agenten umgesetzt.</p></li>
@@ -1104,11 +1222,11 @@
 <li><p>Spiele nun etwas mit den Parametern (Anzahl der Zeitschritte, Anzahl der Agenten usw.) herum und schaue, ob bei dir tatsächlich das Phänomen des Staus aus dem Nichts entsteht und du eine Stauwelle beobachten kannst. Unten siehst du einen Output des Modells, wo diese Phänomene zu sehen sind:</p></li>
 </ul>
 <section id="modell-mit-niedrigerer-verkehrsdichte">
-<h3>Modell mit niedrigerer Verkehrsdichte<a class="headerlink" href="#modell-mit-niedrigerer-verkehrsdichte" title="Permalink to this headline">¶</a></h3>
+<h3>Modell mit niedrigerer Verkehrsdichte<a class="headerlink" href="#modell-mit-niedrigerer-verkehrsdichte" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">5.....5.....5.....5.....5.....5.....5.....5.....5.....5.....5.....5.....5.....5.....5.....</span> <span class="pre">.....5.....5.....5.....5.....5....4......5.....5.....5.....5.....5.....5.....5....4......5</span> <span class="pre">....5....4......5.....5.....5....4.....5......5.....5.....5.....5....4......5...3......5..</span> <span class="pre">..5.....4.....5......5.....5....4.....5.....5......5.....5....4.....4.....5....3....4.....</span> <span class="pre">.......5.....5.....5......5....4.....5.....5.....5......5...3......5.....5....4...3......5</span> <span class="pre">....5.......5.....5.....5.....4.....5.....5.....5.....5....3....4......4....3....3....4...</span> <span class="pre">.5.......5.......5....4......5.....5.....5.....5.....5....4....4.....5.....4....4...3.....</span> <span class="pre">......5.......5......4.....5......5....4......5.....5....4....4....4.....4.....4...3....4.</span> <span class="pre">...5.......5.......5......5.....5.....4.....5......5....4....4....4.....5.....5...3....4..</span> <span class="pre">..5.....5.......5.......5......5.....5.....5.....5.....4....4....4.....5.....5..2....3....</span> <span class="pre">.......5.....5......4........5......5.....5.....5.....5....4....4.....5.....5..2...3.....4</span> <span class="pre">....5.......5.....5......5.......4.......5.....5.....5....4....4.....5.....5..2...3....4..</span> <span class="pre">..5......5.......5.....5......5.......5.......5.....5....4....4.....5....4...2...3...3....</span> <span class="pre">.......5......5.......5.....5......5.......5.......5....4....4.....5...3....3...3...3....4</span> <span class="pre">....5......4.......5.......5.....5.....4........5......4....4.....5...3....4...3...3....4.</span> <span class="pre">...5.....5......5.......5.......5.....5....4.........5.....4.....5...3....4...3...3....4..</span> <span class="pre">.4......5.....5......5.......5.......5....4.....5.........5.....5...3....4...3...3....4...</span> <span class="pre">4.....5......5.....5......5.......5......4.....5.....5.........5...3...3....3...3....4....</span> <span class="pre">.....5.....5......5.....5.....4.......4......4......5.....5.......3...3....4...3....4....4</span> <span class="pre">...4.....4......5......5.....5.....5.......5......5......5.....5.....3...3....3....4....4.</span> <span class="pre">..4.....5.....5......5......5.....5.....5.......5......5......5....4....3....4....4....4..</span> <span class="pre">.4.....5.....5.....5.....4.......5.....5.....5.......5......5.....4....4...3.....4....4...</span> <span class="pre">4.....5.....5.....5.....5.....5.......5....4.....4........5.....4.....4...3....4.....4....</span> <span class="pre">....4......5.....5.....5.....5.....5......4.....5.....5........5.....5...3....4.....5....4</span> <span class="pre">...4.....5......5.....5.....5.....5.....5......5.....5....4.........5...3....4.....5....4.</span> <span class="pre">..4.....5.....5......5.....5....4......5.....5......5....4.....5.......3....4.....5....4..</span> <span class="pre">.4.....5.....5.....5......5...3......5......5.....5.....4.....5.....5......4.....5...3....</span> <span class="pre">......5.....5.....5.....5....3...3........5......5.....5.....5.....5.....5......5...3....4</span> <span class="pre">....5......5.....5.....5...3...2.....4.........5......5.....5.....5.....5.....5....3....4.</span> <span class="pre">...5.....5......5.....5...3..2...2........5.........5......5.....5.....5....4....3.....4..</span> <span class="pre">..5.....5.....5......5...3.1....3...3..........5.........5......5.....5....4....4....4....</span> <span class="pre">.......5.....5.....5....3.1..2....2.....4...........5.........5......5...3.....4....4....4</span> <span class="pre">....5......4......5....4.1..2...3....3.......5...........5.........5....3....4.....4....4.</span> <span class="pre">...5.....5......5....3..1..2...3...3....3.........5...........5........4....4.....5....4..</span> <span class="pre">..5....4......5.....4.1...2...3...3....4....4..........5...........5.......4....4.....4...</span> <span class="pre">.5....4.....5......5.1..2....3...3....4....4.....5..........5...........5......4.....5....</span> <span class="pre">5....4.....5....4...1..2...3....3....4....4.....5.....5..........5...........5......5.....</span> <span class="pre">....4.....5....4...3..2...3....4....4....4.....5.....5.....5..........5..........4.......5</span> <span class="pre">...4.....5...3....3..2...3....4....4....4.....5.....5.....5.....5..........5..........5...</span> <span class="pre">.5......5...3....4..2...3....4...3.....4.....5.....5.....5.....5.....5..........5.........</span> <span class="pre">......5....3....4..2...3....4..2.....4......5.....5.....5.....5.....5.....5..........5....</span> <span class="pre">5.........4....4..2...3...3...2...3.......5.....4......5....4.....4......5.....5..........</span> <span class="pre">.....5........4.1....3...3...3...3....4........5.....5.....4.....5.....5......5....4......</span> <span class="pre">..........5....1.1......3...3..2.....4.....5........5.....5.....5.....5.....5....3.....4..</span> <span class="pre">..5...........4.1.1........3..2...3.......5.....5........5.....5.....5.....5...3.....4....</span> <span class="pre">......4........1.1..2........2...3....4........5.....5........5.....5.....5...3....4.....4</span> <span class="pre">....5......5....1..2...3........3....4.....5........5.....5........5.....5...3...3......5.</span> <span class="pre">...5....4......4..2...3....4........4.....5.....5........5.....5........5...3...3....4....</span> <span class="pre">5......4.....5...2...3....4.....5........5.....5.....5........5.....5......3...3....4.....</span> <span class="pre">.....5......5...3..2....3......5.....5........5.....5....4........4......5....3....4.....5</span> <span class="pre">...4......5....3..2...3....3........5.....5........5....4.....5........5.....4....4.....5.</span> <span class="pre">..4....4......4..2...3....4....4.........5.....5.......4.....5.....5........5....4.....5..</span> <span class="pre">.4....4.....5...2...3....4...3......5.........5.....5.......5.....5.....5.......4.....5...</span> <span class="pre">4....4.....5...3...3....4...3....4.......5.........5.....5.......5....4......5.......5....</span> <span class="pre">....4....4....3...3...3....3...3.....4........5........4......5.....3......5.....4.......4</span> <span class="pre">...4....4....4...3...3....4...3....4......5........5........5......5....4.......5.....5...</span> <span class="pre">.5.....4....4...3...3....4...3....4.....5......5........5........5.....4.....5.......5....</span> <span class="pre">5.....5....4...3...3...3....3....4.....5.....5......5........5........5.....5.....5.......</span> <span class="pre">.....5....4..2....3...3...3.....4.....5....4......5......5........5........5.....5.....5..</span> <span class="pre">..5......4.1....3....3...3...3......4.....4....4......4......4.........5........5.....5...</span> <span class="pre">.5....4...1..2......4...3...3....4.......5....4.....5......5......5.........5........5....</span> <span class="pre">.....4...3..2...3......3...3....4.....5......4.....5.....5.....4.......5.........5.......4</span> <span class="pre">...4....3..2...3....4.....3....4....4......5......5.....5.....5.....5.......5.........5...</span> <span class="pre">4.....3...2...3....4.....5....4....4.....5......5......5.....5.....5.....5.......5........</span> <span class="pre">.....5...3...3....4.....5....4....4.....5.....5......5......5.....5.....5.....5.......5...</span> <span class="pre">4.......3...3....4.....5....4....4.....5.....5.....5......5......5.....5.....5.....5......</span> <span class="pre">.....5.....3....4.....5....4....4.....5.....5.....5.....5......5.....4......5.....5.....5.</span> <span class="pre">...5......5....4.....5....4....4.....5.....5.....5.....5....4.......5.....5......5.....5..</span> <span class="pre">..5.....5.....4.....5....4....4.....5.....5.....5.....5....4.....5.......5.....5......5...</span> <span class="pre">.5.....5.....5.....5....4....4.....5.....5.....5.....5....4.....5.....5.......5.....5.....</span> <span class="pre">......5.....5.....5....4....4.....5.....5.....5.....5....4.....5.....5.....5.......5.....5</span> <span class="pre">....5......5.....5....4....4.....5.....5.....5.....5....4.....5.....5.....5.....5.......5.</span> <span class="pre">...5.....5......5...3.....4.....5.....5.....5.....5....4.....5.....5.....5.....5.....5....</span> <span class="pre">5......4......5...2.....4......5.....5.....5.....5....4.....5.....5.....5.....5.....5.....</span> <span class="pre">....4.......5...2....3.......5......5.....5.....5....4.....5.....5....4......5.....5.....5</span> <span class="pre">...4.....5.....3..2......4........5.....4......5....4....4......5....4.....5......5.....5.</span> <span class="pre">..4.....5....4...2..2.........5........5.....5.....4....4.....5.....4....4.....4......4...</span> <span class="pre">.5.....5...3...2...2...3...........5........5.....5...3......5.....5....4.....5.....5.....</span> <span class="pre">......5...3..2...2....3....4............5........5...3....4.......5....4.....5....4......5</span> <span class="pre">....5....3..2...3...3.....4.....5............5......3....4.....5......4.....5....4.....5..</span> <span class="pre">..5.....4..2...3...3....4......5.....5............5....3......5.....5......5....4.....5...</span> <span class="pre">.5.....5..2...3...3....4.....5......5.....5...........4....4.......5.....5.....4.....5....</span> <span class="pre">5.....5.1....3...3....4.....5.....5......5.....5..........4.....5.......5.....5.....5.....</span> <span class="pre">.....5.1..2.....3....4....4......5.....5......5.....5..........5.....5.......5.....5.....5</span> <span class="pre">....5.1..2...3......4....4.....5.....4......5......5....4...........5.....5.......5.....5.</span> <span class="pre">...5.1..2...3....4......4.....5.....5.....5......5.....4.....5...........5.....5.......5..</span> <span class="pre">.4..1..2...3....4.....5......5.....5.....5....4.......5....4......5...........5.....5.....</span> <span class="pre">...2..2...3....4....4......5......5....4.....4.....5......4....4.......5..........4......5</span> <span class="pre">..3..2...3....4....4.....5......5.....4.....5.....5.....5.....4.....5.......5..........5..</span> <span class="pre">.4..2...3....4....4.....5....4.......5.....5.....5.....5.....5.....5.....5.......5........</span> <span class="pre">...2...3....4....4....4.....4.....5......4.....4......5.....5.....5.....5.....5.......5...</span> <span class="pre">4.....3....4....4....4....4......5.....5.....4......5.....4.....4......5.....5.....5......</span> <span class="pre">.....5....4....4....4....4.....5......5.....5.....5......5....4......5......5.....5.....5.</span> <span class="pre">...5.....4....4....4....4.....5.....5.....4......5.....5....3......5......5......5.....5..</span> <span class="pre">..5.....5...3.....4....4.....5.....5.....5.....5......5....4....4.......5......5......5...</span> <span class="pre">.5.....5...3....4.....4.....5....4......5.....5.....5.....4....4.....5.......5......5.....</span> <span class="pre">......5...3....4....4.....4.....4.....5......5.....5.....5....4.....5.....5.......5......5</span> <span class="pre">....5....3....4....4.....5.....5....4......5......5.....5....4.....5....4......5.......5..</span> <span class="pre">..5.....4....4....4.....5.....5....4.....5......5......5....4.....5...3......5......5.....</span> <span class="pre">.......5...3.....4.....5.....5....4.....5.....5......5.....4.....5...3....4.......5......5</span> <span class="pre">....5.....3....4......5.....5....4.....5.....5....4.......5.....5...3....4.....5.......5..</span> <span class="pre">..5......5....4.....5......5....4.....5.....5...3......5.......5...3....4....4......5.....</span> <span class="pre">.......5....3......5.....5.....4.....5.....5...3....4.......5.....3....4....4.....5......5</span> <span class="pre">....5......4....4.......5.....5....4......5..2.....4.....5.......5....4....4.....5.....5..</span> <span class="pre">..5......5.....4.....5.......5....4.....5...2...3......4......5......4....4.....5.....5...</span> <span class="pre">.5.....5......5.....5.....5......4.....5...3...3....4.......5......5.....4.....5.....5....</span> <span class="pre">5.....5.....5......5.....5.....5......5...3...3....4....4........5......5.....5.....5.....</span> <span class="pre">.....5.....5.....5......5....4......5....3...3....4....4.....5........5......5.....5.....5</span> <span class="pre">....5.....5.....5.....5.....4.....5.....4...3....4....4.....5.....5........5......5.....5.</span> <span class="pre">...5.....5.....5.....5.....5....4......5...3....4...3......5.....5.....5........5......5..</span> <span class="pre">.4......5.....5.....5.....5....4.....5....3....4...3...3........5....4.....4.........5....</span> <span class="pre">5....4.......5.....5.....5....4.....5...3.....4...3...3....4........4.....5.....5.........</span> <span class="pre">....4.....5.......5.....5....4.....5...3....4....3...3....4....4........4.....4......5....</span> <span class="pre">5........5....4.......4.....4.....5...3....4....4..2.....4....4.....5........5.....5......</span> <span class="pre">....4.......3......5.......5....4....3...3.....4.1....3......4.....5.....5........5.....5.</span> <span class="pre">...5.....5......4.......5......4....4...3...3...1..2......4.......5.....5.....5........5..</span> <span class="pre">..5.....5.....5.....4........5.....4...3...3...3..2..2.........5.......5....4......5......</span> <span class="pre">......4......5.....5.....5........5..2....3...3..2..2...3...........5......4.....5......5.</span> <span class="pre">...5.......5......5.....5....4......2...3....3..2..2...3....4............5......5.....5...</span> <span class="pre">.5......5.......5......5....4.....5....3....4..2..2...3....4.....5............5......5....</span> <span class="pre">5.....5......5......4......4.....5....4....4..2..2..2.....4....4.....4.............5......</span> <span class="pre">....4......5.....4.......5......5....4....4..2..2.1....3......4.....5.....5.............5.</span> <span class="pre">...5....4.......5.....5.......5.....4....4..2..2.1..2......4.......5.....5.....5..........</span> <span class="pre">.......4....4........5.....5.......5....4..2..2.1..2...3........5.......5.....5.....5.....</span> <span class="pre">...........4.....5........5.....5......4..2..2.1..2...3....4.........5.......5.....5....4.</span> <span class="pre">...5............5.....5........5....4....2..2.1..2...3....4.....5.........5.......5....4..</span> <span class="pre">..5.....5............5.....5.......4....4..2.1..2...3....4.....5.....5.........5......4...</span> <span class="pre">.5.....5.....5...........4......5......4..2.1..2...3....4.....5.....5.....5.........5.....</span> <span class="pre">......5....4......5...........5.....4....20...2...3....4....4......5.....5.....5.........5</span> <span class="pre">....5.....4.....5......5...........5....40.1....2.....4....4.....5......5....4......5.....</span> <span class="pre">.........5.....5.....5......5..........40.1..2.....3......4.....5....4......4.....5......5</span> <span class="pre">....5.........5....4......5......5.....0.1..2...3......4.......5....4.....5......5.....5..</span> <span class="pre">..5......5........4.....5......5......5.1..2..2.....4.......5......4.....5.....5......5...</span> <span class="pre">.5.....5......5........5.....5......5.0...2..2...3.......5.......5......5.....5.....5.....</span> <span class="pre">......5.....5......5........5....4...1.1....2...3....4........5.......5......5.....5.....5</span> <span class="pre">...4.......5.....5......5......3....3.1..2....2.....4.....5........5.......5......5.....5.</span> <span class="pre">..4.....5.......5.....5......5.....4.1..2...3....3.......5.....5........5.......5......5..</span> <span class="pre">.4.....5.....5.......5.....5......5.1.1....3....4....4........5.....5........5.......5....</span> <span class="pre">5.....5.....5.....5.......5.....5..1.1..2......4....4.....5.......4......5........5.......</span> <span class="pre">....4......5.....5.....5.......5..2.1..2...3.......4.....5.....5.......5......5........5..</span> <span class="pre">..5......5......5.....5.....5....2.1..2...3....4........5.....5.....5.......5......5......</span> <span class="pre">.......5......5.....4......5....4.1..2...3...3......5........5.....5....4........5......5.</span> <span class="pre">..4.........5......5.....5.....4.1..2...3...3....4.......5.......4.....4.....5........5...</span> <span class="pre">4......5.........5.....4......5.1..2...3...3....4....4........5.......5.....5.....5.......</span> <span class="pre">.....5.....4..........5.....5.0...2...3...3....4....4....4.........5.......5.....5.....5..</span> <span class="pre">..5.......5.....5..........5.10......3...3...3.....4....4.....5.........5.......5.....5...</span> <span class="pre">.5.....5.......5.....5......10.1.......2....3....4.....4.....5.....5.........5.......5....</span> <span class="pre">5.....5.....5.......5.....5.0.1..2........3.....4....4......5....4......5.........5.......</span> <span class="pre">.....5.....5.....5.......5.1.1..2...3.........4.....4.....5.....4.....5......5.........5..</span> <span class="pre">..5.......5....4......5...1.1..2...3....4..........5.....5.....5.....5.....5......5.......</span> <span class="pre">.......5.....3......5....3.1..2...3....4....4..........4......5.....5.....5.....5......5..</span> <span class="pre">..5.........5....4......4.1..2...3....4....4.....5..........5......5.....5....4......5....</span> <span class="pre">5......5........4.....5..1..2...3....4....4.....5.....5..........5......5....4.....5......</span> <span class="pre">.....5......5........5..2.1....3....4...3......5.....5....4..........4......4.....5.....5.</span> <span class="pre">...5......5......5.....2.1.1.......4...3....4.......5...3......5..........5......5.....5..</span> <span class="pre">..5.....5......5......5.1.1..2........3...3......5.....3....4.......5..........5......5...</span> <span class="pre">.5.....5.....5......5..1.1..2...3........3....4......4.....4.....5.......5..........5.....</span> <span class="pre">......5.....5.....5...2.1..2...3....4.......3......5......5.....5.....5.......5..........5</span> <span class="pre">....5......5.....5..2..1..2...3....4.....5......4.......5......5.....5.....5.......5......</span> <span class="pre">.........5.....4...2..2..2...3....4.....5.....5......5.......5......5.....5....4........5.</span> <span class="pre">...5..........5...3..2..2...3....4.....5.....5.....5......5.......5......5....4.....5.....</span> <span class="pre">........5........3..2..2...3....4.....5.....5.....5.....5......5......4.....3......5....4.</span> <span class="pre">...5.........5.....2..2...3....4.....5....4.....4......5.....5......5......5....4......4..</span> <span class="pre">..5....4..........5..2..2.....4.....5...3......5.....5......5.....5......5.....4.....5....</span> <span class="pre">5.....4.....5.......2..2...3......4....3....4.......5....4.......5....4.......5....4......</span> <span class="pre">.....5.....5.....5....2...3....4......4....4....4.......4.....5......4.....5......4....4..</span> <span class="pre">.4........5.....5....4...3....4.....5....3.....4.....5.......5.....5......5....4......4...</span> <span class="pre">4.....5........5....4..2.....4.....5....4....4......5.....5.......5.....5.....4.....5.....</span> <span class="pre">.....5.....5.......4..2...3.......5....4....4.....5.....4......5.......5.....5.....5.....5</span> <span class="pre">....5.....5.....5....2...3....4.......4....4.....5.....5.....5......5.......5.....5....4..</span> <span class="pre">.4.......5.....5....4...3...3......5......4.....5.....5.....5.....5......5.......5....4...</span> <span class="pre">4.....5.......5....4...3...3....4......4.......5.....5.....5.....5....4.......5......4....</span> <span class="pre">.....5.....5......4...3...3....4.....5......5.......5.....5....4.....4.....5.......5.....4</span> <span class="pre">....5....4......5....3...3....4.....5.....5......5.......5....4.....5.....5.....5.......5.</span> <span class="pre">...5....4.....5.....4...3...3......5.....5.....5......5......4.....5.....5.....5.....5....</span> <span class="pre">5......4.....5.....5...3..2.....4......4......5.....5......5.....4......5.....5....4......</span> <span class="pre">.....5......5.....5..2...2...3.......5......5......5....4.......5.....5......5...3......5.</span> <span class="pre">...5......5......5..2...3...3....4........5......5.....4.....5.......5.....5....3....4....</span> <span class="pre">5.......5......5...2...3...3....4.....5........5......5.....5.....5.......5...3.....4.....</span> <span class="pre">.....5.......5....3...3...3....4.....5.....5.......4.......5.....5.....5.....3....4......5</span> <span class="pre">....5.....5......4...3...3....4.....5.....5.....5......4........5.....5.....5....4.....5..</span> <span class="pre">..5......5....4.....3...3....4.....5.....5.....5.....5......5........5.....5....4.....5...</span> <span class="pre">.5.....5.....4.....5...3....4.....5.....5.....5.....5.....5......5........5...3......5....</span> <span class="pre">......5.....5.....5...3....4.....5.....5.....5.....5.....5.....5......5......3....4......4</span> <span class="pre">....5.....4......5...3....4....4......5.....5....4......5.....5.....5......5.....4.....5..</span> <span class="pre">.4.......5.....5....3....4....4.....5......5....4.....5......5.....5.....5......5.....5...</span> <span class="pre">4.....5.......5....4....4...3......5.....5.....4.....5.....5......5.....5.....5......5....</span> <span class="pre">.....5....4.......4....4...3....4.......5.....5.....5.....5.....5......5.....5.....5.....4</span> <span class="pre">....5....4.....5......4...3....4.....5.......5.....5.....5.....5.....5......5.....5.....5.</span> <span class="pre">...5....4.....5.....5....3...3......5.....5.......5.....5.....5.....5.....5......5.....5..</span> <span class="pre">..5....4.....5.....5....4...3....4.......5.....5.......5.....5.....5.....5....4......4....</span> <span class="pre">5.....4.....5....4.....4...3....4.....5.......5.....5.......5.....5....4.....4.....5......</span> <span class="pre">.....5.....5...3......5...3....4.....5.....5.......5.....5.......5....4.....5.....5.....5.</span> <span class="pre">...5......5...3....4....2.....4....4......5....4........5.....5......4.....5.....5.....5..</span> <span class="pre">.4......5....3....4...3....3.....3......5.....4.....5........5.....5......5.....5.....5...</span> <span class="pre">4.....5.....4....4...3....4....4.....4.......5.....5....4.........5.....5......5.....5....</span> <span class="pre">.....5.....5....4...3....4....4.....5....4........5....4.....5.........5.....5.....4.....4</span> <span class="pre">....5.....5....4..2.....4....4....4.....4.....5.......4.....5.....5........4......5.....5.</span> <span class="pre">...5.....5....4..2..2.......4....4.....5.....5.....5.......5.....5.....5........5......5..</span> <span class="pre">..5.....5....4..2..2...3........4.....5.....5.....5.....5.......5.....5....4.........5....</span> <span class="pre">.......5....4..2..2...3....4.........5.....5.....5.....5.....5......4....3......5........4</span> <span class="pre">....5......4..2..2...3....4.....5.........5.....5.....5.....5.....5.....4....4.......5....</span> <span class="pre">5........5..1..1....3...3......5.....5.........5.....5.....5.....5.....5....4.....5.......</span> <span class="pre">.....5.....2..2..2.....3....4.......5.....5.........5....4......5.....5....4....4......5..</span> <span class="pre">..5.......5..2..2...3......4.....5.......5.....5........4.....5......5....4....4.....5....</span> <span class="pre">5......5....2..2...3....4.......5.....5.......5.....5........5....4......4....4.....5.....</span> <span class="pre">.....5.....4..2...3....4....4........5....4........5....4........4....4......4.....5....4.</span> <span class="pre">...5......5..2...3....4....4.....5......3......5......3......5.......4.....5......5...3...</span> <span class="pre">4.......5...2...3....4...3......5.....5.....4.......5.....4.......5.......5.....5....3....</span> <span class="pre">.....5.....3...3....4...3....4......4......5.....5.......5.....5.......5.......5....4....4</span> <span class="pre">....5.....5...3....4..2.....4.....5......5......5.....5.......5.....5.......5......4....4.</span> <span class="pre">..4......5..2.....4..2...3.......5.....5......5......5.....5.......5.....5.......5.....4..</span> <span class="pre">.4.....5..1...2.....2...3....4........5.....5......5......5....4........5.....5.......5...</span> <span class="pre">4.....5..2..2....3....2.....4.....5........5.....5......5.....4....4.........5.....5......</span> <span class="pre">.....5..2..2...3.....4...3.......5.....5........5.....5......5....4.....5.........5.....5.</span> <span class="pre">..4....2..2..2.....4....3...3.........5.....5........5.....5.....4.....5.....5........4...</span> <span class="pre">.5....4..2..2...3......4...3....4..........5.....5........5.....5.....5....4......5.......</span> <span class="pre">.....4..2..2...3....4.....3....4.....5..........5.....5........5.....5....4.....5......5..</span> <span class="pre">..5....2..2...3....4.....5....4.....5.....5..........5.....5........5....4.....5.....5....</span> <span class="pre">5.....4..2..2.....4.....5....4.....5.....5.....5..........5.....5.......4....4......5.....</span> <span class="pre">.....5..2..2...3.......5....4....4......5.....5.....5.........4......5......4.....5......5</span> <span class="pre">....5..2..2...3...3........4....4.....5......5.....5.....5.........5......5......5.....5..</span> <span class="pre">..5..1...2...3...3....4........4.....5.....5......5.....5.....5.........5......5......5...</span> <span class="pre">.5..2..2....3...3....4.....5.......4.....4......5......5.....5.....5.........5......5.....</span> <span class="pre">...2..2..2.....3....4.....5....4........5.....5......5......5.....5.....5.........5......5</span> <span class="pre">..3..2..2...3......4.....5....4.....5........5.....5......5......5.....5.....5.........5..</span> <span class="pre">.4..2..2...3....4.......5....4.....5.....5.......4......5......5......5.....5.....5.......</span> <span class="pre">..1...2...3....4.....5......4.....5.....5.....5.......5......5......5......5.....5.....5..</span> <span class="pre">.4..2....3...3......5.....5.....4......5.....5.....5.......5......5......5......5.....5...</span> <span class="pre">4..2..2.....3....4.......5.....5.....5......5.....5.....5.......5......5......5......5....</span> <span class="pre">.1...2...3......4....4........5.....5.....5.....4......5.....5.......5......5.....4......4</span> <span class="pre">1.1.....3....4......4.....5........5.....5.....5.....5......5.....5......4.......5.....5..</span> <span class="pre">.1.1........4.....5......5.....5........5.....5.....5....4.......5.....5......5.......5..2</span> <span class="pre">1.1..2..........4.....4.......5.....5........5.....5....4.....5.......5.....5......5....2.</span> <span class="pre">.1..2...3............5.....5.......5.....5........5....4.....5.....5.......5.....5.....4.1</span> <span class="pre">1..2...3....4.............5.....5.......5.....5.......4.....5.....5.....5.......5.....5.1.</span> <span class="pre">..2...3...3......5.............5.....5.......5.....5.......5.....5.....5.....5.......50..1</span> <span class="pre">.2...3...3....4.......5.............5.....5.......5.....5.......5.....5.....5.....5..0.1..</span> <span class="pre">....3...3...3......5.......5.............5....4........5.....5.......5.....5.....5..2.1..2</span> <span class="pre">..3....3..2.....4.......5.......5............4.....5........5.....5.......5.....5..2.1..2.</span> <span class="pre">.3....4..2..2.......4........5.......5............5.....5........5....4........5..2.1.1...</span> <span class="pre">.....4..2..2..2..........5........5.......5............5.....5.......4.....5.....20..1..2.</span> <span class="pre">.3.....2..2..2...3...........4.........5.......5............5.....5.......5.....50.1...2..</span> <span class="pre">3....4...2..2...3....4............5.........5.......5............5.....5.......50.1..2....</span> <span class="pre">....4...3..2...3....4.....5............5.........5.......5............5.....5..0.1..2...3.</span> <span class="pre">..4....3..2...3....4.....5.....5............5.........5.......5............5.1..1..2...3..</span> <span class="pre">.4....4..2..2.....4.....5.....5....4.............5.........5.......5........1.1..1....3...</span> <span class="pre">4....4..2..2...3.......5.....5...3.....4..............5.........5.......5....1.1...2......</span> <span class="pre">....4..2..2...3....4........5...3....4......5..............5.........5......4.1..2....3...</span> <span class="pre">......2..2...3....4....4.......3....4....4.......5..............5.........5..1..2...3....3</span> <span class="pre">...4....2...3....4....4.....5......4....4.....5.......5..............5......2..2..2.....4.</span> <span class="pre">..4....4...3....4...3.....4......5.....4.....5.....5.......5..............5...2..2...3....</span> <span class="pre">......4...3....4...3....4.....4.......5.....5.....5.....5.......5............3..2..2.....4</span> <span class="pre">....5....3....4...3....4.....5.....5.......5....4......5.....5.......5.........2..2...3...</span> <span class="pre">4.......4....4...3....4.....5.....5.....5......4.....5......5.....5......4.......2...3....</span> <span class="pre">.....5......4...3....4.....5....4......5....4.......5.....5......5.....5......5.....3....4</span> <span class="pre">....5.....5....3....4.....5....4.....5.....4.....5.......5.....5......5....4.......5....4.</span> <span class="pre">...5.....5....4....4.....5....4.....5....4......5.....5.......5.....5.....4.....5.....3...</span> <span class="pre">4.......5....4....4....4....3......5....4.....5......5.....5......4......5.....5....4.....</span> <span class="pre">.....5......4....4....4....4....4......4.....5.....5......5.....5......5......5....4.....5</span> <span class="pre">....5.....5.....4....4....4....4....4.......5.....5.....5......5.....5......5.....4.....5.</span> <span class="pre">...5.....5.....5...3.....4...3.....4.....5.......5.....5.....5.....4......5......5.....5..</span> <span class="pre">..5.....5.....5...3...3....2.....4......5.....5......4......5.....5.....5......5......5...</span> <span class="pre">.5....4......5...3...3...3....3.......5......5.....5.....4.......5.....5.....5......5.....</span> <span class="pre">.....4.....5....3...3...3....4....4........5.....4......5.....5.......5....4......5......5</span> <span class="pre">....5.....5....4...3...3....4....4....4.........5.....5......5.....5......4....4.......5..</span> <span class="pre">..5......5....4...3...3....4....4....4.....5........4......5......5.....5.....4.....5.....</span> <span class="pre">.......5.....4...3..2.....4....4....4.....5.....5........5......5......5.....5....4......5</span> <span class="pre">....5.......5...3..2...3......4...3......5.....5.....5........5......5......5....4.....5..</span> <span class="pre">..5......5.....3..2...3....4.....3...3........5.....5.....5.......4.......5.....4.....5...</span> <span class="pre">.5.....5......5..2...3...3.....4....3....4.........5.....5.....5.......5.......5.....5....</span> <span class="pre">.....4......5...2...3...3....4.....4....4.....5.........5....4......5.......5.......5....4</span> <span class="pre">....5....4.....3...3..2.....4.....5....4.....5.....5........4.....5......5.......5......4.</span> <span class="pre">...5....4....4....3..2..2........5....4.....5.....5.....5........5.....5.....4.......4....</span> <span class="pre">5......4....4....4..2..2...3.........4.....5.....5.....5.....5........5.....5.....5.......</span> <span class="pre">.....5.....4...3...2..2...3....4..........5.....5.....5.....5.....5........5.....5.....5..</span> <span class="pre">..5.......5...3..2...2...3....4.....5..........5.....5.....5.....5.....5........5.....5...</span> <span class="pre">.5.....5.....3..2...3...3....4.....5.....5..........5.....5.....5.....5.....5........5....</span> <span class="pre">5.....5.....5..2...3...3....4.....5.....5.....5..........5.....5.....5.....5.....5........</span> <span class="pre">.....5.....5..2...3...3....4.....5.....5.....5.....5..........5.....5.....5.....5.....5...</span> <span class="pre">.5........5..2..2....3....4.....5.....5....4......5.....5..........5....4......5.....5....</span> <span class="pre">......5.....2..2...3.....4.....5.....5....4.....5......5.....5.........4.....5......5....4</span> <span class="pre">...4.......5..2...3....4......5.....5...3......5.....5......5....4.........4......5.....4.</span> <span class="pre">..4.....5....2...3...3......5......5...3....4.......5.....5.....4.....5.........5......5..</span> <span class="pre">.4.....5....4...3...3....4.......5....3....4.....5.......5.....5.....5.....5.........5....</span> <span class="pre">......5...3....3...3....4.....5......4....4....4......5.......5.....5.....5.....5........4</span> <span class="pre">....5....3....4...3....4.....5.....5.....4....4.....5.....4........5....4......5.....5....</span> <span class="pre">5.......4....4...3...3.....4......5.....5....4.....5.....5.....5.......4.....5......5.....</span> <span class="pre">.....5.....3...2....3....4......5......5....4.....5.....5....4.....4........5....4.......5</span> <span class="pre">....5.....5...3...3.....4.....5.....4......4.....5.....5....4.....5....4........4....4....</span> <span class="pre">.........5...3...3....4......5.....5.....5......5.....5...3......5....4.....5.......4....4</span> <span class="pre">....5.......3...3....4.....5......5.....5.....5......5...3....4......4.....5.....5......4.</span> <span class="pre">...5.....5.....3....4.....5.....5.....4......5.....5....3....4.....5......5.....5.....5...</span> <span class="pre">4.......5.....5...3......5.....5.....5.....5......5....4....4.....5.....5.....4......5....</span> <span class="pre">.....5.......5...3....4.......5.....5.....5.....5.....4....4.....5.....5.....5....4......4</span> <span class="pre">....5.....5.....3....4.....5.......5.....5.....5.....5....4.....5.....5.....5....4.....5..</span> <span class="pre">..5......5.....5....4.....5.....5.......5.....5....4.....4.....5....4......5....4.....5...</span> <span class="pre">.5.....5......5...3......5.....5.....5.......5....4.....5.....5....4.....5.....4.....5....</span> <span class="pre">......5.....5....3...3........5.....5.....5......4.....5.....5....4.....5.....5.....5....4</span> <span class="pre">....5......5....4...3....4.........5.....5.....5......5.....5....4.....5.....5....4.....4.</span> <span class="pre">..4.....4......4...3....4.....5.........5.....5.....5......5....4.....5.....5....4.....5..</span> <span class="pre">3......5.....5....3....4.....5.....5.........5.....5....4......4.....5.....5....4.....5...</span> <span class="pre">....4.......5....4....4.....5.....5.....5.........5...3......5......5.....5...3......5...3</span> <span class="pre">...4.....5......4....4.....5....4......5.....5.......3....4.......5......5...3....4.....3.</span> <span class="pre">..4....4......5.....4.....5....4.....5......5....4......3......5.......5....3....4.....5..</span> <span class="pre">.4....4.....5......5.....5....4.....5.....5.....4.....5....3........5......4....4.....5...</span> <span class="pre">4....4....4......5......5....4.....5.....5.....5.....5....4....4.........5.....4.....5....</span> <span class="pre">....4....4.....5......5.....4.....5....4......5.....5....4....4.....5........4.....4.....4</span> <span class="pre">...4....4.....5.....5.....4......5....4.....5......5....4....4....4......5........5.....5.</span> <span class="pre">..4....4.....5.....5.....5.....5.....4....4......5.....4...3.....4.....5......5........5..</span> <span class="pre">.4....4.....5.....5.....5....4......5....4.....5......5...3....4......5.....5......5......</span> <span class="pre">.....4.....5.....5.....5....4.....5.....4.....5.....5....3....4.....5......5.....5......5.</span> <span class="pre">...5......5.....5.....5....4....4......5.....5.....5...3.....4.....5....4.......5.....5...</span> <span class="pre">.5......5.....4.....4....3.....4.....5......5.....5...3....4......5....4.....5.......5....</span> <span class="pre">5.....5......5.....5...3.....4......5.....5.....4....3....4.....5.....4.....5.....5.......</span> <span class="pre">.....5.....5......5..2.....4......5......5.....5....4....4.....5.....5.....5.....5.....5..</span> <span class="pre">..5.......5.....5...2...3.......5......5......5....4....4.....5.....5.....5.....5.....5...</span> <span class="pre">.5....4........5...3...3....4........5......5.....4....4.....5.....5.....5.....5.....5....</span> <span class="pre">5....4.....5......3...3....4.....5........5......5....4.....5.....5.....5.....5.....5.....</span> <span class="pre">....4.....5.....5....3....4.....5.....5........5.....4.....5.....5.....5.....5.....5.....5</span> <span class="pre">..3......5.....5....4....4.....5.....5.....5........5.....5.....5.....5.....5.....5.....5.</span> <span class="pre">.3....4.......5....4...3......5....4.....4......5........5.....5.....5.....5.....5.....5..</span> <span class="pre">3....4.....5......4...3....4.....3......5....4.......5........5.....5.....5.....5.....5...</span> <span class="pre">....4.....5.....5....3....4....4.....4......4.....5.......5........5.....5.....5.....5...3</span> <span class="pre">...4.....5.....5...3.....4....4.....5.....5......5.....5.......5........5.....5.....5...3.</span> <span class="pre">..4.....5.....5...3...3......4....4.....4......5......5.....5.......5.......4......5...3..</span> <span class="pre">3......5.....5...3...3....4.....3......5.....5......5......5.....5.......5.......5....3...</span> <span class="pre">....4.......5...3...3....4.....5....4......4......5.....4.......5.....5.......5.....3....3</span> <span class="pre">...4.....5.....3...3....4....4.....4.....5......5......5.....5.......5.....5.......5....4.</span> <span class="pre">..4.....5.....5...3....4....4.....5....4......5......5......5.....5.......5.....5.....3...</span> <span class="pre">4......5.....5...3....4....4.....5....4.....5......5.....4.......5.....5.......5.....5....</span> <span class="pre">.....5......5...3....4....4....4.....4.....5.....5......5.....5.......5.....5.......5....4</span> <span class="pre">....5.....5....3...3.....4...3......5.....5.....5.....5......5....4.......4......5......4.</span> <span class="pre">...5.....5...3...2.....4....3...3........5.....5.....5.....5.....4.....5.......5......5...</span> <span class="pre">.5......5...3...3...3......4...3....4........4......5.....5.....5.....5.....5.......5.....</span> <span class="pre">......5....3...3..2.....4.....3...3......5........5......5.....5.....5.....5.....5.......5</span> <span class="pre">....5.....4...3..2...3.......5...3....4.......5........5......5.....5.....5....4......5...</span> <span class="pre">4........5...3..2..2.....4......3...3.....4........5........5......5.....5....4.....5.....</span> <span class="pre">.....5......3..2..2...3.......5....3....4......5........5........5.....4.....4.....5.....5</span> <span class="pre">....5.....5..1...2..2.....4......3.....4.....5......5........5.......4.....4......5.....5.</span> <span class="pre">...5.....5..2..2...2...3.......5.....4......5.....5......5........5......4......5......5..</span> <span class="pre">..5.....5..2..2...3...3....4........5.....5......5.....5.....4.........5......5......5....</span> <span class="pre">5......5..2..2..2....3....4.....5........5.....5......5.....5.....5.........5......5......</span> <span class="pre">.....5...2..2..2...3.....4.....5.....5........5.....5......5.....5.....5.........5......5.</span> <span class="pre">...5....3.1...2...3....4......5.....5.....5........5.....5......5.....5.....5........4....</span> <span class="pre">5......4.1..2....3....4.....5......5.....5.....5........5.....5......5.....5.....5........</span> <span class="pre">.....5..1..2...3.....4....4......5......5.....5.....5........5.....5......5.....5.....5...</span> <span class="pre">.5.....2..2..2.....4.....4....4......4.......5.....5.....5........5.....5......5.....5....</span> <span class="pre">......5..2..2...3.......5....4.....5......5.......5....4......5........5.....5......5....4</span> <span class="pre">....5...2..2...3...3........4....4......5......5......4.....5......5........5.....5.....4.</span> <span class="pre">...5...3.1....3...3....4........4.....5......5......5......5.....5.....4.........5.....5..</span> <span class="pre">..5...3.1..2.....3....4.....5........5.....5......5......5......5.....5.....5.........5...</span> <span class="pre">.5...3.1..2...3......4.....5.....5.......4......5......5......5.....4.....4......5........</span> <span class="pre">....3.1..2...3....4.......5.....5.....5.......5.....4.......5......5.....5.....5......5...</span> <span class="pre">.5...1..2...3....4.....5.......5.....5.....5.......5.....5......4.......5.....5.....5.....</span> <span class="pre">....3..2..2.....4.....5.....5.......5.....5.....5.......5.....5.....4........5.....5.....5</span> <span class="pre">...4..2..2...3.......5.....5.....5.......5.....5.....5......4......5.....5........5.....5.</span> <span class="pre">..4.1...2...3....4........5.....5.....5......4......5.....5......5......5.....5........5..</span> <span class="pre">.4.1..2....3...3......5........5.....5.....5......5.....4......5......5......5....4.......</span> <span class="pre">..1.1....3....3....4.......5........5.....5.....5......5.....5......5......5.....4....4...</span> <span class="pre">.5.1..2......4....4.....5.......5........5.....5.....5......5.....5......5......5....4....</span> <span class="pre">5.1..2...3......3......5....4........5........5.....5.....5......5.....5......5....3......</span> <span class="pre">.1..2...3....4......4......4.....5.......4.........5.....5.....5.....4......5.....4....4..</span> <span class="pre">3..2...3....4.....5......5......5.....5.......5.........5.....5.....5.....5.....4.....4...</span> <span class="pre">..2...3....4.....5.....5......5......5.....5.......5.........5.....5.....5.....5....4....3</span> <span class="pre">.2...3...3......5.....5.....5......5......5.....5.......5........4......5.....5....4....4.</span> <span class="pre">2...3...3....4.......5....4......5......5......5....4........5........5......5....4....4..</span> <span class="pre">...3...3....4.....5......4.....5......5.....4......4.....5........5........5.....4....4..2</span> <span class="pre">..3...3....4.....5.....5......5.....5......5.....5......5.....5........5........5....4..2.</span> <span class="pre">.3...3....4.....5.....5.....5......5.....5......5....4.......5.....5........5.......4..2..</span> <span class="pre">3..2....3......5.....5.....5....4.......5.....5.....4.....5.......5.....5........5....2...</span> <span class="pre">..2...3.....4.......5.....5....4....4........5.....5.....5.....5.......5.....5.......4...3</span> <span class="pre">.2...3....4......5.......5....4....4.....5.......4......5.....5.....5.......5.....5.....3.</span> <span class="pre">2...3...3......5......5......4....4.....5.....5.......5......5.....5.....5.......5.....5..</span> <span class="pre">...3...3....4.......5......5.....4.....5.....5.....5.......5......5.....5.....5.......5..2</span> <span class="pre">..3...3....4.....5.......5......5.....5.....5.....5.....5.......5.....4.....4......5....2.</span> <span class="pre">.3...3....4.....5.....5.......5......5.....5.....5.....5.....5.......5.....5.....5....3...</span> <span class="pre">4..2....3......5.....5.....5.......5......5.....5.....5.....5.....5.......5.....5....4....</span> <span class="pre">..2...3.....4.......5.....5.....5.......5......5.....5.....5.....5.....5.......5...3.....4</span> <span class="pre">.2...3....4......5.......5.....5.....5.......5......5.....5.....5.....5.....5.....3....4..</span> <span class="pre">3...3....4.....5......5.......5.....5.....5......4.......5.....5.....5.....5.....5....4...</span> <span class="pre">..2.....4.....5.....5......5.......5.....5.....5......5.......5.....5.....5.....5....4...3</span> <span class="pre">.2...3.......5.....5.....5......5.......5.....5.....5......5......4......5.....5....4...3.</span> <span class="pre">2...3....4........5.....5.....5......5.......5.....5.....5......5......5......5....4...3..</span> <span class="pre">...3....4.....5........5.....5.....5......5.......5.....5.....5.....4.......5.....4..2...2</span> <span class="pre">..3....4.....5.....5........5.....5.....5......5.......5.....5.....5.....5.......5.1....3.</span> <span class="pre">.3....4.....5.....5.....5........5.....5.....5......5.......5.....5.....5.....5...1..2....</span> <span class="pre">.....4.....5.....5....4......5........5.....5.....5......5.......5....4......5...3..2...3.</span> <span class="pre">..4.......5.....5...3......5......5........5.....5.....5......5......4.....5....3..2...3..</span> <span class="pre">.4.....5......4....3....4.......5......5........5.....5.....5......5......5....4..2...3...</span> <span class="pre">4.....5....4......4....4.....5.......5.....4.........5.....5....4.......5.....4..2...3....</span> <span class="pre">.....5....4.....5.....4.....5....4........5.....5.........5....4.....5.......5..2...3....4</span> <span class="pre">....5....4....4......5.....5....4.....5........5.....5........4.....5.....5....2..2.....4.</span> <span class="pre">...5....4....4.....5......5....4.....5.....5........5.....5.......4......5....4..2...3....</span> <span class="pre">.......4....4.....5.....5.....4.....5.....5.....5........5.....5.......5.....4..2...3...3.</span> <span class="pre">..4........4.....5....4......5.....5.....5.....5.....5........5.....5.......5..2...3...3..</span> <span class="pre">.4.....5........5....4.....5......5.....5.....5.....5.....5........5.....5....2...3...3...</span> <span class="pre">4.....5.....5.......4.....5.....5......5.....5.....5.....5.....5........5....4...3...3....</span> <span class="pre">.....5.....5.....5.......5.....5.....5......5.....5.....5.....5.....5......3....3...3....4</span> <span class="pre">....5.....5.....5.....5.......5.....5.....5......5.....5.....5.....5.....5.....4...3....4.</span> <span class="pre">...5.....5.....5.....5.....5.......5.....5.....5......5.....5.....5....4......5...3....4..</span> <span class="pre">.4......5.....5.....5.....5.....5......4......5.....5......5.....5....4.....5....3...3....</span> <span class="pre">......5......5....4......5.....5.....5.....4.......5....4.......5....4.....5....4...3....4</span> <span class="pre">....5......5.....4.....5......5.....5.....5.....5......4.....5......4.....5....4...3....4.</span> <span class="pre">...5.....5......5.....5.....5......5.....5.....5.....5.....4......5......5....4...3....4..</span> <span class="pre">..5.....5.....5......5.....5.....5......5.....5.....5.....5.....5.....4......4...3....4...</span> <span class="pre">.5.....5.....5.....5......5.....5.....5......5.....5.....5....4......5.....5...2.....4....</span> <span class="pre">5.....5.....5.....5.....5......5.....5.....5......5.....5....4.....5......5..2....3.......</span> <span class="pre">.....5.....5.....5.....5.....5......5.....5.....5......5....4.....5.....5...2...3.....4...</span> <span class="pre">.5........5.....5.....5.....5.....5......5.....5.....5....3......5.....5...3...3...3......</span> <span class="pre">......5........5.....5.....5.....5.....5......5.....5....4....4.......5...3...3...3....4..</span> <span class="pre">..5........5........5.....5.....5.....5.....5......5....4....4.....5.....3...3...3....4...</span> <span class="pre">.5.....5........5........5.....5.....5.....5.....5.....4....4.....5.....5...3...3....4....</span> <span class="pre">......5.....5........5.......4......5.....5.....5.....5....4.....5.....5...3...3...3.....4</span> <span class="pre">....5......5.....5........5.......5......5.....5.....5...3......5.....5...3...3...3....4..</span> <span class="pre">..5......5......5.....5........5.......5......5....4...2.....4.......5...3...3...3....4...</span> <span class="pre">.5.....5......5......5.....5........5.......5.....4...3...3.......5.....3...3...3....4....</span> <span class="pre">5.....5.....5......5......5.....5........5.......5...3...3....4........5...3...3....4.....</span> <span class="pre">.....5.....5.....5......5......5.....5........5....2....3....4.....5......3...3....4.....5</span> <span class="pre">....5.....5.....5.....5......5......5.....5.......4...3.....4.....5.....5....3....4.....5.</span> <span class="pre">...5....4......5.....5.....5......5......5.....5.....3....4.....4.....4.....4....4.....5..</span> <span class="pre">..5....4.....5......5.....5.....5......5......5.....5....4.....5.....5.....5....4....4....</span> <span class="pre">5.....4.....5.....5......5.....5.....5......5......5...3......5.....5.....5....4....4.....</span> <span class="pre">.....5.....5.....5.....5.....4......5.....5......5...2.....4.......5.....5....4....4.....5</span> <span class="pre">....5.....5.....5.....5.....5.....5......5....4.....3...3.......5.......5....4....4.....5.</span> <span class="pre">...5.....5....4......5.....5.....5.....5.....4.....5...3....4........5......4....4.....5..</span> <span class="pre">..5.....5....4....4.......5.....5.....5.....5.....5...3....4.....5........5.....4.....5...</span> <span class="pre">4......5....4....4.....5......4......5....4......5..2.....4.....5.....5........5.....5....</span> <span class="pre">....4......4....4.....5.....5......5.....4....4....2...3.......5.....5.....5........5....4</span> <span class="pre">...4.....5....3......5.....5.....5......5....4....4...3....4........5.....5.....5.......4.</span> <span class="pre">.3......5....4....4.......5.....5.....5.....4...3....3....4.....5........5.....5.....5....</span> <span class="pre">5....4.....3.....4.....5.......5.....5.....5...3....4....4.....5.....5........5.....5.....</span> <span class="pre">....4.....5...3.......5.....5.......5.....5...3...3.....4.....5.....5.....5........5.....5</span> <span class="pre">...4.....5...3....4........5....4........5...3...3....4......5.....5.....5.....5........5.</span> <span class="pre">.3......5..2.....4.....5.......4.....5......3...3...3......5......5.....5.....5.....5.....</span> <span class="pre">.....4....2...3.......5.....5.......5.....5....3...3....4.......5......5.....5.....5.....5</span> <span class="pre">....5....4...3....4........5.....5.......5....4...3....4.....5.......5......5.....5.....5.</span> <span class="pre">...5....4..2.....4....4.........5.....5......4...3....4.....5.....5......4......4......5..</span> <span class="pre">..5....4..2...3......4.....5.........5.....5....3....4.....5....4......5......5......5....</span> <span class="pre">5....3...2...3....4.......5.....5.........5....4....4.....5....4.....5......5......5......</span> <span class="pre">....4...3...3....4.....5......4......5........4....4.....5....4.....5.....5......5......5.</span> <span class="pre">...5...3...3....4.....5.....5......5......5.......4.....5....4.....5.....5.....5......5...</span> <span class="pre">.5...2....3....4.....5.....5.....5......5......5.......5....4.....5.....5.....5.....5.....</span> <span class="pre">....3...3....3......5.....5.....5.....5......5......5......4.....5.....5.....5.....5.....5</span> <span class="pre">...4...3....4....4.......5.....5....4......5......5......5......5.....5.....5.....5.....5.</span> <span class="pre">..4...3....4...3......5.......5....4.....5......5......5......5......5.....5.....5.....5..</span> <span class="pre">3....3....4...3...3........5.....3......5.....5......5......5......5......5.....5.....5...</span> <span class="pre">...3.....4..2....3...3..........5....4.......5.....5......5......5.....4.......5.....5...3</span> <span class="pre">..3....4...2...3....3....4..........4.....5.......5.....5......5......5.....5.......5...3.</span> <span class="pre">.3....4...3...3....4....4.....5..........5.....5.......5.....5.....4......4......5.....3..</span> <span class="pre">3....4...3...3....4....4.....5.....5..........5.....5......4......5.....5......5......5...</span> <span class="pre">....4..2....3...3....3......5.....5.....5..........5.....5......5......5.....5......5....3</span> <span class="pre">...4..2...3....3....4....4.......5.....5.....5..........5.....5.....4.......5.....5.....4.</span> <span class="pre">.3...2...3....4....4....4.....5.......5.....5.....5.........4......5.....5.......5....4...</span> <span class="pre">....3...3....4....4....4....4......5.......5....4......5.........5......5.....5......4...3</span> <span class="pre">...4...3....4....4....4....4.....5......5......4....4.......5.........5......5.....5....3.</span> <span class="pre">..4...3....4...3.....4....4....4......5......5.....4.....5.......5.........5......5....4..</span> <span class="pre">.4...3...3....3....4....3.....4....4.......5......5.....5....4........5.........5.....4...</span> <span class="pre">4...3...3....4....4....4....4.....4.....5.......5......5....4.....5........5........4.....</span> <span class="pre">...3...3....4....4....4...3.....4......5.....5......4......4.....5.....5........5.......4.</span> <span class="pre">..4...3....4....4....4..2....3.......5......5....4.......5......5.....5.....5.......4.....</span> <span class="pre">.....3....4....4....4..2...3.....4........5.....4.....5.......5......5.....5.....5.......5</span> <span class="pre">....5....4....4....4..2...3....4......5.......4.....4......5.......5......5.....5.....5...</span> <span class="pre">.5......4....4....4.1....3....4.....5......5.......5.....5......5......4......4......5....</span> <span class="pre">5....4......4...3..1..2......4....4......5......5.......5.....5......5......5......5......</span> <span class="pre">....4....4.....3..2..2...3.......4....4.......5......5.......5.....5......5......5......5.</span> <span class="pre">...5....4.....5..2..2..2.....4.......4.....5.......5.....4........5.....5.....4.......5...</span> <span class="pre">.5....3......5..2..2..2..2........5.......5.....5.......5.....5........5.....5.....5......</span> <span class="pre">.....4...3.....2..2..2..2...3.........4........5.....5.......5.....5........5....4......5.</span> <span class="pre">...5....3....4...2..2..2...3....4..........5........5.....5.......5.....5.......4.....5...</span> <span class="pre">.5.....4....4...3..2..2...3....4.....5..........5........5....4........5.....5.......5....</span> <span class="pre">5.....5....4...3..2..2...3....4.....5.....5..........5.......4.....5........5.....5.......</span> <span class="pre">.....5....4...3..2..2...3....4.....5.....5.....5..........5.......5.....5........5.....5..</span> <span class="pre">..5......4...3..2.1....3....4.....5.....5.....5.....5..........5.......5.....5........5...</span> <span class="pre">.5.....5....3..2.1..2......4.....5.....5.....5....4......5..........5.......5.....5.......</span> <span class="pre">......5....4..20...2...3........5....4......5....4.....5......5..........5.......5.....5..</span> <span class="pre">..5.......4..20.1.....3....4........4.....5.....4....4......5......5..........5.......5...</span> <span class="pre">.5.....5....20.1..2.......4.....5.......4......5....4.....5......5......5.........4.......</span> <span class="pre">......5....40.1..2...3.........5.....5.......5.....4.....5.....5......5......5.........5..</span> <span class="pre">..5.......400...2...3....4..........5.....5.......5.....5.....5.....5......5......5.......</span> <span class="pre">.......5..00.1.....3....4.....5..........5.....5.......5.....5.....5.....5......5......5..</span> <span class="pre">..5......20.1.1........4.....5.....5..........5.....5.......5.....5.....5.....5......5....</span> <span class="pre">5......5.00..1.1............5.....5.....5..........5.....5......4......5.....5.....5......</span> <span class="pre">.....5.0.0.1..1..2...............5.....5.....5..........5.....5......5......5.....5....4..</span> <span class="pre">.4....1.10...2..2...3.................5.....5....4...........5....4.......5......5....4...</span> <span class="pre">4....4.10.1....2...3....4..................5....4.....5..........4.....5.......5.....4....</span> <span class="pre">....4.10.1..2.....3....4.....5.................4.....5.....5..........5....4........5....4</span> <span class="pre">...4.10.1..2...3.....3......5.....5.................5.....5.....5.........4.....5.......4.</span> <span class="pre">..4.10.1..2...3....4.....4......4......5.................5.....5.....5.........5.....5....</span> <span class="pre">5..10.1..2...3....4.....5.....5......5......5.................5....4......5.........5.....</span> <span class="pre">..20.1..2..2.....4.....5.....5.....5......5......5................4.....5......5.........5</span> <span class="pre">.20.1..2..2...3.......5.....5.....5.....5......5......5................5.....5......5.....</span> <span class="pre">.0.1..2..2...3....4.......4......5.....5.....5......5......5................5....4.......5</span> <span class="pre">1.1.1...2...3....4.....5.......5......5.....5.....5.....4.......5...............4.....5...</span> <span class="pre">.1.1..2....3...3......5.....5.......5......5.....5.....5.....5.......5...............5...3</span> <span class="pre">1.1..2...3....3....4.......5.....5.......5......5.....5.....5.....5......4..............3.</span> <span class="pre">.1..2...3....4....4.....5.......5.....5......4.......5.....5.....5.....5......5.........0.</span> <span class="pre">...2...3...3....3......5.....5.......5.....5......5.......5....4......5.....5......5.....1</span> <span class="pre">.2....3..2.....4...3........5....4.......4......5......5......4.....5.....4......5......5.</span> <span class="pre">2...3...2..2......3....4........4.....5.......5......5......5......5.....5.....5......5...</span> </code></p>
 </section>
 <section id="modell-mit-hoherer-verkehrsdichte">
-<h3>Modell mit höherer Verkehrsdichte<a class="headerlink" href="#modell-mit-hoherer-verkehrsdichte" title="Permalink to this headline">¶</a></h3>
+<h3>Modell mit höherer Verkehrsdichte<a class="headerlink" href="#modell-mit-hoherer-verkehrsdichte" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..5..</span> <span class="pre">..2..2..2..2..2..2.1...2.1...2..2..2..2..2.1...2..2..2..2..2..2..2..2..2..2.1...2..2..2..2..2..2..2..2..2</span> <span class="pre">.2..2..2..2..2..20...2..1..2...2..2.1...2.1.1....2..2.1...2..2..2..2..2..20...2...2..2..2..2..2.1...2..2.</span> <span class="pre">2..2..2..2..2..20.1....2..2...3..2.1..2..1.1.1.....2.1..2...2..2..2..2..20.1.....3..2..2..2..2.1..2...2..</span> <span class="pre">..2..2..2..2..20.1..2....2...3..2.1.1..1..10...2....1..2...3..2..2..2..20.1..2.....2..2..2..2.1.1....3..2</span> <span class="pre">1...2..2..2..20.1..2...3....3.1..1.1..2..200.....2....2...3..2..2..2..20.1..2...3....2..2..2.1.1..2....2.</span> <span class="pre">..2...2..2..20.1..2...3....4.1..2.1..2..200.1.......3....3..2..2.1...20.1..2...3....4..2..2.1.1..2...3..1</span> <span class="pre">1....3..2..20.1..2...3....4.1..2.1..2..200.1.1..........4..2..2.1..2.0.1..2...3...3...2..20..1..2...3..2.</span> <span class="pre">..2....2..20.1..2...3....4.1.1..1..2.1.00.1.1..2..........2..2.1..2.1.1..2...3..2....3..20.1...2...3..2.1</span> <span class="pre">.2...3...20.1..2...3....4.1.1..2..2.1.100..1..2...3.........2.1..2.1.1.1....3..2...3...20.1..2....3..2.1.</span> <span class="pre">....3...30.1..2...3....40..1..2..2.1.100.1...2...3....4......1..2.1.1.1..2....2...3...30.1..2...3..1..1.1</span> <span class="pre">.2.....30.1..2...3....40.1...2..2.1.100.1.1.....3...3......5...2.1.1.1..2...3....3..2.0.1..2...3..2..2.1.</span> <span class="pre">2...3..0.1..2...3....40.1..2...2.1.100.10...2......3....4.....3.1.10...2...3....4..2.1.1.1....3..2..2.1..</span> <span class="pre">...3..2.1..2...3....40.1..2...3.1.100.10.1.....3.......4.....5.1.10.1.....3....4..2.1.1.1..2....2..2.1..2</span> <span class="pre">..3..2.1..2...3....40.1..2...3.1.100.10.1..2.......4........5.1.10.1..2......3...2.1.1.1..2...3...2.1..2.</span> <span class="pre">.3.1..1..2...3....40.1..2...3.1.100.10.1..2...3........4....0..10.1.1....3......3.1.1.1..2...3...3.1..2..</span> <span class="pre">3.1..2..2...3....40.1..2...3.10.00.100...2..2.....4........4.1.0.1.1..2......4...1.1.1..2...3...3.1..2...</span> <span class="pre">.1..2..2...3....40.1..2..2..10.10.100.1....2...3......4....0..1.1.1..2..2.......3.1.1..2...3...3.1..2...3</span> <span class="pre">1..2..2...3...3.0.1..2..2..20.10.100.1..2.....3....4......4.1..1.1..2..2...3.....1.1..2...3..2..1..2...3.</span> <span class="pre">..2..2...3...3.1.1..2.1..1.0.10.100.1..2...3......4.....5..1..20...2..2...3....4..1..2...3..2..2..2..2.0.</span> <span class="pre">....2...3..2..1.1..2.1..2.1.10.100.1..2...3....4.......5..2..20.1....2...3...3...2..2...3..2..2..2..2.1.1</span> <span class="pre">.2.....3..2..2.1..2.1..2.1.100.00.1..2...3...3......5....2..20.1..2.....3...3...3..2..2...2..2..2..2.1.1.</span> <span class="pre">2...3....2..2.1..20...2.1.100.10.1..2...3...3....4.....3...20.1..2..2......3...3..2..2...3..2..2..2.1.1..</span> <span class="pre">...3...3...2.1..20.1...1.100.10.1.1....3...3....4.....5...30.1..2..2...3......3..2..2...3..2.1...2.1.1..2</span> <span class="pre">..3...3...3.1..20.1..2..100.10.10...2.....3....4.....5...30.1..2..2...3....4....2..2...3..20...2..1.1.1..</span> <span class="pre">.....3...3.1..20.1.1...200.10.100......3......4.....5...30.1..2..2...3....4....4..2...3..20.1....2.1.1..2</span> <span class="pre">..3.....3.1..20.1.1..2.00.10.100.1.........4......4...2.0.1..2..2...3....4....4..2...3..20.1.1....1.1..2.</span> <span class="pre">.3....4..1..20.1.1..2.100.0.100.1..2............5....30..1..2..2...3....4....4..2...3..20.1.1..2..0...2..</span> <span class="pre">3....4..2..20.1.1..2.100.1.100.1..2...3.............40.1...2..2...3....4....4..2...3..20.1.1..2..20......</span> <span class="pre">...3..1...20.10...2.1000..100.1..2...3....4.........0.1..2...2..2.....4....4..2...3..20.1.1..2..20.1.....</span> <span class="pre">.....2..2.0.10.1...1000.1.00.1..2...3....4.....5.....1..2...3..2...3......4..2...3..20.1.1..2.1.0.1..2...</span> <span class="pre">.......2.1.100...2.000.1.10.1..2...3....4.....5.....5..2...3..2..2.....4....2...3..20.1.1..2.10..1..2...3</span> <span class="pre">...4...0..100.1...1000..10.1..2...3....4.....5.....5..2...3..2..2...3.....3....3..200..1..2.10.1...2...3.</span> <span class="pre">..4...3.1.00.1..2.000.1.0.1..2...3....4.....5.....5..2...3..2..2...3....4.....4.1.00.1...2.10.1..2....3..</span> <span class="pre">3....3.1.10.1..2.100.1.1.1..2...3....4.....5.....5..2...3..2..2..2.....4....4..1.10.1..2..100...2...3....</span> <span class="pre">....4.1.10.1..2.100.1.1.1..2...3....4.....5.....5..2...3..2..2..2...3......4..2.10.1..2..2000......3....4</span> <span class="pre">...4.1.10.1..2.100.1.1.1..2..2.....4.....5.....5..2...3..2..2..2...3....4....20.0.1.1...2000.1.........4.</span> <span class="pre">..4.1.10.1..2.100.1.1.1..2..2...3.......5.....5..2...3..2..2..2...3....4....400..1.1..2.000.1..2.........</span> <span class="pre">...10.0.1..20.00.1.1.1..2..2...3....4........5..2...3..2..2..2...3....4....4000...1..2.100.1..2...3......</span> <span class="pre">...0.1.1..20.10.1.10...2..2...3...3......5.....2..2...2..2..2...3....4....4000.1....2.100.1..2...3....4..</span> <span class="pre">..5.1.1..20.10.1.10.1....2...3...3....4.......5..2...3..2..2...3....4...3.000.1..2..0.00.1..2...3....4...</span> <span class="pre">.5.1.1..20.10.1.10.1..2.....3...3....4.....5....2..2...2..2..2.....4...3.100.1..2..2.10.1..2...3....4....</span> <span class="pre">5.1.1..20.10.1.10.1..2...3.....3....4....4.....4..2...3..2..2...3.....3.100.1..2..2.10.1..2...3....4.....</span> <span class="pre">.1.1..20.10.10.00...2..2.....4.....4....4.....5..2...3..2..2...3....4..1000..1...2.10.1..2..2.....4.....5</span> <span class="pre">1.1..20.10.10.100.....2...3.......5....4.....5..2...3..2..2...3....4.1.000.1..1...10.1.1...2...3.......5.</span> <span class="pre">.1..200.0.100.000........3....4.......4.....5..2...3..2..2...3....4.1.100.1..2..2.0.1.1..2....3....4....1</span> <span class="pre">1..200.1.100.100.1...........4.....5.......5..2...3..2..2...3....4.1.100.1..2..2.1.1.1..2..2......4....4.</span> <span class="pre">..200.1.100.100.1..2..............5.....5....2...3..2..2...3....4.1.100.1..2..2.10.0...2..2...3.......4.1</span> <span class="pre">.200.1.1000.00.1..2...3................5....4...3..2..2...3....40..100.1..2..2.10.1.1....2...3....4....1.</span> <span class="pre">200.1.1000.10.1..2...3....4................4..2...2..2...3....40.1.000...2..2.10.1.1..2.....3...3.....4..</span> <span class="pre">00.1.1000.10.1..2...3....4.....5.............2...3..2...3....40.1.100.1....20.0.1.1..2...3.....3....4...2</span> <span class="pre">0.1.1000.100...2...3....4.....5.....5...........3.1....3....40.1.100.1..2..0.1.1.1..2...3....4.....4..2.0</span> <span class="pre">.1.1000.100.1....2.....4.....5.....5.....5.......1..2.....3.0.1.100.1..2..2.1.1.1..2...3....4....4...2.10</span> <span class="pre">..1000.100.1..2.....3.......5.....5.....5.....5...1....3...1.10.00.1..2..2.1.1.1..2...3....4....4...30.00</span> <span class="pre">1.000.100.1.1....3......4........5.....5.....5...3..2.....3.10.10.1..2..2.10..1..2...3....4....4...30.10.</span> <span class="pre">.1000.00.1.1..2......4.......5........5.....5...3..2...3...100.0.1.1...2.100....2...3....4....4..2.0.10.1</span> <span class="pre">.000.100.0...2...3........5......4.........5...3..2...3...300.1.1.1..2..100.1......3....4....4..2.1.10.10</span> <span class="pre">100.1000..1.....3....4.........5......5.......3..2...3...300.1.1.1.1...2000...2........4....4..2.1.100.0.</span> <span class="pre">00.1000.1...2.......4.....5.........5......5....2...3..2.00.1.1.1.1..2.000.1.....3.........4..2.1.100.1.1</span> <span class="pre">0.10000..1.....3.........5.....5.........5.....4...3..2.10.1.1.1.1..2.100.1..2.......4.......2.10.00.1.10</span> <span class="pre">.10000.1...2.......4..........5.....5.........5...3..2.10.1.1.1.1..2.100.1..2...3.........5...10.10.1.100</span> <span class="pre">10000.1..2....3.........5..........5.....5.......3..2.10.1.1.1.1..2.100.1..2...3....4........30.100.0.00.</span> <span class="pre">0000.1..2...3.....4..........5..........5.....5....2.10.1.1.1.1..2.1000..1....3....4.....5...0.100.1.10.1</span> <span class="pre">000.1..2...3....4......5..........5.........4.....4.10.10..1.1..2.1000.1...2......4.....5...3.100.1.10.10</span> <span class="pre">00.1..2...3....4.....5......5..........5.........5.10.10.1..1..2.1000.1..2....3........5...3.100.1.10.100</span> <span class="pre">0.1.1....3....4.....5.....5......5..........5.....10.10.1..2..2.1000.1..2...3.....4.......3.100.1.10.1000</span> <span class="pre">.1.1..2......4.....5.....5.....5......5..........50.10.1..2..2.1000.1.1...2.....4......5...100.1.10.10000</span> <span class="pre">1.1..2...3........5.....5.....5.....5......5.....0.10.1..2..2.1000.10...2....3.......5....300.1.10.10000.</span> <span class="pre">.1..2...3....4.........5.....5.....5.....5......5.10.1..2..2.1000.100......3.....4.......400.10.0.10000.1</span> <span class="pre">1..2...3....4.....5........4......5.....5.....5..10.1..2..2.10000.00.1.........4......5..00.10.1.10000.1.</span> <span class="pre">..2...3....4.....5....4.........5......5.....5..20.1..2..2.10000.10.1..2............5...20.10.1.10000.1.1</span> <span class="pre">1....3....4.....5....4.....5........4.......5..20.1.1...20.0000.10.1..2...3............30.10.1.10000.1.1.</span> <span class="pre">..2.....3......5....4.....5.....5........5...1.0.1.1.1..00.000.10.1..2...3....4........0.10.1.10000.10..1</span> <span class="pre">.2...3......4......4.....5.....5.....5......3.1.1.1.1..20.100.100...2...3....4.....5....10.1.10000.10.1..</span> <span class="pre">....3....4.......5......5.....5.....5....4...1.1.1.1..20.100.100.1.....3...3......5....40.1.10000.10.1..2</span> <span class="pre">..3.....4....4........5......5.....5....4...3.1.10...20.100.100.1..2......3....4......40.1.10000.10.1..2.</span> <span class="pre">.3....4.....4.....5........5......5....4...3.1.10.1..0.100.100.1..2...3.......4.....5.0.1.100000.0.1..2..</span> <span class="pre">3....4.....5.....5.....5........5.....4...3.1.10.1..2.1000.00.1..2...3....4........5.1.1.1000000..1..2...</span> <span class="pre">....4.....5.....5.....5.....5........5...30..10.1..2.1000.100...2...3....4.....5....10..1000000.1...2...3</span> <span class="pre">...4.....5....4......5.....5.....5......30.1.0.1..2.1000.100.1....2.....4.....5...3.0.1.000000.1..2....3.</span> <span class="pre">..4.....5....4.....5.....4......5.....5.0.1.1.1.1..1000.100.1..2.....3.......5..2..1.1.1000000...2...3...</span> <span class="pre">4......5....4.....5.....5.....5......5.1.1.1.1.1..2000.100.1..2...3......4.....2..2.1.1000000.1.....3....</span> <span class="pre">.....5.....4.....5.....5.....5.....5..1.1.1.1.1..2000.100.1..2...3....4.......5..2.1.1000000.1..2.......4</span> <span class="pre">...4......5.....5.....5.....5.....5..2.10..1.1.1.000.100.1..2...3....4.....5....2.1.1000000.1..2...3.....</span> <span class="pre">........5......5.....5.....5.....5..2.10.1..1.10.00.100.1..2...3...3......5....4.1.1000000.1..2...3....4.</span> <span class="pre">...5.........5......5.....5.....5..2.100...2.10.10.1000...2...3...3....4......4.1.1000000.1..2...3....4..</span> <span class="pre">..5.....5.........5......5.....5..2.100.1...10.10.1000.1.....3...3....4.....5..1.1000000.1..2...3....4...</span> <span class="pre">.5.....5.....5........4.......5..2.100.1..2.00.0.1000.1..2......3....4.....5..2.10000000...2...3....4....</span> <span class="pre">5.....5.....5.....5........5....20.00.1..2.10.1.1000.1..2..2........4.....5..2.10000000.1....2.....4.....</span> <span class="pre">....4......5....4......5.......400.0.1..2.10.1.1000.1..2..2...3..........5..2.10000000.1..2.....3.......5</span> <span class="pre">...4.....5.....4.....5......5..00.1.1..2.100..1000.1..2.1...2.....4........2.10000000.1..2...3......4....</span> <span class="pre">5.......5.....5.....5.....5..1.0.10...2.100.1.000.1..2.1..2....3.......5....10000000.1..2..2.....4.......</span> <span class="pre">.....5.......5.....5.....5..2.1.100....100.1.100.1..2.1.1....3.....4.......40000000.1..2..2...3.......5..</span> <span class="pre">..5.......5......4......5..2.1.100.1...000..100.1..2.1.1..2......4......5..0000000.1..2..2..2.....4......</span> <span class="pre">.......5.......5......5...2.1.100.1..2.00.1.00.1.1..1.1..2...3.......4....2000000.1..2..2..2...3.......5.</span> <span class="pre">...5........5.......5....3.1.100.1..2.10.1.10.1.1..2.1..2...3....4.......4000000.1..2..2..2...3....4.....</span> <span class="pre">........5........5......4.1.100.1..2.10.1.10.10...2.1..2...3....4.....5..000000.1..2..2..2...3....4....4.</span> <span class="pre">...5.........5........5..1.100.1..2.10.1.10.10.1..0...2...3...3......5..200000.1..2..2..2..2.....4....4..</span> <span class="pre">.4......5.........5.....2.100.1..2.10.1.10.10.1..2.1.....3...3....4....200000.1..2..2..2..2..2.......4...</span> <span class="pre">4.....5......5.........5.1000...2.10.1.10.10.1..2.1..2......3....4....400000.1..2.1...2..2..2...3........</span> <span class="pre">.....5.....5......5.....1000.1...10.1.100.0.1..2.1..2..2.......3.....400000.1..2.1..2...2..2...3...3.....</span> <span class="pre">..........5.....5......5000.1..2.0.10.00.1.1..2.1..2..2...3........4.00000.1..2.1..2...3..2...3...3....4.</span> <span class="pre">...5...........5.....5.000.1..2.1.10.10.1.1..2.1..2..2...3....4.....10000.1..2.1..2...3..2...3...3...3...</span> <span class="pre">4.......5...........5.100.1..2.1.10.100..1..2.1..2..2..2.....4.....50000.1..2.1..2...3..2...3...3..2.....</span> <span class="pre">.....5......4........100.1..2.1.100.00.1...20...2.1...2...3......4.0000.1..2.1..2...3..2...3...3..2...3..</span> <span class="pre">.4........5......5...00.1..2.1.100.10.1..2.0.1...1..2...2.....4...1000.1..2.1.1....3..2...3...3.1....3...</span> <span class="pre">4.....5.......4.....30.1..2.10.00.10.1..2.1.1..2...2...3...3.....3000.1..20.0...2....2...3...3.1..2......</span> <span class="pre">.....5.....5.......50.1..2.10.10.10.1..2.1.1..2...3...3...3....4.000.1..20.1.1.....3....3...3.1..2...3...</span> <span class="pre">4.........5.....5..0.1..2.10.10.10.1..2.1.1..2...3..2....3....40.00.1..200..1..2.......4...3.1..2...3....</span> <span class="pre">.....5.........5..2.1..2.10.10.10.1..2.1.1..2...3..2...3.....40.10.1..200.1...2...3.......3.1..2...3....4</span> <span class="pre">....5.....5......2.1.1..10.10.10.1..2.1.1..2...3..2...3....4.0.10.1..200.1..2....3....4....1..2...3....4.</span> <span class="pre">...5....4......5.0..1..20.10.10.1..2.1.1..2..2...2...3...3..1.10.1..200.1..2...3.....4....4..2...3....4..</span> <span class="pre">..5...3......5..10....20.10.10.1..2.1.1..2..2...3...3...3..2.10.1..200.1..2...3....4.....4.1....3....4...</span> <span class="pre">.5...3....4....20.1...0.10.10.1..2.1.1..2..2..2....3...3.1.0.0.1..200.1..2...3....4.....5.1..2......4....</span> <span class="pre">5...3....4....40.1..2..10.10.1..2.1.1..2..2.1....3....3.1.1.1.1..200.1..2...3....4.....5.1..2...3........</span> <span class="pre">...3....4...3.0.1..2..20.10.1..2.1.1..2..2.1..2......4.1.1.1.1..200.1..2...3....4.....5.1..2...3....4....</span> <span class="pre">5......4...30..1..2..20.10.1..2.1.1.1..1..1..2...3....1.1.1.1..200.1..2...3....4.....5.1..2...3....4.....</span> <span class="pre">.....5....30.1...2..20.10.1..2.1.1.1..2..2..2...3....4.1.1.1..200.1..2...3....4.....5.1..2...3....4.....5</span> <span class="pre">....5....40.1..2...20.10.1..20..1.1..2..2..2...3....4.1.1.1..2000...2...3....4.....5.1..2...3....4....4..</span> <span class="pre">..5.....40.1.1....30.10.1..20.1..1..2..2.1....3....4.1.1.1..20000......3....4.....5.1..2...3....4....4...</span> <span class="pre">.5.....50.10..1...0.10.1..20.1..2..2..2.1..2......4.1.1.1..200000..........4.....5.1..2...3....4...3.....</span> <span class="pre">......50.10.1...2..10.1..20.1..2..2..2.1..2...3....1.1.1..200000.1..............50...2...3....4...3....4.</span> <span class="pre">...5..00.0.1..2...20.1..20.1..2..2..2.1..2...3....4.1.1..200000.1..2............0.1.....3....4...3....4..</span> <span class="pre">..5..20.1.1..2...30.1..200...2..2..2.1..2...3....4.1.1.1.000000...2...3..........1..2.......4...3...3....</span> <span class="pre">....20.1.1..2...30.1..200.1....2..2.1..2...3....4.1.1.1.100000.1.....3....4........2...3.......3..2.....4</span> <span class="pre">...400..1..2...30.1..200.1..2....2.1..2...3...3..1.10..100000.1..2.......4.....5......3...3......2...3...</span> <span class="pre">4..00.1...2...300..1.00.1.1....3..1..2...3...3..20.0.1.00000.1..2...3.........5.....5....3....4....2.....</span> <span class="pre">..20.1..2....300.1..100.0...2....2..2..2....3..20.10..100000...2...3....4..........5....4....4....4...3..</span> <span class="pre">.40.1..2..2..00.1.1.00.1.1.....3...2..2...3...20.10.1.00000.1.....3....4....4..........4....4....4...3...</span> <span class="pre">40.1..2..2..20.1.1.10.1.1..2......3.1....3...30.10.1.100000..1........4....4.....5.........4....4..2.....</span> <span class="pre">0.1..2.1...20.1.1.10.1.1..2...3....1..2.....30.100..100000.1..1...........4....4.....4........3...2...3..</span> <span class="pre">.1.1..1..2.0.1.1.100..1..2...3...3...2...3..00.00.1.00000.1..2..2.............4.....5.....5......3...3.1.</span> <span class="pre">2.1..2..2.1.1.1.1000....2...3...3...3...3..20.10.1.10000.1..2..2...3...............5.....5.....5....3.1..</span> <span class="pre">.1..2..2.1.1.1.1000.1......3...3...3...3..20.10.1.10000.1.1...2...3....4................5.....5....4.1..2</span> <span class="pre">1.1...2.1.1.10.000.1.1........3...3...3..20.10.10.0000.1.1..2....3....4.....5................5....4.1..2.</span> <span class="pre">.1.1...1.1.10.100.1.1..2.........3...3.1.0.10.10.1000.1.1..2...3.....4.....5.....5...............4.1..2.1</span> <span class="pre">1.1..2..1.10.100.1.1..2...3.........3.1.10.0.10.1000.1.1..2...3....4......5....4.....4............1..2.1.</span> <span class="pre">.1..2..2.10.100.1.1..2...3...3.......1.10.1.10.1000.1.1..2...3....4.....5.....4.....5.....5........1..10.</span> <span class="pre">...2..2.10.100.1.1.1....3...3....4....10.1.10.1000.1.1..2...3....4.....5.....5.....5....4......5.....20.1</span> <span class="pre">.2...2.10.100.1.1.1..2.....3...3.....40.1.10.1000.1.1..2...3....4.....5.....5.....5....4.....5......50.1.</span> <span class="pre">2...3.10.1000..1.1..2...3.....3....4.0.1.100.000.1.1..2...3....4.....5.....5.....5....4.....5.....5.0.1..</span> <span class="pre">...3.10.1000.1..1..2...3....4....3..1.10.000.00.1.1..2..2.....4.....5.....5.....5....4.....5.....5.1.1..2</span> <span class="pre">..30.0.1000.1..2..2..2.....4....4..2.10.1000.0.10...2..2...3.......5.....5.....5....4.....5.....5.10...2.</span> <span class="pre">2.00..1000.1..2.1...2...3......4..2.10.10000..10.1....2...3....4........5.....5....4.....5.....5.10.1....</span> <span class="pre">.10.1.000.1..2.1..2....3....4....2.10.100000..0.1..2.....3...3......5........5....4.....5.....5.10.1..2..</span> <span class="pre">30.1.100.1.1..1..2...3.....4....4.10.100000.1..1..2...3.....3....4.......5.......4.....5.....5.10.1..2...</span> <span class="pre">0.1.100.1.1..2..2...3....4.....4.10.100000.1..2..2..2.....4.....4.....5.......5.......5.....5.10.1..2...3</span> <span class="pre">.10.00.1.1..2..2...3....4....4..10.100000.1..2..2..2...3.......5.....5.....5.......5.......50.0.1..2...30</span> <span class="pre">10.10.1.1..2..2...3...3.....4..200.00000.1..2..2..2...3....4........5.....5.....5.......5..0.1.1..2..2.0.</span> <span class="pre">0.10.1.1..2..2...3...3...3....200.10000.1..2..2..2...3....4.....5........5.....5.....5....2.1.1..2..2.1.1</span> <span class="pre">.10.1.1..2..2...3...3...3....400.100000...2..2..2...3....4.....5.....5........5.....5....4.1.1..2..2.1.10</span> <span class="pre">10.1.1..2..2...3...3...3....400.100000.1....2..2...3....4.....5.....5.....5........5....4.1.1..2..2.1.10.</span> <span class="pre">0.1.1..2..2...3...3...3....400.1000000...2....2...3....4.....5....4......5.....5......3..1.1..2..2.1.10.1</span> <span class="pre">.1.1..2..2...3...3...3....400.10000000......3....3....4.....5....4.....5......5.....5...2.1..2.1..1.10.10</span> <span class="pre">..1..2..2...3...3...3....400.10000000.1.........4....4.....5...3......5.....5......5...3.1..2.1..2.10.100</span> <span class="pre">....2..2...3...3...3....400.10000000.1..2...........4.....5...3....4.......5....4.....3.1..2.1..2.10.1000</span> <span class="pre">1.....2...3...3...3....400.100000000...2...3.............5...3....4.....5......4.....5.1..2.1..2.10.1000.</span> <span class="pre">..2......3...3...3....400.100000000.1.....3....4............3....4.....5....4.......50...20...2.10.1000.1</span> <span class="pre">.2...3......3...3....400.100000000.1..2.......4.....5...........4.....5....4....4...0.1..0.1...10.1000.1.</span> <span class="pre">2...3....4.....3....400.100000000.1..2...3.........5.....5...........5....4....4...3.1.1..1..2.0.1000.1..</span> <span class="pre">...3....4.....5....400.100000000.1..2...3....4..........5.....5..........4....4...3.1.1..2..2.1.1000.1..2</span> <span class="pre">..3....4....4.....400.100000000.1..2...3....4....4...........5.....5.........4...3.1.1..2..2.1.1000.1..2.</span> <span class="pre">.3....4...3......500.100000000.1..2...3....4....4.....5...........5.....5.......3.1.1..2.1.0..1000.1..2..</span> <span class="pre">3....4...3....4..00.100000000.1..2...3....4....4.....5.....5...........5.....5...1.1..2.1.1.1.0000...2...</span> <span class="pre">....4...3....4..20.100000000.1..2...3....4....4....4......5.....5...........5...3.1..20..1.1.1000.1.....3</span> <span class="pre">...4...3....4..20.100000000.1.1...2.....4....4....4.....5......5.....5.........3.1..20.1.0..1000.1..2....</span> <span class="pre">......3....4..20.100000000.10...2....3......4....4.....5.....5......5.....5.....1..20.10..1.000.1..2..2..</span> <span class="pre">3.........4..20.100000000.10.1.....3....3.......4.....5.....5.....5......5.....5..20.10.1..100.1..2..2...</span> <span class="pre">....4.......20.100000000.10.1..2.......4....4.......4......5.....5.....5......5..20.10.1..2000...2..2..2.</span> <span class="pre">.3.......5..00.00000000.100..1....3........4.....5.......5......5.....5.....5...20.10.1..2000.1....2.1...</span> <span class="pre">.....4.....20.10000000.100.1...2......4.........5.....5.......5......5.....5...30.10.1.1.000.1..2...1..2.</span> <span class="pre">.3........50.10000000.100.1.1.....3........5.........5.....5.......5......5...30.10.1.1.100.1..2...3..2..</span> <span class="pre">3...3.....0.10000000.100.1.1..2.......4.........5.........5.....5.......5....30.10.1.1.100.1..2...3..2...</span> <span class="pre">...3....4..10000000.100.1.1..2...3........4..........5........4......5......40.10.1.1.100.1..2...3..2...3</span> <span class="pre">..3....4..20000000.100.1.1.1....3....4........4...........5........5.....4..0.10.10..1000...2..2...2...3.</span> <span class="pre">.3....4..20000000.100.1.1.1.1.......4.....5........5...........5........5..2.10.10.1.0000.....2...3...3..</span> <span class="pre">3....4..20000000.100.1.1.1.1..2..........5.....5........5...........5.....20.0.10.1.1000.1.......3...3...</span> <span class="pre">....4..20000000.1000..10..1.1....3............5.....5........5...........50.1.100..1000.1.1.........3...3</span> <span class="pre">...4..20000000.1000.1.0.1..1..2......4.............5.....5........5......0.10.00.1.000.1.1..2..........3.</span> <span class="pre">..4..20000000.1000.1.10..1...2...3........5.............5.....5........5..10.10.1.100.1.1..2..2..........</span> <span class="pre">...1.0000000.1000.1.10.1...2....3....4.........5.............5.....5.....200.0.1.100.1.1..2..2..2........</span> <span class="pre">....10000000.000.1.10.1..2....3.....4.....5.........5.............5.....500.1.1.1000..1..2..2..2...3.....</span> <span class="pre">....0000000.100.1.10.1.1....3.....4......5.....5........4..............500.1.1.1000.1...2..2..2...3....4.</span> <span class="pre">...5000000.100.1.100..1..2.....3.......5......5.....5........5.........00.1.1.10000...2...2..2...3....4..</span> <span class="pre">.4.000000.100.1.1000....2...3......4........5......5.....5........5....00..1.10000.1.....3..2...3....4...</span> <span class="pre">4.100000.1000..1000.1......3....4.......5........5......5.....5.......40.1..10000.1.1......2...3....4....</span> <span class="pre">.100000.1000.1.000.1..2........4.....5.......5........5......5.....5..0.1..20000.1.1.1.......2....3.....4</span> <span class="pre">100000.1000.1.100.1..2...3..........5.....5.......5........5......5..2.1..20000.1.1.1..2........3.....4..</span> <span class="pre">00000.1000.1.100.1..2...3...3............5.....5.......5........5..1..1..20000.1.1.1..2...3.........4...2</span> <span class="pre">0000.1000.1.100.1..2...3...3....4.............5.....5.......5.....2..2.1.0000.1.1.1..2..2.....4........30</span> <span class="pre">000.1000.1.100.1..2...3...3....4.....5.............5.....5.......5..2.1.1000.1.1.1..2..2...3.......5...00</span> <span class="pre">00.1000.1.100.1..2...3...3....4.....5.....5.............5.....5....2.1.1000.1.1.1..2..2..2.....4......300</span> <span class="pre">00.000.1.100.1..2...3...3....4.....5.....5.....5.............5....4.1.10000..1.1..2.1...2...3.......5.000</span> <span class="pre">0.100.1.100.1..2...3...3....4.....5....4......5.....5............4.10.00000...1.1..1..2...2.....4....1000</span> <span class="pre">.100.10.00.1..2...3...3....4....4.....4.....5......5.....5........10.10000.1...1..2..2...3...3......40000</span> <span class="pre">100.10.10.1..2..2....3....4....4.....5.....5.....5......5.....5...0.10000.1..2..1...2...3..2.....4..0000.</span> <span class="pre">00.10.100...2..2...3.....4....4.....5.....5.....5.....5......5...3.10000.1..2.1...2....3..2..2.....20000.</span> <span class="pre">0.100.00.1....2...3....4.....4.....5.....5.....5.....5.....5....3.10000.1..2.1.1.....3..1...2...3..0000.1</span> <span class="pre">.100.10.1..2.....3....4.....5.....5.....5.....5.....5.....5....40.0000.1..2.1.1..2....1...2....3..2000.10</span> <span class="pre">100.10.1.1....3......4.....5.....5.....5.....5.....5.....5....400.000.1.1..1.1..2...3...2....3...20000.0.</span></code></p>
 </section>
 </section>
@@ -1138,9 +1256,11 @@
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="amp04a_dicts.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1156,24 +1276,28 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Marius Kaffai<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Marius Kaffai<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

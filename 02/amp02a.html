@@ -8,8 +8,9 @@
 
     <title>Listen &#8212; ABM mit Python</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,36 +20,35 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -59,7 +59,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -68,9 +82,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -88,14 +103,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ABM mit Python
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   ABM mit Python
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/amp01_intro.html">
    1.1 Einführung
@@ -434,7 +450,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../platzhalter-loesungen6.html">
+    <a class="reference internal" href="../06/amp06c.html">
      Lösungen
     </a>
    </li>
@@ -587,107 +603,209 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/02/amp02a.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F02/amp02a.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/02/amp02a.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/02/amp02a.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/mariuzka/amp_page"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F02/amp02a.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/02/amp02a.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Listen
@@ -783,12 +901,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Listen</h1>
@@ -900,11 +1017,12 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="listen">
-<h1>Listen<a class="headerlink" href="#listen" title="Permalink to this headline">¶</a></h1>
+<h1>Listen<a class="headerlink" href="#listen" title="Permalink to this headline">#</a></h1>
 <p>Nachdem wir nun über die grundlegensten Datentypen und Funktionen in Python Bescheid wissen, steigen wir heute tiefer in die Funktionsweise eines ganz bestimmten und überaus wichtigen Datentyps ein: <strong>Listen</strong>.
 Listen sind in Python - sowie in fast jeder anderen Programmiersprache - ein unverzichtbarer Bestandteil.
 Listen kann man als eine Art von <strong>Datencontainer</strong> ansehen, in welchen wir alle möglichen Objekte ablegen können.
@@ -933,7 +1051,7 @@ Listen helfen uns damit dabei, die Objekte unseres Programmes sinnvoll zu strukt
 <p>Die Liste <code class="docutils literal notranslate"><span class="pre">meine_tolle_liste</span></code> ermöglicht es also, die 3 Objekte <code class="docutils literal notranslate"><span class="pre">&quot;Haus&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">123</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> kompakt zu einem Paket zusammenzuschnüren und unter einem Namen zu speichern. Diese Eigenschaft ist allgemein für die Organisation unserer Programme sehr, sehr praktisch.</p>
 <p>Wir werden im Verlauf dieses Kapitels u.a. noch lernen, wie wir auf die einzelnen Elemente zugreifen und wie wir weitere Objekte hinzufügen. Nun reiße ich aber erstmal kurz an, wofür wir Listen im Rahmen der Programmierung von ABM meist brauchen.</p>
 <section id="der-nutzen-von-listen-und-anderen-datencontainern-fur-abm">
-<h2>Der Nutzen von Listen (und anderen Datencontainern) für ABM<a class="headerlink" href="#der-nutzen-von-listen-und-anderen-datencontainern-fur-abm" title="Permalink to this headline">¶</a></h2>
+<h2>Der Nutzen von Listen (und anderen Datencontainern) für ABM<a class="headerlink" href="#der-nutzen-von-listen-und-anderen-datencontainern-fur-abm" title="Permalink to this headline">#</a></h2>
 <p>Ganz allgemein kann man sagen, dass wir Listen im Kontext von ABM brauchen, weil ABMs Computerprogramme sind und man in Computerprogrammen eben Listen braucht. Punkt. Das stimmt zwar. Und wir werden Listen auch an allen Enden und Ecken brauchen, doch gibt es zwei <em>klassische</em> Anwendungsfälle für Listen im Bereich von ABM. Einerseits können wir unsere Gruppen bzw. Populationen von Agenten innerhalb von Listen organisieren. Andererseits können wir auch die Agenten selbst als Listen in unserem Programm repräsentieren, wobei jedes Element in der Liste dann eine Eigenschaft eines Agenten repräsentieren würde.</p>
 <p>Doch beginnen wir von vorne. Bei agentenbasierter Modellierung geht es darum, das Handeln und Interagieren vieler Akteure mithilfe eines Computerprogrammes zu simulieren. Das heißt, wir müssen die handelnden Akteure - die Agenten - irgendwie in unserem Programm mittels Objekte repräsentieren. Wie machen wir das?</p>
 <p>Im einfachsten Fall könnten wir Agenten einfach mit einem einzigen Wert, z.B. einer Zahl, darstellen. Diese Zahl könnte dann z.B. für eine Meinung des Agenten zur “Corona-Politik” der Bundesregierung auf einer Skala von 0 bis 10 stehen. Das hier wäre z.B. ein Agent mit einem Meinungswert von 4: <code class="docutils literal notranslate"><span class="pre">4</span></code>. Das hier wäre ein Agent mit einem Meinungswert von 7: <code class="docutils literal notranslate"><span class="pre">7</span></code>. Das hier wäre ein Agent mit einem Meinungswert von 2: <code class="docutils literal notranslate"><span class="pre">2</span></code>. Mit so vereinzelten und namenlosen Agenten können wir aber nicht wirklich was anfangen, da wir sie nicht wirklich “packen” können, um mit ihnen irgendwas zu machen, und zudem könnten wir Agenten mit derselben Meinung nicht unterscheiden. Eine Lösung wäre es, jeden Agenten unter eigenen Variable zu speichern. Das wird ab einer bestimmten Anzahl von Agenten auch ziemlich unpraktikabel. Und hier kommen die Listen ins Spiel!</p>
@@ -1080,7 +1198,7 @@ Dies könnte dann so aussehen:</p>
 <p><strong>Zugegeben:</strong> Die Repräsentation der Agenten als Listen ist nicht sonderlich elegant. Wir müssen uns ja z.B. merken, welcher Stelle in der Liste welche Eigenschaft der Agenten steht. U.a. deshalb ist es auf lange Sicht unpraktisch, die Agenten als Listen darzustellen. Wir werden später die Agenten durch andere Objekt-Klassen ersetzen. Am Anfang macht es allerdings Sinn, nicht nur, weil wir Listen sowieso zwingend kennenlernen müssen, sondern auch, weil es eine relativ unkomplizierte und schnell erlernbare Form der Agenten-Repräsentation “mit einfachen Mitteln” ist.</p>
 </section>
 <section id="exkurs-noch-ein-paar-worte-zur-reprasentation-von-agenten">
-<h2>Exkurs: Noch ein paar Worte zur Repräsentation von Agenten<a class="headerlink" href="#exkurs-noch-ein-paar-worte-zur-reprasentation-von-agenten" title="Permalink to this headline">¶</a></h2>
+<h2>Exkurs: Noch ein paar Worte zur Repräsentation von Agenten<a class="headerlink" href="#exkurs-noch-ein-paar-worte-zur-reprasentation-von-agenten" title="Permalink to this headline">#</a></h2>
 <p>Wenn wir Agenten einfach nur als einzelne Werte oder Listen von Werten darstellen, dann stellen wir zunächst eigentlich nur die “passiven” Eigenschaften der Agenten mit relativ “passiven” Daten dar. Da fehlt aber doch noch etwas? Ein Agent ist doch ein handelnder Akteur und nicht nur ein passiver Datensatz! Ein Agent sollte ja beispielsweise nicht nur die passive Eigenschaft haben, eine Meinung zu besitzen, sondern auch die aktive Eigenschaft, diese beispielsweise auch kundtun oder ändern zu können. Und ein Agent darf in Simulationen nicht nur einen Infektionsstatus haben, sondern muss auch die aktive Eigenschaft, andere Agenten anstecken zu können, besitzen.</p>
 <p>Den aktiven Teil der Agenten werden wir meist als Funktionen, also Programmanweisungen darüber, wie die Daten/Eigenschaften der Agenten verarbeitet werden sollen, repräsentieren. Zum Beispiel könnten wir die Handlung “anstecken” darstellen, indem wir mithilfe einer Funktion den Infektionsstatus <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code> vom einen Agenten auf einen anderen Agenten mit dem Status <code class="docutils literal notranslate"><span class="pre">&quot;infizierbar&quot;</span></code> übertragen, sodass dieser zweite Agent dann auch den Status <code class="docutils literal notranslate"><span class="pre">&quot;infiziert&quot;</span></code> aufweist.</p>
 <p>Zu Beginn werden wir dabei Funktionen und Daten jedoch noch relativ getrennt voneinander organisieren d.h. wir werden an der einen Stelle im Code die “passiven” Eigenschaften der Agenten in irgendeiner Form als Daten darstellen und an der anderen Stelle im Code die potentiellen “Handlungen” der Agenten als Funktionen implementieren. Erst während der Simulation, wenn ein Agent handelt, werden wir Daten und Funktionen zusammenbringen. Dann wird die entsprechende Funktion auf die entsprechenden Daten des handelnden Agenten (z.B. der ansteckende Agent) sowie der an einer Interaktion beteiligten Agenten (z.B. der angesteckte Agent) angewendet.</p>
@@ -1089,10 +1207,10 @@ Dies könnte dann so aussehen:</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="der-zugriff-auf-listen">
-<h1>Der Zugriff auf Listen<a class="headerlink" href="#der-zugriff-auf-listen" title="Permalink to this headline">¶</a></h1>
+<h1>Der Zugriff auf Listen<a class="headerlink" href="#der-zugriff-auf-listen" title="Permalink to this headline">#</a></h1>
 <p>Im Folgenden schauen wir uns die Eigenschaften von Listen etwas näher an. Wir gucken uns zunächst an, wie wir an den Inhalt von Listen rankommen, nachdem wir diese erstellt haben und wie wir diesen Inhalt verändern können. Dann werfen wir u.a. noch einen Blick auf die wichtigsten “Funktionen” von Listen, der “aktiven” Seite von Listen.</p>
 <section id="auf-elemente-in-listen-zugreifen-indizierung">
-<h2>Auf Elemente in Listen zugreifen: Indizierung<a class="headerlink" href="#auf-elemente-in-listen-zugreifen-indizierung" title="Permalink to this headline">¶</a></h2>
+<h2>Auf Elemente in Listen zugreifen: Indizierung<a class="headerlink" href="#auf-elemente-in-listen-zugreifen-indizierung" title="Permalink to this headline">#</a></h2>
 <p>Es ist ja schön und gut, dass wir die Agenten als Listen von Eigenschaften und die Population der Agenten als Liste von Listen von Eigenschaften repräsentieren können. Doch all das bringt uns nichts, wenn wir gar nicht wissen, wie wir auf die Elemente der Listen zugreifen können.</p>
 <p>Denn später werden wir in unseren Simulationen eigentlich immer das Folgende machen: Wir …</p>
 <ul class="simple">
@@ -1206,7 +1324,7 @@ Dies könnte dann so aussehen:</p>
 <p>Listen (und ähnliche Datentypen) sind also “von vorne” und “von hinten” durchnummeriert. Man kann also mithilfe von positven und negativen Indizes auf die Elemente in Listen zugreifen. Im Normalfall verwendet man die positiven Indizes, dennoch kann es in manchen Situationen sehr hilfreich sein, auf die hinteren Elemente einer Liste mithilfe der negativen Indizierung zuzugreifen.</p>
 </section>
 <section id="elemente-in-listen-andern">
-<h2>Elemente in Listen ändern<a class="headerlink" href="#elemente-in-listen-andern" title="Permalink to this headline">¶</a></h2>
+<h2>Elemente in Listen ändern<a class="headerlink" href="#elemente-in-listen-andern" title="Permalink to this headline">#</a></h2>
 <p>Mithilfe der Indizierung können wir nicht nur bestimmte Elemente einer Liste ausgeben lassen, sondern auch verändern. Dies machen wir genau so, wie wir Variablen definieren, geben aber auf der linken Seite des <code class="docutils literal notranslate"><span class="pre">=</span></code> keinen Variablennamen, sondern das entsprechende Listen-Element per Indizierung an, das verändert werden soll.</p>
 <p>Im Folgenden ändere ich den Infektionsstatus des Agenten <code class="docutils literal notranslate"><span class="pre">agent</span></code>. Zur Erinnerung, wie <code class="docutils literal notranslate"><span class="pre">agent</span></code> aussieht, lasse ich diesen zunächst ausgeben. Der Infektionsstatus steht an erster Stelle.</p>
 <div class="cell docutils container">
@@ -1262,7 +1380,7 @@ Dies könnte dann so aussehen:</p>
 <p>Während unseren Simulationen werden sich bestimmte Eigenschaften der Agenten ständig ändern und dann werden wir - wenn wir die Agenten als Listen repräsentieren - auch genau mit dieser Logik auf die Agenten zugreifen. Der Unterschied wird nur sein, dass wir nicht jeden einzelnen Zugriff explizit “per Hand” programmieren, sondern in der Regel werden solche Zugriffe in sogenannten Loops vollziehen. Das heißt wir programmieren einmal die allgemeine Struktur solcher Zugriffe und lassen das Programm dann automatisch für jeden Agenten solche Zugriffe vollziehen und die Werte der Agenten-Eigenschaften nach bestimmten Regeln ändern (oder auch nicht). Die Indexierung ist bei solchen Loops essentiell.</p>
 </section>
 <section id="sich-eine-scheibe-abschneiden-slicing">
-<h2>Sich eine Scheibe abschneiden: Slicing<a class="headerlink" href="#sich-eine-scheibe-abschneiden-slicing" title="Permalink to this headline">¶</a></h2>
+<h2>Sich eine Scheibe abschneiden: Slicing<a class="headerlink" href="#sich-eine-scheibe-abschneiden-slicing" title="Permalink to this headline">#</a></h2>
 <p>Statt nur auf einzelne Elemente zuzugreifen, ist es auch möglich, auf mehrere nebeneinander stehende Elemente einer Liste gleichzeitig zuzugreifen. Weil man dabei praktisch <em>Schnitte</em> an bestimmten Stellen der Liste ansetzt, um einen bestimmten Teilbereich der Liste herauszutrennen, nennt man dieses Vorgehen auch Slicing. Beachtet werden muss aber, dass wir den Teilbereich dabei nicht ausschneiden, sondern kopieren. Slicing funktioniert wie folgt: Wir geben statt eines einzelnen Index einen <strong>Start-</strong> und einen <strong>End-Index</strong> in den eckigen Klammern hinter einer Liste an. Die beiden Indizes trennen wir dabei mit einem <strong>Doppelpunkt</strong>.</p>
 <p>Die allgemeine Syntax könnte man so formulieren:</p>
 <p><code class="docutils literal notranslate"><span class="pre">LISTE[STARTINDEX:ENDINDEX]</span></code></p>
@@ -1346,7 +1464,7 @@ Dies könnte dann so aussehen:</p>
 </div>
 </section>
 <section id="der-zugriff-auf-geschachtelte-listen">
-<h2>Der Zugriff auf geschachtelte Listen<a class="headerlink" href="#der-zugriff-auf-geschachtelte-listen" title="Permalink to this headline">¶</a></h2>
+<h2>Der Zugriff auf geschachtelte Listen<a class="headerlink" href="#der-zugriff-auf-geschachtelte-listen" title="Permalink to this headline">#</a></h2>
 <p>Wie wir weiter oben bereits gesehen haben, können Listen selbstverständlich geschachtelt werden. Wir können also innerhalb von Listen weitere Listen als Elemente ablegen, sodass wir eine <em>Liste von Listen</em> bzw. <em>geschachtelte Liste</em> erhalten. Wie oben schon gezeigt, wäre beispielsweise eine Liste von Agenten, welche selbst als Listen reprästentiert werden, eine geschachtelte Liste.</p>
 <p>Im Folgenden erstelle ich zunächst drei Agenten und versammle diese dann innerhalb der Liste <code class="docutils literal notranslate"><span class="pre">population</span></code>:</p>
 <div class="cell docutils container">
@@ -1441,7 +1559,7 @@ Dies könnte dann so aussehen:</p>
 </div>
 </section>
 <section id="exkurs-funktionen-methoden">
-<h2>Exkurs: Funktionen &amp; Methoden<a class="headerlink" href="#exkurs-funktionen-methoden" title="Permalink to this headline">¶</a></h2>
+<h2>Exkurs: Funktionen &amp; Methoden<a class="headerlink" href="#exkurs-funktionen-methoden" title="Permalink to this headline">#</a></h2>
 <p>Weiter unten möchte ich euch gleich noch ein paar wichtige Funktionen von Listen zeigen. Dazu müssen wir jedoch noch kurz eine besondere Form von Funktionen kennenlernen: die sogenannten Methoden.</p>
 <p>In Python kann man ganz allgemein zwischen zwei Formen von Funktionen unterscheiden. Auf der einen Seite gibt es das, was man ganz offiziell <strong>Funktion</strong> nennt. Eine solche Funktion ist beispielsweise die Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> oder auch die Funktion <code class="docutils literal notranslate"><span class="pre">len()</span></code>. Diese Funktionen sind als komplett eigenständige Objekte anzusehen. Sie sind Anweisungen für unser Programm, welche ihr Dasein als Objekte fristen. Funktionen sind in Objekte gegossene, objektgewordene Handlungen unseres Programmes, welche immer und immer wieder aufgerufen werden können.</p>
 <p>Ein besonderer Nutzen von Funktionen (und Methoden) ist, dass ihre Prozeuren so allgemein gehalten sind, dass wir ihre Handlungen auf verschiedene andere Objekte anwenden können d.h. verschiedene Objekte mithilfe von Funktionen verarbeiten können. Sollen gewisse Objekte mithilfe von Funktionen verarbeitet werden, dann müssen diese in die runden Klammern der Funktion stecken. Die Funktion, als eigenständiges Objekt, tritt dann quasi von außen an das eingegebene Objekt heran, verschluckt es, verarbeitet es nach den Regeln der Funktion und gibt eine verarbeitete Version des eingegebenen Objektes wieder aus. Stecken wir Objekte in eine Funktion, dann sieht das ganz allgemein so aus:</p>
@@ -1466,10 +1584,10 @@ Dies könnte dann so aussehen:</p>
 <p>Das ist alles noch etwas abstrakt und es ist an dieser Stelle auch noch gar nicht sooo wichtig. Einerseits soll dir nur schon mal ein Gefühl dafür gegeben werden, wie wir ABM in Python umsetzen können und auf welche Weisen wir das im Verlauf dieses Kurses machen werden. Andererseits ging es mir bei diesem Exkurs darum, dass du im nun folgenden Abschnitt nicht verwundert bist, warum wir plötzlich “Funktionen” ausführen, indem wir diese hinten an Objekte anhängen.</p>
 </section>
 <section id="grundlegende-methoden-von-listen">
-<h2>Grundlegende Methoden von Listen<a class="headerlink" href="#grundlegende-methoden-von-listen" title="Permalink to this headline">¶</a></h2>
+<h2>Grundlegende Methoden von Listen<a class="headerlink" href="#grundlegende-methoden-von-listen" title="Permalink to this headline">#</a></h2>
 <p>Schauen wir uns nun ein paar grundlegene Methoden von Listen an. All die folgenden “Funktionen” sind also Fähigkeiten von Listen, bestimmte Dinge zu tun. Diese Methoden sind exklusiv auf Listen zugeschnitten und funktionieren nur, wenn diese an Listen bzw. Variablennamen von Listen mit einem Punkt angehängt werden.</p>
 <section id="ein-element-anhangen-append">
-<h3>Ein Element anhängen: append()<a class="headerlink" href="#ein-element-anhangen-append" title="Permalink to this headline">¶</a></h3>
+<h3>Ein Element anhängen: append()<a class="headerlink" href="#ein-element-anhangen-append" title="Permalink to this headline">#</a></h3>
 <p>Die Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> fügt ein Element der Liste hinten an. Wir müssen das entsprechende Element dafür als Input in die Methode <code class="docutils literal notranslate"><span class="pre">append()</span></code> einfügen.</p>
 <p>Hier im Beispiel definiere ich zunächst die Liste <code class="docutils literal notranslate"><span class="pre">words</span></code>, welche ein paar Wörter enthält.</p>
 <div class="cell docutils container">
@@ -1538,7 +1656,7 @@ Dies könnte dann so aussehen:</p>
 </div>
 </section>
 <section id="eine-liste-anhangen-extend">
-<h3>Eine Liste anhängen: extend()<a class="headerlink" href="#eine-liste-anhangen-extend" title="Permalink to this headline">¶</a></h3>
+<h3>Eine Liste anhängen: extend()<a class="headerlink" href="#eine-liste-anhangen-extend" title="Permalink to this headline">#</a></h3>
 <p>Man kann nicht nur einzelne Elemente an eine Liste anhängen, sondern man kann auch direkt eine ganze Liste von Objekten anhängen. Dabei werden aber nicht wie oben, die Liste mit Objekten einfach als Gesamtpaket d.h. als ein Objekt angehängt, sondern entpackt und als einzelne Objekte angehängt. Schauen wir uns das am besten einfach mal am Beispiel der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> an, welche zunächst noch so aussieht:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1596,7 +1714,7 @@ Dies könnte dann so aussehen:</p>
 <p>Und wir sehen, der Inhalt der Liste <code class="docutils literal notranslate"><span class="pre">more_words</span></code> befindet sich nur in der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code>. Wir haben die beiden Listen praktisch miteinander verschmolzen.</p>
 </section>
 <section id="ein-element-an-beliebiger-stelle-einfugen-insert">
-<h3>Ein Element an beliebiger Stelle einfügen: insert()<a class="headerlink" href="#ein-element-an-beliebiger-stelle-einfugen-insert" title="Permalink to this headline">¶</a></h3>
+<h3>Ein Element an beliebiger Stelle einfügen: insert()<a class="headerlink" href="#ein-element-an-beliebiger-stelle-einfugen-insert" title="Permalink to this headline">#</a></h3>
 <p>Nun wissen wir, wie wir Elemente oder ganze Listen hinten an eine Liste anhängen. Wir wissen auch, wie wir mittels Indizierung auf ein Element in einer Liste zugreifen und dieses ggf. verändern oder austauschen. Was wir noch nicht wissen, ist, wie man ein Element zwischen die Elemente einer Liste einfügt. Dies geht u.a. mit der Methode <code class="docutils literal notranslate"><span class="pre">insert()</span></code>.</p>
 <p>Die Methode <code class="docutils literal notranslate"><span class="pre">insert()</span></code> benötigt zwei Argumente:</p>
 <ul class="simple">
@@ -1620,7 +1738,7 @@ Dies könnte dann so aussehen:</p>
 </div>
 </section>
 <section id="das-letzte-element-ausgeben-und-abhangen-pop">
-<h3>Das letzte Element ausgeben und abhängen: pop()<a class="headerlink" href="#das-letzte-element-ausgeben-und-abhangen-pop" title="Permalink to this headline">¶</a></h3>
+<h3>Das letzte Element ausgeben und abhängen: pop()<a class="headerlink" href="#das-letzte-element-ausgeben-und-abhangen-pop" title="Permalink to this headline">#</a></h3>
 <p>Die Methode <code class="docutils literal notranslate"><span class="pre">pop()</span></code> tut zwei Dinge: Zum einen wird das letzte Element einer Liste abgehängt d.h. aus der Liste entfernt. Zum anderen wird aber zugleich auch das letzte Element auch zurückgegeben, sodass wir es bspw. einer Variable zuweisen können und es nicht weg ist, nachdem wir es von unserer Liste abgehängt haben. Wir können also mit der Funktion <code class="docutils literal notranslate"><span class="pre">pop()</span></code> das letzte Element aus der Liste herausnehmen und etwas anderes mit diesem machen. Letzteres müssen wir aber auch nicht. Wenn wir das zurückgegebene Element nicht wieder irgendwo speichern, dann verschwindet es einfach.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1680,10 +1798,10 @@ Dies könnte dann so aussehen:</p>
 </section>
 </section>
 <section id="noch-ein-paar-nutzliche-funktionen-zum-umgang-mit-listen">
-<h2>Noch ein paar nützliche Funktionen zum Umgang mit Listen<a class="headerlink" href="#noch-ein-paar-nutzliche-funktionen-zum-umgang-mit-listen" title="Permalink to this headline">¶</a></h2>
+<h2>Noch ein paar nützliche Funktionen zum Umgang mit Listen<a class="headerlink" href="#noch-ein-paar-nutzliche-funktionen-zum-umgang-mit-listen" title="Permalink to this headline">#</a></h2>
 <p>Im Folgenden zeige ich noch kurz ein paar nützliche Funktionen, die wir beim Umgang mit Listen immer wieder brauchen werden. Diesmal sind es tatsächlich <em>richtige</em> Funktionen und keine Methoden.</p>
 <section id="summe-minimum-maximum-sum-min-max">
-<h3>Summe, Minimum &amp; Maximum: sum(), min(), max()<a class="headerlink" href="#summe-minimum-maximum-sum-min-max" title="Permalink to this headline">¶</a></h3>
+<h3>Summe, Minimum &amp; Maximum: sum(), min(), max()<a class="headerlink" href="#summe-minimum-maximum-sum-min-max" title="Permalink to this headline">#</a></h3>
 <p>Wenn eine Liste nur aus verrechenbaren Elementen besteht, also typischerweise aus Zahlen vom Typ <code class="docutils literal notranslate"><span class="pre">int</span></code> und <code class="docutils literal notranslate"><span class="pre">float</span></code>, dann kann man sich mit <code class="docutils literal notranslate"><span class="pre">sum()</span></code> die Summe, mit <code class="docutils literal notranslate"><span class="pre">min()</span></code> das Minimum und mit <code class="docutils literal notranslate"><span class="pre">max()</span></code> das Maximum aller Listenelemente ausgeben lassen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1725,7 +1843,7 @@ Dies könnte dann so aussehen:</p>
 </div>
 </section>
 <section id="elemente-loschen-del">
-<h3>Elemente löschen: del()<a class="headerlink" href="#elemente-loschen-del" title="Permalink to this headline">¶</a></h3>
+<h3>Elemente löschen: del()<a class="headerlink" href="#elemente-loschen-del" title="Permalink to this headline">#</a></h3>
 <p>Die Funktion <code class="docutils literal notranslate"><span class="pre">del()</span></code> wird generell dazu verwendet, um Variablen zu löschen. Besonders praktisch ist diese Funktion aber, wenn man einzelne Elemente aus einer Liste herauslöschen möchte. Als Argument übergibt man per Indizierung dasjenige Element aus der Liste, das gelöscht werden soll.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1772,28 +1890,34 @@ Dies könnte dann so aussehen:</p>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Marius Kaffai<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Marius Kaffai<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

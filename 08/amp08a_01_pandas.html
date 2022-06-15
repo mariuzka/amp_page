@@ -8,8 +8,9 @@
 
     <title>Ein kurzer Blick auf Pandas &#8212; ABM mit Python</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,36 +20,35 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -61,7 +61,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -70,9 +84,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -90,14 +105,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   ABM mit Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ABM mit Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/amp01_intro.html">
    1.1 Einführung
@@ -436,7 +452,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../platzhalter-loesungen6.html">
+    <a class="reference internal" href="../06/amp06c.html">
      Lösungen
     </a>
    </li>
@@ -589,107 +605,209 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/08/amp08a_01_pandas.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F08/amp08a_01_pandas.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/08/amp08a_01_pandas.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/08/amp08a_01_pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/mariuzka/amp_page"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F08/amp08a_01_pandas.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/08/amp08a_01_pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dataframe-erstellen">
    Dataframe erstellen
@@ -771,12 +889,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Ein kurzer Blick auf Pandas</h1>
@@ -874,11 +991,12 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="ein-kurzer-blick-auf-pandas">
-<h1>Ein kurzer Blick auf Pandas<a class="headerlink" href="#ein-kurzer-blick-auf-pandas" title="Permalink to this headline">¶</a></h1>
+<h1>Ein kurzer Blick auf Pandas<a class="headerlink" href="#ein-kurzer-blick-auf-pandas" title="Permalink to this headline">#</a></h1>
 <p>Spätestens bei der Durchführung von Simulationsexperimenten, dem systematischen Vergleich desselben Simulationsmodells mit jeweils unterschiedlichen Parametereinstellungen, macht es großen Sinn, die produzierten Daten als einen schön strukturierten, tabellförmigen Datensatz abzuspeichern - ein klassischer <em>Datensatz</em> also, wie man ihn vielleicht aus der Statistik kennt, mit <em>Variablen</em> in den Spalten und Beobachtungsfällen in den Zeilen. Das erleichtert uns nicht nur die Aufbereitung und Auswertung der Daten in Python, sondern ermöglicht uns auch das langfristige Speichern, den Export aus Python heraus und einen eventuellen Import der Daten in ein <em>Statistik-Programm</em> unserer Wahl, wie R, Stata, SPSS oder Excel. Unten siehst du ein Beispiel dafür, wie ein solcher “tabellenförmiger” Datensatz aussehen kann:</p>
 <p><img alt="" src="../_images/beispiel_df.png" /></p>
 <p>In Python gibt es für das Erstellen, Aufbereiten und Auswerten solcher tabellenförmiger Datensätze das Paket <a class="reference external" href="https://pandas.pydata.org/"><strong>Pandas</strong></a>. Pandas gehört zu <strong>DEN</strong> grundlegenden Paketen für das wissenschaftliche Arbeiten mit Python, an dem man wirklich nicht vorbeikommt, wenn man Python für irgendwelche wissenschaftlichen Zwecke nutzen möchte. Der primäre Objekt-Typ, den uns Pandas liefert, ist der sogenannte <strong>Dataframe</strong>. Das ist eben genau ein solcher, tabellenförmiger Datensatz, wie man in der obigen Abbildung sieht.</p>
@@ -892,10 +1010,10 @@
 <p>Pandas kann man sich ein kleines bisschen wie eine Form von <a class="reference external" href="https://de.wikipedia.org/wiki/R_(Programmiersprache)"><strong>R</strong></a> in Python vorstellen, das alle Arten von <em>data wrangling</em> ermöglicht. Wir schauen uns hier jedoch nur einen kleinen Bruchteil der Funktionalität von Pandas an. Für eine tiefergehende Einführung in Pandas schau doch z.B. mal <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">hier</a> oder <a class="reference external" href="https://www.google.com/search?q=python+pandas+tutorial">hier</a>.</p>
 </div>
 <section id="dataframe-erstellen">
-<h2>Dataframe erstellen<a class="headerlink" href="#dataframe-erstellen" title="Permalink to this headline">¶</a></h2>
+<h2>Dataframe erstellen<a class="headerlink" href="#dataframe-erstellen" title="Permalink to this headline">#</a></h2>
 <p>Bei der Durchführung von Simulationsexperimenten macht es Sinn, die Daten zunächst in <em>einfachen</em> Datenstrukturen wie Listen oder (noch besser) Dictionaries zu sammeln und dann nach dem Simulationsexperiment die gesammelten Daten in einen Dataframe zu überführen. Für die Erstellung von Dataframes aus Datentypen wie Listen oder Dictionaries gibt es in Pandas zahlreiche Möglichkeiten. Wir schauen uns nun zwei davon mit Beispieldaten an. Stell dir am besten vor, dass die Daten zuvor innerhalb einer Simulation bzw. eines Simulationsexperimentes gesammelt wurden und nun zur besseren Handhabung in einen Dataframe überführt werden sollen.</p>
 <section id="moglichkeit-1-dataframe-aus-einem-dictionary-mit-listen-erstellen">
-<h3>Möglichkeit 1 - Dataframe aus einem Dictionary mit Listen erstellen<a class="headerlink" href="#moglichkeit-1-dataframe-aus-einem-dictionary-mit-listen-erstellen" title="Permalink to this headline">¶</a></h3>
+<h3>Möglichkeit 1 - Dataframe aus einem Dictionary mit Listen erstellen<a class="headerlink" href="#moglichkeit-1-dataframe-aus-einem-dictionary-mit-listen-erstellen" title="Permalink to this headline">#</a></h3>
 <p>Bei dieser Variante einen Dataframe zu erstellen, liegen die Daten in Form eines Dictionaries, das in jedem seiner <em>Einträge</em> eine Datenreihe in Form einer Liste aufweist. Absolut wichtig ist dabei, dass alle Datenreihen die <strong>gleiche Länge</strong> haben! Unten siehst du ein Beispiel eines solchen Dictionaries mit zwei Einträgen d.h. zwei Datenreihen (wie immer ist es natürlich so, dass wir in der Praxis die Daten nicht so wie hier per Hand als Python-Code eintippen, sondern diese - wie gessagt - z.B. innerhalb eines Simulationsexperimentes <em>automatisch</em> erstellt und ausgegeben werden):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -985,7 +1103,7 @@
 <p>Wir sehen: das Dictionary wurde in einen tabellenförmige Datensatz umgewandelt. Jede Liste/Datenreihe, die als Eintrag im obigen Dictionary <code class="docutils literal notranslate"><span class="pre">data_dict</span></code> vorlag, wurde in eine Spalte des Dataframes überführt. Man kann sagen, dass wir mit dieser Methode den Dataframe <em>spaltenweise</em> erstellen können.</p>
 </section>
 <section id="moglichkeit-2-dataframe-aus-einer-liste-mit-dictionaries-erstellen">
-<h3>Möglichkeit 2 - Dataframe aus einer Liste mit Dictionaries erstellen<a class="headerlink" href="#moglichkeit-2-dataframe-aus-einer-liste-mit-dictionaries-erstellen" title="Permalink to this headline">¶</a></h3>
+<h3>Möglichkeit 2 - Dataframe aus einer Liste mit Dictionaries erstellen<a class="headerlink" href="#moglichkeit-2-dataframe-aus-einer-liste-mit-dictionaries-erstellen" title="Permalink to this headline">#</a></h3>
 <p>Wir haben eben den Dataframe aus einem <strong>Dictionary mit Listen</strong> <em>spaltenweise</em> erstellt. Nun schauen wir uns an, wie man einen Dataframe <em>zeilenweise</em> aus einer <strong>Liste mit Dictionaries</strong> erstellt. Dieses Vorgehen eignet sich (meiner Ansicht nach) besonders gut, um im Rahmen von Simulationsexperimenten die Daten zunächst über verschiedene Modelle hinweg zu sammeln und dann zu einem Dataframe zusammenzusetzen. Tatsächlich ändert sich nun nur die Struktur, in der wir die Daten <em>vor</em> der Erstellung des Dataframes vorliegen haben, die Erstellung des Dataframes durch Pandas bleibt exakt gleich.</p>
 <p>Unten siehst du beispielhaft, wie eine solche <em>Liste mit Dictionaries</em> aussehen kann. Wir haben eine Liste, die Dictionaries enthält. Jedes Dictionary enthält die Daten eines “Falles” und entspricht somit im Dataframe einer Zeile. Jeder Eintrag eines Dictionary wird anhand des Dictionary-Keys einer Spalte zugewiesen.</p>
 <div class="cell docutils container">
@@ -1079,7 +1197,7 @@
 </section>
 </section>
 <section id="auf-eine-spalte-zugreifen">
-<h2>Auf eine Spalte zugreifen<a class="headerlink" href="#auf-eine-spalte-zugreifen" title="Permalink to this headline">¶</a></h2>
+<h2>Auf eine Spalte zugreifen<a class="headerlink" href="#auf-eine-spalte-zugreifen" title="Permalink to this headline">#</a></h2>
 <p>Wenn wir einen fertigen Dataframe vorliegen haben, dann muss man oft auf einzelne Spalten des Dataframes zugreifen. Wir können einzelne Spalten eines Dataframes auswählen, indem wir - ähnlich wie bei Dictionaries - den Namen der auszuwählenden Spalte in eckige Klammern hinter den Namen des Dataframes schreiben. Allgemein formuliert sieht das dann so aus: <code class="docutils literal notranslate"><span class="pre">DATAFRAME[SPALTE]</span></code>. Unten greife ich beispielsweise auf die Spalte <code class="docutils literal notranslate"><span class="pre">&quot;density&quot;</span></code> des Dataframes <code class="docutils literal notranslate"><span class="pre">df</span></code> zu, welche dadurch ausgegeben wird.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1106,7 +1224,7 @@ Name: density, dtype: float64
 </div>
 </section>
 <section id="vektorisiertes-rechnen">
-<h2>Vektorisiertes Rechnen<a class="headerlink" href="#vektorisiertes-rechnen" title="Permalink to this headline">¶</a></h2>
+<h2>Vektorisiertes Rechnen<a class="headerlink" href="#vektorisiertes-rechnen" title="Permalink to this headline">#</a></h2>
 <p>Neben vielen weiteren ist ein riesengroßer Vorteil von Dataframes das sogenannte <em>vektorisierte Rechnen</em>. Das bedeutet, dass wir nicht mehr nur einzelne Werte miteinander verrechnen können, sondern ganze Datenreihen auf einmal miteinander verrechnen können. Was das heißt, schauen wir uns am besten direkt an einem Beispiel an. Unten erstelle ich zunächst einen Dataframe mit zwei Spalten namens <code class="docutils literal notranslate"><span class="pre">&quot;einkommen_1&quot;</span></code> und <code class="docutils literal notranslate"><span class="pre">&quot;einkommen_2&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1376,10 +1494,10 @@ dtype: int64
 </div>
 </section>
 <section id="einen-uberblick-gewinnen">
-<h2>Einen Überblick gewinnen<a class="headerlink" href="#einen-uberblick-gewinnen" title="Permalink to this headline">¶</a></h2>
+<h2>Einen Überblick gewinnen<a class="headerlink" href="#einen-uberblick-gewinnen" title="Permalink to this headline">#</a></h2>
 <p>Dataframes besitzen verschiedene Methoden bzw. Attribute, um relativ unkompliziert einen Blick auf den Dataframe zu werden und einzelne deskriptive Auswertungen zu machen. Im Folgenden einer kurzer, unkommentierter Überblick über einige ausgewählte Methoden/Attribute/Funktionen:</p>
 <section id="anzahl-spalten-und-zeilen">
-<h3>Anzahl Spalten und Zeilen<a class="headerlink" href="#anzahl-spalten-und-zeilen" title="Permalink to this headline">¶</a></h3>
+<h3>Anzahl Spalten und Zeilen<a class="headerlink" href="#anzahl-spalten-und-zeilen" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
@@ -1407,7 +1525,7 @@ dtype: int64
 </div>
 </section>
 <section id="eine-liste-aller-spalten-bezeichnungen">
-<h3>Eine Liste aller Spalten-Bezeichnungen<a class="headerlink" href="#eine-liste-aller-spalten-bezeichnungen" title="Permalink to this headline">¶</a></h3>
+<h3>Eine Liste aller Spalten-Bezeichnungen<a class="headerlink" href="#eine-liste-aller-spalten-bezeichnungen" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
@@ -1424,7 +1542,7 @@ dtype: int64
 </div>
 </section>
 <section id="die-ersten-5-zeilen-des-dataframes-anschauen">
-<h3>Die ersten 5 Zeilen des Dataframes anschauen<a class="headerlink" href="#die-ersten-5-zeilen-des-dataframes-anschauen" title="Permalink to this headline">¶</a></h3>
+<h3>Die ersten 5 Zeilen des Dataframes anschauen<a class="headerlink" href="#die-ersten-5-zeilen-des-dataframes-anschauen" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1498,7 +1616,7 @@ dtype: int64
 </div>
 </section>
 <section id="die-letzen-5-zeilen-des-dataframes-anschauen">
-<h3>Die letzen 5 Zeilen des Dataframes anschauen<a class="headerlink" href="#die-letzen-5-zeilen-des-dataframes-anschauen" title="Permalink to this headline">¶</a></h3>
+<h3>Die letzen 5 Zeilen des Dataframes anschauen<a class="headerlink" href="#die-letzen-5-zeilen-des-dataframes-anschauen" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
@@ -1572,7 +1690,7 @@ dtype: int64
 </div>
 </section>
 <section id="haufigkeiten-in-einer-spalte-zahlen">
-<h3>Häufigkeiten in einer Spalte zählen<a class="headerlink" href="#haufigkeiten-in-einer-spalte-zahlen" title="Permalink to this headline">¶</a></h3>
+<h3>Häufigkeiten in einer Spalte zählen<a class="headerlink" href="#haufigkeiten-in-einer-spalte-zahlen" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;einkommen_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -1592,7 +1710,7 @@ Name: einkommen_1, dtype: int64
 </div>
 </section>
 <section id="durchschnitt-einer-spalte-berechnen">
-<h3>Durchschnitt einer Spalte berechnen<a class="headerlink" href="#durchschnitt-einer-spalte-berechnen" title="Permalink to this headline">¶</a></h3>
+<h3>Durchschnitt einer Spalte berechnen<a class="headerlink" href="#durchschnitt-einer-spalte-berechnen" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;einkommen_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1607,7 +1725,7 @@ Name: einkommen_1, dtype: int64
 </div>
 </section>
 <section id="minimum-und-maximum-einer-spalte">
-<h3>Minimum und Maximum einer Spalte<a class="headerlink" href="#minimum-und-maximum-einer-spalte" title="Permalink to this headline">¶</a></h3>
+<h3>Minimum und Maximum einer Spalte<a class="headerlink" href="#minimum-und-maximum-einer-spalte" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;einkommen_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
@@ -1634,7 +1752,7 @@ Name: einkommen_1, dtype: int64
 </div>
 </section>
 <section id="verschiedene-summary-statistiken-auf-einmal">
-<h3>Verschiedene Summary-Statistiken auf einmal<a class="headerlink" href="#verschiedene-summary-statistiken-auf-einmal" title="Permalink to this headline">¶</a></h3>
+<h3>Verschiedene Summary-Statistiken auf einmal<a class="headerlink" href="#verschiedene-summary-statistiken-auf-einmal" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1730,7 +1848,7 @@ Name: einkommen_1, dtype: int64
 </section>
 </section>
 <section id="dataframe-exportieren">
-<h2>Dataframe exportieren<a class="headerlink" href="#dataframe-exportieren" title="Permalink to this headline">¶</a></h2>
+<h2>Dataframe exportieren<a class="headerlink" href="#dataframe-exportieren" title="Permalink to this headline">#</a></h2>
 <p>Wir können Dataframes u.a. im CSV-Format exportieren. Das ist praktisch, weil wir so nicht nur unsere Daten langfristig auf der Festplatte speichern können, sondern die Daten auch mit einem Statistik-Programm unserer Wahl öffnen und auswerten können. Das bietet sich v.a. in diesem Kurs an, weil wir hier in Python nur ganz oberflächlich Auswertungsmethoden kennenlernen. Falls du also mit einem anderen Statistik-Programm gut zurecht kommst, ist es z.B. denkbar, dass du die in Python gewonnen Simulationsdaten als Dataframe im CSV-Format exportierst und dann die Datenaufbereitung und Auswertung in einem anderen Programm vollziehst (z.B. R oder SPSS).</p>
 <p>Für den Export eines Dataframes im CSV-Format gibt es in Pandas die <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>-Methode <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code>. Um einen bestimmten Dataframe zu speichern, muss man die Methode von dem entsprechenden Dataframe aus ausführen und einen Dateipfad/Dateinamen eingeben. Der Dateiname muss auf <code class="docutils literal notranslate"><span class="pre">.csv</span></code> enden, da wir die Datei im CSV-Format speichern. Unten speichere ich den Dataframe namens <code class="docutils literal notranslate"><span class="pre">df</span></code> unter dem Namen <code class="docutils literal notranslate"><span class="pre">&quot;simulationsergebnisse.csv&quot;</span></code> auf meinem Computer. Gibt man keinen weiteren Dateipfad bzw. Ordner an, dann wird die Datei typischerweise dort gespeichert, wo auch das aktuelle Python-Skript liegt.</p>
 <div class="cell docutils container">
@@ -1765,9 +1883,11 @@ Name: einkommen_1, dtype: int64
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="amp08_intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1783,24 +1903,28 @@ Name: einkommen_1, dtype: int64
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Marius Kaffai<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Marius Kaffai<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

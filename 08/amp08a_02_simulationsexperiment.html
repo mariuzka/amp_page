@@ -8,8 +8,9 @@
 
     <title>Ein Simulationsexperiment durchführen &#8212; ABM mit Python</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,36 +20,35 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -61,7 +61,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -70,9 +84,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -90,14 +105,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   ABM mit Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ABM mit Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/amp01_intro.html">
    1.1 Einführung
@@ -436,7 +452,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../platzhalter-loesungen6.html">
+    <a class="reference internal" href="../06/amp06c.html">
      Lösungen
     </a>
    </li>
@@ -589,107 +605,209 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/08/amp08a_02_simulationsexperiment.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/mariuzka/amp_page"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F08/amp08a_02_simulationsexperiment.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/08/amp08a_02_simulationsexperiment.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mariuzka/amp_page/master?urlpath=tree/08/amp08a_02_simulationsexperiment.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/mariuzka/amp_page"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/mariuzka/amp_page/issues/new?title=Issue%20on%20page%20%2F08/amp08a_02_simulationsexperiment.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/08/amp08a_02_simulationsexperiment.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#experiment-mit-einer-unabhangigen-variable">
    Experiment mit einer unabhängigen Variable
@@ -712,12 +830,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Ein Simulationsexperiment durchführen</h1>
@@ -756,11 +873,12 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="ein-simulationsexperiment-durchfuhren">
-<h1>Ein Simulationsexperiment durchführen<a class="headerlink" href="#ein-simulationsexperiment-durchfuhren" title="Permalink to this headline">¶</a></h1>
+<h1>Ein Simulationsexperiment durchführen<a class="headerlink" href="#ein-simulationsexperiment-durchfuhren" title="Permalink to this headline">#</a></h1>
 <p>Um den Effekt eines Modellparameters auf den Ablauf der Simulation bzw. auf einen <em>Outcome</em> zu untersuchen, führt man typischerweise Simulationsexperimente durch. Dabei lässt man ein Modell mehrmals mit verschiedenen Parameterwerten laufen, misst für jedes Modell einen interessierenden “Output” mit einer geeigneten Maßzahl, vergleicht die Ergebnisse zwischen den Modellen und schaut, ob die Variation des Parameters einen Unterschied für die Ergebnisse des Modells macht. Mit Pandas haben wir jetzt das richtige Werkzeug, um die Daten eines solchen Simulationsexperimentes sinnvoll zu speichern und für weitere Analysen handhabbar zu machen.</p>
 <p>Im Folgenden demonstriere ich beispielhaft die Durchführung eines einfachen Simulationsexperimentes und einer sinnvollen Speicherung der dabei entstehenden Output-Daten anhand des allseits beliebten NaSch-Modells. Ziel des Experimentes ist es zu untersuchen, welchen Einfluss die Verkehrsdichte sowie die indivuduelle Auftretenswahrscheinlichkeit des Trödelns auf die durchschnittlich gefahrene Geschwindigkeit der Population hat.</p>
 <p>Für die Durchführung eines Simulationsexperimentes sollte man sein Simulationsmodell in Form einer Funktion vorliegen haben, welche die im Experiment zu manipulierenden Parameter als Input aufnimmt und das interessierende Outcome als Output aus Funktion herausgibt. Wie ich gleich zeige, bietet es sich an, den Modell-Output als Dictionary aus der Funktion herauszugeben, damit am Ende des Simulationsexperimentes für jeden Modelldurchlauf ein eigenes Dictionary mit den relevanten Informationen/Daten vorliegt. Dann können alle Dictionaries zu einem Pandas-Dataframe vereint werden.</p>
@@ -910,7 +1028,7 @@
 </div>
 <p>Unsere Funktion ist nun soweit, dass sie uns für einen entsprechenden Parameter-Input das Simulationsmodell laufen lässen und uns anschließend einen kompakten Output mit allen relevanten Informationen zum vollzogenenen Modelldurchlauf in einem Dictionary zurückliefert. In einem Simulationsexperiment lassen führen wir die Funktion für verschiedene Parameter-Werte aus, speichern die jeweils zurückgegebenen Dictionaries mit den relevanten Informationen in einer Liste und können diese dann in einen Pandas-Dataframe überführen, um die Daten auszuwerten.</p>
 <section id="experiment-mit-einer-unabhangigen-variable">
-<h2>Experiment mit einer unabhängigen Variable<a class="headerlink" href="#experiment-mit-einer-unabhangigen-variable" title="Permalink to this headline">¶</a></h2>
+<h2>Experiment mit einer unabhängigen Variable<a class="headerlink" href="#experiment-mit-einer-unabhangigen-variable" title="Permalink to this headline">#</a></h2>
 <p>Untersuchen wir zunächst allein den Effekt der Verkehrsdichte auf die durchschnittliche Geschwindigkeit. Die Verkehrsdichte wird im Modell über das Argugment <code class="docutils literal notranslate"><span class="pre">initial_distance</span></code>, welche die anfängliche Distanz zwischen den Agenten auf der Straße angibt, gesteuert.</p>
 <ul class="simple">
 <li><p>In einer Liste <code class="docutils literal notranslate"><span class="pre">list_of_initial_distances</span></code> habe ich alle Werte, die im Experiment für <code class="docutils literal notranslate"><span class="pre">intial_distance</span></code> eingesetzt werden sollen, gespeichert. Natürlich hätte man hier auch z.B. die Funktion <code class="docutils literal notranslate"><span class="pre">range()</span></code> nutzen können, um eine solche Liste zu erstellen.</p></li>
@@ -1348,7 +1466,7 @@
 <p>Mit Matplotlib wird das Anzeigen der Ergebnisse aber spätestens, wenn wir eine dritte Variable im Diagramm darstellen wollen, unnötig kompliziert, weshalb wir in Kürze einen kurzen Blick auf das Grafik-Paket <strong>Seaborn</strong> werfen werden</p>
 </section>
 <section id="experiment-mit-zwei-unabhangigen-variablen">
-<h2>Experiment mit zwei unabhängigen Variablen<a class="headerlink" href="#experiment-mit-zwei-unabhangigen-variablen" title="Permalink to this headline">¶</a></h2>
+<h2>Experiment mit zwei unabhängigen Variablen<a class="headerlink" href="#experiment-mit-zwei-unabhangigen-variablen" title="Permalink to this headline">#</a></h2>
 <p>Nun wollen wir in einem weiteren Experiment prüfen, welche Rolle das Ausmaß von unnötigem Abbremsen d.h. der Höhe der Trödelwahrscheinlichkeit für den Zusammenhang zwischen Verkehrsdichte und Durchschnittsgeschwindkeit spielt. Genaugenommen prüfen wir damit einen sogenannten Interaktionseffekt bzw. eine Moderation.</p>
 <p>Im Folgenden lasse ich die Funktion <code class="docutils literal notranslate"><span class="pre">nasch_model()</span></code> nicht nur mit unterschiedlichen Werten für das Argument <code class="docutils literal notranslate"><span class="pre">initial_distance</span></code> laufen, sondern zudem lasse ich mithilfe eines zweiten For-Loops ebenfalls die Werte für das Argument <code class="docutils literal notranslate"><span class="pre">dawdling_prob</span></code> (die Trödelwahrscheinlichkeit) variieren. Dadurch wird das obige Experiment für verschiedene Werte der Trödelwahrscheinlichkeit jeweils komplett wiederholt.</p>
 <div class="cell docutils container">
@@ -1782,7 +1900,7 @@
 <p>Wie man nun das Ergebnis eines solchen Experimentes in einem Diagramm mit 3 Variablen darstellen kann, schauen wir uns im Folgenden Exkurs zum Paket Seaborn an.</p>
 </section>
 <section id="exkurs-ergebnisse-mit-seaborn-darstellen">
-<h2>Exkurs: Ergebnisse mit Seaborn darstellen<a class="headerlink" href="#exkurs-ergebnisse-mit-seaborn-darstellen" title="Permalink to this headline">¶</a></h2>
+<h2>Exkurs: Ergebnisse mit Seaborn darstellen<a class="headerlink" href="#exkurs-ergebnisse-mit-seaborn-darstellen" title="Permalink to this headline">#</a></h2>
 <p>Um den gemeinsamen Effekt der Verkehrsdichte und der Trödelwahscheinlichkeit auf die Durchschnittsgeschwindigkeit darzustellen, bietet sich u.a. ein Linien-Diagramm an, in welchem der Zusammenhang zwischen Verkehrsdichte und Durchschnittsgeschwindigkeit getrennt nach jeweilige Trödelwahscheinlichkeit abgetragen ist. Für solche Diagramme ist Matplotlib allerdings unnötig kompliziert, weshalb ich empfehle mal einen Blick auf das Paket <a class="reference external" href="https://seaborn.pydata.org/">Seaborn</a> zu werfen. Mit Seaborn kann man Daten relativ unkompliziert gruppiert nach einer dritten Variable anzeigen lassen. Zudem ist Seaborn auf die Verwendung von Pandas-Dataframes zugeschnitten.</p>
 <ul class="simple">
 <li><p>Nachdem Seaborn über den Anaconda-Navigator installiert wurde, kann dieses als <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">seaborn</span> <span class="pre">as</span> <span class="pre">sns</span></code> importiert werden.</p></li>
@@ -1817,7 +1935,7 @@
 <p>Die Ergebnisse zeigen, dass durch das Vorhandensein von “Trödeln” u.a. der Kipp-Punkt, ab welchem eine Erhöhung der Verkehrsdichte die gefahrene Durchschnittsgeschwindigkeit deutlich absenkt, bereits bei niedrigeren Verkehrsdichten auftritt.</p>
 </section>
 <section id="mehrere-replikationen-einer-parameterkombination">
-<h2>Mehrere Replikationen einer Parameterkombination<a class="headerlink" href="#mehrere-replikationen-einer-parameterkombination" title="Permalink to this headline">¶</a></h2>
+<h2>Mehrere Replikationen einer Parameterkombination<a class="headerlink" href="#mehrere-replikationen-einer-parameterkombination" title="Permalink to this headline">#</a></h2>
 <p>Spielt in einem Simulationsmodell der Zufall eine große Rolle, dann ist es gängige Praxis, für jede Kombination an Parametern mehrere Wiederholungen des Modells zu rechnen und dann den Mittelwert über alle Wiederholungen pro Parameterkombination zu berechnen, um eventuellen Zufallsschwankungen auf der interessierenden abhängigen Variable entgegenzuwirken.</p>
 <p>Ein Weg, um mehrere Replikationen für eine Parameterkombination laufen zu lassen, kann sein, einfach einen weiteren For-Loop zu verwenden, um für jede Parameterkombination eine bestimmte Anzahl an Wiederholungen der Modelldurchläufe laufen zu lassen. Unten füge ich daher in den bisherigen Code einen weiteren For-Loop <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">replication</span> <span class="pre">in</span> <span class="pre">range(10):</span></code> ein, welcher bewirkt, dass die Funktion <code class="docutils literal notranslate"><span class="pre">nasch_model()</span></code> 10 mal für jede Kombination von <code class="docutils literal notranslate"><span class="pre">dawdling_prob</span></code> und <code class="docutils literal notranslate"><span class="pre">initial_distance</span></code> ausgeführt wird und die Daten gespeichert werden. Der Output-Datensatz wird dadurch demendsprechend nochmal um den Faktor 10 länger.</p>
 <div class="cell docutils container">
@@ -1903,9 +2021,11 @@
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="amp08a_01_pandas.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1921,24 +2041,28 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Marius Kaffai<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Marius Kaffai<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
